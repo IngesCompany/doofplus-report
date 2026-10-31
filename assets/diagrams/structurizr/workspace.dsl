@@ -5,7 +5,7 @@ workspace "DoofPlus" "C4 model of DoofPlus (IngesCompany). Structurizr DSL sourc
             "structurizr.groupSeparator" "/"
         }
 
-        visitor = person "Laboratory Visitor" "Evaluates DoofPlus from the Landing Page and reviews its plans before registering the laboratory."
+        visitor = person "Laboratory Visitor" "Evaluates DoofPlus from the Website and reviews its plans before registering the laboratory."
         qa = person "QA/QC Specialist" "Manages documents, raw material approvals, deviations, CAPA, audits and batch release."
         prod = person "Pharmaceutical Production Supervisor" "Manages orders and batches, monitors equipment and requests approvals from Quality."
         admin = person "Laboratory Administrator" "Registers the organization, users, roles, sensors and the subscription."
@@ -16,8 +16,8 @@ workspace "DoofPlus" "C4 model of DoofPlus (IngesCompany). Structurizr DSL sourc
         rfid = softwareSystem "RFID Reader" "Warehouse RFID tag reader; types the code it reads into the Single-Page Application as keyboard input (USB HID), without an API of its own." "External"
 
         doofplus = softwareSystem "DoofPlus" "SaaS platform for quality management and batch traceability in pharmaceutical laboratories." {
-            landing = container "Landing Page" "Static website with the value proposition, plans, team and the call to action to the Web Application; en-US/es-419." "HTML5, CSS3, JavaScript (GitHub Pages)"
-            webapp = container "Web Application" "Delivers the static content and the DoofPlus single-page application (index.html and JavaScript bundles) to the user's web browser." "Firebase Hosting"
+            landing = container "Website" "Static website with the value proposition, plans, team and the call to action to the Web Application; en-US/es-419." "HTML5, CSS3, JavaScript (GitHub Pages)" "Directory"
+            webapp = container "Web Application" "Delivers the static content and the DoofPlus single-page application (index.html and JavaScript bundles) to the user's web browser." "Firebase Hosting" "Directory"
             spa = container "Single-Page Application" "Runs in the user's web browser and provides all the DoofPlus features, one module per bounded context." "Angular, Angular Material, TypeScript" "Web Browser" {
                 spa_shared = component "Shared" "Workspace shell (layout, toolbar, sidebar, footer and language switcher), routes per environment and the base REST client reused by every bounded context." "Angular module"
                 spa_iam = component "Identity & Access Management" "Environment selection, sign-in with 2FA, session, users, invitations and route protection by role." "Angular module"
@@ -28,7 +28,7 @@ workspace "DoofPlus" "C4 model of DoofPlus (IngesCompany). Structurizr DSL sourc
                 spa_qa = component "Quality & Compliance" "Documents, deviations, CAPA, batch release, analytical results, audits, audit trail and regulatory reports." "Angular module"
             }
 
-            api = container "RESTful API" "Modular monolith with the six bounded contexts; Spring Security (JWT + TOTP), OpenAPI (springdoc) and WebSocket notifications (STOMP)." "Spring Boot, Java, Spring Data JPA (Render)" {
+            api = container "RESTful API" "Modular monolith with the six bounded contexts; Spring Security (JWT + TOTP), OpenAPI (springdoc) and WebSocket notifications (STOMP)." "Spring Boot, Java, Spring Data JPA (Render)" "Server-side Application" {
                 api_shared = component "Shared" "Base auditable aggregate, snake case naming strategy, Result type and common configuration reused by every bounded context." "Spring Boot package"
                 api_iam = component "Identity & Access Management" "Sign-up, sign-in with JWT and TOTP, users, roles, account locking and electronic signatures." "Spring Boot package"
                 api_org = component "Organizations & Profiles" "Organizations (unique RUC), facilities, profiles and contact inquiries." "Spring Boot package"
@@ -51,7 +51,7 @@ workspace "DoofPlus" "C4 model of DoofPlus (IngesCompany). Structurizr DSL sourc
         ga -> qa "Shows the TOTP code (no API integration)" "" "Optional"
         ga -> prod "Shows the TOTP code (no API integration)" "" "Optional"
         ga -> admin "Shows the TOTP code (no API integration)" "" "Optional"
-        prod -> rfid "Reads the tag of the received raw material"
+        prod -> rfid "Scans the RFID tag of each received raw material lot using"
 
         # Containers
         visitor -> landing "Visits" "HTTPS"
@@ -157,6 +157,13 @@ workspace "DoofPlus" "C4 model of DoofPlus (IngesCompany). Structurizr DSL sourc
             }
             element "Database" {
                 shape Cylinder
+            }
+            element "Directory" {
+                shape Folder
+            }
+            element "Server-side Application" {
+                shape Shell
+                stroke #FFFFFF
             }
             element "Component" {
                 background #85BBF0
