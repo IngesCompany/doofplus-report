@@ -1121,7 +1121,7 @@ El diagrama de contexto (nivel 1 del modelo C4) presenta a DoofPlus como una "ca
 
 Personas que usan DoofPlus:
 
-- **Laboratory Visitor:** representante de un laboratorio que conoce DoofPlus desde la Landing Page, revisa los planes y registra su laboratorio.
+- **Laboratory Visitor:** representante de un laboratorio que conoce DoofPlus desde el Website, revisa los planes y registra su laboratorio.
 - **QA/QC Specialist** (segmento objetivo 1): gestiona documentos, dictamen de insumos, desviaciones, CAPA, auditorías y la liberación de lotes.
 - **Pharmaceutical Production Supervisor** (segmento objetivo 2): gestiona órdenes y lotes, monitorea los equipos y solicita aprobaciones a Calidad.
 - **Laboratory Administrator:** registra la organización, los usuarios, los roles, los sensores y la suscripción.
@@ -1131,7 +1131,7 @@ Sistemas externos:
 - **ThingsBoard:** plataforma IoT que recibe las lecturas de los sensores de planta y las reenvía a DoofPlus.
 - **Niubiz:** pasarela de pagos que autoriza los cobros de las suscripciones.
 - **SendGrid:** servicio de correo para invitaciones, alertas y notificaciones.
-- **RFID Reader:** lector del almacén con el que el Jefe de Producción lee la etiqueta del insumo recibido; envía ese código a DoofPlus.
+- **RFID Reader:** lector del almacén con el que el Jefe de Producción escanea la etiqueta RFID de cada lote de insumo recibido; envía ese código a DoofPlus.
 - **Authenticator App (TOTP):** aplicación móvil del usuario que genera los códigos del segundo factor. No se integra por API con DoofPlus, por eso su relación se dibuja con línea punteada.
 
 En el diagrama se observa que las cuatro personas usan DoofPlus mediante HTTPS, que ThingsBoard envía la telemetría al sistema mediante un webhook y que DoofPlus se integra con Niubiz y SendGrid a través de sus API REST. DIGEMID, identificada en el EventStorming, no forma parte del diagrama porque inspecciona al laboratorio sin intercambiar datos con DoofPlus: el modelo C4 solo incluye a las personas y los sistemas conectados directamente con el sistema.
@@ -1144,17 +1144,19 @@ En el nivel de contenedores, la atención pasa de "quién usa el sistema" a "có
 
 | Container | Tecnología | Despliegue | Responsabilidad |
 | --- | --- | --- | --- |
-| Landing Page | HTML5, CSS3, JavaScript | GitHub Pages | Presentar la propuesta de valor, los planes y el equipo, y llevar a cada usuario, mediante el call to action, al inicio de sesión de su entorno o al registro de la organización. |
+| Website | HTML5, CSS3, JavaScript | GitHub Pages | Presentar la propuesta de valor, los planes y el equipo, y llevar a cada usuario, mediante el call to action, al inicio de sesión de su entorno o al registro de la organización. |
 | Web Application | Archivos estáticos generados por `ng build` | Firebase Hosting | Entregar al navegador del usuario el contenido estático y la Single-Page Application (`index.html` y los archivos JavaScript y CSS). No ejecuta lógica de negocio. |
 | Single-Page Application | Angular, Angular Material, TypeScript, ngx-translate | Navegador del usuario | Toda la interfaz de DoofPlus, con un módulo por bounded context; consume el RESTful API con un token JWT. |
 | RESTful API | Spring Boot, Java, Spring Data JPA, Spring Security, springdoc-openapi | Render | Monolito modular con los seis bounded contexts; expone endpoints REST documentados con OpenAPI (Swagger), recibe la telemetría de ThingsBoard y publica notificaciones por WebSocket (STOMP). |
 | Database | MySQL 8 | Railway | Persistencia relacional; las tablas se agrupan por bounded context. |
 
-La aplicación web de DoofPlus se representa con dos contenedores, como indica el modelo C4 para una Single-Page Application. Al compilar el proyecto Angular se genera una carpeta con `index.html` y los archivos JavaScript y CSS; Firebase Hosting (Web Application) solo los entrega cuando el usuario ingresa a la URL de DoofPlus, y la aplicación se ejecuta en el navegador del usuario (Single-Page Application), por eso este contenedor se dibuja con la forma de un navegador. La Landing Page es un contenedor aparte.
+La aplicación web de DoofPlus se representa con dos contenedores, como indica el modelo C4 para una Single-Page Application. Al compilar el proyecto Angular se genera una carpeta con `index.html` y los archivos JavaScript y CSS; Firebase Hosting (Web Application) solo los entrega cuando el usuario ingresa a la URL de DoofPlus, y la aplicación se ejecuta en el navegador del usuario (Single-Page Application), por eso este contenedor se dibuja con la forma de un navegador. El Website (Landing Page) es un contenedor aparte.
+
+Las figuras siguen la notación del diagrama de contenedores del sitio oficial del modelo C4: el Website y la Web Application, que solo entregan archivos estáticos (HTML, CSS y JavaScript), se dibujan como una carpeta (*Directory*); la Single-Page Application, como un navegador; el RESTful API, como una aplicación del lado del servidor (*Server-side Application*, con el símbolo `>_`), y la Database, como un cilindro.
 
 En el diagrama se observa que:
 
-- El visitante ingresa a la **Landing Page**, cuyo call to action lo lleva a la URL de la Web Application.
+- El visitante ingresa al **Website**, cuyo call to action lo lleva a la URL de la Web Application.
 - Los tres usuarios de la plataforma visitan la URL de DoofPlus; la **Web Application** entrega la **Single-Page Application** a su navegador, y desde ese momento trabajan con la SPA.
 - La **Single-Page Application** se comunica solo con el **RESTful API**: realiza peticiones JSON/HTTPS con un token JWT y recibe las alertas en tiempo real por WebSocket.
 - El **RESTful API** lee y escribe en la **Database** mediante Spring Data JPA, recibe la telemetría de **ThingsBoard** sin pasar por la SPA y se integra con **Niubiz** y **SendGrid**.
