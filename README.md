@@ -38,7 +38,8 @@ u202321425 &nbsp; &nbsp; Angulo Ramírez, Marcelo Martín<br>
 u20231h117 &nbsp; &nbsp; Cobades Zamora, Yhoshua Hebert<br>
 u202423162 &nbsp; &nbsp; Flores Martinez, Ricardo Andres<br>
 u20241f397 &nbsp; &nbsp; Rojas Ambicho, Nestor Daniel<br>
-u20241f733 &nbsp; &nbsp; Zavaleta Gutierrez, Rodolfo Martin
+u20241f733 &nbsp; &nbsp; Zavaleta Gutierrez, Rodolfo Martin<br>
+u202624323 &nbsp; &nbsp; Torres Juárez, Alisee Muriel<br>
 
 </div>
 
