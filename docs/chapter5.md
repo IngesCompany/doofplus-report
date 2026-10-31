@@ -2,7 +2,7 @@
 
 ## 5.1. Software Configuration Management
 
-En esta sección se describen las decisiones, convenciones y herramientas utilizadas por el equipo Inges Company para gestionar el ciclo de vida, la implementación, la validación y el despliegue de **DoofPlus**. Estas decisiones permiten mantener la consistencia y la trazabilidad de los cambios realizados en cada sprint sobre la Landing Page, la Frontend Web Application y los RESTful Web Services.
+En esta sección se describen las decisiones, convenciones y herramientas utilizadas por el equipo Inges Company para gestionar el ciclo de vida, la implementación, la validación y el despliegue de **DoofPlus**. Estas decisiones permiten mantener la consistencia y la trazabilidad de los cambios realizados en cada sprint sobre el Website, la Frontend Web Application y los RESTful Web Services.
 
 ### 5.1.1. Software Development Environment Configuration
 
@@ -16,7 +16,7 @@ A continuación se detallan los productos de software que los miembros del equip
     * **Gherkin:** Redacción de criterios de aceptación con la estructura Given-When-Then. (Referencia: https://cucumber.io/docs/gherkin/reference)
     * **Miro:** Elaboración del Big Picture Event Storming y del Design-Level Event Storming. (Referencia: https://miro.com)
 * **Product UX/UI Design**
-    * **Figma:** Elaboración de Wireframes, Mock-ups y Prototypes de la Landing Page y la Web Application. (Referencia: https://www.figma.com)
+    * **Figma:** Elaboración de Wireframes, Mock-ups y Prototypes del Website y la Web Application. (Referencia: https://www.figma.com)
     * **FigJam:** Elaboración de los Wireflows y User Flows de la Web Application. (Referencia: https://www.figma.com/figjam)
     * **UXPressia:** Elaboración de User Personas, Empathy Maps, Journey Maps e Impact Maps. (Referencia: https://uxpressia.com)
     * **Structurizr DSL:** Elaboración de los diagramas C4 de contexto, contenedores y componentes bajo el enfoque Diagram-as-Code. (Referencia: https://structurizr.com)
@@ -24,21 +24,21 @@ A continuación se detallan los productos de software que los miembros del equip
 * **Software Development**
     * **Git:** Sistema de control de versiones distribuido utilizado en todos los repositorios. (Descarga: https://git-scm.com/downloads)
     * **GitHub:** Plataforma de alojamiento de los repositorios de la organización y de colaboración mediante ramas y Pull Requests. (Referencia: https://github.com/IngesCompany-7742)
-    * **WebStorm:** IDE para el desarrollo de la Landing Page (HTML5, CSS3 y JavaScript) y de la Frontend Web Application en Angular. (Descarga: https://www.jetbrains.com/webstorm/download)
+    * **WebStorm:** IDE para el desarrollo del Website (HTML5, CSS3 y JavaScript) y de la Frontend Web Application en Angular. (Descarga: https://www.jetbrains.com/webstorm/download)
     * **IntelliJ IDEA:** IDE para el desarrollo de los RESTful Web Services en Java con Spring Boot. (Descarga: https://www.jetbrains.com/idea/download)
     * **Node.js y npm:** Entorno de ejecución y gestor de paquetes requeridos por Angular CLI. (Descarga: https://nodejs.org/en/download)
     * **Angular CLI:** Herramienta para generar, ejecutar y compilar la Frontend Web Application, integrando **Angular Material** como biblioteca de componentes y **ngx-translate** para la internacionalización. (Referencia: https://angular.dev/tools/cli)
     * **Spring Boot y Spring Data JPA:** Frameworks de Java para el desarrollo de los RESTful Web Services. (Referencia: https://spring.io/projects/spring-boot)
     * **MySQL:** Sistema gestor de base de datos relacional (MySQL 8). (Descarga: https://dev.mysql.com/downloads)
 * **Software Testing**
-    * **Chrome DevTools:** Inspección del diseño responsive y depuración de la Landing Page y la Web Application. (Referencia: https://developer.chrome.com/docs/devtools)
+    * **Chrome DevTools:** Inspección del diseño responsive y depuración del Website y la Web Application. (Referencia: https://developer.chrome.com/docs/devtools)
     * **json-server:** Fake API para simular los endpoints REST desde la Web Application mientras se implementan los Web Services. (Referencia: https://github.com/typicode/json-server)
     * **Swagger UI:** Ejecución de pruebas sobre los endpoints documentados de los RESTful Web Services. (Referencia: https://swagger.io/tools/swagger-ui)
 * **Software Documentation**
     * **Markdown en GitHub:** Redacción del informe del proyecto bajo el enfoque Docs-as-Code en el repositorio del informe. (Referencia: https://www.markdownguide.org)
     * **OpenAPI (Swagger):** Documentación de los RESTful Web Services. (Referencia: https://swagger.io/specification)
 * **Software Deployment**
-    * **GitHub Pages:** Publicación de la Landing Page. (Referencia: https://pages.github.com)
+    * **GitHub Pages:** Publicación del Website. (Referencia: https://pages.github.com)
     * **Firebase Hosting:** Publicación de la Frontend Web Application. (Referencia: https://firebase.google.com/docs/hosting)
     * **Render:** Publicación de los RESTful Web Services. (Referencia: https://render.com)
     * **Railway:** Base de datos MySQL gestionada en la nube. (Referencia: https://railway.com)
@@ -49,7 +49,7 @@ El equipo utiliza **GitHub** como plataforma y **Git** como sistema de control d
 
 | Producto | Repositorio |
 |----------|-------------|
-| Landing Page | https://github.com/IngesCompany-7742/IngesCompany-LandingPage |
+| Website | https://github.com/IngesCompany-7742/IngesCompany-Website |
 | Frontend Web Application | https://github.com/IngesCompany-7742/IngesCompany-Frontend |
 | RESTful Web Services | Se creará en el Sprint 3. |
 | Informe del proyecto | https://github.com/IngesCompany-7742/IngesCompany-Project-Report |
@@ -61,7 +61,7 @@ El equipo aplica el modelo GitFlow propuesto por Vincent Driessen en *A successf
 * **`main`:** Contiene únicamente versiones estables listas para producción. Solo recibe merges desde ramas `release/*` y `hotfix/*`, y cada merge se etiqueta con su versión (por ejemplo, `v1.0.0`).
 * **`develop`:** Rama de integración. Consolida las funcionalidades terminadas antes de preparar una nueva versión.
 * **Feature branches:** Nacen de `develop` y regresan a `develop` mediante Pull Request. Convención: `feature/<nombre-en-kebab-case>`, nombrando el bounded context o la funcionalidad (por ejemplo, `feature/shared`, `feature/manufacturing`, `feature/project-configuration`). En el repositorio del informe se usa `feature/chapter<n>`.
-* **Release branches:** Nacen de `develop` cuando un incremento está listo para entregarse y se fusionan con `main` y `develop`. Convención: `release/v<MAJOR>.<MINOR>.<PATCH>`, admitiendo el sufijo de pre-release `-rc.<n>` (por ejemplo, `release/v1.0.0-rc.1`, usada en la Landing Page).
+* **Release branches:** Nacen de `develop` cuando un incremento está listo para entregarse y se fusionan con `main` y `develop`. Convención: `release/v<MAJOR>.<MINOR>.<PATCH>`, admitiendo el sufijo de pre-release `-rc.<n>` (por ejemplo, `release/v1.0.0-rc.1`, usada en el Website).
 * **Hotfix branches:** Nacen de `main` para corregir errores críticos en producción y se fusionan con `main` y `develop`. Convención: `hotfix/v<MAJOR>.<MINOR>.<PATCH>` (por ejemplo, `hotfix/v1.0.1`).
 
 **Semantic Versioning**
@@ -106,10 +106,10 @@ Toda la nomenclatura del código fuente (archivos, clases, variables, métodos y
 
 A continuación se describen los pasos para desplegar cada producto de la solución a partir de su repositorio de código fuente:
 
-1. **Landing Page (GitHub Pages)**
+1. **Website (GitHub Pages)**
     1. Fusionar la rama en `main` y etiquetar la versión.
-    2. En el repositorio `IngesCompany-LandingPage`, ingresar a *Settings > Pages* y seleccionar *Deploy from a branch* con la rama `main` y la carpeta `/ (root)`. El archivo `.nojekyll` de la raíz indica a GitHub Pages que publique los archivos estáticos sin procesarlos con Jekyll.
-    3. GitHub Pages publica el sitio en https://ingescompany-7742.github.io/IngesCompany-LandingPage/ y lo vuelve a publicar con cada push a `main`.
+    2. En el repositorio `IngesCompany-Website`, ingresar a *Settings > Pages* y seleccionar *Deploy from a branch* con la rama `main` y la carpeta `/ (root)`. El archivo `.nojekyll` de la raíz indica a GitHub Pages que publique los archivos estáticos sin procesarlos con Jekyll.
+    3. GitHub Pages publica el sitio en https://ingescompany-7742.github.io/IngesCompany-Website/ y lo vuelve a publicar con cada push a `main`.
 2. **Frontend Web Application (Firebase Hosting)**
     1. Instalar Firebase CLI (`npm install -g firebase-tools`) e iniciar sesión con `firebase login`.
     2. Seleccionar el proyecto de Firebase con `firebase use --add`. El repositorio ya incluye `firebase.json`, que publica la carpeta `dist/IngesCompany-Frontend/browser` como Single Page Application.
@@ -124,11 +124,11 @@ A continuación se describen los pasos para desplegar cada producto de la soluci
 
 ## 5.2. Landing Page, Services & Applications Implementation
 
-En esta sección se explica y evidencia el proceso de implementación, pruebas, documentación y despliegue de **DoofPlus**, incluyendo la Landing Page, la Frontend Web Application y los RESTful Web Services. El avance se presenta organizado por Sprints a partir del Product Backlog.
+En esta sección se explica y evidencia el proceso de implementación, pruebas, documentación y despliegue de **DoofPlus**, incluyendo el Website, la Frontend Web Application y los RESTful Web Services. El avance se presenta organizado por Sprints a partir del Product Backlog.
 
 ### 5.2.1. Sprint 1
 
-En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el **Sprint 1**, cuyo enfoque principal fue la construcción y el despliegue de la primera versión de la Landing Page de DoofPlus, así como la configuración inicial de los repositorios.
+En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el **Sprint 1**, cuyo enfoque principal fue la construcción y el despliegue de la primera versión del Website de DoofPlus, así como la configuración inicial de los repositorios.
 
 #### 5.2.1.1. Sprint Planning 1
 
@@ -151,9 +151,9 @@ El Sprint Planning Meeting sirvió para definir los objetivos iniciales, asignar
 
 #### 5.2.1.2. Aspect Leaders and Collaborators
 
-En el Sprint 1 se consideraron cuatro aspectos: el diseño de la Landing Page, su implementación, la configuración de repositorios y despliegue, y la documentación del sprint. A continuación se presenta el Leadership-and-Collaboration Matrix (LACX), que indica quién es el líder (L) y quiénes son los colaboradores (C) en cada aspecto:
+En el Sprint 1 se consideraron cuatro aspectos: el diseño del Website, su implementación, la configuración de repositorios y despliegue, y la documentación del sprint. A continuación se presenta el Leadership-and-Collaboration Matrix (LACX), que indica quién es el líder (L) y quiénes son los colaboradores (C) en cada aspecto:
 
-| Team Member (Last Name, First Name) | GitHub Username | Landing Page UI/UX | Landing Page Implementation | Repositories & Deployment | Documentation |
+| Team Member (Last Name, First Name) | GitHub Username | Website UI/UX | Website Implementation | Repositories & Deployment | Documentation |
 |-------------------------------------|-----------------|:------------------:|:---------------------------:|:-------------------------:|:-------------:|
 | Angulo Ramírez, Marcelo Martín | Zock2005 | L | C | | C |
 | Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | C | C | L | C |
@@ -163,7 +163,7 @@ En el Sprint 1 se consideraron cuatro aspectos: el diseño de la Landing Page, s
 
 #### 5.2.1.3. Sprint Backlog 1
 
-El objetivo principal de este Sprint fue implementar y publicar la Landing Page de DoofPlus para dar a conocer a Inges Company y su propuesta de valor. La siguiente imagen muestra las User Stories del Sprint 1 en Jira, ya cerrado:
+El objetivo principal de este Sprint fue implementar y publicar el Website de DoofPlus para dar a conocer a Inges Company y su propuesta de valor. La siguiente imagen muestra las User Stories del Sprint 1 en Jira, ya cerrado:
 
 ![Sprint Backlog 1 en Jira](../assets/img/chapter5/evidencia/jira-pb.png)
 
@@ -183,8 +183,8 @@ El objetivo principal de este Sprint fue implementar y publicar la Landing Page 
 | US45 | Visualización del equipo y de la startup | T006 | Correcciones sección Our Team | Corregir la estructura y el contenido de la sección del equipo tras la revisión de pares. | 1 | Angulo Ramírez, Marcelo Martín | Done |
 | US04 | Formulario de contacto | T007 | Footer con datos de contacto | Desarrollar el footer con los datos de contacto y los enlaces legales. | 2 | Zavaleta Gutierrez, Rodolfo Martin | Done |
 | US04 | Formulario de contacto | T008 | Formulario de suscripción por email | Implementar el formulario de suscripción por email con la validación del correo. | 1 | Zavaleta Gutierrez, Rodolfo Martin | Done |
-| TS01 | Implementación de Landing Page adaptable y accesible | T009 | Estructura semántica de index | Corregir la estructura general de `index.html` con etiquetas semánticas (header, main, section y footer). | 1 | Flores Martinez, Ricardo Andres | Done |
-| TS01 | Implementación de Landing Page adaptable y accesible | T010 | Revisión de accesibilidad | Revisar los textos alternativos, los atributos aria y el contraste de colores de la Landing Page. | 1 | Flores Martinez, Ricardo Andres | Done |
+| TS01 | Implementación de Website adaptable y accesible | T009 | Estructura semántica de index | Corregir la estructura general de `index.html` con etiquetas semánticas (header, main, section y footer). | 1 | Flores Martinez, Ricardo Andres | Done |
+| TS01 | Implementación de Website adaptable y accesible | T010 | Revisión de accesibilidad | Revisar los textos alternativos, los atributos aria y el contraste de colores del Website. | 1 | Flores Martinez, Ricardo Andres | Done |
 | US46 | Cambio de idioma | T011 | Archivos de traducción ES/EN | Crear los archivos de traducción en.json y es.json con los textos de cada sección. | 1 | Cobades Zamora, Yhoshua Hebert | Done |
 | US46 | Cambio de idioma | T012 | Selector de idioma e i18n | Implementar el selector de idioma ES/EN y la lógica JavaScript que aplica las traducciones. | 2 | Cobades Zamora, Yhoshua Hebert | Done |
 | US47 | Consulta de términos y política de privacidad | T013 | Agregar Terms of Service | Redactar e implementar la página de Términos de Servicio de DoofPlus. | 2 | Rojas Ambicho, Nestor Daniel | Done |
@@ -192,87 +192,87 @@ El objetivo principal de este Sprint fue implementar y publicar la Landing Page 
 
 #### 5.2.1.4. Development Evidence for Sprint Review
 
-Durante el Sprint 1 se implementó la Landing Page con HTML5, CSS3 y JavaScript: estructura semántica de las secciones, hoja de estilos responsive, recursos gráficos, footer con formulario de contacto y cambio de idioma ES/EN mediante archivos de traducción. La versión estable se integró a `main` a través de la rama `release/v1.0.0-rc.1`. La siguiente tabla presenta los commits del repositorio:
+Durante el Sprint 1 se implementó el Website con HTML5, CSS3 y JavaScript: estructura semántica de las secciones, hoja de estilos responsive, recursos gráficos, footer con formulario de contacto y cambio de idioma ES/EN mediante archivos de traducción. La versión estable se integró a `main` a través de la rama `release/v1.0.0-rc.1`. La siguiente tabla presenta los commits del repositorio:
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
-| IngesCompany-7742/IngesCompany-LandingPage | main | `b93c547` | fix: refactor index.html | Refactorización de la estructura de `index.html`. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | main | `1f1a22f` | Merge branch 'release/v1.0.0-rc.1' into main | Integración de la rama de release a producción. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `e530153` | fix: change the defect language | Corrección del idioma predeterminado. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `7eded14` | build: add the option to change the language in main.js | Lógica para alternar idiomas en el script principal. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `432fb64` | fix: update links of the images in index.html | Actualización de las rutas de las imágenes. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `46b51b6` | build: add styles | Incorporación de la hoja de estilos CSS. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `86d4578` | chore: add images | Inclusión de los recursos gráficos del sitio. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `06bd5ef` | build: Add footer | Creación de la sección del pie de página. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `be8e428` | build: add body | Estructura y contenido del cuerpo principal. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `9b082a5` | feat: add language switching functionality in main.js | Funcionalidad de cambio de idioma. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `b9ff9e6` | ci: add translations | Archivos de traducción ES/EN. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `6a1377f` | docs: update README.md | Actualización de la documentación del repositorio. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `0de92b6` | fix: refactor README.md | Corrección del formato del README. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `6e6efc0` | docs: add README.md | Creación del README del repositorio. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `8dca66b` | Merge remote-tracking branch 'origin/develop' into develop | Sincronización de la rama `develop`. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `a8c7448` | chore: Create template | Creación de la plantilla base del proyecto. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `e68b54e` | feat: init commit | Commit inicial del repositorio. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | main | `b93c547` | fix: refactor index.html | Refactorización de la estructura de `index.html`. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | main | `1f1a22f` | Merge branch 'release/v1.0.0-rc.1' into main | Integración de la rama de release a producción. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `e530153` | fix: change the defect language | Corrección del idioma predeterminado. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `7eded14` | build: add the option to change the language in main.js | Lógica para alternar idiomas en el script principal. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `432fb64` | fix: update links of the images in index.html | Actualización de las rutas de las imágenes. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `46b51b6` | build: add styles | Incorporación de la hoja de estilos CSS. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `86d4578` | chore: add images | Inclusión de los recursos gráficos del sitio. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `06bd5ef` | build: Add footer | Creación de la sección del pie de página. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `be8e428` | build: add body | Estructura y contenido del cuerpo principal. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `9b082a5` | feat: add language switching functionality in main.js | Funcionalidad de cambio de idioma. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `b9ff9e6` | ci: add translations | Archivos de traducción ES/EN. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `6a1377f` | docs: update README.md | Actualización de la documentación del repositorio. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `0de92b6` | fix: refactor README.md | Corrección del formato del README. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `6e6efc0` | docs: add README.md | Creación del README del repositorio. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `8dca66b` | Merge remote-tracking branch 'origin/develop' into develop | Sincronización de la rama `develop`. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `a8c7448` | chore: Create template | Creación de la plantilla base del proyecto. | 20/09/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `e68b54e` | feat: init commit | Commit inicial del repositorio. | 20/09/2026 |
 
 #### 5.2.1.5. Execution Evidence for Sprint Review
 
-En este Sprint se logró una Landing Page funcional, responsive y bilingüe (español e inglés), con navegación por secciones, propuesta de valor, características, planes y precios con toggle mensual/anual, sección del equipo, formulario de contacto y páginas de Términos de Servicio y Política de Privacidad. A continuación se presentan las capturas de las principales secciones implementadas:
+En este Sprint se logró un Website funcional, responsive y bilingüe (español e inglés), con navegación por secciones, propuesta de valor, características, planes y precios con toggle mensual/anual, sección del equipo, formulario de contacto y páginas de Términos de Servicio y Política de Privacidad. A continuación se presentan las capturas de las principales secciones implementadas:
 
-![Landing Page - Parte 1](../assets/img/chapter5/screenshots/1.png)
+![Website - Parte 1](../assets/img/chapter5/screenshots/1.png)
 
-![Landing Page - Parte 2](../assets/img/chapter5/screenshots/2.png)
+![Website - Parte 2](../assets/img/chapter5/screenshots/2.png)
 
-![Landing Page - Parte 3](../assets/img/chapter5/screenshots/3.png)
+![Website - Parte 3](../assets/img/chapter5/screenshots/3.png)
 
-![Landing Page - Parte 4](../assets/img/chapter5/screenshots/4.png)
+![Website - Parte 4](../assets/img/chapter5/screenshots/4.png)
 
-![Landing Page - Parte 5](../assets/img/chapter5/screenshots/5.png)
+![Website - Parte 5](../assets/img/chapter5/screenshots/5.png)
 
-![Landing Page - Parte 6](../assets/img/chapter5/screenshots/6.png)
+![Website - Parte 6](../assets/img/chapter5/screenshots/6.png)
 
-![Landing Page - Parte 7](../assets/img/chapter5/screenshots/7.png)
+![Website - Parte 7](../assets/img/chapter5/screenshots/7.png)
 
-![Landing Page - Parte 8](../assets/img/chapter5/screenshots/8.png)
+![Website - Parte 8](../assets/img/chapter5/screenshots/8.png)
 
-![Landing Page - Parte 9](../assets/img/chapter5/screenshots/9.png)
+![Website - Parte 9](../assets/img/chapter5/screenshots/9.png)
 
-![Landing Page - Parte 10](../assets/img/chapter5/screenshots/10.png)
+![Website - Parte 10](../assets/img/chapter5/screenshots/10.png)
 
-![Landing Page - Parte 11](../assets/img/chapter5/screenshots/11.png)
+![Website - Parte 11](../assets/img/chapter5/screenshots/11.png)
 
-**Landing Page desplegada:** https://ingescompany-7742.github.io/IngesCompany-LandingPage/
+**Website desplegado:** https://ingescompany-7742.github.io/IngesCompany-Website/
 
 #### 5.2.1.6. Services Documentation Evidence for Sprint Review
 
-El alcance del Sprint 1 se limitó a la Landing Page, por lo que no se implementaron ni documentaron endpoints. La documentación de los RESTful Web Services con OpenAPI se elaborará en el sprint en que se implementen dichos servicios.
+El alcance del Sprint 1 se limitó al Website, por lo que no se implementaron ni documentaron endpoints. La documentación de los RESTful Web Services con OpenAPI se elaborará en el sprint en que se implementen dichos servicios.
 
 #### 5.2.1.7. Software Deployment Evidence for Sprint Review
 
-Durante este Sprint, el equipo publicó la Landing Page en **GitHub Pages**. Para ello se configuró, en *Settings > Pages* del repositorio `IngesCompany-LandingPage`, la publicación desde la rama `main` y la carpeta raíz, de modo que cada cambio integrado en `main` se publica automáticamente.
+Durante este Sprint, el equipo publicó el Website en **GitHub Pages**. Para ello se configuró, en *Settings > Pages* del repositorio `IngesCompany-Website`, la publicación desde la rama `main` y la carpeta raíz, de modo que cada cambio integrado en `main` se publica automáticamente.
 
 ![Configuración de GitHub Pages](../assets/img/chapter5/evidencia/github-pages.png)
 
-*Figura: Configuración de GitHub Pages en el repositorio de la Landing Page.*
+*Figura: Configuración de GitHub Pages en el repositorio del Website.*
 
-![Landing Page publicada](../assets/img/chapter5/evidencia/pages.png)
+![Website publicado](../assets/img/chapter5/evidencia/pages.png)
 
-*Figura: Landing Page publicada en GitHub Pages.*
+*Figura: Website publicado en GitHub Pages.*
 
 #### 5.2.1.8. Team Collaboration Insights during Sprint
 
-Todos los miembros del equipo participaron en la implementación de la Landing Page. Los cambios se integraron en la rama `develop` y, desde ella, se preparó la rama `release/v1.0.0-rc.1`, que se fusionó con `main` para su publicación. La siguiente imagen muestra los analíticos de commits del repositorio en GitHub:
+Todos los miembros del equipo participaron en la implementación del Website. Los cambios se integraron en la rama `develop` y, desde ella, se preparó la rama `release/v1.0.0-rc.1`, que se fusionó con `main` para su publicación. La siguiente imagen muestra los analíticos de commits del repositorio en GitHub:
 
-![Insights del repositorio de la Landing Page](../assets/img/chapter5/evidencia/evidencia.png)
+![Insights del repositorio del Website](../assets/img/chapter5/evidencia/evidencia.png)
 
-*Figura: Analíticos de colaboración del repositorio de la Landing Page en GitHub.*
+*Figura: Analíticos de colaboración del repositorio del Website en GitHub.*
 
 ### 5.2.2. Sprint 2
 
-En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el **Sprint 2**, cuyo enfoque fue completar la Landing Page de DoofPlus y construir la primera versión de la Frontend Web Application con sus seis bounded contexts, consumiendo una Fake API mientras se implementan los RESTful Web Services.
+En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el **Sprint 2**, cuyo enfoque fue completar el Website de DoofPlus y construir la primera versión de la Frontend Web Application con sus seis bounded contexts, consumiendo una Fake API mientras se implementan los RESTful Web Services.
 
 #### 5.2.2.1. Sprint Planning 2
 
-El Sprint Planning Meeting sirvió para definir los objetivos del Sprint, asignar responsabilidades por bounded context y seleccionar las User Stories pendientes de la Landing Page y las de la Web Application. A continuación, se presenta el resumen de la reunión de planificación:
+El Sprint Planning Meeting sirvió para definir los objetivos del Sprint, asignar responsabilidades por bounded context y seleccionar las User Stories pendientes del Website y las de la Web Application. A continuación, se presenta el resumen de la reunión de planificación:
 
 | Sprint # | Sprint 2 |
 |----------|----------|
@@ -282,18 +282,18 @@ El Sprint Planning Meeting sirvió para definir los objetivos del Sprint, asigna
 | **Location** | Reunión virtual vía Discord |
 | **Prepared By** | Cobades Zamora, Yhoshua Hebert |
 | **Attendees (to planning meeting)** | Angulo Ramírez, Marcelo Martín / Cobades Zamora, Yhoshua Hebert / Flores Martinez, Ricardo Andres / Rojas Ambicho, Nestor Daniel / Zavaleta Gutierrez, Rodolfo Martin |
-| **Sprint 1 Review Summary** | Se entregó la primera versión de la Landing Page de DoofPlus publicada en GitHub Pages, con navegación por secciones, planes y precios, sección del equipo, formulario de contacto, cambio de idioma ES/EN y páginas legales. Como feedback, se pidió que el formulario de contacto sirva para enviar consultas sobre la plataforma y sus planes, y alinear la Landing Page con los mock-ups del capítulo 4. |
+| **Sprint 1 Review Summary** | Se entregó la primera versión del Website de DoofPlus publicada en GitHub Pages, con navegación por secciones, planes y precios, sección del equipo, formulario de contacto, cambio de idioma ES/EN y páginas legales. Como feedback, se pidió que el formulario de contacto sirva para enviar consultas sobre la plataforma y sus planes, y alinear el Website con los mock-ups del capítulo 4. |
 | **Sprint 1 Retrospective Summary** | Como acierto, el equipo integró la versión estable mediante una rama de release siguiendo GitFlow. Como oportunidades de mejora, se acordó trabajar en feature branches que nazcan de `develop`, una por sección o bounded context, distribuir los commits a lo largo del sprint y usar los types de Conventional Commits según su significado. |
 | **Sprint Goal & User Stories** | |
-| **Sprint 2 Goal** | **Our focus is on** QA/QC specialists and production supervisors being able to manage, in a single web platform, the life cycle of a batch: register production orders and batches, receive raw materials, monitor equipment readings, record deviations and CAPA, and release batches with an electronic signature.<br>**We believe it delivers** complete batch traceability and audit-ready records without paper forms or spreadsheets, together with a landing page that guides new laboratories to the platform, **to** QA/QC specialists and production supervisors of small and medium-sized pharmaceutical laboratories.<br>**This will be confirmed when** a QA/QC specialist and a production supervisor sign in to their own environment, follow a batch from its creation to its release with an electronic signature and retrieve its complete history in a single view. |
+| **Sprint 2 Goal** | **Our focus is on** QA/QC specialists and production supervisors being able to manage, in a single web platform, the life cycle of a batch: register production orders and batches, receive raw materials, monitor equipment readings, record deviations and CAPA, and release batches with an electronic signature.<br>**We believe it delivers** complete batch traceability and audit-ready records without paper forms or spreadsheets, together with a website that guides new laboratories to the platform, **to** QA/QC specialists and production supervisors of small and medium-sized pharmaceutical laboratories.<br>**This will be confirmed when** a QA/QC specialist and a production supervisor sign in to their own environment, follow a batch from its creation to its release with an electronic signature and retrieve its complete history in a single view. |
 | **Sprint 2 Velocity** | 177 Story Points |
 | **Sum of Story Points** | 177 Story Points (US01: 2, US02: 2, US48: 2, US49: 2, US05: 1, US06: 2, US07: 3, US08: 5, US55: 3, US50: 3, US51: 3, US52: 5, US53: 3, US35: 3, US36: 5, US57: 3, US14: 3, US15: 5, US16: 2, US58: 3, US17: 3, US32: 3, US23: 3, US24: 3, US25: 5, US26: 3, US37: 3, US38: 3, US39: 3, US56: 3, US22: 2, US09: 5, US10: 3, US12: 5, US13: 3, US18: 3, US19: 5, US20: 5, US21: 3, US11: 5, US54: 5, US31: 3, US27: 5, US28: 5, US29: 5, US30: 3, US59: 3, US33: 3, US34: 3, US40: 3, US41: 3, US42: 2, US43: 3) |
 
 #### 5.2.2.2. Aspect Leaders and Collaborators
 
-En el Sprint 2 se consideraron ocho aspectos: la Landing Page y, en la Web Application, los bounded contexts (Shared e IAM; Organizations y Subscriptions; Manufacturing; IoT Monitoring; Quality & Compliance), las releases y el despliegue, y la documentación. El líder (L) de cada aspecto es el integrante con más commits en él, según el historial de los repositorios.
+En el Sprint 2 se consideraron ocho aspectos: el Website y, en la Web Application, los bounded contexts (Shared e IAM; Organizations y Subscriptions; Manufacturing; IoT Monitoring; Quality & Compliance), las releases y el despliegue, y la documentación. El líder (L) de cada aspecto es el integrante con más commits en él, según el historial de los repositorios.
 
-| Team Member (Last Name, First Name) | GitHub Username | Landing Page | Shared & IAM | Organizations & Subscriptions | Manufacturing | IoT Monitoring | Quality & Compliance | Releases & Deployment | Documentation |
+| Team Member (Last Name, First Name) | GitHub Username | Website | Shared & IAM | Organizations & Subscriptions | Manufacturing | IoT Monitoring | Quality & Compliance | Releases & Deployment | Documentation |
 |-------------------------------------|-----------------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Angulo Ramírez, Marcelo Martín | Zock2005 | C | C | | | L | | | C |
 | Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | C | L | | L | | L | C | C |
@@ -303,7 +303,7 @@ En el Sprint 2 se consideraron ocho aspectos: la Landing Page y, en la Web Appli
 
 #### 5.2.2.3. Sprint Backlog 2
 
-El objetivo del Sprint fue completar la Landing Page y entregar la primera versión de la Web Application. Las tareas se organizaron por User Story; las de la Landing Page incluyen la reimplementación de las secciones del Sprint 1 sobre el diseño del capítulo 4. La siguiente imagen muestra el board del Sprint 2 en Jira:
+El objetivo del Sprint fue completar el Website y entregar la primera versión de la Web Application. Las tareas se organizaron por User Story; las del Website incluyen la reimplementación de las secciones del Sprint 1 sobre el diseño del capítulo 4. La siguiente imagen muestra el board del Sprint 2 en Jira:
 
 ![Sprint Backlog 2 en Jira](../assets/img/chapter5/evidencia/jira-pb2.png)
 
@@ -435,114 +435,114 @@ El objetivo del Sprint fue completar la Landing Page y entregar la primera versi
 | — | Tareas técnicas | T132 | Capa shared | Implementar las clases base de la API, el layout público, el workspace shell, el page header y el selector de idioma. | 6 | Cobades Zamora, Yhoshua Hebert | Done |
 | — | Tareas técnicas | T133 | Traducciones de IoT Monitoring | Agregar las 121 claves de la sección monitoring en inglés y español. | 3 | Rojas Ambicho, Nestor Daniel | Done |
 | — | Tareas técnicas | T134 | Documentación del repositorio | Redactar el README, el CHANGELOG, la guía de contribución, las ADRs y el diagrama de clases. | 4 | Zavaleta Gutierrez, Rodolfo Martin | Done |
-| — | Tareas técnicas | T135 | Releases v1.0.0 | Preparar release/v1.0.0 en la Landing Page y en la Web Application, con merge a main y tag SemVer. | 2 | Rojas Ambicho, Nestor Daniel | Done |
+| — | Tareas técnicas | T135 | Releases v1.0.0 | Preparar release/v1.0.0 en el Website y en la Web Application, con merge a main y tag SemVer. | 2 | Rojas Ambicho, Nestor Daniel | Done |
 | — | Tareas técnicas | T136 | Configuración de despliegue | Agregar firebase.json para Firebase Hosting y el script server:prod para publicar la Fake API. | 2 | Rojas Ambicho, Nestor Daniel | Done |
 
 #### 5.2.2.4. Development Evidence for Sprint Review
 
-En el Sprint 2 se trabajó en dos repositorios siguiendo GitFlow: una feature branch por sección de la Landing Page o por bounded context de la Web Application, integradas en `develop` con merges `--no-ff`, y una rama `release/v1.0.0` fusionada en `main` con el tag `v1.0.0` en ambos repositorios. La Landing Page recibió además el hotfix `v1.0.1` y el enlace de sus botones de acceso a la Web Application publicada; en la Web Application, después de `v1.0.0` se registraron en `main` los ajustes del despliegue en Firebase Hosting y Render y la versión 1.0.1. Las tablas siguientes presentan todos los commits de `main`; la columna *Branch* indica la rama en que se realizó cada commit.
+En el Sprint 2 se trabajó en dos repositorios siguiendo GitFlow: una feature branch por sección del Website o por bounded context de la Web Application, integradas en `develop` con merges `--no-ff`, y una rama `release/v1.0.0` fusionada en `main` con el tag `v1.0.0` en ambos repositorios. El Website recibió además el hotfix `v1.0.1` y el enlace de sus botones de acceso a la Web Application publicada; en la Web Application, después de `v1.0.0` se registraron en `main` los ajustes del despliegue en Firebase Hosting y Render y la versión 1.0.1. Las tablas siguientes presentan todos los commits de `main`; la columna *Branch* indica la rama en que se realizó cada commit.
 
-**Landing Page** (97 commits)
+**Website** (97 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
-| IngesCompany-7742/IngesCompany-LandingPage | main | `5a5fb40` | chore: initial commit | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | main | `80e064f` | chore: add gitignore | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/project-configuration | `afb534f` | feat(translations): add initial language files for English and Spanish | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/project-configuration | `dc827a9` | feat(translations): implement language switching functionality file | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `0a72a3f` | Merge branch 'feature/project-configuration' into develop | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/navbar-hero | `c569c20` | feat(translations): add language switching functionality and update HTML structure | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/navbar-hero | `ab9e295` | feat(nav): add navbar with language support in English and Spanish and styles | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/navbar-hero | `996e8cd` | feat(hero): add hero section with dynamic content placeholders and styles | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/navbar-hero | `2ca1c4b` | feat(translations): add hero content translations for English and Spanish | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `2acc88b` | Merge branch 'feature/navbar-hero' into develop | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `0d68dcf` | feat(styles): add modular styles with the 12-column fluid grid | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `a79fefb` | feat(i18n): load English and Spanish texts from JSON files | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `b31ee03` | feat(layout): add navbar with mobile menu, footer and segment access | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `85932c9` | feat(cursor): add custom cursors in the DoofPlus colors | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/plans-section | `cc97535` | feat(i18n): add translation of plans | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/plans-section | `690e9a9` | feat(components): add billing-toggle | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/plans-section | `f3838e1` | feat(styles): add section of plan styles | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/plans-section | `b527590` | feat(scripts): add import of sections | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/plans-section | `8bfd189` | feat(index):  add monthly and yearly plans | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `cdd7304` | Merge branch 'feature/plans-section' into develop | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/restore-hero | `59d793c` | feat(home): restore hero section | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `f886259` | Merge branch 'feature/restore-hero' into develop | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/workspace-section | `c10ba0b` | feat(i18n): add workspace content translations for English and Spanish | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/workspace-section | `3cc963b` | feat(workspace): add process flow bar and section workspace | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/workspace-section | `b8b9428` | feat(workspace): add workspace cards with dynamic content and translation | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `06b0bfe` | Merge branch 'feature/workspace-section' into develop | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/services | `504205f` | feat(services) : add services cards | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/services | `ca857c3` | feat(i18n) : add services content translations for english and spanish | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/services | `78ab06b` | feat(services) : add services styles | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `0b48370` | Merge branch 'feature/services' into develop | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `0d2bd78` | fix(navbar): skip placeholder links when highlighting sections | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `666d9cd` | feat(i18n): add features content translations for english and spanish | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `c8ffc51` | feat(features): add features section with accordion and preview panels | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `70c9db1` | feat(features): add features styles | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `fbf3b79` | fix(plans): load billing toggle script so the annual option works | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `beb359f` | style(form): add textarea and confirmation styles and remove unused demo styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `72c978b` | feat(i18n): add contact inquiry translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/contact-section | `3a58827` | feat(contact): add contact inquiry form section | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `d296d28` | Merge remote-tracking branch 'origin/feature/contact-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/benefits-section | `103c355` | feat(i18n): add benefits content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/benefits-section | `6e38531` | feat(benefits): add benefits section with key result cards | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/benefits-section | `f043190` | feat(benefits): add benefits styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `9b49664` | Merge branch 'feature/benefits-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/testimonials-section | `e8b7970` | feat(i18n): add testimonials content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/about-product-section | `f14e0b9` | feat(i18n): add product section content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/about-product-section | `7fd893b` | feat(video): add styles for product video section | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/about-product-section | `145acdf` | feat(video): add product video section with player and details | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `989262c` | Merge branch 'feature/about-product-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/testimonials-section | `cbfe7b1` | feat(testimonials): add testimonials section with client quotes and ratings | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/testimonials-section | `26f6288` | feat(testimonials): add testimonials styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `f3a3a1e` | Merge branch 'feature/testimonials-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/faq-section | `7833057` | feat(i18n): add faq content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/faq-section | `9599b92` | feat(faq): add faq section with accordion and contact link | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/faq-section | `ff8e68a` | feat(faq): add faq styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `20a0012` | Merge branch 'feature/faq-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/about-section | `f43c313` | feat(i18n): add about content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/about-section | `58d8b38` | feat(about): add about section with mission, vision and principles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/about-section | `ed983a7` | feat(about): add about styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `e0235c1` | Merge branch 'feature/about-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/team-section | `bdeab66` | feat(i18n): add team content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/team-section | `65de15e` | feat(team): add team member photos | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/team-section | `25f6c2b` | feat(team): add team section with member cards | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/team-section | `e40431d` | feat(team): add team styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `217aa55` | Merge branch 'feature/team-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | fix/landing-links | `5e7e811` | fix(landing): replace demo links, fix hero buttons and wrap sections in main | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/navbar | `f5754c1` | feat(navbar): add section links, segment access and mobile menu | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `8236269` | Merge branch 'fix/landing-links' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `b9e41f1` | Merge branch 'feature/navbar' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | fix/hero-section | `ab053c9` | fix(i18n): update hero content translations | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | fix/hero-section | `ab59881` | fix(hero): update hero call to action buttons | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `2b51732` | Merge branch 'fix/hero-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | fix/workspace-section | `25c1931` | fix(i18n): update workspace content translations | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | fix/workspace-section | `486687f` | style(workspace): replace workspace styles with card and banner styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | fix/workspace-section | `4e471af` | fix(workspace): simplify segment cards and add new customer banner | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `0af9d9e` | Merge branch 'fix/workspace-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/footer-privacy-section | `483ab70` | fix(i18n): update Spanish translations for product video section producing error | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/footer-privacy-section | `f0d25a0` | feat(terms): add Terms of Service page with legal content and multilingual support | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/footer-privacy-section | `cf1c8a3` | feat(privacy): add Privacy Policy page with legal content and multilingual support | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/footer-privacy-section | `670ebff` | feat(styles): add styles for secondary pages including terms of service and privacy policy | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/footer-privacy-section | `7d42d1c` | feat(legal): add Terms of Service and Privacy Policy sections in English and Spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `6f34ece` | Merge branch 'feature/footer-privacy-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | fix/legal-pages | `acda06d` | fix(styles): import the secondary page styles used by the terms and privacy pages | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | fix/legal-pages | `6f465cd` | fix(i18n): add the page titles and back link translations of the terms and privacy pages | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `f8a1b3d` | Merge branch 'fix/legal-pages' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/videos | `2bd55e5` | feat(video): add the video player that loads the YouTube embed on play | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/videos | `d742662` | feat(team): add the about the team video below the member cards | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `1163cea` | Merge branch 'feature/videos' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | release/v1.0.0 | `42a44c0` | chore(release): set the landing page version to 1.0.0 | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | main | `1acb96b` | Merge branch 'release/v1.0.0' | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | hotfix/v1.0.1 | `7a2de04` | fix(deploy): publish the static site on GitHub Pages without the Jekyll build | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | hotfix/v1.0.1 | `d4efb41` | chore(release): set the landing page version to 1.0.1 | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | main | `61326ed` | Merge branch 'hotfix/v1.0.1' | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `385a2f9` | Merge branch 'release/v1.0.0' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `97a9e4b` | Merge branch 'hotfix/v1.0.1' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | feature/web-app-links | `467b222` | feat(config): link the segment access buttons to the published web application | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | develop | `bb1946e` | Merge branch 'feature/web-app-links' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-LandingPage | main | `4e2299e` | Merge branch 'develop' | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | main | `5a5fb40` | chore: initial commit | — | 07/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | main | `80e064f` | chore: add gitignore | — | 07/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/project-configuration | `afb534f` | feat(translations): add initial language files for English and Spanish | — | 07/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/project-configuration | `dc827a9` | feat(translations): implement language switching functionality file | — | 07/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `0a72a3f` | Merge branch 'feature/project-configuration' into develop | — | 07/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/navbar-hero | `c569c20` | feat(translations): add language switching functionality and update HTML structure | — | 07/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/navbar-hero | `ab9e295` | feat(nav): add navbar with language support in English and Spanish and styles | — | 07/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/navbar-hero | `996e8cd` | feat(hero): add hero section with dynamic content placeholders and styles | — | 07/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/navbar-hero | `2ca1c4b` | feat(translations): add hero content translations for English and Spanish | — | 07/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `2acc88b` | Merge branch 'feature/navbar-hero' into develop | — | 07/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `0d68dcf` | feat(styles): add modular styles with the 12-column fluid grid | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `a79fefb` | feat(i18n): load English and Spanish texts from JSON files | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `b31ee03` | feat(layout): add navbar with mobile menu, footer and segment access | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `85932c9` | feat(cursor): add custom cursors in the DoofPlus colors | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/plans-section | `cc97535` | feat(i18n): add translation of plans | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/plans-section | `690e9a9` | feat(components): add billing-toggle | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/plans-section | `f3838e1` | feat(styles): add section of plan styles | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/plans-section | `b527590` | feat(scripts): add import of sections | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/plans-section | `8bfd189` | feat(index):  add monthly and yearly plans | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `cdd7304` | Merge branch 'feature/plans-section' into develop | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/restore-hero | `59d793c` | feat(home): restore hero section | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `f886259` | Merge branch 'feature/restore-hero' into develop | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/workspace-section | `c10ba0b` | feat(i18n): add workspace content translations for English and Spanish | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/workspace-section | `3cc963b` | feat(workspace): add process flow bar and section workspace | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/workspace-section | `b8b9428` | feat(workspace): add workspace cards with dynamic content and translation | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `06b0bfe` | Merge branch 'feature/workspace-section' into develop | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/services | `504205f` | feat(services) : add services cards | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/services | `ca857c3` | feat(i18n) : add services content translations for english and spanish | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/services | `78ab06b` | feat(services) : add services styles | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `0b48370` | Merge branch 'feature/services' into develop | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `0d2bd78` | fix(navbar): skip placeholder links when highlighting sections | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `666d9cd` | feat(i18n): add features content translations for english and spanish | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `c8ffc51` | feat(features): add features section with accordion and preview panels | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `70c9db1` | feat(features): add features styles | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `fbf3b79` | fix(plans): load billing toggle script so the annual option works | — | 08/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `beb359f` | style(form): add textarea and confirmation styles and remove unused demo styles | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `72c978b` | feat(i18n): add contact inquiry translations for english and spanish | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/contact-section | `3a58827` | feat(contact): add contact inquiry form section | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `d296d28` | Merge remote-tracking branch 'origin/feature/contact-section' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/benefits-section | `103c355` | feat(i18n): add benefits content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/benefits-section | `6e38531` | feat(benefits): add benefits section with key result cards | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/benefits-section | `f043190` | feat(benefits): add benefits styles | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `9b49664` | Merge branch 'feature/benefits-section' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/testimonials-section | `e8b7970` | feat(i18n): add testimonials content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/about-product-section | `f14e0b9` | feat(i18n): add product section content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/about-product-section | `7fd893b` | feat(video): add styles for product video section | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/about-product-section | `145acdf` | feat(video): add product video section with player and details | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `989262c` | Merge branch 'feature/about-product-section' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/testimonials-section | `cbfe7b1` | feat(testimonials): add testimonials section with client quotes and ratings | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/testimonials-section | `26f6288` | feat(testimonials): add testimonials styles | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `f3a3a1e` | Merge branch 'feature/testimonials-section' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/faq-section | `7833057` | feat(i18n): add faq content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/faq-section | `9599b92` | feat(faq): add faq section with accordion and contact link | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/faq-section | `ff8e68a` | feat(faq): add faq styles | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `20a0012` | Merge branch 'feature/faq-section' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/about-section | `f43c313` | feat(i18n): add about content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/about-section | `58d8b38` | feat(about): add about section with mission, vision and principles | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/about-section | `ed983a7` | feat(about): add about styles | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `e0235c1` | Merge branch 'feature/about-section' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/team-section | `bdeab66` | feat(i18n): add team content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/team-section | `65de15e` | feat(team): add team member photos | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/team-section | `25f6c2b` | feat(team): add team section with member cards | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/team-section | `e40431d` | feat(team): add team styles | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `217aa55` | Merge branch 'feature/team-section' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | fix/landing-links | `5e7e811` | fix(landing): replace demo links, fix hero buttons and wrap sections in main | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/navbar | `f5754c1` | feat(navbar): add section links, segment access and mobile menu | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `8236269` | Merge branch 'fix/landing-links' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `b9e41f1` | Merge branch 'feature/navbar' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | fix/hero-section | `ab053c9` | fix(i18n): update hero content translations | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | fix/hero-section | `ab59881` | fix(hero): update hero call to action buttons | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `2b51732` | Merge branch 'fix/hero-section' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | fix/workspace-section | `25c1931` | fix(i18n): update workspace content translations | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | fix/workspace-section | `486687f` | style(workspace): replace workspace styles with card and banner styles | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | fix/workspace-section | `4e471af` | fix(workspace): simplify segment cards and add new customer banner | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `0af9d9e` | Merge branch 'fix/workspace-section' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/footer-privacy-section | `483ab70` | fix(i18n): update Spanish translations for product video section producing error | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/footer-privacy-section | `f0d25a0` | feat(terms): add Terms of Service page with legal content and multilingual support | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/footer-privacy-section | `cf1c8a3` | feat(privacy): add Privacy Policy page with legal content and multilingual support | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/footer-privacy-section | `670ebff` | feat(styles): add styles for secondary pages including terms of service and privacy policy | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/footer-privacy-section | `7d42d1c` | feat(legal): add Terms of Service and Privacy Policy sections in English and Spanish | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `6f34ece` | Merge branch 'feature/footer-privacy-section' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | fix/legal-pages | `acda06d` | fix(styles): import the secondary page styles used by the terms and privacy pages | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | fix/legal-pages | `6f465cd` | fix(i18n): add the page titles and back link translations of the terms and privacy pages | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `f8a1b3d` | Merge branch 'fix/legal-pages' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/videos | `2bd55e5` | feat(video): add the video player that loads the YouTube embed on play | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/videos | `d742662` | feat(team): add the about the team video below the member cards | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `1163cea` | Merge branch 'feature/videos' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | release/v1.0.0 | `42a44c0` | chore(release): set the landing page version to 1.0.0 | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | main | `1acb96b` | Merge branch 'release/v1.0.0' | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | hotfix/v1.0.1 | `7a2de04` | fix(deploy): publish the static site on GitHub Pages without the Jekyll build | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | hotfix/v1.0.1 | `d4efb41` | chore(release): set the landing page version to 1.0.1 | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | main | `61326ed` | Merge branch 'hotfix/v1.0.1' | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `385a2f9` | Merge branch 'release/v1.0.0' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `97a9e4b` | Merge branch 'hotfix/v1.0.1' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | feature/web-app-links | `467b222` | feat(config): link the segment access buttons to the published web application | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | develop | `bb1946e` | Merge branch 'feature/web-app-links' into develop | — | 09/10/2026 |
+| IngesCompany-7742/IngesCompany-Website | main | `4e2299e` | Merge branch 'develop' | — | 09/10/2026 |
 
 **Frontend Web Application** (178 commits)
 
@@ -729,9 +729,9 @@ En el Sprint 2 se trabajó en dos repositorios siguiendo GitFlow: una feature br
 
 #### 5.2.2.5. Execution Evidence for Sprint Review
 
-En este Sprint se completó la Landing Page, publicada en GitHub Pages, y se implementó la Web Application con sus tres entornos. En la Landing Page se agregaron el hero, el acceso por segmento, los servicios y características, el video About the Product, los beneficios, About us, el equipo con su video, los testimonios y las preguntas frecuentes, y se reimplementaron la navegación con menú mobile, los planes, el formulario de consulta y las páginas legales. La Web Application permite elegir el entorno, iniciar sesión con segundo factor y recorrer todos los módulos de QA/QC (documentos, desviaciones y CAPA, resultados analíticos, liberación de lotes, auditorías, audit trail, reportes y tareas), Production (órdenes, productos y fórmulas, lotes, materias primas, equipos e IoT, incidentes) y Administration (usuarios, organización y suscripción), en inglés y español, con datos servidos por una Fake API.
+En este Sprint se completó el Website, publicada en GitHub Pages, y se implementó la Web Application con sus tres entornos. En el Website se agregaron el hero, el acceso por segmento, los servicios y características, el video About the Product, los beneficios, About us, el equipo con su video, los testimonios y las preguntas frecuentes, y se reimplementaron la navegación con menú mobile, los planes, el formulario de consulta y las páginas legales. La Web Application permite elegir el entorno, iniciar sesión con segundo factor y recorrer todos los módulos de QA/QC (documentos, desviaciones y CAPA, resultados analíticos, liberación de lotes, auditorías, audit trail, reportes y tareas), Production (órdenes, productos y fórmulas, lotes, materias primas, equipos e IoT, incidentes) y Administration (usuarios, organización y suscripción), en inglés y español, con datos servidos por una Fake API.
 
-**Landing Page:** https://ingescompany-7742.github.io/IngesCompany-LandingPage/
+**Website:** https://ingescompany-7742.github.io/IngesCompany-Website/
 
 ![Hero con la propuesta de valor (US01)](../assets/img/chapter5/sprint2/landing/01-home.png)
 
@@ -781,9 +781,9 @@ En este Sprint se completó la Landing Page, publicada en GitHub Pages, y se imp
 
 *Figura: Formulario Contact us y footer (US04).*
 
-![Landing Page en español (US46)](../assets/img/chapter5/sprint2/landing/13-home-es.png)
+![Website en español (US46)](../assets/img/chapter5/sprint2/landing/13-home-es.png)
 
-*Figura: Landing Page en español (US46).*
+*Figura: Website en español (US46).*
 
 ![Términos de Servicio (US47)](../assets/img/chapter5/sprint2/landing/14-terms.png)
 
@@ -881,7 +881,7 @@ En este Sprint se completó la Landing Page, publicada en GitHub Pages, y se imp
 
 Videos de navegación del producto (upc-pre-202620-1asi0729-7742-IngesCompany-productnavigation-sprint-2):
 
-- **Landing Page:** ver en Microsoft Stream: https://shorturl.at/cI09z.
+- **Website:** ver en Microsoft Stream: https://shorturl.at/cI09z.
 - **Web Application:** ver en Microsoft Stream: https://shorturl.at/rqzbT.
 
 #### 5.2.2.6. Services Documentation Evidence for Sprint Review
@@ -982,26 +982,26 @@ En el Sprint 2 todavía no se implementaron los RESTful Web Services, por lo que
 
 En este Sprint se prepararon las versiones estables de ambos productos siguiendo GitFlow:
 
-- **Landing Page:** la rama `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0`, y luego se publicó el hotfix `v1.0.1`, que agrega el archivo `.nojekyll` para que GitHub Pages publique los archivos estáticos sin procesarlos con Jekyll. La Landing Page se publica en GitHub Pages desde `main` en https://ingescompany-7742.github.io/IngesCompany-LandingPage/.
+- **Website:** la rama `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0`, y luego se publicó el hotfix `v1.0.1`, que agrega el archivo `.nojekyll` para que GitHub Pages publique los archivos estáticos sin procesarlos con Jekyll. El Website se publica en GitHub Pages desde `main` en https://ingescompany-7742.github.io/IngesCompany-Website/.
 - **Web Application:** la rama `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0` y su CHANGELOG. El repositorio incluye `firebase.json`, que configura Firebase Hosting como Single Page Application, y el script `npm run server:prod`, que publica la Fake API en un Web Service de Render. Después del release se agregaron en `main` la lectura de la Fake API publicada en Render, la vinculación del proyecto de Firebase y correcciones de accesibilidad, y la versión se actualizó a 1.0.1 en el CHANGELOG. La Web Application está publicada en Firebase Hosting en https://doofplus-webapp.web.app y la Fake API en Render en https://ingescompany-frontend.onrender.com/api/v1.
 
-![Tag v1.0.0 de la Landing Page](../assets/img/chapter5/sprint2/github/release-landing-v1.0.0.png)
+![Tag v1.0.0 del Website](../assets/img/chapter5/sprint2/github/release-landing-v1.0.0.png)
 
-*Figura: Tag v1.0.0 del repositorio de la Landing Page.*
+*Figura: Tag v1.0.0 del repositorio del Website.*
 
 ![Tag v1.0.0 de la Web Application](../assets/img/chapter5/sprint2/github/release-frontend-v1.0.0.png)
 
 *Figura: Tag v1.0.0 del repositorio de la Web Application.*
 
-![Landing Page publicada](../assets/img/chapter5/sprint2/landing/01-home.png)
+![Website publicado](../assets/img/chapter5/sprint2/landing/01-home.png)
 
-*Figura: Landing Page publicada en GitHub Pages.*
+*Figura: Website publicado en GitHub Pages.*
 
 #### 5.2.2.8. Team Collaboration Insights during Sprint
 
 Los cinco integrantes participaron en ambos repositorios. La siguiente tabla resume los commits de cada integrante en `main` (sin contar los commits de merge), seguida de los analíticos de GitHub: *Contributors*, que muestra los commits por integrante, y *Network*, que muestra las ramas de GitFlow y sus merges.
 
-| Team Member | GitHub Username | Landing Page | Web Application | Total |
+| Team Member | GitHub Username | Website | Web Application | Total |
 |---|---|:---:|:---:|:---:|
 | Rojas Ambicho, Nestor Daniel | danRO-20 | 25 | 23 | 48 |
 | Zavaleta Gutierrez, Rodolfo Martin | gutierrezrodolfo360-bit | 17 | 44 | 61 |
@@ -1009,17 +1009,17 @@ Los cinco integrantes participaron en ambos repositorios. La siguiente tabla res
 | Angulo Ramírez, Marcelo Martín | Zock2005 | 8 | 28 | 36 |
 | Flores Martinez, Ricardo Andres | Nitoryu28 | 8 | 4 | 12 |
 
-![Contributors de la Landing Page](../assets/img/chapter5/sprint2/github/insights-landing-contributors.png)
+![Contributors del Website](../assets/img/chapter5/sprint2/github/insights-landing-contributors.png)
 
-*Figura: Contributors del repositorio de la Landing Page.*
+*Figura: Contributors del repositorio del Website.*
 
 ![Contributors de la Web Application](../assets/img/chapter5/sprint2/github/insights-frontend-contributors.png)
 
 *Figura: Contributors del repositorio de la Web Application.*
 
-![Network de la Landing Page](../assets/img/chapter5/sprint2/github/insights-landing-network.png)
+![Network del Website](../assets/img/chapter5/sprint2/github/insights-landing-network.png)
 
-*Figura: Network graph del repositorio de la Landing Page.*
+*Figura: Network graph del repositorio del Website.*
 
 ![Network de la Web Application](../assets/img/chapter5/sprint2/github/insights-frontend-network.png)
 
@@ -1043,7 +1043,7 @@ Los cinco integrantes participaron en ambos repositorios. La siguiente tabla res
 
 1. **Sobre los Problem Statements:** las entrevistas confirmaron el problema planteado. El 100 % de los especialistas QA/QC trabaja con un esquema mixto de registros físicos y digitales, el 100 % de los jefes y supervisores de producción registra el seguimiento de los lotes en formularios físicos y hojas de cálculo, y el 67 % de ambos segmentos tiene dificultades para reconstruir el historial completo de un lote. DoofPlus responde a esta situación centralizando en una sola plataforma la documentación de calidad, los lotes, las desviaciones y los datos de los equipos.
 2. **Sobre los Assumptions:** el equipo asumió que la resistencia al cambio sería una de las principales barreras de adopción. En las entrevistas, el 100 % de los participantes mostró una percepción favorable hacia la digitalización de sus procesos, siempre que la plataforma reduzca el trabajo manual y no agregue pasos a su rutina; esto orientó el diseño de la Web Application hacia entornos separados por rol y flujos cortos.
-3. **Sobre los Hypothesis Statements y los criterios de éxito:** al cierre del Sprint 2 la Landing Page y la Web Application están publicadas y cubren los flujos necesarios para probar las hipótesis: registro y seguimiento de lotes, desviaciones y CAPA, liberación con firma electrónica, audit trail y monitoreo IoT. La validación de las hipótesis y de los criterios de éxito con usuarios de cada segmento se realizará en las Validation Interviews (sección 5.3) de la siguiente entrega.
+3. **Sobre los Hypothesis Statements y los criterios de éxito:** al cierre del Sprint 2 el Website y la Web Application están publicadas y cubren los flujos necesarios para probar las hipótesis: registro y seguimiento de lotes, desviaciones y CAPA, liberación con firma electrónica, audit trail y monitoreo IoT. La validación de las hipótesis y de los criterios de éxito con usuarios de cada segmento se realizará en las Validation Interviews (sección 5.3) de la siguiente entrega.
 
 ### Recomendaciones
 
