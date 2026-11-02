@@ -23,7 +23,7 @@ A continuación se detallan los productos de software que los miembros del equip
     * **Mermaid:** Elaboración de los diagramas de clases y de base de datos bajo el enfoque Diagram-as-Code. (Referencia: https://mermaid.js.org)
 * **Software Development**
     * **Git:** Sistema de control de versiones distribuido utilizado en todos los repositorios. (Descarga: https://git-scm.com/downloads)
-    * **GitHub:** Plataforma de alojamiento de los repositorios de la organización y de colaboración mediante ramas y Pull Requests. (Referencia: https://github.com/IngesCompany-7742)
+    * **GitHub:** Plataforma de alojamiento de los repositorios de la organización y de colaboración mediante ramas y Pull Requests. (Referencia: https://github.com/IngesCompany)
     * **WebStorm:** IDE para el desarrollo del Website (HTML5, CSS3 y JavaScript) y de la Frontend Web Application en Angular. (Descarga: https://www.jetbrains.com/webstorm/download)
     * **IntelliJ IDEA:** IDE para el desarrollo de los RESTful Web Services en Java con Spring Boot. (Descarga: https://www.jetbrains.com/idea/download)
     * **Node.js y npm:** Entorno de ejecución y gestor de paquetes requeridos por Angular CLI. (Descarga: https://nodejs.org/en/download)
@@ -45,14 +45,14 @@ A continuación se detallan los productos de software que los miembros del equip
 
 ### 5.1.2. Source Code Management
 
-El equipo utiliza **GitHub** como plataforma y **Git** como sistema de control de versiones. Todos los repositorios pertenecen a la organización IngesCompany-7742: https://github.com/IngesCompany-7742:
+El equipo utiliza **GitHub** como plataforma y **Git** como sistema de control de versiones. Todos los repositorios pertenecen a la organización IngesCompany: https://github.com/IngesCompany:
 
 | Producto | Repositorio |
 |----------|-------------|
-| Website | https://github.com/IngesCompany-7742/IngesCompany-Website |
-| Frontend Web Application | https://github.com/IngesCompany-7742/IngesCompany-Frontend |
+| Website | https://github.com/IngesCompany/doofplus-website |
+| Frontend Web Application | https://github.com/IngesCompany/doofplus-web-application |
 | RESTful Web Services | Se creará en el Sprint 3. |
-| Informe del proyecto | https://github.com/IngesCompany-7742/IngesCompany-Project-Report |
+| Informe del proyecto | https://github.com/IngesCompany/doofplus-report |
 
 **GitFlow Workflow**
 
@@ -108,12 +108,12 @@ A continuación se describen los pasos para desplegar cada producto de la soluci
 
 1. **Website (GitHub Pages)**
     1. Fusionar la rama en `main` y etiquetar la versión.
-    2. En el repositorio `IngesCompany-Website`, ingresar a *Settings > Pages* y seleccionar *Deploy from a branch* con la rama `main` y la carpeta `/ (root)`. El archivo `.nojekyll` de la raíz indica a GitHub Pages que publique los archivos estáticos sin procesarlos con Jekyll.
-    3. GitHub Pages publica el sitio en https://ingescompany-7742.github.io/IngesCompany-Website/ y lo vuelve a publicar con cada push a `main`.
+    2. En el repositorio `doofplus-website`, ingresar a *Settings > Pages* y seleccionar *GitHub Actions* como origen. El workflow `.github/workflows/deploy.yml` publica la carpeta `public`, que contiene el sitio estático, y el archivo `.nojekyll` indica a GitHub Pages que publique los archivos sin procesarlos con Jekyll.
+    3. GitHub Pages publica el sitio en https://ingescompany.github.io/doofplus-website/ y el workflow lo vuelve a publicar con cada push a `main`.
 2. **Frontend Web Application (Firebase Hosting)**
     1. Instalar Firebase CLI (`npm install -g firebase-tools`) e iniciar sesión con `firebase login`.
     2. Seleccionar el proyecto de Firebase con `firebase use --add`. El repositorio ya incluye `firebase.json`, que publica la carpeta `dist/IngesCompany-Frontend/browser` como Single Page Application.
-    3. Publicar la Fake API en un Web Service de Render vinculado a la rama `main` del repositorio `IngesCompany-Frontend`, con el comando de build `npm install` y el de inicio `npm run server:prod`, y registrar su URL en `src/environments/environment.ts`.
+    3. Publicar la Fake API en un Web Service de Render vinculado a la rama `main` del repositorio `doofplus-web-application`, con el comando de build `npm install` y el de inicio `npm run server:prod`, y registrar su URL en `src/environments/environment.ts`.
     4. Compilar la versión de producción con `ng build --configuration production`.
     5. Publicar con `firebase deploy`.
 3. **RESTful Web Services (Render y Railway)**
@@ -196,23 +196,23 @@ Durante el Sprint 1 se implementó el Website con HTML5, CSS3 y JavaScript: estr
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
-| IngesCompany-7742/IngesCompany-Website | main | `b93c547` | fix: refactor index.html | Refactorización de la estructura de `index.html`. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | main | `1f1a22f` | Merge branch 'release/v1.0.0-rc.1' into main | Integración de la rama de release a producción. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `e530153` | fix: change the defect language | Corrección del idioma predeterminado. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `7eded14` | build: add the option to change the language in main.js | Lógica para alternar idiomas en el script principal. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `432fb64` | fix: update links of the images in index.html | Actualización de las rutas de las imágenes. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `46b51b6` | build: add styles | Incorporación de la hoja de estilos CSS. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `86d4578` | chore: add images | Inclusión de los recursos gráficos del sitio. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `06bd5ef` | build: Add footer | Creación de la sección del pie de página. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `be8e428` | build: add body | Estructura y contenido del cuerpo principal. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `9b082a5` | feat: add language switching functionality in main.js | Funcionalidad de cambio de idioma. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `b9ff9e6` | ci: add translations | Archivos de traducción ES/EN. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `6a1377f` | docs: update README.md | Actualización de la documentación del repositorio. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `0de92b6` | fix: refactor README.md | Corrección del formato del README. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `6e6efc0` | docs: add README.md | Creación del README del repositorio. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `8dca66b` | Merge remote-tracking branch 'origin/develop' into develop | Sincronización de la rama `develop`. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `a8c7448` | chore: Create template | Creación de la plantilla base del proyecto. | 20/09/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `e68b54e` | feat: init commit | Commit inicial del repositorio. | 20/09/2026 |
+| IngesCompany/doofplus-website | main | `b93c547` | fix: refactor index.html | Refactorización de la estructura de `index.html`. | 20/09/2026 |
+| IngesCompany/doofplus-website | main | `1f1a22f` | Merge branch 'release/v1.0.0-rc.1' into main | Integración de la rama de release a producción. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `e530153` | fix: change the defect language | Corrección del idioma predeterminado. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `7eded14` | build: add the option to change the language in main.js | Lógica para alternar idiomas en el script principal. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `432fb64` | fix: update links of the images in index.html | Actualización de las rutas de las imágenes. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `46b51b6` | build: add styles | Incorporación de la hoja de estilos CSS. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `86d4578` | chore: add images | Inclusión de los recursos gráficos del sitio. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `06bd5ef` | build: Add footer | Creación de la sección del pie de página. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `be8e428` | build: add body | Estructura y contenido del cuerpo principal. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `9b082a5` | feat: add language switching functionality in main.js | Funcionalidad de cambio de idioma. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `b9ff9e6` | ci: add translations | Archivos de traducción ES/EN. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `6a1377f` | docs: update README.md | Actualización de la documentación del repositorio. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `0de92b6` | fix: refactor README.md | Corrección del formato del README. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `6e6efc0` | docs: add README.md | Creación del README del repositorio. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `8dca66b` | Merge remote-tracking branch 'origin/develop' into develop | Sincronización de la rama `develop`. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `a8c7448` | chore: Create template | Creación de la plantilla base del proyecto. | 20/09/2026 |
+| IngesCompany/doofplus-website | develop | `e68b54e` | feat: init commit | Commit inicial del repositorio. | 20/09/2026 |
 
 #### 5.2.1.5. Execution Evidence for Sprint Review
 
@@ -240,7 +240,7 @@ En este Sprint se logró un Website funcional, responsive y bilingüe (español 
 
 ![Website - Parte 11](../assets/img/chapter5/screenshots/11.png)
 
-**Website desplegado:** https://ingescompany-7742.github.io/IngesCompany-Website/
+**Website desplegado:** https://ingescompany.github.io/doofplus-website/
 
 #### 5.2.1.6. Services Documentation Evidence for Sprint Review
 
@@ -248,7 +248,7 @@ El alcance del Sprint 1 se limitó al Website, por lo que no se implementaron ni
 
 #### 5.2.1.7. Software Deployment Evidence for Sprint Review
 
-Durante este Sprint, el equipo publicó el Website en **GitHub Pages**. Para ello se configuró, en *Settings > Pages* del repositorio `IngesCompany-Website`, la publicación desde la rama `main` y la carpeta raíz, de modo que cada cambio integrado en `main` se publica automáticamente.
+Durante este Sprint, el equipo publicó el Website en **GitHub Pages**. Para ello se configuró, en *Settings > Pages* del repositorio `doofplus-website`, la publicación desde la rama `main` y la carpeta raíz, de modo que cada cambio integrado en `main` se publica automáticamente.
 
 ![Configuración de GitHub Pages](../assets/img/chapter5/evidencia/github-pages.png)
 
@@ -446,292 +446,292 @@ En el Sprint 2 se trabajó en dos repositorios siguiendo GitFlow: una feature br
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
-| IngesCompany-7742/IngesCompany-Website | main | `5a5fb40` | chore: initial commit | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | main | `80e064f` | chore: add gitignore | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/project-configuration | `afb534f` | feat(translations): add initial language files for English and Spanish | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/project-configuration | `dc827a9` | feat(translations): implement language switching functionality file | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `0a72a3f` | Merge branch 'feature/project-configuration' into develop | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/navbar-hero | `c569c20` | feat(translations): add language switching functionality and update HTML structure | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/navbar-hero | `ab9e295` | feat(nav): add navbar with language support in English and Spanish and styles | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/navbar-hero | `996e8cd` | feat(hero): add hero section with dynamic content placeholders and styles | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/navbar-hero | `2ca1c4b` | feat(translations): add hero content translations for English and Spanish | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `2acc88b` | Merge branch 'feature/navbar-hero' into develop | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `0d68dcf` | feat(styles): add modular styles with the 12-column fluid grid | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `a79fefb` | feat(i18n): load English and Spanish texts from JSON files | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `b31ee03` | feat(layout): add navbar with mobile menu, footer and segment access | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `85932c9` | feat(cursor): add custom cursors in the DoofPlus colors | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/plans-section | `cc97535` | feat(i18n): add translation of plans | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/plans-section | `690e9a9` | feat(components): add billing-toggle | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/plans-section | `f3838e1` | feat(styles): add section of plan styles | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/plans-section | `b527590` | feat(scripts): add import of sections | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/plans-section | `8bfd189` | feat(index):  add monthly and yearly plans | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `cdd7304` | Merge branch 'feature/plans-section' into develop | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/restore-hero | `59d793c` | feat(home): restore hero section | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `f886259` | Merge branch 'feature/restore-hero' into develop | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/workspace-section | `c10ba0b` | feat(i18n): add workspace content translations for English and Spanish | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/workspace-section | `3cc963b` | feat(workspace): add process flow bar and section workspace | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/workspace-section | `b8b9428` | feat(workspace): add workspace cards with dynamic content and translation | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `06b0bfe` | Merge branch 'feature/workspace-section' into develop | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/services | `504205f` | feat(services) : add services cards | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/services | `ca857c3` | feat(i18n) : add services content translations for english and spanish | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/services | `78ab06b` | feat(services) : add services styles | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `0b48370` | Merge branch 'feature/services' into develop | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `0d2bd78` | fix(navbar): skip placeholder links when highlighting sections | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `666d9cd` | feat(i18n): add features content translations for english and spanish | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `c8ffc51` | feat(features): add features section with accordion and preview panels | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `70c9db1` | feat(features): add features styles | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `fbf3b79` | fix(plans): load billing toggle script so the annual option works | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `beb359f` | style(form): add textarea and confirmation styles and remove unused demo styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `72c978b` | feat(i18n): add contact inquiry translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/contact-section | `3a58827` | feat(contact): add contact inquiry form section | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `d296d28` | Merge remote-tracking branch 'origin/feature/contact-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/benefits-section | `103c355` | feat(i18n): add benefits content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/benefits-section | `6e38531` | feat(benefits): add benefits section with key result cards | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/benefits-section | `f043190` | feat(benefits): add benefits styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `9b49664` | Merge branch 'feature/benefits-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/testimonials-section | `e8b7970` | feat(i18n): add testimonials content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/about-product-section | `f14e0b9` | feat(i18n): add product section content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/about-product-section | `7fd893b` | feat(video): add styles for product video section | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/about-product-section | `145acdf` | feat(video): add product video section with player and details | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `989262c` | Merge branch 'feature/about-product-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/testimonials-section | `cbfe7b1` | feat(testimonials): add testimonials section with client quotes and ratings | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/testimonials-section | `26f6288` | feat(testimonials): add testimonials styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `f3a3a1e` | Merge branch 'feature/testimonials-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/faq-section | `7833057` | feat(i18n): add faq content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/faq-section | `9599b92` | feat(faq): add faq section with accordion and contact link | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/faq-section | `ff8e68a` | feat(faq): add faq styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `20a0012` | Merge branch 'feature/faq-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/about-section | `f43c313` | feat(i18n): add about content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/about-section | `58d8b38` | feat(about): add about section with mission, vision and principles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/about-section | `ed983a7` | feat(about): add about styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `e0235c1` | Merge branch 'feature/about-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/team-section | `bdeab66` | feat(i18n): add team content translations for english and spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/team-section | `65de15e` | feat(team): add team member photos | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/team-section | `25f6c2b` | feat(team): add team section with member cards | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/team-section | `e40431d` | feat(team): add team styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `217aa55` | Merge branch 'feature/team-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | fix/landing-links | `5e7e811` | fix(landing): replace demo links, fix hero buttons and wrap sections in main | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/navbar | `f5754c1` | feat(navbar): add section links, segment access and mobile menu | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `8236269` | Merge branch 'fix/landing-links' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `b9e41f1` | Merge branch 'feature/navbar' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | fix/hero-section | `ab053c9` | fix(i18n): update hero content translations | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | fix/hero-section | `ab59881` | fix(hero): update hero call to action buttons | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `2b51732` | Merge branch 'fix/hero-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | fix/workspace-section | `25c1931` | fix(i18n): update workspace content translations | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | fix/workspace-section | `486687f` | style(workspace): replace workspace styles with card and banner styles | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | fix/workspace-section | `4e471af` | fix(workspace): simplify segment cards and add new customer banner | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `0af9d9e` | Merge branch 'fix/workspace-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/footer-privacy-section | `483ab70` | fix(i18n): update Spanish translations for product video section producing error | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/footer-privacy-section | `f0d25a0` | feat(terms): add Terms of Service page with legal content and multilingual support | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/footer-privacy-section | `cf1c8a3` | feat(privacy): add Privacy Policy page with legal content and multilingual support | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/footer-privacy-section | `670ebff` | feat(styles): add styles for secondary pages including terms of service and privacy policy | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/footer-privacy-section | `7d42d1c` | feat(legal): add Terms of Service and Privacy Policy sections in English and Spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `6f34ece` | Merge branch 'feature/footer-privacy-section' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | fix/legal-pages | `acda06d` | fix(styles): import the secondary page styles used by the terms and privacy pages | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | fix/legal-pages | `6f465cd` | fix(i18n): add the page titles and back link translations of the terms and privacy pages | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `f8a1b3d` | Merge branch 'fix/legal-pages' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/videos | `2bd55e5` | feat(video): add the video player that loads the YouTube embed on play | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/videos | `d742662` | feat(team): add the about the team video below the member cards | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `1163cea` | Merge branch 'feature/videos' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | release/v1.0.0 | `42a44c0` | chore(release): set the landing page version to 1.0.0 | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | main | `1acb96b` | Merge branch 'release/v1.0.0' | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | hotfix/v1.0.1 | `7a2de04` | fix(deploy): publish the static site on GitHub Pages without the Jekyll build | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | hotfix/v1.0.1 | `d4efb41` | chore(release): set the landing page version to 1.0.1 | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | main | `61326ed` | Merge branch 'hotfix/v1.0.1' | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `385a2f9` | Merge branch 'release/v1.0.0' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `97a9e4b` | Merge branch 'hotfix/v1.0.1' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | feature/web-app-links | `467b222` | feat(config): link the segment access buttons to the published web application | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | develop | `bb1946e` | Merge branch 'feature/web-app-links' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Website | main | `4e2299e` | Merge branch 'develop' | — | 09/10/2026 |
+| IngesCompany/doofplus-website | main | `5a5fb40` | chore: initial commit | — | 07/10/2026 |
+| IngesCompany/doofplus-website | main | `80e064f` | chore: add gitignore | — | 07/10/2026 |
+| IngesCompany/doofplus-website | feature/project-configuration | `afb534f` | feat(translations): add initial language files for English and Spanish | — | 07/10/2026 |
+| IngesCompany/doofplus-website | feature/project-configuration | `dc827a9` | feat(translations): implement language switching functionality file | — | 07/10/2026 |
+| IngesCompany/doofplus-website | develop | `0a72a3f` | Merge branch 'feature/project-configuration' into develop | — | 07/10/2026 |
+| IngesCompany/doofplus-website | feature/navbar-hero | `c569c20` | feat(translations): add language switching functionality and update HTML structure | — | 07/10/2026 |
+| IngesCompany/doofplus-website | feature/navbar-hero | `ab9e295` | feat(nav): add navbar with language support in English and Spanish and styles | — | 07/10/2026 |
+| IngesCompany/doofplus-website | feature/navbar-hero | `996e8cd` | feat(hero): add hero section with dynamic content placeholders and styles | — | 07/10/2026 |
+| IngesCompany/doofplus-website | feature/navbar-hero | `2ca1c4b` | feat(translations): add hero content translations for English and Spanish | — | 07/10/2026 |
+| IngesCompany/doofplus-website | develop | `2acc88b` | Merge branch 'feature/navbar-hero' into develop | — | 07/10/2026 |
+| IngesCompany/doofplus-website | develop | `0d68dcf` | feat(styles): add modular styles with the 12-column fluid grid | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `a79fefb` | feat(i18n): load English and Spanish texts from JSON files | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `b31ee03` | feat(layout): add navbar with mobile menu, footer and segment access | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `85932c9` | feat(cursor): add custom cursors in the DoofPlus colors | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/plans-section | `cc97535` | feat(i18n): add translation of plans | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/plans-section | `690e9a9` | feat(components): add billing-toggle | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/plans-section | `f3838e1` | feat(styles): add section of plan styles | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/plans-section | `b527590` | feat(scripts): add import of sections | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/plans-section | `8bfd189` | feat(index):  add monthly and yearly plans | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `cdd7304` | Merge branch 'feature/plans-section' into develop | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/restore-hero | `59d793c` | feat(home): restore hero section | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `f886259` | Merge branch 'feature/restore-hero' into develop | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/workspace-section | `c10ba0b` | feat(i18n): add workspace content translations for English and Spanish | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/workspace-section | `3cc963b` | feat(workspace): add process flow bar and section workspace | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/workspace-section | `b8b9428` | feat(workspace): add workspace cards with dynamic content and translation | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `06b0bfe` | Merge branch 'feature/workspace-section' into develop | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/services | `504205f` | feat(services) : add services cards | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/services | `ca857c3` | feat(i18n) : add services content translations for english and spanish | — | 08/10/2026 |
+| IngesCompany/doofplus-website | feature/services | `78ab06b` | feat(services) : add services styles | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `0b48370` | Merge branch 'feature/services' into develop | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `0d2bd78` | fix(navbar): skip placeholder links when highlighting sections | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `666d9cd` | feat(i18n): add features content translations for english and spanish | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `c8ffc51` | feat(features): add features section with accordion and preview panels | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `70c9db1` | feat(features): add features styles | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `fbf3b79` | fix(plans): load billing toggle script so the annual option works | — | 08/10/2026 |
+| IngesCompany/doofplus-website | develop | `beb359f` | style(form): add textarea and confirmation styles and remove unused demo styles | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `72c978b` | feat(i18n): add contact inquiry translations for english and spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/contact-section | `3a58827` | feat(contact): add contact inquiry form section | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `d296d28` | Merge remote-tracking branch 'origin/feature/contact-section' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/benefits-section | `103c355` | feat(i18n): add benefits content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/benefits-section | `6e38531` | feat(benefits): add benefits section with key result cards | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/benefits-section | `f043190` | feat(benefits): add benefits styles | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `9b49664` | Merge branch 'feature/benefits-section' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/testimonials-section | `e8b7970` | feat(i18n): add testimonials content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/about-product-section | `f14e0b9` | feat(i18n): add product section content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/about-product-section | `7fd893b` | feat(video): add styles for product video section | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/about-product-section | `145acdf` | feat(video): add product video section with player and details | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `989262c` | Merge branch 'feature/about-product-section' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/testimonials-section | `cbfe7b1` | feat(testimonials): add testimonials section with client quotes and ratings | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/testimonials-section | `26f6288` | feat(testimonials): add testimonials styles | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `f3a3a1e` | Merge branch 'feature/testimonials-section' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/faq-section | `7833057` | feat(i18n): add faq content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/faq-section | `9599b92` | feat(faq): add faq section with accordion and contact link | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/faq-section | `ff8e68a` | feat(faq): add faq styles | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `20a0012` | Merge branch 'feature/faq-section' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/about-section | `f43c313` | feat(i18n): add about content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/about-section | `58d8b38` | feat(about): add about section with mission, vision and principles | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/about-section | `ed983a7` | feat(about): add about styles | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `e0235c1` | Merge branch 'feature/about-section' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/team-section | `bdeab66` | feat(i18n): add team content translations for english and spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/team-section | `65de15e` | feat(team): add team member photos | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/team-section | `25f6c2b` | feat(team): add team section with member cards | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/team-section | `e40431d` | feat(team): add team styles | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `217aa55` | Merge branch 'feature/team-section' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | fix/landing-links | `5e7e811` | fix(landing): replace demo links, fix hero buttons and wrap sections in main | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/navbar | `f5754c1` | feat(navbar): add section links, segment access and mobile menu | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `8236269` | Merge branch 'fix/landing-links' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `b9e41f1` | Merge branch 'feature/navbar' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | fix/hero-section | `ab053c9` | fix(i18n): update hero content translations | — | 09/10/2026 |
+| IngesCompany/doofplus-website | fix/hero-section | `ab59881` | fix(hero): update hero call to action buttons | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `2b51732` | Merge branch 'fix/hero-section' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | fix/workspace-section | `25c1931` | fix(i18n): update workspace content translations | — | 09/10/2026 |
+| IngesCompany/doofplus-website | fix/workspace-section | `486687f` | style(workspace): replace workspace styles with card and banner styles | — | 09/10/2026 |
+| IngesCompany/doofplus-website | fix/workspace-section | `4e471af` | fix(workspace): simplify segment cards and add new customer banner | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `0af9d9e` | Merge branch 'fix/workspace-section' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/footer-privacy-section | `483ab70` | fix(i18n): update Spanish translations for product video section producing error | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/footer-privacy-section | `f0d25a0` | feat(terms): add Terms of Service page with legal content and multilingual support | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/footer-privacy-section | `cf1c8a3` | feat(privacy): add Privacy Policy page with legal content and multilingual support | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/footer-privacy-section | `670ebff` | feat(styles): add styles for secondary pages including terms of service and privacy policy | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/footer-privacy-section | `7d42d1c` | feat(legal): add Terms of Service and Privacy Policy sections in English and Spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `6f34ece` | Merge branch 'feature/footer-privacy-section' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | fix/legal-pages | `acda06d` | fix(styles): import the secondary page styles used by the terms and privacy pages | — | 09/10/2026 |
+| IngesCompany/doofplus-website | fix/legal-pages | `6f465cd` | fix(i18n): add the page titles and back link translations of the terms and privacy pages | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `f8a1b3d` | Merge branch 'fix/legal-pages' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/videos | `2bd55e5` | feat(video): add the video player that loads the YouTube embed on play | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/videos | `d742662` | feat(team): add the about the team video below the member cards | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `1163cea` | Merge branch 'feature/videos' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | release/v1.0.0 | `42a44c0` | chore(release): set the landing page version to 1.0.0 | — | 09/10/2026 |
+| IngesCompany/doofplus-website | main | `1acb96b` | Merge branch 'release/v1.0.0' | — | 09/10/2026 |
+| IngesCompany/doofplus-website | hotfix/v1.0.1 | `7a2de04` | fix(deploy): publish the static site on GitHub Pages without the Jekyll build | — | 09/10/2026 |
+| IngesCompany/doofplus-website | hotfix/v1.0.1 | `d4efb41` | chore(release): set the landing page version to 1.0.1 | — | 09/10/2026 |
+| IngesCompany/doofplus-website | main | `61326ed` | Merge branch 'hotfix/v1.0.1' | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `385a2f9` | Merge branch 'release/v1.0.0' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `97a9e4b` | Merge branch 'hotfix/v1.0.1' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | feature/web-app-links | `467b222` | feat(config): link the segment access buttons to the published web application | — | 09/10/2026 |
+| IngesCompany/doofplus-website | develop | `bb1946e` | Merge branch 'feature/web-app-links' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-website | main | `4e2299e` | Merge branch 'develop' | — | 09/10/2026 |
 
 **Frontend Web Application** (178 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
-| IngesCompany-7742/IngesCompany-Frontend | main | `16247a9` | chore: initial commit | — | 28/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | main | `58f3404` | chore: add git ignore | — | 28/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/project-configuration | `89336d3` | feat(i18n): add i18n support for English and Spanish translation | — | 28/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/project-configuration | `84282bf` | feat(ui): add Material Design UI Library | — | 28/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/project-configuration | `cb6376e` | feat(environment): add Environment configuration for development and production modes | — | 28/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `3ea5890` | Merge branch 'feature/project-configuration' into develop | — | 28/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `b066a80` | feat(home): add Home view with title and content, including route definition and style | — | 28/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `6d386d5` | feat(home): add DateTime and URL value objects for handing dates and URLs | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `574db0d` | feat(base-entity): add BaseEntity interface for domain entities with UUID identifier | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `b1906c4` | feat(toolbar): add responsive toolbar component | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `c701062` | feat(layout): add layout component | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `f5ed375` | feat(language-switcher): add language switcher component for UI language selection | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `c0bcedc` | feat(about): add About page with layout, styles, and content for product overview | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `78a850c` | feat(page-not-found): add Page Not Found component with template and navigation | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `9df65b3` | chore(index): update index.html structure for semantic consistency | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `8ebbec3` | style(layout): add tittle | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `067727c` | feat(about): add the route definition of the view About | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `9840b0b` | feat(routes): add the route definition of the view About and PageNotFound | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `f4f9185` | Merge remote-tracking branch 'origin/feature/shared' into feature/shared | # Conflicts: # src/app/app.routes.ts | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `a270b2f` | feat(footer): add footer component and translation | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `485f392` | feat(footer): add footer component and translation | — | 29/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `46a135e` | fix(layout): render toolbar globally across public views and add translations | — | 30/09/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `e7ec1ba` | Merge branch 'feature/shared' into develop | — | 05/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/manufacturing | `c5951a6` | feat(database): add initial db.json with vaccine batch data | — | 05/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/manufacturing | `dd30869` | feat(batch): add Batch entity to represent product batches | — | 05/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/share-fixes | `a09dd57` | fix(shared): add missing DoofPlus logo asset | — | 06/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/share-fixes | `6f4ce9c` | fix(i18n): add missing translations for home, about and page not found views | — | 06/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `23e6e5a` | Merge branch 'feature/share-fixes' into develop | — | 06/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/manufacturing | `5f53fd7` | feat(server): add JSON server setup to run the locale database | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/manufacturing | `43b4302` | feat(manufacturing): add infrastructure layer in manufacturing for batch operations | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/manufacturing | `98bd8a3` | feat(database): add db.json with initial posts and comments data | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/manufacturing | `ae368f6` | feat(manufacturing): implement ManufacturingStore for batch state management in application layer | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/manufacturing | `353c95b` | feat(batch): add BatchList component with support in English and Spanish and routing for batch management | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/manufacturing | `07e9dc2` | feat(batch): add BatchForm component with support in English and Spanish and routing | — | 07/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/manufacturing | `2092428` | Merge branch 'develop' into feature/manufacturing | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `f8184a4` | Merge branch 'feature/manufacturing' into develop | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `9ab2fae` | fix(routes): integrate manufacturing routes into main app routing | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `0e9ba1a` | fix(manufacturing): add ChangeDetectorRef to batch list to trigger zoneless rendering | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `767e6a2` | test(mock): update mock database with testing records | — | 08/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `00c63c2` | feat(iam): add domain models for user authentication and authorization | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `96c30c7` | feat(iam): add data transfer objects and assembler for sign-in flow | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `3aa4550` | feat(iam): add data transfer objects and assembler for sign-up flow | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `f6b50bc` | feat(iam): implement IamApi for user sign-up and sign-in functionality | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `f28cca2` | feat(store): add application store to manage authentication state | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `68ed25a` | feat(guard): add route guard to protect authenticated views | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `41b15e9` | feat(interceptor): add interceptor to attach bearer tokens | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `bf9e497` | feat(sign-in-view): add user interface component for sign in | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `1da2e62` | feat(sign-up-view): add user interface component for sign up | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `0d905de` | feat(routing): integrate iam views and configure loading for authentication | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `c59594f` | Merge branch 'feature/iam' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `8aab2ab` | chore(server): add documents, deviations, CAPA, results, audits, reports and tasks to the fake API | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `493c0ec` | feat(environment): add the fake API base URL and the quality endpoint paths | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `863f2c8` | feat(quality): model documents, deviations, CAPA, analytical results, audits, reports and tasks | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `de4c4f6` | feat(quality): read and write the quality collections through the fake API | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `141ea68` | feat(quality): enforce release, signature, segregation of duties and CAPA closure rules in the store | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `a26fb2d` | feat(quality-view): add the quality overview and the traceability and deviation indicators | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `f0ec8e2` | feat(document-view): add controlled documents with approval workflow and version history | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `83b92e7` | feat(release-view): add batch release with electronic signature and the analytical results | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `46ea7c9` | feat(task-view): add tasks and discussions linked to records | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `d0bd0c5` | feat(i18n): add the quality and compliance translations in English and Spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `e91dbb4` | feat(routing): add the routes of the quality bounded context | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `ee75ac9` | fix(config): complete the index.html head with viewport, fonts, icons and SEO meta tags | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `28b167d` | feat(environment): add the landing page URL and the fake API base URL | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `fca883b` | style(theme): apply DoofPlus colors and shapes to the Material theme | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `5c6559e` | style(shared): add layout, status and accessibility helpers for the Figma views | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `0ac965e` | feat(shared): add base API, endpoint, assembler and form classes from the course base project | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `7657404` | feat(language-switcher): show the EN/ES pill of the mock-ups and remember the chosen language | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `939f04d` | feat(alert): add Alert entity to represent system alerts | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `3798e78` | feat(layout): turn the toolbar, footer and layout into the public frame of the mock-ups | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `9f900a0` | feat(equipment): add Equipment entity to represent equipment details and maintenance | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `33cd8ca` | feat(page-header): add breadcrumb, title and actions header for workspace pages | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `1d274fd` | feat(reading): add Reading entity to represent telemetry readings | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `1286b97` | feat(config): use outlined Material icons, bind route parameters to inputs and announce the page language | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `28f0f89` | feat(sensor): add Sensor entity to represent IoT sensors and their properties | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `8b345e2` | refactor(shared): replace home and about with the sign-in entry point | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/shared | `9ca0dea` | test(app): check that the root component hosts the routed views | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `7aa3999` | Merge branch 'feature/shared' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `30ebe27` | chore(server): add users, role profiles and invitations to the fake API | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `5c45a1a` | feat(environment): add the endpoint paths of the IAM collections | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `bf84897` | feat(monitoring-api): add monitoring api service for iot endpoints management | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `fbe4243` | feat(iam): model users with environment and organization, role profiles and invitations | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `a66ff4c` | feat(alert): add alert API endpoint and assembler for CRUD operations | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `e3c2e89` | feat(iam): read users, role profiles and invitations from the fake API | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `cb30ca9` | feat(equipment): add API endpoint, assembler, and response models for equipment CRUD operations | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `271285c` | feat(iam): sign in by environment with a two-factor code and role-based access | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `b2c9c9d` | feat(reading): add Reading API endpoint, assembler, and response models for CRUD operations | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `496cd7a` | feat(layout): add the workspace shell with sidebar, top bar and user menu | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `e60fbcd` | feat(sensor): add Sensor API endpoint, assembler, and response models for CRUD operations | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `31c5208` | feat(sign-in-view): add environment selection, sign-in, two-factor and not-authorized views | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `042b8fe` | feat(users-view): add users and profiles directory and the invite user form | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `73b7b53` | feat(monitoring-store): add monitoringstore for managing equipment, sensors, readings, and alerts | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `d304131` | feat(i18n): add the IAM and workspace translations in English and Spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `4a3f0b6` | feat(routing): route the sign-in and the three environments protected by the IAM guard | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/iam | `9a91e9d` | refactor(iam): remove the token sign-in, sign-up and interceptor that the fake API cannot serve | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `9ca9813` | Merge remote-tracking branch 'origin/feature/iam' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `5aa36c1` | chore(server): add json-server as a development dependency | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `bae6ffe` | chore(config): raise the component style budget for the Figma layouts | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `092339a` | feat(telemetry-chart): add telemetry chart component for visualizing sensor readings | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `e457c8a` | chore(server): replace the sample production batches with the manufacturing collections | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `dd7b09f` | feat(environment): add the endpoint paths of the manufacturing collections | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `fe885b3` | feat(manufacturing): model products, master formulas, orders, operations, batches and material lots | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `1b415ea` | feat(manufacturing): read and write the manufacturing collections through the fake API | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `33eebd2` | feat(manufacturing): validate batches, record operations and receive materials in the store with signals | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `67542b0` | feat(alert-list): add alert list component for displaying IoT incidents with severity and status | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `ded2019` | feat(batch-view): turn the batch form into the create batch dialog with the rejection state | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `519b1cd` | feat(batch-iot-evidence): add component for displaying IoT evidence with equipment association and readings | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `8a49239` | feat(equipment-inventory): add equipment inventory component for managing sensors and maintenance | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `b4190b2` | feat(iot-overview): add IoT overview component for monitoring sensor and equipment health, telemetry, and alerts | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `d85d8bf` | feat(sensor-detail): add sensor detail component for displaying telemetry, alerts, and equipment calibration | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `448e9de` | feat(routes): add monitoring routes for IoT overview, equipment inventory, sensor detail, alert list, and batch IoT evidence | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `037a753` | feat(batch-view): show batches with status counts, filters, lookup and the selected batch | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/subscriptions | `4ca6f73` | chore(server): add plans, the organization subscription and invoices to the fake API | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `58d11c5` | feat(batch-view): add batch genealogy and status history | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/subscriptions | `7903c15` | feat(environment): add the endpoint paths of the subscription collections | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `1d252d1` | feat(order-view): add production orders and the order execution against the master formula | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `ba60036` | feat(product-view): add the product catalog and the effective master formula | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `ea09f17` | feat(receipt-view): add the raw-material receipt with quarantine inspection | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/subscriptions | `af07149` | feat(subscriptions): model plans, subscriptions and invoices | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `7646e4c` | feat(i18n): replace the batch translations with the manufacturing translations and add shared labels | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `223e7ca` | feat(routing): route the manufacturing views in the production environment | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/subscriptions | `5d3118b` | feat(subscriptions): read plans, subscriptions and invoices from the fake API | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/subscriptions | `c6a4fda` | feat(subscriptions): manage the plan change and the payment retry in the subscriptions store | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/subscriptions | `01e3922` | feat(subscription-view): add the subscriptions and payments page with billing history and plan change review | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `3f183b2` | Merge branch 'develop' into feature/monitoring | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `b9a862a` | feat(db): add equipment and sensor data with calibration and maintenance details | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/subscriptions | `9dc488c` | feat(i18n): add the subscriptions translations in English and Spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `9383633` | chore(db): remove unnecessary whitespace and trailing braces from db.json | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `b104c03` | feat(environment): add new endpoint paths for equipment, sensors, readings, and alerts | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/subscriptions | `23c8b4e` | feat(routing): route the subscriptions page in the administration environment | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `1481052` | Merge branch 'feature/subscriptions' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `d05ab97` | Merge branch 'develop' into feature/monitoring | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/organizations | `e78965d` | chore(server): add the organization, facilities, user profiles and administrative activity to the fake API | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/organizations | `0737256` | feat(environment): add the endpoint paths of the organization collections | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/organizations | `63f97ed` | feat(organizations): model organizations, facilities, user profiles and administrative activity | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `6a75732` | feat(routes): add monitoring routes to production environment | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/organizations | `eace210` | feat(organizations): read and register organizations through the fake API | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `f3e103f` | chore(routes): clean up import statements in app.routes.ts | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/organizations | `378c1a7` | feat(organizations): register organizations and update user profiles in the organizations store | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `14b745a` | Merge branch 'feature/monitoring' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/organizations | `028ab75` | feat(registration-view): add the organization registration with plan and first administrator | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/organizations | `9646143` | feat(overview-view): add the administration overview with users, facilities and account health | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/organizations | `0c0d6bd` | feat(profile-view): add profile and notification preferences for every environment | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/organizations | `d03f0bc` | Merge branch 'develop' into feature/organizations | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/organizations | `222adee` | feat(i18n): add the organizations translations in English and Spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/organizations | `3bb4348` | feat(routing): route the registration, the administration overview and the profile | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/manufacturing | `0d4cdb9` | feat(overview): add the production overview with schedule readiness and incident priorities | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/manufacturing | `6f3053b` | feat(routing): route the production overview as the production home | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `be5d92b` | Merge branch 'feature/organizations' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `6e3273e` | fix(i18n): use shared cancel and status labels instead of keys from other bounded context | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `a5ffaaa` | fix(routing): route the quality view and share the audit trail and task with every environment | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `0446f56` | Merge branch 'feature/manufacturing' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `05fae7c` | Merge branch 'develop' into feature/quality | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `f53fbe1` | fix(i18n): use the shared status label in the remaining quality views | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/quality | `7de536e` | fix(routing): add the quality routes to the qa, production and administration environments | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `4132182` | Merge branch 'feature/quality' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | docs/repository-setup | `1864b3b` | docs(readme): add project documentation, run instructions and bounded contexts | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | docs/repository-setup | `f791346` | chore(license): add MIT license | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | docs/repository-setup | `abb5afc` | docs(repository): add changelog and contributing guidelines | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | docs/repository-setup | `60145ed` | docs(architecture): create docs directory with user stories and diagrams placeholders | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `158f838` | Merge branch 'docs/repository-setup' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | docs/expanded-readme | `0b2a174` | docs(readme): expand documentation with badges, architecture and tech stack details | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `8c47f21` | Merge branch 'docs/expanded-readme' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `3a87aa1` | docs(architecture): fix readme markdown, add ADRs and mermaid diagrams | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `1298689` | docs(architecture): add domain model class diagram | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `39b250c` | docs(architecture): align docs structure with learning-center (PlantUML and single adrs file) | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/monitoring | `785fda4` | feat(i18n): add the IoT monitoring translations in English and Spanish | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `efa7877` | Merge branch 'feature/monitoring' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/project-configuration | `c96bd29` | docs(readme): rename the demo accounts section to test accounts | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/project-configuration | `317784a` | chore(server): add a start script to publish the fake API on a hosting service | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | feature/project-configuration | `a258f40` | chore(deploy): add the Firebase Hosting configuration for the single page application | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | develop | `eab64e9` | Merge branch 'feature/project-configuration' into develop | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | release/v1.0.0 | `700dcb1` | chore(release): set the web application version to 1.0.0 and update the changelog | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | main | `d63b938` | Merge branch 'release/v1.0.0' | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | main | `b0097e9` | fix(environment): read the fake API published on Render in production | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | main | `9a7d14b` | chore(deploy): link the Firebase project and ignore the deploy cache | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | main | `c9dbe4e` | fix(server): restore the seed state of material lot RM-26104 | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | main | `079465a` | fix(a11y): name tables and alerts of the views copied before the accessibility work | — | 09/10/2026 |
-| IngesCompany-7742/IngesCompany-Frontend | main | `946151e` | chore(release): set the web application version to 1.0.1 and update the changelog | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | main | `16247a9` | chore: initial commit | — | 28/09/2026 |
+| IngesCompany/doofplus-web-application | main | `58f3404` | chore: add git ignore | — | 28/09/2026 |
+| IngesCompany/doofplus-web-application | feature/project-configuration | `89336d3` | feat(i18n): add i18n support for English and Spanish translation | — | 28/09/2026 |
+| IngesCompany/doofplus-web-application | feature/project-configuration | `84282bf` | feat(ui): add Material Design UI Library | — | 28/09/2026 |
+| IngesCompany/doofplus-web-application | feature/project-configuration | `cb6376e` | feat(environment): add Environment configuration for development and production modes | — | 28/09/2026 |
+| IngesCompany/doofplus-web-application | develop | `3ea5890` | Merge branch 'feature/project-configuration' into develop | — | 28/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `b066a80` | feat(home): add Home view with title and content, including route definition and style | — | 28/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `6d386d5` | feat(home): add DateTime and URL value objects for handing dates and URLs | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `574db0d` | feat(base-entity): add BaseEntity interface for domain entities with UUID identifier | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `b1906c4` | feat(toolbar): add responsive toolbar component | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `c701062` | feat(layout): add layout component | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `f5ed375` | feat(language-switcher): add language switcher component for UI language selection | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `c0bcedc` | feat(about): add About page with layout, styles, and content for product overview | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `78a850c` | feat(page-not-found): add Page Not Found component with template and navigation | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `9df65b3` | chore(index): update index.html structure for semantic consistency | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `8ebbec3` | style(layout): add tittle | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `067727c` | feat(about): add the route definition of the view About | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `9840b0b` | feat(routes): add the route definition of the view About and PageNotFound | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `f4f9185` | Merge remote-tracking branch 'origin/feature/shared' into feature/shared | # Conflicts: # src/app/app.routes.ts | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `a270b2f` | feat(footer): add footer component and translation | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `485f392` | feat(footer): add footer component and translation | — | 29/09/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `46a135e` | fix(layout): render toolbar globally across public views and add translations | — | 30/09/2026 |
+| IngesCompany/doofplus-web-application | develop | `e7ec1ba` | Merge branch 'feature/shared' into develop | — | 05/10/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing | `c5951a6` | feat(database): add initial db.json with vaccine batch data | — | 05/10/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing | `dd30869` | feat(batch): add Batch entity to represent product batches | — | 05/10/2026 |
+| IngesCompany/doofplus-web-application | feature/share-fixes | `a09dd57` | fix(shared): add missing DoofPlus logo asset | — | 06/10/2026 |
+| IngesCompany/doofplus-web-application | feature/share-fixes | `6f4ce9c` | fix(i18n): add missing translations for home, about and page not found views | — | 06/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `23e6e5a` | Merge branch 'feature/share-fixes' into develop | — | 06/10/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing | `5f53fd7` | feat(server): add JSON server setup to run the locale database | — | 07/10/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing | `43b4302` | feat(manufacturing): add infrastructure layer in manufacturing for batch operations | — | 07/10/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing | `98bd8a3` | feat(database): add db.json with initial posts and comments data | — | 07/10/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing | `ae368f6` | feat(manufacturing): implement ManufacturingStore for batch state management in application layer | — | 07/10/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing | `353c95b` | feat(batch): add BatchList component with support in English and Spanish and routing for batch management | — | 07/10/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing | `07e9dc2` | feat(batch): add BatchForm component with support in English and Spanish and routing | — | 07/10/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing | `2092428` | Merge branch 'develop' into feature/manufacturing | — | 08/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `f8184a4` | Merge branch 'feature/manufacturing' into develop | — | 08/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `9ab2fae` | fix(routes): integrate manufacturing routes into main app routing | — | 08/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `0e9ba1a` | fix(manufacturing): add ChangeDetectorRef to batch list to trigger zoneless rendering | — | 08/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `767e6a2` | test(mock): update mock database with testing records | — | 08/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `00c63c2` | feat(iam): add domain models for user authentication and authorization | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `96c30c7` | feat(iam): add data transfer objects and assembler for sign-in flow | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `3aa4550` | feat(iam): add data transfer objects and assembler for sign-up flow | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `f6b50bc` | feat(iam): implement IamApi for user sign-up and sign-in functionality | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `f28cca2` | feat(store): add application store to manage authentication state | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `68ed25a` | feat(guard): add route guard to protect authenticated views | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `41b15e9` | feat(interceptor): add interceptor to attach bearer tokens | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `bf9e497` | feat(sign-in-view): add user interface component for sign in | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `1da2e62` | feat(sign-up-view): add user interface component for sign up | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `0d905de` | feat(routing): integrate iam views and configure loading for authentication | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `c59594f` | Merge branch 'feature/iam' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `8aab2ab` | chore(server): add documents, deviations, CAPA, results, audits, reports and tasks to the fake API | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `493c0ec` | feat(environment): add the fake API base URL and the quality endpoint paths | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `863f2c8` | feat(quality): model documents, deviations, CAPA, analytical results, audits, reports and tasks | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `de4c4f6` | feat(quality): read and write the quality collections through the fake API | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `141ea68` | feat(quality): enforce release, signature, segregation of duties and CAPA closure rules in the store | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `a26fb2d` | feat(quality-view): add the quality overview and the traceability and deviation indicators | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `f0ec8e2` | feat(document-view): add controlled documents with approval workflow and version history | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `83b92e7` | feat(release-view): add batch release with electronic signature and the analytical results | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `46ea7c9` | feat(task-view): add tasks and discussions linked to records | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `d0bd0c5` | feat(i18n): add the quality and compliance translations in English and Spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `e91dbb4` | feat(routing): add the routes of the quality bounded context | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `ee75ac9` | fix(config): complete the index.html head with viewport, fonts, icons and SEO meta tags | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `28b167d` | feat(environment): add the landing page URL and the fake API base URL | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `fca883b` | style(theme): apply DoofPlus colors and shapes to the Material theme | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `5c6559e` | style(shared): add layout, status and accessibility helpers for the Figma views | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `0ac965e` | feat(shared): add base API, endpoint, assembler and form classes from the course base project | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `7657404` | feat(language-switcher): show the EN/ES pill of the mock-ups and remember the chosen language | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `939f04d` | feat(alert): add Alert entity to represent system alerts | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `3798e78` | feat(layout): turn the toolbar, footer and layout into the public frame of the mock-ups | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `9f900a0` | feat(equipment): add Equipment entity to represent equipment details and maintenance | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `33cd8ca` | feat(page-header): add breadcrumb, title and actions header for workspace pages | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `1d274fd` | feat(reading): add Reading entity to represent telemetry readings | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `1286b97` | feat(config): use outlined Material icons, bind route parameters to inputs and announce the page language | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `28f0f89` | feat(sensor): add Sensor entity to represent IoT sensors and their properties | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `8b345e2` | refactor(shared): replace home and about with the sign-in entry point | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/shared | `9ca0dea` | test(app): check that the root component hosts the routed views | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `7aa3999` | Merge branch 'feature/shared' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `30ebe27` | chore(server): add users, role profiles and invitations to the fake API | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `5c45a1a` | feat(environment): add the endpoint paths of the IAM collections | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `bf84897` | feat(monitoring-api): add monitoring api service for iot endpoints management | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `fbe4243` | feat(iam): model users with environment and organization, role profiles and invitations | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `a66ff4c` | feat(alert): add alert API endpoint and assembler for CRUD operations | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `e3c2e89` | feat(iam): read users, role profiles and invitations from the fake API | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `cb30ca9` | feat(equipment): add API endpoint, assembler, and response models for equipment CRUD operations | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `271285c` | feat(iam): sign in by environment with a two-factor code and role-based access | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `b2c9c9d` | feat(reading): add Reading API endpoint, assembler, and response models for CRUD operations | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `496cd7a` | feat(layout): add the workspace shell with sidebar, top bar and user menu | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `e60fbcd` | feat(sensor): add Sensor API endpoint, assembler, and response models for CRUD operations | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `31c5208` | feat(sign-in-view): add environment selection, sign-in, two-factor and not-authorized views | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `042b8fe` | feat(users-view): add users and profiles directory and the invite user form | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `73b7b53` | feat(monitoring-store): add monitoringstore for managing equipment, sensors, readings, and alerts | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `d304131` | feat(i18n): add the IAM and workspace translations in English and Spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `4a3f0b6` | feat(routing): route the sign-in and the three environments protected by the IAM guard | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/iam | `9a91e9d` | refactor(iam): remove the token sign-in, sign-up and interceptor that the fake API cannot serve | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `9ca9813` | Merge remote-tracking branch 'origin/feature/iam' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `5aa36c1` | chore(server): add json-server as a development dependency | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `bae6ffe` | chore(config): raise the component style budget for the Figma layouts | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `092339a` | feat(telemetry-chart): add telemetry chart component for visualizing sensor readings | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `e457c8a` | chore(server): replace the sample production batches with the manufacturing collections | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `dd7b09f` | feat(environment): add the endpoint paths of the manufacturing collections | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `fe885b3` | feat(manufacturing): model products, master formulas, orders, operations, batches and material lots | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `1b415ea` | feat(manufacturing): read and write the manufacturing collections through the fake API | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `33eebd2` | feat(manufacturing): validate batches, record operations and receive materials in the store with signals | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `67542b0` | feat(alert-list): add alert list component for displaying IoT incidents with severity and status | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `ded2019` | feat(batch-view): turn the batch form into the create batch dialog with the rejection state | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `519b1cd` | feat(batch-iot-evidence): add component for displaying IoT evidence with equipment association and readings | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `8a49239` | feat(equipment-inventory): add equipment inventory component for managing sensors and maintenance | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `b4190b2` | feat(iot-overview): add IoT overview component for monitoring sensor and equipment health, telemetry, and alerts | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `d85d8bf` | feat(sensor-detail): add sensor detail component for displaying telemetry, alerts, and equipment calibration | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `448e9de` | feat(routes): add monitoring routes for IoT overview, equipment inventory, sensor detail, alert list, and batch IoT evidence | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `037a753` | feat(batch-view): show batches with status counts, filters, lookup and the selected batch | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/subscriptions | `4ca6f73` | chore(server): add plans, the organization subscription and invoices to the fake API | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `58d11c5` | feat(batch-view): add batch genealogy and status history | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/subscriptions | `7903c15` | feat(environment): add the endpoint paths of the subscription collections | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `1d252d1` | feat(order-view): add production orders and the order execution against the master formula | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `ba60036` | feat(product-view): add the product catalog and the effective master formula | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `ea09f17` | feat(receipt-view): add the raw-material receipt with quarantine inspection | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/subscriptions | `af07149` | feat(subscriptions): model plans, subscriptions and invoices | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `7646e4c` | feat(i18n): replace the batch translations with the manufacturing translations and add shared labels | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `223e7ca` | feat(routing): route the manufacturing views in the production environment | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/subscriptions | `5d3118b` | feat(subscriptions): read plans, subscriptions and invoices from the fake API | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/subscriptions | `c6a4fda` | feat(subscriptions): manage the plan change and the payment retry in the subscriptions store | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/subscriptions | `01e3922` | feat(subscription-view): add the subscriptions and payments page with billing history and plan change review | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `3f183b2` | Merge branch 'develop' into feature/monitoring | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `b9a862a` | feat(db): add equipment and sensor data with calibration and maintenance details | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/subscriptions | `9dc488c` | feat(i18n): add the subscriptions translations in English and Spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `9383633` | chore(db): remove unnecessary whitespace and trailing braces from db.json | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `b104c03` | feat(environment): add new endpoint paths for equipment, sensors, readings, and alerts | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/subscriptions | `23c8b4e` | feat(routing): route the subscriptions page in the administration environment | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `1481052` | Merge branch 'feature/subscriptions' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `d05ab97` | Merge branch 'develop' into feature/monitoring | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/organizations | `e78965d` | chore(server): add the organization, facilities, user profiles and administrative activity to the fake API | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/organizations | `0737256` | feat(environment): add the endpoint paths of the organization collections | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/organizations | `63f97ed` | feat(organizations): model organizations, facilities, user profiles and administrative activity | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `6a75732` | feat(routes): add monitoring routes to production environment | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/organizations | `eace210` | feat(organizations): read and register organizations through the fake API | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `f3e103f` | chore(routes): clean up import statements in app.routes.ts | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/organizations | `378c1a7` | feat(organizations): register organizations and update user profiles in the organizations store | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `14b745a` | Merge branch 'feature/monitoring' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/organizations | `028ab75` | feat(registration-view): add the organization registration with plan and first administrator | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/organizations | `9646143` | feat(overview-view): add the administration overview with users, facilities and account health | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/organizations | `0c0d6bd` | feat(profile-view): add profile and notification preferences for every environment | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/organizations | `d03f0bc` | Merge branch 'develop' into feature/organizations | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/organizations | `222adee` | feat(i18n): add the organizations translations in English and Spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/organizations | `3bb4348` | feat(routing): route the registration, the administration overview and the profile | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing | `0d4cdb9` | feat(overview): add the production overview with schedule readiness and incident priorities | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing | `6f3053b` | feat(routing): route the production overview as the production home | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `be5d92b` | Merge branch 'feature/organizations' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `6e3273e` | fix(i18n): use shared cancel and status labels instead of keys from other bounded context | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `a5ffaaa` | fix(routing): route the quality view and share the audit trail and task with every environment | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `0446f56` | Merge branch 'feature/manufacturing' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `05fae7c` | Merge branch 'develop' into feature/quality | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `f53fbe1` | fix(i18n): use the shared status label in the remaining quality views | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/quality | `7de536e` | fix(routing): add the quality routes to the qa, production and administration environments | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `4132182` | Merge branch 'feature/quality' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | docs/repository-setup | `1864b3b` | docs(readme): add project documentation, run instructions and bounded contexts | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | docs/repository-setup | `f791346` | chore(license): add MIT license | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | docs/repository-setup | `abb5afc` | docs(repository): add changelog and contributing guidelines | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | docs/repository-setup | `60145ed` | docs(architecture): create docs directory with user stories and diagrams placeholders | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `158f838` | Merge branch 'docs/repository-setup' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | docs/expanded-readme | `0b2a174` | docs(readme): expand documentation with badges, architecture and tech stack details | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `8c47f21` | Merge branch 'docs/expanded-readme' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `3a87aa1` | docs(architecture): fix readme markdown, add ADRs and mermaid diagrams | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `1298689` | docs(architecture): add domain model class diagram | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `39b250c` | docs(architecture): align docs structure with learning-center (PlantUML and single adrs file) | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/monitoring | `785fda4` | feat(i18n): add the IoT monitoring translations in English and Spanish | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `efa7877` | Merge branch 'feature/monitoring' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/project-configuration | `c96bd29` | docs(readme): rename the demo accounts section to test accounts | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/project-configuration | `317784a` | chore(server): add a start script to publish the fake API on a hosting service | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | feature/project-configuration | `a258f40` | chore(deploy): add the Firebase Hosting configuration for the single page application | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `eab64e9` | Merge branch 'feature/project-configuration' into develop | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | release/v1.0.0 | `700dcb1` | chore(release): set the web application version to 1.0.0 and update the changelog | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | main | `d63b938` | Merge branch 'release/v1.0.0' | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | main | `b0097e9` | fix(environment): read the fake API published on Render in production | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | main | `9a7d14b` | chore(deploy): link the Firebase project and ignore the deploy cache | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | main | `c9dbe4e` | fix(server): restore the seed state of material lot RM-26104 | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | main | `079465a` | fix(a11y): name tables and alerts of the views copied before the accessibility work | — | 09/10/2026 |
+| IngesCompany/doofplus-web-application | main | `946151e` | chore(release): set the web application version to 1.0.1 and update the changelog | — | 09/10/2026 |
 
 #### 5.2.2.5. Execution Evidence for Sprint Review
 
 En este Sprint se completó el Website, publicada en GitHub Pages, y se implementó la Web Application con sus tres entornos. En el Website se agregaron el hero, el acceso por segmento, los servicios y características, el video About the Product, los beneficios, About us, el equipo con su video, los testimonios y las preguntas frecuentes, y se reimplementaron la navegación con menú mobile, los planes, el formulario de consulta y las páginas legales. La Web Application permite elegir el entorno, iniciar sesión con segundo factor y recorrer todos los módulos de QA/QC (documentos, desviaciones y CAPA, resultados analíticos, liberación de lotes, auditorías, audit trail, reportes y tareas), Production (órdenes, productos y fórmulas, lotes, materias primas, equipos e IoT, incidentes) y Administration (usuarios, organización y suscripción), en inglés y español, con datos servidos por una Fake API.
 
-**Website:** https://ingescompany-7742.github.io/IngesCompany-Website/
+**Website:** https://ingescompany.github.io/doofplus-website/
 
 ![Hero con la propuesta de valor (US01)](../assets/img/chapter5/sprint2/landing/01-home.png)
 
@@ -890,99 +890,99 @@ En el Sprint 2 todavía no se implementaron los RESTful Web Services, por lo que
 
 | Endpoint | Verbo HTTP | Sintaxis | Parámetros | Response | URL documentación |
 |---|---|---|---|---|---|
-| `/invitations` | GET | `/api/v1/invitations` | — | 200 OK con la lista de `invitations` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/invitations` | POST | `/api/v1/invitations` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/role-profiles` | GET | `/api/v1/role-profiles` | — | 200 OK con la lista de `role-profiles` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/users` | GET | `/api/v1/users` | — | 200 OK con la lista de `users` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/users` | GET | `/api/v1/users?email={email}&password={password}` | `email`, `password` (query) | 200 OK con el usuario cuyas credenciales coinciden (inicio de sesión) | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/users` | GET | `/api/v1/users?id={id}&twoFactorCode={code}` | `id`, `twoFactorCode` (query) | 200 OK con el usuario si el código 2FA es válido | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/users` | POST | `/api/v1/users` | Usuario en el body (JSON) | 201 Created con el usuario invitado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/batch-events` | GET | `/api/v1/batch-events` | — | 200 OK con la lista de `batch-events` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/batch-events` | POST | `/api/v1/batch-events` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/batches` | GET | `/api/v1/batches` | — | 200 OK con la lista de `batches` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/batches` | POST | `/api/v1/batches` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/batches` | PUT | `/api/v1/batches/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/formula-items` | GET | `/api/v1/formula-items` | — | 200 OK con la lista de `formula-items` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/master-formulas` | GET | `/api/v1/master-formulas` | — | 200 OK con la lista de `master-formulas` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/material-lots` | GET | `/api/v1/material-lots` | — | 200 OK con la lista de `material-lots` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/material-lots` | POST | `/api/v1/material-lots` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/material-lots` | PUT | `/api/v1/material-lots/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/operations` | GET | `/api/v1/operations` | — | 200 OK con la lista de `operations` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/operations` | PUT | `/api/v1/operations/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/production-orders` | GET | `/api/v1/production-orders` | — | 200 OK con la lista de `production-orders` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/production-orders` | POST | `/api/v1/production-orders` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/products` | GET | `/api/v1/products` | — | 200 OK con la lista de `products` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/products` | POST | `/api/v1/products` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/alerts` | GET | `/api/v1/alerts` | — | 200 OK con la lista de `alerts` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/alerts` | PUT | `/api/v1/alerts/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/equipment` | GET | `/api/v1/equipment` | — | 200 OK con la lista de `equipment` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/equipment` | PUT | `/api/v1/equipment/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/readings` | GET | `/api/v1/readings` | — | 200 OK con la lista de `readings` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/sensors` | GET | `/api/v1/sensors` | — | 200 OK con la lista de `sensors` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/sensors` | POST | `/api/v1/sensors` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/sensors` | PUT | `/api/v1/sensors/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/administrative-activities` | GET | `/api/v1/administrative-activities` | — | 200 OK con la lista de `administrative-activities` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/facilities` | GET | `/api/v1/facilities` | — | 200 OK con la lista de `facilities` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/facilities` | POST | `/api/v1/facilities` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/organizations` | GET | `/api/v1/organizations/{id}` | `id` (path) | 200 OK con el recurso de `organizations` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/organizations` | POST | `/api/v1/organizations` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/organizations` | GET | `/api/v1/organizations?ruc={ruc}` | `ruc` (query) | 200 OK con la organización que ya usa ese RUC | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/user-profiles` | GET | `/api/v1/user-profiles` | — | 200 OK con la lista de `user-profiles` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/user-profiles` | PUT | `/api/v1/user-profiles/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/analytical-results` | GET | `/api/v1/analytical-results` | — | 200 OK con la lista de `analytical-results` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/analytical-results` | POST | `/api/v1/analytical-results` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/analytical-results` | PUT | `/api/v1/analytical-results/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/audit-events` | GET | `/api/v1/audit-events` | — | 200 OK con la lista de `audit-events` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/audit-events` | POST | `/api/v1/audit-events` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/audit-events` | PUT | `/api/v1/audit-events/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/audit-findings` | GET | `/api/v1/audit-findings` | — | 200 OK con la lista de `audit-findings` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/audit-findings` | POST | `/api/v1/audit-findings` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/audit-findings` | PUT | `/api/v1/audit-findings/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/audits` | GET | `/api/v1/audits` | — | 200 OK con la lista de `audits` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/audits` | POST | `/api/v1/audits` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/audits` | PUT | `/api/v1/audits/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/capa-actions` | GET | `/api/v1/capa-actions` | — | 200 OK con la lista de `capa-actions` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/capa-actions` | POST | `/api/v1/capa-actions` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/capa-actions` | PUT | `/api/v1/capa-actions/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/capa-plans` | GET | `/api/v1/capa-plans` | — | 200 OK con la lista de `capa-plans` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/capa-plans` | POST | `/api/v1/capa-plans` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/capa-plans` | PUT | `/api/v1/capa-plans/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/collaboration-tasks` | GET | `/api/v1/collaboration-tasks` | — | 200 OK con la lista de `collaboration-tasks` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/collaboration-tasks` | POST | `/api/v1/collaboration-tasks` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/collaboration-tasks` | PUT | `/api/v1/collaboration-tasks/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/deviation-trends` | GET | `/api/v1/deviation-trends` | — | 200 OK con la lista de `deviation-trends` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/deviation-trends` | POST | `/api/v1/deviation-trends` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/deviation-trends` | PUT | `/api/v1/deviation-trends/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/deviations` | GET | `/api/v1/deviations` | — | 200 OK con la lista de `deviations` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/deviations` | POST | `/api/v1/deviations` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/deviations` | PUT | `/api/v1/deviations/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/evidence` | GET | `/api/v1/evidence` | — | 200 OK con la lista de `evidence` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/evidence` | POST | `/api/v1/evidence` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/evidence` | PUT | `/api/v1/evidence/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/quality-documents` | GET | `/api/v1/quality-documents` | — | 200 OK con la lista de `quality-documents` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/quality-documents` | POST | `/api/v1/quality-documents` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/quality-documents` | PUT | `/api/v1/quality-documents/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/regulatory-reports` | GET | `/api/v1/regulatory-reports` | — | 200 OK con la lista de `regulatory-reports` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/regulatory-reports` | POST | `/api/v1/regulatory-reports` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/regulatory-reports` | PUT | `/api/v1/regulatory-reports/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/task-comments` | GET | `/api/v1/task-comments` | — | 200 OK con la lista de `task-comments` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/task-comments` | POST | `/api/v1/task-comments` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/task-comments` | PUT | `/api/v1/task-comments/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/traceability-gaps` | GET | `/api/v1/traceability-gaps` | — | 200 OK con la lista de `traceability-gaps` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/traceability-gaps` | POST | `/api/v1/traceability-gaps` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/traceability-gaps` | PUT | `/api/v1/traceability-gaps/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/invoices` | GET | `/api/v1/invoices` | — | 200 OK con la lista de `invoices` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/invoices` | POST | `/api/v1/invoices` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/plans` | GET | `/api/v1/plans` | — | 200 OK con la lista de `plans` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/subscriptions` | GET | `/api/v1/subscriptions` | — | 200 OK con la lista de `subscriptions` | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/subscriptions` | POST | `/api/v1/subscriptions` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
-| `/subscriptions` | PUT | `/api/v1/subscriptions/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany-7742/IngesCompany-Frontend#readme |
+| `/invitations` | GET | `/api/v1/invitations` | — | 200 OK con la lista de `invitations` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/invitations` | POST | `/api/v1/invitations` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/role-profiles` | GET | `/api/v1/role-profiles` | — | 200 OK con la lista de `role-profiles` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/users` | GET | `/api/v1/users` | — | 200 OK con la lista de `users` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/users` | GET | `/api/v1/users?email={email}&password={password}` | `email`, `password` (query) | 200 OK con el usuario cuyas credenciales coinciden (inicio de sesión) | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/users` | GET | `/api/v1/users?id={id}&twoFactorCode={code}` | `id`, `twoFactorCode` (query) | 200 OK con el usuario si el código 2FA es válido | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/users` | POST | `/api/v1/users` | Usuario en el body (JSON) | 201 Created con el usuario invitado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/batch-events` | GET | `/api/v1/batch-events` | — | 200 OK con la lista de `batch-events` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/batch-events` | POST | `/api/v1/batch-events` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/batches` | GET | `/api/v1/batches` | — | 200 OK con la lista de `batches` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/batches` | POST | `/api/v1/batches` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/batches` | PUT | `/api/v1/batches/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/formula-items` | GET | `/api/v1/formula-items` | — | 200 OK con la lista de `formula-items` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/master-formulas` | GET | `/api/v1/master-formulas` | — | 200 OK con la lista de `master-formulas` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/material-lots` | GET | `/api/v1/material-lots` | — | 200 OK con la lista de `material-lots` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/material-lots` | POST | `/api/v1/material-lots` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/material-lots` | PUT | `/api/v1/material-lots/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/operations` | GET | `/api/v1/operations` | — | 200 OK con la lista de `operations` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/operations` | PUT | `/api/v1/operations/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/production-orders` | GET | `/api/v1/production-orders` | — | 200 OK con la lista de `production-orders` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/production-orders` | POST | `/api/v1/production-orders` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/products` | GET | `/api/v1/products` | — | 200 OK con la lista de `products` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/products` | POST | `/api/v1/products` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/alerts` | GET | `/api/v1/alerts` | — | 200 OK con la lista de `alerts` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/alerts` | PUT | `/api/v1/alerts/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/equipment` | GET | `/api/v1/equipment` | — | 200 OK con la lista de `equipment` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/equipment` | PUT | `/api/v1/equipment/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/readings` | GET | `/api/v1/readings` | — | 200 OK con la lista de `readings` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/sensors` | GET | `/api/v1/sensors` | — | 200 OK con la lista de `sensors` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/sensors` | POST | `/api/v1/sensors` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/sensors` | PUT | `/api/v1/sensors/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/administrative-activities` | GET | `/api/v1/administrative-activities` | — | 200 OK con la lista de `administrative-activities` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/facilities` | GET | `/api/v1/facilities` | — | 200 OK con la lista de `facilities` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/facilities` | POST | `/api/v1/facilities` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/organizations` | GET | `/api/v1/organizations/{id}` | `id` (path) | 200 OK con el recurso de `organizations` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/organizations` | POST | `/api/v1/organizations` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/organizations` | GET | `/api/v1/organizations?ruc={ruc}` | `ruc` (query) | 200 OK con la organización que ya usa ese RUC | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/user-profiles` | GET | `/api/v1/user-profiles` | — | 200 OK con la lista de `user-profiles` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/user-profiles` | PUT | `/api/v1/user-profiles/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/analytical-results` | GET | `/api/v1/analytical-results` | — | 200 OK con la lista de `analytical-results` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/analytical-results` | POST | `/api/v1/analytical-results` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/analytical-results` | PUT | `/api/v1/analytical-results/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/audit-events` | GET | `/api/v1/audit-events` | — | 200 OK con la lista de `audit-events` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/audit-events` | POST | `/api/v1/audit-events` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/audit-events` | PUT | `/api/v1/audit-events/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/audit-findings` | GET | `/api/v1/audit-findings` | — | 200 OK con la lista de `audit-findings` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/audit-findings` | POST | `/api/v1/audit-findings` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/audit-findings` | PUT | `/api/v1/audit-findings/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/audits` | GET | `/api/v1/audits` | — | 200 OK con la lista de `audits` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/audits` | POST | `/api/v1/audits` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/audits` | PUT | `/api/v1/audits/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/capa-actions` | GET | `/api/v1/capa-actions` | — | 200 OK con la lista de `capa-actions` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/capa-actions` | POST | `/api/v1/capa-actions` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/capa-actions` | PUT | `/api/v1/capa-actions/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/capa-plans` | GET | `/api/v1/capa-plans` | — | 200 OK con la lista de `capa-plans` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/capa-plans` | POST | `/api/v1/capa-plans` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/capa-plans` | PUT | `/api/v1/capa-plans/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/collaboration-tasks` | GET | `/api/v1/collaboration-tasks` | — | 200 OK con la lista de `collaboration-tasks` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/collaboration-tasks` | POST | `/api/v1/collaboration-tasks` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/collaboration-tasks` | PUT | `/api/v1/collaboration-tasks/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/deviation-trends` | GET | `/api/v1/deviation-trends` | — | 200 OK con la lista de `deviation-trends` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/deviation-trends` | POST | `/api/v1/deviation-trends` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/deviation-trends` | PUT | `/api/v1/deviation-trends/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/deviations` | GET | `/api/v1/deviations` | — | 200 OK con la lista de `deviations` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/deviations` | POST | `/api/v1/deviations` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/deviations` | PUT | `/api/v1/deviations/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/evidence` | GET | `/api/v1/evidence` | — | 200 OK con la lista de `evidence` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/evidence` | POST | `/api/v1/evidence` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/evidence` | PUT | `/api/v1/evidence/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/quality-documents` | GET | `/api/v1/quality-documents` | — | 200 OK con la lista de `quality-documents` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/quality-documents` | POST | `/api/v1/quality-documents` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/quality-documents` | PUT | `/api/v1/quality-documents/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/regulatory-reports` | GET | `/api/v1/regulatory-reports` | — | 200 OK con la lista de `regulatory-reports` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/regulatory-reports` | POST | `/api/v1/regulatory-reports` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/regulatory-reports` | PUT | `/api/v1/regulatory-reports/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/task-comments` | GET | `/api/v1/task-comments` | — | 200 OK con la lista de `task-comments` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/task-comments` | POST | `/api/v1/task-comments` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/task-comments` | PUT | `/api/v1/task-comments/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/traceability-gaps` | GET | `/api/v1/traceability-gaps` | — | 200 OK con la lista de `traceability-gaps` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/traceability-gaps` | POST | `/api/v1/traceability-gaps` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/traceability-gaps` | PUT | `/api/v1/traceability-gaps/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/invoices` | GET | `/api/v1/invoices` | — | 200 OK con la lista de `invoices` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/invoices` | POST | `/api/v1/invoices` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/plans` | GET | `/api/v1/plans` | — | 200 OK con la lista de `plans` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/subscriptions` | GET | `/api/v1/subscriptions` | — | 200 OK con la lista de `subscriptions` | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/subscriptions` | POST | `/api/v1/subscriptions` | Recurso en el body (JSON) | 201 Created con el recurso creado | https://github.com/IngesCompany/doofplus-web-application#readme |
+| `/subscriptions` | PUT | `/api/v1/subscriptions/{id}` | `id` (path) y recurso en el body (JSON) | 200 OK con el recurso actualizado | https://github.com/IngesCompany/doofplus-web-application#readme |
 
 #### 5.2.2.7. Software Deployment Evidence for Sprint Review
 
 En este Sprint se prepararon las versiones estables de ambos productos siguiendo GitFlow:
 
-- **Website:** la rama `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0`, y luego se publicó el hotfix `v1.0.1`, que agrega el archivo `.nojekyll` para que GitHub Pages publique los archivos estáticos sin procesarlos con Jekyll. El Website se publica en GitHub Pages desde `main` en https://ingescompany-7742.github.io/IngesCompany-Website/.
+- **Website:** la rama `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0`, y luego se publicó el hotfix `v1.0.1`, que agrega el archivo `.nojekyll` para que GitHub Pages publique los archivos estáticos sin procesarlos con Jekyll. El Website se publica en GitHub Pages desde `main` en https://ingescompany.github.io/doofplus-website/.
 - **Web Application:** la rama `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0` y su CHANGELOG. El repositorio incluye `firebase.json`, que configura Firebase Hosting como Single Page Application, y el script `npm run server:prod`, que publica la Fake API en un Web Service de Render. Después del release se agregaron en `main` la lectura de la Fake API publicada en Render, la vinculación del proyecto de Firebase y correcciones de accesibilidad, y la versión se actualizó a 1.0.1 en el CHANGELOG. La Web Application está publicada en Firebase Hosting en https://doofplus-webapp.web.app y la Fake API en Render en https://ingescompany-frontend.onrender.com/api/v1.
 
 ![Tag v1.0.0 del Website](../assets/img/chapter5/sprint2/github/release-landing-v1.0.0.png)
