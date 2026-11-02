@@ -1127,6 +1127,7 @@ Veeva Systems. (2024). <em>Veeva Vault Quality: Modernizing Quality Management</
 <div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
 Vernon, V. (2013). <em>Implementing Domain-Driven Design</em>. Addison-Wesley Professional.
 </div>
+
 # Anexos
 
 ## Anexo A. Videos de exposiciones

@@ -8,7 +8,8 @@ Adapts the report to the PDF without changing the Markdown sources.
   table, and the trailing colons of the labels are removed.
 - Removes the linked "Contenido" list of README.md and inserts the table of
   contents before the first chapter, leaving the cover headings out of it.
-  Page numbers come from report.css.
+  Page numbers come from report.css. It goes down to level 4, where only the
+  numbered titles ("1.2.2.4. Lean UX Canvas") go in, as in README.md.
 ]]
 
 local NBSP = "\194\160"
@@ -148,6 +149,13 @@ local function find_first_chapter(blocks)
   end
 end
 
+-- Level 4 has numbered titles ("5.2.1.1. Sprint Planning 1") and plain
+-- subtitles ("Typography"); only the numbered ones go in the contents.
+local function in_contents(block)
+  return block.t ~= "Header" or block.level < 4
+    or pandoc.utils.stringify(block.content):match("^%d+%.") ~= nil
+end
+
 function Pandoc(doc)
   local blocks = doc.blocks
   local cover_first, cover_last = find_cover(blocks)
@@ -167,9 +175,11 @@ function Pandoc(doc)
     -- out of the table of contents.
     local content = pandoc.Blocks({})
     for i = first_chapter, #blocks do
-      content:insert(blocks[i])
+      if in_contents(blocks[i]) then
+        content:insert(blocks[i])
+      end
     end
-    local toc = pandoc.structure.table_of_contents(content, { toc_depth = 3 })
+    local toc = pandoc.structure.table_of_contents(content, { toc_depth = 4 })
     blocks:insert(first_chapter, pandoc.Div(
       { pandoc.Para({ pandoc.Strong("Contenido") }), toc },
       pandoc.Attr("", { "toc" })
