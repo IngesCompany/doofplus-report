@@ -209,6 +209,15 @@ Para la entrega TB1 (03/09/2026 al 09/10/2026) el equipo elaboró los capítulos
       - [5.2.1.6. Services Documentation Evidence for Sprint Review](docs/chapter5.md#5216-services-documentation-evidence-for-sprint-review)
       - [5.2.1.7. Software Deployment Evidence for Sprint Review](docs/chapter5.md#5217-software-deployment-evidence-for-sprint-review)
       - [5.2.1.8. Team Collaboration Insights during Sprint](docs/chapter5.md#5218-team-collaboration-insights-during-sprint)
+    - [5.2.2. Sprint 2](docs/chapter5.md#522-sprint-2)
+      - [5.2.2.1. Sprint Planning 2](docs/chapter5.md#5221-sprint-planning-2)
+      - [5.2.2.2. Aspect Leaders and Collaborators](docs/chapter5.md#5222-aspect-leaders-and-collaborators)
+      - [5.2.2.3. Sprint Backlog 2](docs/chapter5.md#5223-sprint-backlog-2)
+      - [5.2.2.4. Development Evidence for Sprint Review](docs/chapter5.md#5224-development-evidence-for-sprint-review)
+      - [5.2.2.5. Execution Evidence for Sprint Review](docs/chapter5.md#5225-execution-evidence-for-sprint-review)
+      - [5.2.2.6. Services Documentation Evidence for Sprint Review](docs/chapter5.md#5226-services-documentation-evidence-for-sprint-review)
+      - [5.2.2.7. Software Deployment Evidence for Sprint Review](docs/chapter5.md#5227-software-deployment-evidence-for-sprint-review)
+      - [5.2.2.8. Team Collaboration Insights during Sprint](docs/chapter5.md#5228-team-collaboration-insights-during-sprint)
   - [5.3. Validation Interviews](docs/chapter5.md#53-validation-interviews)
     - [5.3.1. Diseño de Entrevistas](docs/chapter5.md#531-diseño-de-entrevistas)
     - [5.3.2. Registro de Entrevistas](docs/chapter5.md#532-registro-de-entrevistas)
@@ -216,9 +225,12 @@ Para la entrega TB1 (03/09/2026 al 09/10/2026) el equipo elaboró los capítulos
   - [5.4. Video About-the-Product](docs/chapter5.md#54-video-about-the-product)
 - [Conclusiones](docs/chapter5.md#conclusiones)
   - [Conclusiones y recomendaciones](docs/chapter5.md#conclusiones-y-recomendaciones)
+    - [Conclusiones](docs/chapter5.md#conclusiones-1)
+    - [Recomendaciones](docs/chapter5.md#recomendaciones)
   - [Video About-the-Team](docs/chapter5.md#video-about-the-team)
 - [Bibliografía](docs/chapter5.md#bibliografía)
 - [Anexos](docs/chapter5.md#anexos)
+  - [Anexo A. Videos de exposiciones](docs/chapter5.md#anexo-a-videos-de-exposiciones)
 
 
 ---
