@@ -108,10 +108,10 @@ u202624323 &nbsp; &nbsp; Torres Juárez, Alisee Muriel<br>
 ## Project Report Collaboration Insights
 
 **Link de los repositorios de la organización:**
-https://github.com/IngesCompany-7742
+https://github.com/IngesCompany
 
 **Link del repositorio del Informe:**
-https://github.com/IngesCompany-7742/IngesCompany-Project-Report.git
+https://github.com/IngesCompany/doofplus-report.git
 
 ### TB1
 
