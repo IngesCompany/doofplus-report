@@ -10,22 +10,31 @@ pdf-engine: weasyprint
 css:
   - pandoc/report.css
 
+# Docs-as-Code order: front matter (01-09), chapters (10-89), bibliography
+# (99) and annexes.
 input-files:
-  - README.md
-  - docs/chapter1.md
-  - docs/chapter2.md
-  - docs/chapter3.md
-  - docs/chapter4.md
-  - docs/chapter5.md
+  - report/front-matter/01-cover.md
+  - report/front-matter/02-version-history.md
+  - report/front-matter/03-collaboration-insights.md
+  - report/front-matter/04-student-outcome.md
+  - report/11-introduction.md
+  - report/12-requirements-elicitation-and-analysis.md
+  - report/13-requirements-specification.md
+  - report/14-product-design.md
+  - report/15-product-implementation-validation-and-deployment.md
+  - report/16-conclusions.md
+  - report/99-bibliography.md
+  - report/annexes/annex-a-exposition-videos.md
 
 output-file: build/upc-pre-202620-1asi0729-7742-IngesCompany-report.pdf
 
-# README.md uses assets/... and the chapters use ../assets/...
+# The chapters use assets/..., the front matter and the annexes ../assets/...
 resource-path:
-  - .
-  - docs
+  - report
+  - report/front-matter
+  - report/annexes
 
-# Marks the README cover and inserts the table of contents.
+# Marks the cover and inserts the table of contents.
 filters:
   - pandoc/report.lua
 

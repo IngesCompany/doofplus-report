@@ -1,14 +1,18 @@
 --[[
 Adapts the report to the PDF without changing the Markdown sources.
 
-- Rebuilds the HTML cover of README.md (<div align="center"> ... </div>) as
-  a "cover" section: one element per line, in the order of the course's
-  template, so report.css can place each line at the template's position.
+- Rebuilds the HTML cover of report/front-matter/01-cover.md
+  (<div align="center"> ... </div>) as a "cover" section: one element per
+  line, in the order of the course's template, so report.css can place each
+  line at the template's position.
   The member list (aligned with &nbsp; on GitHub) becomes a two-column
   table, and the trailing colons of the labels are removed.
-- Removes the linked "Contenido" list of README.md and inserts the table of
-  contents before the first chapter, leaving the cover headings out of it.
-  Page numbers come from report.css.
+- Inserts the table of contents before the first chapter, leaving the cover
+  headings out of it. The linked "Contenido" list for GitHub lives in the
+  root README.md, which is not part of the PDF.
+  Page numbers come from report.css. It goes down to level 4, where only the
+  numbered titles ("1.2.2.4. Lean UX Canvas") go in, as in the "Contenido"
+  list of README.md.
 ]]
 
 local NBSP = "\194\160"
@@ -122,30 +126,19 @@ local function build_cover(blocks)
     '<div class="cover">' .. table.concat(html) .. "</div>")
 end
 
--- README.md links each section for GitHub ("## Contenido" + list). The PDF
--- has its own table of contents with page numbers, so that list is removed.
-local function remove_readme_contents(blocks)
-  for i, block in ipairs(blocks) do
-    if block.t == "Header" and block.level == 2
-        and pandoc.utils.stringify(block.content) == "Contenido" then
-      if blocks[i + 1] and blocks[i + 1].t == "BulletList" then
-        blocks:remove(i + 1)
-      end
-      blocks:remove(i)
-      if blocks[i - 1] and blocks[i - 1].t == "HorizontalRule" then
-        blocks:remove(i - 1)
-      end
-      return
-    end
-  end
-end
-
 local function find_first_chapter(blocks)
   for i, block in ipairs(blocks) do
     if block.t == "Header" and block.level == 1 then
       return i
     end
   end
+end
+
+-- Level 4 has numbered titles ("5.2.1.1. Sprint Planning 1") and plain
+-- subtitles ("Typography"); only the numbered ones go in the contents.
+local function in_contents(block)
+  return block.t ~= "Header" or block.level < 4
+    or pandoc.utils.stringify(block.content):match("^%d+%.") ~= nil
 end
 
 function Pandoc(doc)
@@ -159,15 +152,17 @@ function Pandoc(doc)
     blocks:insert(cover_first, build_cover(cover_blocks))
   end
 
-  remove_readme_contents(blocks)
-
   local first_chapter = find_first_chapter(blocks)
   if first_chapter then
+    -- The front matter (version register and collaboration insights) stays
+    -- out of the table of contents.
     local content = pandoc.Blocks({})
-    for i = (cover_first or 0) + 1, #blocks do
-      content:insert(blocks[i])
+    for i = first_chapter, #blocks do
+      if in_contents(blocks[i]) then
+        content:insert(blocks[i])
+      end
     end
-    local toc = pandoc.structure.table_of_contents(content, { toc_depth = 3 })
+    local toc = pandoc.structure.table_of_contents(content, { toc_depth = 4 })
     blocks:insert(first_chapter, pandoc.Div(
       { pandoc.Para({ pandoc.Strong("Contenido") }), toc },
       pandoc.Attr("", { "toc" })
