@@ -789,6 +789,8 @@ En este Sprint se completó el Website, publicada en GitHub Pages, y se implemen
 
 *Figura: Términos de Servicio (US47).*
 
+La sección 5 de los Términos de Servicio, «Compromiso profesional y ético», declara que IngesCompany desarrolla DoofPlus siguiendo el Código de Ética de Ingeniería de Software de ACM/IEEE (ACM/IEEE-CS Joint Task Force on Software Engineering Ethics and Professional Practices, 1999) y el Código de Ética del Colegio de Ingenieros del Perú (Colegio de Ingenieros del Perú, s. f.): actuar en interés público, ser transparente sobre los límites del producto y reportar cualquier incidente que afecte los datos de los clientes. La página está enlazada desde el footer del Website, en español e inglés.
+
 ![Vista mobile](assets/img/chapter5/sprint2/landing/15-mobile-home.png)
 
 *Figura: Vista mobile.*
