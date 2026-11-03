@@ -60,5 +60,9 @@
 | 2.6.9 | 01/11/2026 | Rojas Ambicho, Nestor Daniel | Actualización de los enlaces de la organización y del repositorio del informe, de los nombres de los repositorios y del URL del Website. |
 | 2.6.10 | 02/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulos III y IV: la consulta de contacto (US04) pasa del Website a la Web Application; tabla de contenido con 4 niveles numerados en la exportación a PDF con Pandoc. |
 | 2.7.0 | 03/11/2026 | Cobades Zamora, Yhoshua Hebert | Reestructuración Docs-as-Code: el informe pasa a archivos numerados en `report/` (front matter 01-09, capítulos 10-89, bibliografía 99, anexos y assets), con el `README.md` como archivo principal e índice enlazado. |
+| 2.7.1 | 03/11/2026 | Cobades Zamora, Yhoshua Hebert | Bibliografía: se agregaron las referencias APA de las fuentes citadas en el Capítulo I (Agencia Andina, Gestión, Minero & Kuger, Salud con Lupa y los informes técnicos de la OMS de 2014 y 2016). |
+| 2.7.2 | 03/11/2026 | Cobades Zamora, Yhoshua Hebert | Student Outcome: párrafo introductorio idéntico al Anexo A del enunciado e incorporación de Torres Juárez, Alisee Muriel. |
+| 2.7.3 | 03/11/2026 | Cobades Zamora, Yhoshua Hebert | Project Report Collaboration Insights: descripción del trabajo del informe posterior a TB1. |
+| 2.7.4 | 03/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: compromiso ético de los Términos de Servicio según los códigos de ética de ACM/IEEE y del CIP. |
 
 ---
