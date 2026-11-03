@@ -14,7 +14,7 @@ Para asegurar una interfaz coherente y alineada con los estándares que exige la
 El logotipo escogido para DoofPlus comunica de forma directa y sintética la propuesta de valor del sistema: la integración de la automatización industrial con la rigurosidad del control farmacéutico. Para la sección de Branding, el análisis de los componentes de dicho logotipo se desglosa de la siguiente manera:
 
 <p align="center">
-  <img src="../assets/img/chapter4/doofplus-logo.png" alt="DoofPlus Logo" width="350px" />
+  <img src="assets/img/chapter4/doofplus-logo.png" alt="DoofPlus Logo" width="350px" />
 </p>
 
 - **Maquinaria y cinta transportadora:** la silueta industrial con cápsulas en la cinta representa el núcleo operativo de la plataforma: la manufactura y la conexión IoT en la línea de producción.
@@ -25,12 +25,12 @@ Para su uso en las interfaces se definieron dos versiones horizontales del logot
 
 | Versión a color (fondos claros) | Versión blanca (fondos oscuros) |
 | :---: | :---: |
-| <img src="../assets/img/chapter4/brand/doofplus-logo-horizontal-color.png" width="300"> | <img src="../assets/img/chapter4/brand/doofplus-logo-horizontal-white.png" width="300" style="background:#0F172A"> |
+| <img src="assets/img/chapter4/brand/doofplus-logo-horizontal-color.png" width="300"> | <img src="assets/img/chapter4/brand/doofplus-logo-horizontal-white.png" width="300" style="background:#0F172A"> |
 
 #### Typography
 La tipografía de DoofPlus es Inter, una fuente sans-serif moderna y legible con pesos de Thin a Black y sus versiones itálicas. Su diseño garantiza una lectura clara de datos numéricos críticos, tablas de lotes y gráficos de telemetría tanto en monitores como en dispositivos móviles. La jerarquía tipográfica es la siguiente:
 
-![Typography](../assets/img/chapter4/typography-guide.png)
+![Typography](assets/img/chapter4/typography-guide.png)
 
 | **Elemento** | **Tamaño (desktop)** | **Peso** | **Uso** |
 | --- | --- | --- | --- |
@@ -61,7 +61,7 @@ La paleta de colores de DoofPlus está diseñada para evocar pulcritud clínica,
 | --production-color | #1E40AF | Entorno | Identifica el entorno de Producción |
 | --admin-color | #334155 | Entorno | Identifica el entorno de Administración |
 
-![paleta-colores](../assets/img/chapter4/color-palette.png)
+![paleta-colores](assets/img/chapter4/color-palette.png)
 
 #### Spacing
 
@@ -207,71 +207,71 @@ Los wireframes son de baja fidelidad: los textos se representan con barras, las 
 
 **Navigation y Home:** barra superior fija con el logotipo, los enlaces a las secciones, "Sign in" y "Get Started". Debajo, el título de la propuesta de valor, un párrafo breve, los dos botones y una imagen del producto a la derecha.
 
-![Landing Page Wireframe · Home](../assets/img/chapter4/landing-page/wireframes/desktop/01-home.png)
+![Landing Page Wireframe · Home](assets/img/chapter4/landing-page/wireframes/desktop/01-home.png)
 
 **Get Started:** dos tarjetas, una por segmento (QA/QC y Production), cada una con su descripción y su botón de acceso; debajo, el enlace para registrar un laboratorio nuevo.
 
-![Landing Page Wireframe · Get Started](../assets/img/chapter4/landing-page/wireframes/desktop/02-get-started.png)
+![Landing Page Wireframe · Get Started](assets/img/chapter4/landing-page/wireframes/desktop/02-get-started.png)
 
 **Services:** cuatro tarjetas en una fila, cada una con ícono, título y descripción.
 
-![Landing Page Wireframe · Services](../assets/img/chapter4/landing-page/wireframes/desktop/03-services.png)
+![Landing Page Wireframe · Services](assets/img/chapter4/landing-page/wireframes/desktop/03-services.png)
 
 **Features:** imagen a la izquierda y acordeón a la derecha; solo un elemento permanece abierto a la vez.
 
-![Landing Page Wireframe · Features](../assets/img/chapter4/landing-page/wireframes/desktop/04-features.png)
+![Landing Page Wireframe · Features](assets/img/chapter4/landing-page/wireframes/desktop/04-features.png)
 
 **About the product (video):** título, descripción y un reproductor de video centrado.
 
-![Landing Page Wireframe · Video](../assets/img/chapter4/landing-page/wireframes/desktop/05-about-the-product-video.png)
+![Landing Page Wireframe · Video](assets/img/chapter4/landing-page/wireframes/desktop/05-about-the-product-video.png)
 
 **Benefits:** cuatro tarjetas con una cifra destacada y su explicación.
 
-![Landing Page Wireframe · Benefits](../assets/img/chapter4/landing-page/wireframes/desktop/06-benefits.png)
+![Landing Page Wireframe · Benefits](assets/img/chapter4/landing-page/wireframes/desktop/06-benefits.png)
 
 **Plans:** selector mensual/anual y dos tarjetas de plan con precio, lista de características y botón de suscripción.
 
-![Landing Page Wireframe · Plans](../assets/img/chapter4/landing-page/wireframes/desktop/07-plans.png)
+![Landing Page Wireframe · Plans](assets/img/chapter4/landing-page/wireframes/desktop/07-plans.png)
 
 **Testimonials:** tres tarjetas con cita, nombre y cargo.
 
-![Landing Page Wireframe · Testimonials](../assets/img/chapter4/landing-page/wireframes/desktop/08-testimonials.png)
+![Landing Page Wireframe · Testimonials](assets/img/chapter4/landing-page/wireframes/desktop/08-testimonials.png)
 
 **FAQ:** lista de preguntas en acordeón.
 
-![Landing Page Wireframe · FAQ](../assets/img/chapter4/landing-page/wireframes/desktop/09-faq.png)
+![Landing Page Wireframe · FAQ](assets/img/chapter4/landing-page/wireframes/desktop/09-faq.png)
 
 **About Us:** texto de misión y visión junto a una imagen.
 
-![Landing Page Wireframe · About Us](../assets/img/chapter4/landing-page/wireframes/desktop/11-about-us.png)
+![Landing Page Wireframe · About Us](assets/img/chapter4/landing-page/wireframes/desktop/11-about-us.png)
 
 **Our Team:** cuadrícula de tarjetas con foto, nombre y rol, y debajo el reproductor del Video About-the-Team con su descripción y capítulos.
 
-![Landing Page Wireframe · Our Team](../assets/img/chapter4/landing-page/wireframes/desktop/12-our-team.png)
+![Landing Page Wireframe · Our Team](assets/img/chapter4/landing-page/wireframes/desktop/12-our-team.png)
 
 **Footer:** logotipo, columnas de enlaces (producto, empresa y legal), datos de contacto, derechos de autor y selector de idioma.
 
-![Landing Page Wireframe · Footer](../assets/img/chapter4/landing-page/wireframes/desktop/13-footer.png)
+![Landing Page Wireframe · Footer](assets/img/chapter4/landing-page/wireframes/desktop/13-footer.png)
 
 **Páginas secundarias (Desktop):** el footer enlaza "Terms of Service" y "Privacy Policy". El formulario "Contact us" ya no forma parte del Website: está en la Web Application (sección 4.4.1).
 
 | Terms of Service | Privacy Policy |
 | :---: | :---: |
-| ![Terms of Service](../assets/img/chapter4/landing-page/wireframes/pages/landing-desktop-terms-of-service.png) | ![Privacy Policy](../assets/img/chapter4/landing-page/wireframes/pages/landing-desktop-privacy-policy.png) |
+| ![Terms of Service](assets/img/chapter4/landing-page/wireframes/pages/landing-desktop-terms-of-service.png) | ![Privacy Policy](assets/img/chapter4/landing-page/wireframes/pages/landing-desktop-privacy-policy.png) |
 
 **Mobile Web Browser (390 px)**
 
 En mobile las mismas secciones se apilan en una sola columna, en el mismo orden; las tarjetas ocupan todo el ancho y la navegación se agrupa en un menú hamburguesa que se abre como overlay.
 
-![Landing Page Wireframe · Mobile (1)](../assets/img/chapter4/landing-page/wireframes/mobile/mobile-montage-1.png)
+![Landing Page Wireframe · Mobile (1)](assets/img/chapter4/landing-page/wireframes/mobile/mobile-montage-1.png)
 
-![Landing Page Wireframe · Mobile (2)](../assets/img/chapter4/landing-page/wireframes/mobile/mobile-montage-2.png)
+![Landing Page Wireframe · Mobile (2)](assets/img/chapter4/landing-page/wireframes/mobile/mobile-montage-2.png)
 
-![Landing Page Wireframe · Mobile (3)](../assets/img/chapter4/landing-page/wireframes/mobile/mobile-montage-3.png)
+![Landing Page Wireframe · Mobile (3)](assets/img/chapter4/landing-page/wireframes/mobile/mobile-montage-3.png)
 
 | Menu open |
 | :---: |
-| ![Menu open](../assets/img/chapter4/landing-page/wireframes/pages/landing-mobile-menu-open.png) |
+| ![Menu open](assets/img/chapter4/landing-page/wireframes/pages/landing-mobile-menu-open.png) |
 
 ### 4.3.2. Landing Page Mock-up
 
@@ -281,71 +281,71 @@ Los mock-ups aplican sobre los wireframes el Design System de la sección 4.1 y 
 
 **Navigation y Home:** la barra blanca muestra el logotipo a color, los enlaces Home, Features, Benefits, Plans y About Us, el selector de idioma, "Sign in" y el botón "Get Started". El hero presenta el título "The future of pharmaceutical quality management", una descripción breve, el botón "Get Started" (desplaza a la sección del mismo nombre) y "View plans" (desplaza a Plans).
 
-![Landing Page Mock-up · Home](../assets/img/chapter4/landing-page/mockups/desktop/01-home.png)
+![Landing Page Mock-up · Home](assets/img/chapter4/landing-page/mockups/desktop/01-home.png)
 
 **Get Started:** cada segmento tiene su tarjeta: "QA/QC Specialist" lleva al inicio de sesión del entorno QA/QC y "Production Supervisor" al del entorno de Producción. Los laboratorios que aún no usan DoofPlus encuentran el enlace "Register your laboratory", que abre el registro de la organización.
 
-![Landing Page Mock-up · Get Started](../assets/img/chapter4/landing-page/mockups/desktop/02-get-started.png)
+![Landing Page Mock-up · Get Started](assets/img/chapter4/landing-page/mockups/desktop/02-get-started.png)
 
 **Services:** "Real-time IoT monitoring", "Automated GMP compliance", "Immutable traceability" y "Digital batch management", cada uno con su ícono Material Symbols y una descripción breve.
 
-![Landing Page Mock-up · Services](../assets/img/chapter4/landing-page/mockups/desktop/03-services.png)
+![Landing Page Mock-up · Services](assets/img/chapter4/landing-page/mockups/desktop/03-services.png)
 
 **Features:** el acordeón presenta la integración de telemetría IoT, el motor de cumplimiento GMP, las alertas de desviación y el panel de indicadores; cada elemento se expande para mostrar su descripción.
 
-![Landing Page Mock-up · Features](../assets/img/chapter4/landing-page/mockups/desktop/04-features.png)
+![Landing Page Mock-up · Features](assets/img/chapter4/landing-page/mockups/desktop/04-features.png)
 
 **About the product (video):** el video promocional explica en pocos minutos cómo DoofPlus acompaña un lote desde la orden de producción hasta su liberación.
 
-![Landing Page Mock-up · Video](../assets/img/chapter4/landing-page/mockups/desktop/05-about-the-product-video.png)
+![Landing Page Mock-up · Video](assets/img/chapter4/landing-page/mockups/desktop/05-about-the-product-video.png)
 
 **Benefits:** cuatro tarjetas comunican los beneficios: menos tiempo de preparación de auditorías, registros sin transcripción manual, detección inmediata de desviaciones e infraestructura SaaS sin servidores propios.
 
-![Landing Page Mock-up · Benefits](../assets/img/chapter4/landing-page/mockups/desktop/06-benefits.png)
+![Landing Page Mock-up · Benefits](assets/img/chapter4/landing-page/mockups/desktop/06-benefits.png)
 
 **Plans:** se comparan Standard Lab (US$199 al mes; hasta 5 dispositivos IoT y 10 usuarios) y Enterprise (US$599 al mes; dispositivos y usuarios ilimitados, multi-sede). El selector "Monthly / Annual" muestra la modalidad anual (US$1,990 y US$5,990), equivalente a dos meses gratis. El botón de cada plan lleva al registro de la organización con el plan preseleccionado.
 
-![Landing Page Mock-up · Plans](../assets/img/chapter4/landing-page/mockups/desktop/07-plans.png)
+![Landing Page Mock-up · Plans](assets/img/chapter4/landing-page/mockups/desktop/07-plans.png)
 
 **Testimonials:** tres opiniones de profesionales de laboratorios farmacéuticos con su nombre y cargo.
 
-![Landing Page Mock-up · Testimonials](../assets/img/chapter4/landing-page/mockups/desktop/08-testimonials.png)
+![Landing Page Mock-up · Testimonials](assets/img/chapter4/landing-page/mockups/desktop/08-testimonials.png)
 
 **FAQ:** preguntas sobre cumplimiento normativo, integración IoT, planes y seguridad de los datos, en un acordeón.
 
-![Landing Page Mock-up · FAQ](../assets/img/chapter4/landing-page/mockups/desktop/09-faq.png)
+![Landing Page Mock-up · FAQ](assets/img/chapter4/landing-page/mockups/desktop/09-faq.png)
 
 **About Us:** presenta a IngesCompany, la startup detrás de DoofPlus, con su misión y su visión.
 
-![Landing Page Mock-up · About Us](../assets/img/chapter4/landing-page/mockups/desktop/11-about-us.png)
+![Landing Page Mock-up · About Us](assets/img/chapter4/landing-page/mockups/desktop/11-about-us.png)
 
 **Our Team:** presenta a los integrantes de IngesCompany: Marcelo Angulo, Yhoshua Cobades, Ricardo Flores, Nestor Rojas y Rodolfo Zavaleta, con su foto, nombre y rol. Debajo se incrusta el Video About-the-Team, que resume el proceso de trabajo del equipo, la retrospectiva y el testimonio de cada integrante, con un enlace alternativo a YouTube.
 
-![Landing Page Mock-up · Our Team](../assets/img/chapter4/landing-page/mockups/desktop/12-our-team.png)
+![Landing Page Mock-up · Our Team](assets/img/chapter4/landing-page/mockups/desktop/12-our-team.png)
 
 **Footer:** fondo azul pizarra con el logotipo blanco, los enlaces de producto y de empresa, los datos de contacto (doofplus.inges@gmail.com, +51 (1) 234-5678, Lima, Perú), los enlaces "Terms of Service" y "Privacy Policy", el copyright de IngesCompany y el selector de idioma.
 
-![Landing Page Mock-up · Footer](../assets/img/chapter4/landing-page/mockups/desktop/13-footer.png)
+![Landing Page Mock-up · Footer](assets/img/chapter4/landing-page/mockups/desktop/13-footer.png)
 
 **Páginas secundarias (Desktop):** "Terms of Service" y "Privacy Policy" presentan las condiciones de uso y el tratamiento de datos personales (US47).
 
 | Terms of Service | Privacy Policy |
 | :---: | :---: |
-| ![Terms of Service](../assets/img/chapter4/landing-page/mockups/pages/landing-desktop-terms-of-service.png) | ![Privacy Policy](../assets/img/chapter4/landing-page/mockups/pages/landing-desktop-privacy-policy.png) |
+| ![Terms of Service](assets/img/chapter4/landing-page/mockups/pages/landing-desktop-terms-of-service.png) | ![Privacy Policy](assets/img/chapter4/landing-page/mockups/pages/landing-desktop-privacy-policy.png) |
 
 **Mobile Web Browser (390 px)**
 
 La versión mobile mantiene el orden y el contenido de desktop en una sola columna. El menú hamburguesa abre un overlay con los enlaces de navegación, "Sign in", "Get Started" y el selector de idioma.
 
-![Landing Page Mock-up · Mobile (1)](../assets/img/chapter4/landing-page/mockups/mobile/mobile-montage-1.png)
+![Landing Page Mock-up · Mobile (1)](assets/img/chapter4/landing-page/mockups/mobile/mobile-montage-1.png)
 
-![Landing Page Mock-up · Mobile (2)](../assets/img/chapter4/landing-page/mockups/mobile/mobile-montage-2.png)
+![Landing Page Mock-up · Mobile (2)](assets/img/chapter4/landing-page/mockups/mobile/mobile-montage-2.png)
 
-![Landing Page Mock-up · Mobile (3)](../assets/img/chapter4/landing-page/mockups/mobile/mobile-montage-3.png)
+![Landing Page Mock-up · Mobile (3)](assets/img/chapter4/landing-page/mockups/mobile/mobile-montage-3.png)
 
 | Menu open |
 | :---: |
-| ![Menu open](../assets/img/chapter4/landing-page/mockups/pages/landing-mobile-menu-open.png) |
+| ![Menu open](assets/img/chapter4/landing-page/mockups/pages/landing-mobile-menu-open.png) |
 
 ## 4.4. Web Applications UX/UI Design
 
@@ -361,57 +361,57 @@ Los wireframes de baja fidelidad definen la distribución de cada pantalla antes
 
 Incluye "Sign in · Choose your environment", "Organization registration" con su estado "RUC already registered" y "Account · Profile & preferences". El formulario "Contact us" se ubica en la misma zona pública que el inicio de sesión, con sus estados "Invalid data" e "Inquiry received".
 
-![Web App Wireframes · Desktop · Shared](../assets/img/chapter4/web-application/wireframes/desktop-shared-environment-selection-onboarding-profile-montage-1.png)
+![Web App Wireframes · Desktop · Shared](assets/img/chapter4/web-application/wireframes/desktop-shared-environment-selection-onboarding-profile-montage-1.png)
 
 **Desktop Web Browser · Segmento 1: Especialista QA/QC**
 
 Incluye el inicio de sesión del entorno QA/QC con sus estados (credenciales inválidas, 2FA y acceso no autorizado) y los módulos Quality overview, Quality indicators, Quality documents, Analytical results, Deviation report & detail, CAPA plan, Batch release, Audits & findings, Audit trail, Regulatory reports y Tasks & collaboration.
 
-![Web App Wireframes · Desktop · QA/QC (1)](../assets/img/chapter4/web-application/wireframes/desktop-segment-1-qa-qc-specialist-montage-1.png)
+![Web App Wireframes · Desktop · QA/QC (1)](assets/img/chapter4/web-application/wireframes/desktop-segment-1-qa-qc-specialist-montage-1.png)
 
-![Web App Wireframes · Desktop · QA/QC (2)](../assets/img/chapter4/web-application/wireframes/desktop-segment-1-qa-qc-specialist-montage-2.png)
+![Web App Wireframes · Desktop · QA/QC (2)](assets/img/chapter4/web-application/wireframes/desktop-segment-1-qa-qc-specialist-montage-2.png)
 
-![Web App Wireframes · Desktop · QA/QC (3)](../assets/img/chapter4/web-application/wireframes/desktop-segment-1-qa-qc-specialist-montage-3.png)
+![Web App Wireframes · Desktop · QA/QC (3)](assets/img/chapter4/web-application/wireframes/desktop-segment-1-qa-qc-specialist-montage-3.png)
 
-![Web App Wireframes · Desktop · QA/QC (4)](../assets/img/chapter4/web-application/wireframes/desktop-segment-1-qa-qc-specialist-montage-4.png)
+![Web App Wireframes · Desktop · QA/QC (4)](assets/img/chapter4/web-application/wireframes/desktop-segment-1-qa-qc-specialist-montage-4.png)
 
-![Web App Wireframes · Desktop · QA/QC (5)](../assets/img/chapter4/web-application/wireframes/desktop-segment-1-qa-qc-specialist-montage-5.png)
+![Web App Wireframes · Desktop · QA/QC (5)](assets/img/chapter4/web-application/wireframes/desktop-segment-1-qa-qc-specialist-montage-5.png)
 
 **Desktop Web Browser · Segmento 2: Jefe o Supervisor de Producción**
 
 Incluye el inicio de sesión del entorno de Producción con sus estados y los módulos Production overview, Products & master formulas, Production order & master formula, Batches (y su estado "Batch not created"), Batch detail & traceability, Batch IoT evidence, Raw-material receipt, Equipment & IoT devices, IoT overview y Equipment & sensor detail.
 
-![Web App Wireframes · Desktop · Production (1)](../assets/img/chapter4/web-application/wireframes/desktop-segment-2-production-supervisor-montage-1.png)
+![Web App Wireframes · Desktop · Production (1)](assets/img/chapter4/web-application/wireframes/desktop-segment-2-production-supervisor-montage-1.png)
 
-![Web App Wireframes · Desktop · Production (2)](../assets/img/chapter4/web-application/wireframes/desktop-segment-2-production-supervisor-montage-2.png)
+![Web App Wireframes · Desktop · Production (2)](assets/img/chapter4/web-application/wireframes/desktop-segment-2-production-supervisor-montage-2.png)
 
-![Web App Wireframes · Desktop · Production (3)](../assets/img/chapter4/web-application/wireframes/desktop-segment-2-production-supervisor-montage-3.png)
+![Web App Wireframes · Desktop · Production (3)](assets/img/chapter4/web-application/wireframes/desktop-segment-2-production-supervisor-montage-3.png)
 
-![Web App Wireframes · Desktop · Production (4)](../assets/img/chapter4/web-application/wireframes/desktop-segment-2-production-supervisor-montage-4.png)
+![Web App Wireframes · Desktop · Production (4)](assets/img/chapter4/web-application/wireframes/desktop-segment-2-production-supervisor-montage-4.png)
 
 **Desktop Web Browser · Administrador del laboratorio**
 
 Incluye el inicio de sesión del entorno de Administración y los módulos Administration overview, Users & profiles, Invite user y Subscriptions & payments.
 
-![Web App Wireframes · Desktop · Administration (1)](../assets/img/chapter4/web-application/wireframes/desktop-laboratory-administrator-montage-1.png)
+![Web App Wireframes · Desktop · Administration (1)](assets/img/chapter4/web-application/wireframes/desktop-laboratory-administrator-montage-1.png)
 
-![Web App Wireframes · Desktop · Administration (2)](../assets/img/chapter4/web-application/wireframes/desktop-laboratory-administrator-montage-2.png)
+![Web App Wireframes · Desktop · Administration (2)](assets/img/chapter4/web-application/wireframes/desktop-laboratory-administrator-montage-2.png)
 
 **Mobile Web Browser**
 
 En mobile se priorizan las tareas que se realizan fuera del escritorio: la elección de entorno y el inicio de sesión, la bandeja de tareas, la revisión y firma de aprobaciones y la consulta de lotes para QA/QC, y el monitoreo IoT, la consulta de lotes y el reporte de incidencias desde planta para Producción.
 
-![Web App Wireframes · Mobile · Shared](../assets/img/chapter4/web-application/wireframes/mobile-shared-environment-selection-montage-1.png)
+![Web App Wireframes · Mobile · Shared](assets/img/chapter4/web-application/wireframes/mobile-shared-environment-selection-montage-1.png)
 
-![Web App Wireframes · Mobile · QA/QC (1)](../assets/img/chapter4/web-application/wireframes/mobile-segment-1-qa-qc-specialist-montage-1.png)
+![Web App Wireframes · Mobile · QA/QC (1)](assets/img/chapter4/web-application/wireframes/mobile-segment-1-qa-qc-specialist-montage-1.png)
 
-![Web App Wireframes · Mobile · QA/QC (2)](../assets/img/chapter4/web-application/wireframes/mobile-segment-1-qa-qc-specialist-montage-2.png)
+![Web App Wireframes · Mobile · QA/QC (2)](assets/img/chapter4/web-application/wireframes/mobile-segment-1-qa-qc-specialist-montage-2.png)
 
-![Web App Wireframes · Mobile · Production (1)](../assets/img/chapter4/web-application/wireframes/mobile-segment-2-production-supervisor-montage-1.png)
+![Web App Wireframes · Mobile · Production (1)](assets/img/chapter4/web-application/wireframes/mobile-segment-2-production-supervisor-montage-1.png)
 
-![Web App Wireframes · Mobile · Production (2)](../assets/img/chapter4/web-application/wireframes/mobile-segment-2-production-supervisor-montage-2.png)
+![Web App Wireframes · Mobile · Production (2)](assets/img/chapter4/web-application/wireframes/mobile-segment-2-production-supervisor-montage-2.png)
 
-![Web App Wireframes · Mobile · Administration](../assets/img/chapter4/web-application/wireframes/mobile-laboratory-administrator-montage-1.png)
+![Web App Wireframes · Mobile · Administration](assets/img/chapter4/web-application/wireframes/mobile-laboratory-administrator-montage-1.png)
 
 ### 4.4.2. Web Applications Wireflow Diagrams
 
@@ -425,7 +425,7 @@ Como especialista QA/QC, quiero ingresar con mis credenciales y confirmar mi ide
 
 Flujo: Home → Choose your environment → Sign in · QA/QC → Two-factor authentication → Quality overview.
 
-![Wireflow QA-1](../assets/img/chapter4/web-application/wireflows/wireflow-qa-1.png)
+![Wireflow QA-1](assets/img/chapter4/web-application/wireflows/wireflow-qa-1.png)
 
 **User Goal QA-2:** Gestionar la documentación de calidad y sus protocolos (US09, US10, US12, US13, US42).
 
@@ -433,7 +433,7 @@ Como especialista QA/QC, quiero enviar a aprobación la nueva revisión de un do
 
 Flujo: Quality overview → Quality documents → Tasks & collaboration.
 
-![Wireflow QA-2](../assets/img/chapter4/web-application/wireflows/wireflow-qa-2.png)
+![Wireflow QA-2](assets/img/chapter4/web-application/wireflows/wireflow-qa-2.png)
 
 **User Goal QA-3:** Registrar una desviación y gestionar su CAPA (US18, US19, US20, US21).
 
@@ -441,7 +441,7 @@ Como especialista QA/QC, quiero documentar la causa raíz de una desviación y c
 
 Flujo: Quality overview → Deviation report & detail → CAPA plan.
 
-![Wireflow QA-3](../assets/img/chapter4/web-application/wireflows/wireflow-qa-3.png)
+![Wireflow QA-3](assets/img/chapter4/web-application/wireflows/wireflow-qa-3.png)
 
 **User Goal QA-4:** Planificar una auditoría y reunir sus evidencias (US27, US28, US29, US59).
 
@@ -449,7 +449,7 @@ Como especialista QA/QC, quiero planificar una auditoría y generar su paquete d
 
 Flujo: Audits & findings → Audit trail → Regulatory reports.
 
-![Wireflow QA-4](../assets/img/chapter4/web-application/wireflows/wireflow-qa-4.png)
+![Wireflow QA-4](assets/img/chapter4/web-application/wireflows/wireflow-qa-4.png)
 
 **User Goal QA-5:** Registrar y validar resultados analíticos (US11).
 
@@ -457,7 +457,7 @@ Como especialista QA/QC, quiero registrar las variables de un ensayo y que el si
 
 Flujo: Quality overview → Analytical results → Batch release.
 
-![Wireflow QA-5](../assets/img/chapter4/web-application/wireflows/wireflow-qa-5.png)
+![Wireflow QA-5](assets/img/chapter4/web-application/wireflows/wireflow-qa-5.png)
 
 **User Goal QA-6:** Revisar la trazabilidad completa de un lote y liberarlo (US27, US54).
 
@@ -465,7 +465,7 @@ Como especialista QA/QC, quiero revisar todos los eventos atribuidos de un lote 
 
 Flujo: Quality overview → Audit trail → Batch release.
 
-![Wireflow QA-6](../assets/img/chapter4/web-application/wireflows/wireflow-qa-6.png)
+![Wireflow QA-6](assets/img/chapter4/web-application/wireflows/wireflow-qa-6.png)
 
 #### Segmento 2 – Jefe o Supervisor de Producción Farmacéutica
 
@@ -475,7 +475,7 @@ Como jefe de producción, quiero ingresar con mis credenciales y confirmar mi id
 
 Flujo: Home → Choose your environment → Sign in · Production → Two-factor authentication → Production overview.
 
-![Wireflow PR-1](../assets/img/chapter4/web-application/wireflows/wireflow-pr-1.png)
+![Wireflow PR-1](assets/img/chapter4/web-application/wireflows/wireflow-pr-1.png)
 
 **User Goal PR-2:** Gestionar la ejecución de un lote y consultar su historial (US35, US36, US57, US14, US15, US16).
 
@@ -483,7 +483,7 @@ Como jefe de producción, quiero emitir la orden de producción de un producto c
 
 Flujo: Products & master formulas → Production order & master formula → Batches → Batch detail & traceability.
 
-![Wireflow PR-2](../assets/img/chapter4/web-application/wireflows/wireflow-pr-2.png)
+![Wireflow PR-2](assets/img/chapter4/web-application/wireflows/wireflow-pr-2.png)
 
 **User Goal PR-3:** Monitorear equipos y condiciones ambientales (US23, US24, US25, US26, US37).
 
@@ -491,7 +491,7 @@ Como jefe de producción, quiero seguir una alerta IoT hasta el equipo y la evid
 
 Flujo: IoT overview → Equipment & sensor detail → Batch IoT evidence.
 
-![Wireflow PR-3](../assets/img/chapter4/web-application/wireflows/wireflow-pr-3.png)
+![Wireflow PR-3](assets/img/chapter4/web-application/wireflows/wireflow-pr-3.png)
 
 **User Goal PR-4:** Reportar una incidencia de producción desde planta (US56, US22).
 
@@ -499,7 +499,7 @@ Como jefe de producción, quiero reportar una incidencia desde mi celular cuando
 
 Flujo (Mobile): Alert details → Incident reporting → Incident submitted.
 
-![Wireflow PR-4](../assets/img/chapter4/web-application/wireflows/wireflow-pr-4.png)
+![Wireflow PR-4](assets/img/chapter4/web-application/wireflows/wireflow-pr-4.png)
 
 **User Goal PR-5:** Trazar un lote para investigar un evento (US15, US17, US58).
 
@@ -507,7 +507,7 @@ Como jefe de producción, quiero revisar la genealogía de un lote y la recepci�
 
 Flujo: Batches → Batch detail & traceability → Raw-material receipt.
 
-![Wireflow PR-5](../assets/img/chapter4/web-application/wireflows/wireflow-pr-5.png)
+![Wireflow PR-5](assets/img/chapter4/web-application/wireflows/wireflow-pr-5.png)
 
 **User Goal PR-6:** Revisar reportes e indicadores de producción (US32, US33).
 
@@ -515,7 +515,7 @@ Como jefe de producción, quiero revisar los indicadores de producción y el his
 
 Flujo: Production overview → Batches → Batch detail & traceability.
 
-![Wireflow PR-6](../assets/img/chapter4/web-application/wireflows/wireflow-pr-6.png)
+![Wireflow PR-6](assets/img/chapter4/web-application/wireflows/wireflow-pr-6.png)
 
 #### Visitante del Website
 
@@ -533,7 +533,7 @@ Los mock-ups aplican el Design System de la sección 4.1 sobre los wireframes y 
 
 **Sign in · Choose your environment:** se abre desde "Sign in" en el Website. Presenta tres tarjetas, QA/QC, Production y Administration, cada una con su color, ícono y descripción; al elegir una se abre el inicio de sesión de ese entorno. Incluye el enlace "Register your laboratory" y "See plans" para quienes aún no tienen cuenta, y "Contact us" para quienes tienen preguntas; la barra superior también muestra "Contact us" (en mobile, solo su ícono).
 
-![Mock-up · Choose your environment](../assets/img/chapter4/web-application/mockups/desktop-shared-environment-selection-onboarding-profile/sign-in-choose-your-environment.png)
+![Mock-up · Choose your environment](assets/img/chapter4/web-application/mockups/desktop-shared-environment-selection-onboarding-profile/sign-in-choose-your-environment.png)
 
 **Contact us:** formulario de consultas del visitante (US04), en la zona pública de la Web Application, junto al inicio de sesión. El panel azul marino presenta los temas de consulta (planes, entornos por rol, cumplimiento DIGEMID y BPM, soporte) y los canales del equipo (correo, teléfono y oficina); el formulario pide nombre, correo de trabajo y consulta. Si el correo no es válido o la consulta está vacía, muestra el error bajo cada campo ("Invalid data"); tras un envío correcto confirma la recepción ("Inquiry received") y permite enviar otra consulta.
 
@@ -541,11 +541,11 @@ Los mock-ups aplican el Design System de la sección 4.1 sobre los wireframes y 
 
 | Organization registration | RUC already registered |
 | :---: | :---: |
-| ![Organization registration](../assets/img/chapter4/web-application/mockups/desktop-shared-environment-selection-onboarding-profile/organization-registration.png) | ![RUC already registered](../assets/img/chapter4/web-application/mockups/desktop-shared-environment-selection-onboarding-profile/organization-registration-ruc-already-registered.png) |
+| ![Organization registration](assets/img/chapter4/web-application/mockups/desktop-shared-environment-selection-onboarding-profile/organization-registration.png) | ![RUC already registered](assets/img/chapter4/web-application/mockups/desktop-shared-environment-selection-onboarding-profile/organization-registration-ruc-already-registered.png) |
 
 **Account · Profile & preferences:** se abre desde el avatar en cualquier entorno. Muestra los datos personales y el área del usuario, sus preferencias de notificación (correo y en la aplicación) y de idioma, y el estado del segundo factor; el rol y el acceso a la planta los asigna el administrador del laboratorio.
 
-![Mock-up · Profile & preferences](../assets/img/chapter4/web-application/mockups/desktop-shared-environment-selection-onboarding-profile/account-profile-preferences.png)
+![Mock-up · Profile & preferences](assets/img/chapter4/web-application/mockups/desktop-shared-environment-selection-onboarding-profile/account-profile-preferences.png)
 
 #### Segmento 1 – Especialista QA/QC
 
@@ -553,61 +553,61 @@ Los mock-ups aplican el Design System de la sección 4.1 sobre los wireframes y 
 
 | Sign in · QA/QC | Invalid credentials |
 | :---: | :---: |
-| ![Sign in QA/QC](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/sign-in-qa-qc.png) | ![Invalid credentials](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/sign-in-qa-qc-invalid-credentials.png) |
+| ![Sign in QA/QC](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/sign-in-qa-qc.png) | ![Invalid credentials](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/sign-in-qa-qc-invalid-credentials.png) |
 
 | Two-factor authentication | Access not authorized |
 | :---: | :---: |
-| ![2FA](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/sign-in-qa-qc-two-factor-authentication.png) | ![Access not authorized](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/sign-in-qa-qc-access-not-authorized.png) |
+| ![2FA](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/sign-in-qa-qc-two-factor-authentication.png) | ![Access not authorized](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/sign-in-qa-qc-access-not-authorized.png) |
 
 **Quality overview:** dashboard de calidad (US31) con los lotes pendientes de liberación, las desviaciones abiertas, los planes CAPA vencidos y las alertas recientes, como la excursión de temperatura del sensor T-204.
 
-![Mock-up · Quality overview](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-quality-overview.png)
+![Mock-up · Quality overview](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-quality-overview.png)
 
 **Quality indicators:** indicadores de trazabilidad y de desviaciones (US33, US34), con los registros obligatorios faltantes por lote.
 
-![Mock-up · Quality indicators](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-quality-indicators.png)
+![Mock-up · Quality indicators](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-quality-indicators.png)
 
 **Quality documents:** repositorio de SOP y protocolos con su versión y estado (Draft, In review, Approved, Obsolete), y el flujo de aprobación (US09, US10, US12, US13). La aprobación corresponde a la Quality Manager (Lucía Paredes); si la autora de la revisión, María México, intenta aprobarla, la aprobación se bloquea, porque las BPM exigen un revisor independiente.
 
 | Quality documents | Self-approval blocked |
 | :---: | :---: |
-| ![Quality documents](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-quality-documents.png) | ![Self-approval blocked](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-quality-documents-self-approval-blocked.png) |
+| ![Quality documents](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-quality-documents.png) | ![Self-approval blocked](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-quality-documents-self-approval-blocked.png) |
 
 **Analytical results:** registro de las variables del ensayo; el sistema calcula el resultado con la fórmula del protocolo y lo compara con la especificación (US11). Un resultado fuera de especificación (OOS) exige registrar una desviación.
 
-![Mock-up · Analytical results](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-analytical-results.png)
+![Mock-up · Analytical results](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-analytical-results.png)
 
 **Deviation report & detail:** detalle de DEV-26017 con su severidad, el lote afectado, la evidencia IoT asociada y el análisis de causa raíz (US18, US19, US22). Estados: Open, Under investigation y Closed.
 
-![Mock-up · Deviation report & detail](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-deviation-report-detail.png)
+![Mock-up · Deviation report & detail](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-deviation-report-detail.png)
 
 **CAPA plan:** acciones correctivas y preventivas con responsable, fecha límite y estado (Open, Implemented, Overdue, Verified) (US20, US21). Mientras la causa raíz esté incompleta, el plan no puede avanzar.
 
 | CAPA plan | Root cause required |
 | :---: | :---: |
-| ![CAPA plan](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-capa-plan.png) | ![Root cause required](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-capa-plan-root-cause-required.png) |
+| ![CAPA plan](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-capa-plan.png) | ![Root cause required](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-capa-plan-root-cause-required.png) |
 
 **Batch release:** lista de verificación de la liberación del lote B-26041 (resultados analíticos, desviaciones cerradas, evidencia IoT y registros completos) y firma electrónica (US54, US08). Si algún control no se cumple, la liberación se bloquea y se listan los registros pendientes.
 
 | Batch release | Release blocked |
 | :---: | :---: |
-| ![Batch release](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-batch-release.png) | ![Release blocked](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-batch-release-blocked.png) |
+| ![Batch release](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-batch-release.png) | ![Release blocked](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-batch-release-blocked.png) |
 
 **Audits & findings:** planificación de auditorías internas y registro de sus hallazgos (US29, US59).
 
-![Mock-up · Audits & findings](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-audits-findings.png)
+![Mock-up · Audits & findings](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-audits-findings.png)
 
 **Audit trail:** registro inmutable de cada cambio con usuario, fecha, valor anterior, valor nuevo y motivo, filtrable por lote, usuario o fecha (US27, US30).
 
-![Mock-up · Audit trail](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-audit-trail.png)
+![Mock-up · Audit trail](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-audit-trail.png)
 
 **Regulatory reports:** generación de reportes y del paquete de evidencias de una auditoría o inspección (US28).
 
-![Mock-up · Regulatory reports](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-regulatory-reports.png)
+![Mock-up · Regulatory reports](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-regulatory-reports.png)
 
 **Tasks & collaboration:** bandeja de tareas y solicitudes de aprobación entre Calidad y Producción, con su estado y responsable (US40, US41, US42, US43).
 
-![Mock-up · Tasks & collaboration](../assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-tasks-collaboration.png)
+![Mock-up · Tasks & collaboration](assets/img/chapter4/web-application/mockups/desktop-segment-1-qa-qc-specialist/qa-qc-tasks-collaboration.png)
 
 #### Segmento 2 – Jefe o Supervisor de Producción
 
@@ -615,51 +615,51 @@ Los mock-ups aplican el Design System de la sección 4.1 sobre los wireframes y 
 
 | Sign in · Production | Invalid credentials |
 | :---: | :---: |
-| ![Sign in Production](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/sign-in-production.png) | ![Invalid credentials](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/sign-in-production-invalid-credentials.png) |
+| ![Sign in Production](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/sign-in-production.png) | ![Invalid credentials](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/sign-in-production-invalid-credentials.png) |
 
 | Two-factor authentication | Access not authorized |
 | :---: | :---: |
-| ![2FA](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/sign-in-production-two-factor-authentication.png) | ![Access not authorized](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/sign-in-production-access-not-authorized.png) |
+| ![2FA](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/sign-in-production-two-factor-authentication.png) | ![Access not authorized](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/sign-in-production-access-not-authorized.png) |
 
 **Production overview:** dashboard de producción (US32) con las órdenes activas, los lotes por estado, el rendimiento y las alertas de las líneas.
 
-![Mock-up · Production overview](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-production-overview.png)
+![Mock-up · Production overview](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-production-overview.png)
 
 **Products & master formulas:** catálogo de productos y sus fórmulas maestras con versión y estado; solo una fórmula aprobada, como MFR-AC500 v3.2, puede usarse en una orden (US35, US36).
 
-![Mock-up · Products & master formulas](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-products-master-formulas.png)
+![Mock-up · Products & master formulas](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-products-master-formulas.png)
 
 **Production order & master formula:** emisión de la orden de producción a partir de la fórmula maestra aprobada, con cantidades, equipos y fechas (US57).
 
-![Mock-up · Production order](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-production-order-master-formula.png)
+![Mock-up · Production order](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-production-order-master-formula.png)
 
 **Batches:** registro y lista de lotes con su estado (Planned, In progress, On hold, Finished, Release requested, Released, Rejected) (US14, US16). Si el número de lote ya existe o la fórmula no está aprobada, el lote no se crea y se explica el motivo.
 
 | Batches | Batch not created |
 | :---: | :---: |
-| ![Batches](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-batches.png) | ![Batch not created](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-batches-batch-not-created.png) |
+| ![Batches](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-batches.png) | ![Batch not created](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-batches-batch-not-created.png) |
 
 **Batch detail & traceability:** historial del lote B-26041 (120,000 tabletas) con su genealogía: materias primas, equipos, etapas y eventos (US15, US17).
 
-![Mock-up · Batch detail & traceability](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-batch-detail-traceability.png)
+![Mock-up · Batch detail & traceability](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-batch-detail-traceability.png)
 
 **Batch IoT evidence:** lecturas de los sensores asociados al lote, capturadas automáticamente, con la excursión de 27.8 °C del sensor T-204 frente al límite de 18–25 °C (US25, US26).
 
-![Mock-up · Batch IoT evidence](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-batch-iot-evidence.png)
+![Mock-up · Batch IoT evidence](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-batch-iot-evidence.png)
 
 **Raw-material receipt:** recepción de materias primas con su lote de proveedor y su estado de calidad (Quarantine, Approval requested, Approved, Rejected) (US58). Un insumo solo puede usarse en un lote cuando Calidad lo aprueba.
 
-![Mock-up · Raw-material receipt](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-raw-material-receipt.png)
+![Mock-up · Raw-material receipt](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-raw-material-receipt.png)
 
 **Equipment & IoT devices:** registro de equipos y sensores con su estado (Fit for use, Not fit for use, In maintenance), calibraciones y mantenimientos (US23, US37, US38, US39). Un equipo no apto o un sensor ya asociado a otro lote no puede vincularse (US24).
 
-![Mock-up · Equipment & IoT devices](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-equipment-iot-devices.png)
+![Mock-up · Equipment & IoT devices](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-equipment-iot-devices.png)
 
 **IoT overview y Equipment & sensor detail:** monitoreo en tiempo real de los sensores de planta y detalle de un equipo con sus lecturas, límites y alertas (US26).
 
 | IoT overview | Equipment & sensor detail |
 | :---: | :---: |
-| ![IoT overview](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/iot-iot-overview.png) | ![Equipment & sensor detail](../assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/iot-equipment-sensor-detail.png) |
+| ![IoT overview](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/iot-iot-overview.png) | ![Equipment & sensor detail](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/iot-equipment-sensor-detail.png) |
 
 #### Administrador del laboratorio
 
@@ -667,21 +667,21 @@ Los mock-ups aplican el Design System de la sección 4.1 sobre los wireframes y 
 
 | Sign in · Administration | Invalid credentials | Two-factor authentication |
 | :---: | :---: | :---: |
-| ![Sign in Administration](../assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/sign-in-administration.png) | ![Invalid credentials](../assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/sign-in-administration-invalid-credentials.png) | ![2FA](../assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/sign-in-administration-two-factor-authentication.png) |
+| ![Sign in Administration](assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/sign-in-administration.png) | ![Invalid credentials](assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/sign-in-administration-invalid-credentials.png) | ![2FA](assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/sign-in-administration-two-factor-authentication.png) |
 
 **Administration overview:** resumen de los usuarios activos e invitaciones pendientes, la organización y sus sedes (planta de Ate y laboratorio de Lima), el estado de la suscripción, los usuarios que requieren atención y la actividad administrativa reciente.
 
-![Mock-up · Administration overview](../assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/administration-administration-overview.png)
+![Mock-up · Administration overview](assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/administration-administration-overview.png)
 
 **Users & profiles e Invite user:** lista de usuarios con su rol y estado (Invited, Active, Locked, Disabled) y el diálogo para invitar a un nuevo integrante con su rol (US07, US55).
 
 | Users & profiles | Invite user |
 | :---: | :---: |
-| ![Users & profiles](../assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/administration-users-profiles.png) | ![Invite user](../assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/administration-invite-user.png) |
+| ![Users & profiles](assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/administration-users-profiles.png) | ![Invite user](assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/administration-invite-user.png) |
 
 **Subscriptions & payments:** plan vigente, modalidad mensual o anual, historial de pagos con Niubiz y su estado (Pending, Approved, Rejected), y las opciones de renovación y cancelación (US51, US52, US53).
 
-![Mock-up · Subscriptions & payments](../assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/administration-subscriptions-payments.png)
+![Mock-up · Subscriptions & payments](assets/img/chapter4/web-application/mockups/desktop-laboratory-administrator/administration-subscriptions-payments.png)
 
 #### Mobile Web Browser
 
@@ -689,23 +689,23 @@ En mobile, la navegación del entorno se agrupa en una barra inferior y las pant
 
 **Compartido:** elección del entorno y formulario de contacto.
 
-![Mock-up · Mobile · Shared](../assets/img/chapter4/web-application/mockups/mobile-shared-environment-selection-montage-1.png)
+![Mock-up · Mobile · Shared](assets/img/chapter4/web-application/mockups/mobile-shared-environment-selection-montage-1.png)
 
 **Segmento 1 – QA/QC:** inicio de sesión con sus estados, Task inbox, Approval review y Approval completed, donde la Quality Manager aprueba el documento (con el estado "Record changed", que impide firmar si el registro cambió durante la revisión), Electronic signature (con el estado "Invalid password") y Signature confirmed, donde María firma la liberación del lote B-26038, y Batch detail.
 
-![Mock-up · Mobile · QA/QC (1)](../assets/img/chapter4/web-application/mockups/mobile-segment-1-qa-qc-specialist-montage-1.png)
+![Mock-up · Mobile · QA/QC (1)](assets/img/chapter4/web-application/mockups/mobile-segment-1-qa-qc-specialist-montage-1.png)
 
-![Mock-up · Mobile · QA/QC (2)](../assets/img/chapter4/web-application/mockups/mobile-segment-1-qa-qc-specialist-montage-2.png)
+![Mock-up · Mobile · QA/QC (2)](assets/img/chapter4/web-application/mockups/mobile-segment-1-qa-qc-specialist-montage-2.png)
 
 **Segmento 2 – Production:** inicio de sesión con sus estados, IoT monitoring, Batch lookup, Alert details, Incident reporting (con el estado "Validation error") e Incident submitted.
 
-![Mock-up · Mobile · Production (1)](../assets/img/chapter4/web-application/mockups/mobile-segment-2-production-supervisor-montage-1.png)
+![Mock-up · Mobile · Production (1)](assets/img/chapter4/web-application/mockups/mobile-segment-2-production-supervisor-montage-1.png)
 
-![Mock-up · Mobile · Production (2)](../assets/img/chapter4/web-application/mockups/mobile-segment-2-production-supervisor-montage-2.png)
+![Mock-up · Mobile · Production (2)](assets/img/chapter4/web-application/mockups/mobile-segment-2-production-supervisor-montage-2.png)
 
 **Administrador del laboratorio:** inicio de sesión del entorno de Administración con sus estados.
 
-![Mock-up · Mobile · Administration](../assets/img/chapter4/web-application/mockups/mobile-laboratory-administrator-montage-1.png)
+![Mock-up · Mobile · Administration](assets/img/chapter4/web-application/mockups/mobile-laboratory-administrator-montage-1.png)
 
 ### 4.4.4. Web Applications User Flow Diagrams
 
@@ -719,7 +719,7 @@ Happy path: Home → "Sign in" → Choose your environment → QA/QC → correo 
 
 Unhappy paths: ¿Credenciales válidas? No → "Invalid credentials"; permanece en el formulario y, tras cinco intentos, la cuenta se bloquea quince minutos | ¿El rol autoriza el entorno QA/QC? No → "Access not authorized".
 
-![User Flow QA-1](../assets/img/chapter4/web-application/user-flows/user-flow-qa-1.png)
+![User Flow QA-1](assets/img/chapter4/web-application/user-flows/user-flow-qa-1.png)
 
 **User Goal QA-2:** Gestionar la documentación de calidad y sus protocolos.
 
@@ -727,7 +727,7 @@ Happy path: Quality overview → Quality documents → envía la revisión → T
 
 Unhappy path: ¿El revisor es distinto del autor? No → "Self-approval blocked"; la aprobación debe asignarse a otro revisor.
 
-![User Flow QA-2](../assets/img/chapter4/web-application/user-flows/user-flow-qa-2.png)
+![User Flow QA-2](assets/img/chapter4/web-application/user-flows/user-flow-qa-2.png)
 
 **User Goal QA-3:** Registrar una desviación y gestionar su CAPA.
 
@@ -735,7 +735,7 @@ Happy path: Quality overview → Deviation report & detail (DEV-26017) → regis
 
 Unhappy path: ¿La causa raíz está documentada? No → "Root cause required"; el plan CAPA no avanza.
 
-![User Flow QA-3](../assets/img/chapter4/web-application/user-flows/user-flow-qa-3.png)
+![User Flow QA-3](assets/img/chapter4/web-application/user-flows/user-flow-qa-3.png)
 
 **User Goal QA-4:** Planificar una auditoría y reunir sus evidencias.
 
@@ -743,7 +743,7 @@ Happy path: Audits & findings → Audit trail del alcance → Regulatory reports
 
 Unhappy path: ¿Están todos los registros obligatorios? No → Quality indicators muestra los registros faltantes antes de la auditoría.
 
-![User Flow QA-4](../assets/img/chapter4/web-application/user-flows/user-flow-qa-4.png)
+![User Flow QA-4](assets/img/chapter4/web-application/user-flows/user-flow-qa-4.png)
 
 **User Goal QA-5:** Registrar y validar resultados analíticos.
 
@@ -751,7 +751,7 @@ Happy path: Quality overview → Analytical results → resultado dentro de espe
 
 Unhappy path: ¿El resultado está dentro de la especificación? No → resultado OOS; se registra una desviación en Deviation report & detail.
 
-![User Flow QA-5](../assets/img/chapter4/web-application/user-flows/user-flow-qa-5.png)
+![User Flow QA-5](assets/img/chapter4/web-application/user-flows/user-flow-qa-5.png)
 
 **User Goal QA-6:** Revisar la trazabilidad completa de un lote y liberarlo.
 
@@ -759,7 +759,7 @@ Happy path: Quality overview → Audit trail del lote → Batch release → firm
 
 Unhappy path: ¿Se cumplen todos los controles de liberación? No → "Release blocked"; se listan los registros pendientes.
 
-![User Flow QA-6](../assets/img/chapter4/web-application/user-flows/user-flow-qa-6.png)
+![User Flow QA-6](assets/img/chapter4/web-application/user-flows/user-flow-qa-6.png)
 
 #### Segmento 2 – Jefe o Supervisor de Producción
 
@@ -769,7 +769,7 @@ Happy path: Home → "Sign in" → Choose your environment → Production → co
 
 Unhappy paths: ¿Credenciales válidas? No → "Invalid credentials" | ¿El rol autoriza el entorno de Producción? No → "Access not authorized".
 
-![User Flow PR-1](../assets/img/chapter4/web-application/user-flows/user-flow-pr-1.png)
+![User Flow PR-1](assets/img/chapter4/web-application/user-flows/user-flow-pr-1.png)
 
 **User Goal PR-2:** Gestionar la ejecución de un lote y consultar su historial.
 
@@ -777,7 +777,7 @@ Happy path: Products & master formulas → selecciona la fórmula aprobada → P
 
 Unhappy path: ¿El número de lote es único y la fórmula está aprobada? No → "Batch not created", con el motivo.
 
-![User Flow PR-2](../assets/img/chapter4/web-application/user-flows/user-flow-pr-2.png)
+![User Flow PR-2](assets/img/chapter4/web-application/user-flows/user-flow-pr-2.png)
 
 **User Goal PR-3:** Monitorear equipos y condiciones ambientales.
 
@@ -785,7 +785,7 @@ Happy path: IoT overview → alerta de EQ-COAT-02 → Equipment & sensor detail 
 
 Unhappy path: ¿El equipo está apto y el sensor libre? No → Equipment & IoT devices; la asociación no se realiza.
 
-![User Flow PR-3](../assets/img/chapter4/web-application/user-flows/user-flow-pr-3.png)
+![User Flow PR-3](assets/img/chapter4/web-application/user-flows/user-flow-pr-3.png)
 
 **User Goal PR-4:** Reportar una incidencia de producción desde planta.
 
@@ -793,7 +793,7 @@ Happy path (Mobile): Alert details → "Report incident" → Incident reporting 
 
 Unhappy path: ¿Los campos obligatorios están completos? No → "Validation error"; el formulario permanece abierto con los errores resaltados.
 
-![User Flow PR-4](../assets/img/chapter4/web-application/user-flows/user-flow-pr-4.png)
+![User Flow PR-4](assets/img/chapter4/web-application/user-flows/user-flow-pr-4.png)
 
 **User Goal PR-5:** Trazar un lote para investigar un evento.
 
@@ -801,7 +801,7 @@ Happy path: Batches → Batch detail & traceability → Raw-material receipt del
 
 Unhappy path: ¿Calidad aprobó el lote del insumo? No → el insumo permanece en Quarantine y no puede usarse; la solicitud de aprobación se sigue en Tasks & collaboration.
 
-![User Flow PR-5](../assets/img/chapter4/web-application/user-flows/user-flow-pr-5.png)
+![User Flow PR-5](assets/img/chapter4/web-application/user-flows/user-flow-pr-5.png)
 
 **User Goal PR-6:** Revisar reportes e indicadores de producción.
 
@@ -809,7 +809,7 @@ Happy path: Production overview → Batches → Batch detail & traceability.
 
 Unhappy path: ¿Hay una incidencia abierta en una línea? Sí → se sigue en IoT overview.
 
-![User Flow PR-6](../assets/img/chapter4/web-application/user-flows/user-flow-pr-6.png)
+![User Flow PR-6](assets/img/chapter4/web-application/user-flows/user-flow-pr-6.png)
 
 #### Visitante del Website
 
@@ -842,11 +842,11 @@ Video de navegación del prototipo: upc-pre-202620-1asi0729-7742-IngesCompany-pr
 
 **Website** (desde 00:00 hasta 00:24)
 
-![Video de navegación del prototipo · Website](../assets/img/chapter4/prototype/video-landing-page.png)
+![Video de navegación del prototipo · Website](assets/img/chapter4/prototype/video-landing-page.png)
 
 **Web Application** (desde 00:24 hasta 06:10)
 
-![Video de navegación del prototipo · Web Application](../assets/img/chapter4/prototype/video-web-application.png)
+![Video de navegación del prototipo · Web Application](assets/img/chapter4/prototype/video-web-application.png)
 
 ## 4.6. Domain-Driven Software Architecture
 La arquitectura de DoofPlus se fundamenta en Domain-Driven Design (DDD). El punto de partida es el Big Picture EventStorming (sección 2.4), que dejó una línea de tiempo de eventos organizada en siete swimlanes, con sus actores, sistemas externos y problemas. En esta sección ese conocimiento se profundiza con un Design-Level EventStorming hasta identificar los bounded contexts y obtener aggregates, commands, policies, read models y sistemas externos por contexto; luego la solución se representa con el modelo C4 (contexto, contenedores y componentes). Cada bounded context se corresponde con un módulo de la Web Application en Angular y con un paquete del RESTful API en Spring Boot.
@@ -891,7 +891,7 @@ Antes de modelar, se acordó la "imagen que lo explica todo": un actor consulta 
 
 Frame en Miro: https://miro.com/app/board/uXjVHkhKOXE=/?moveToWidget=3458764685756367551
 
-![Target design](../assets/img/chapter4/design-level-event-storming/target-design.jpg)
+![Target design](assets/img/chapter4/design-level-event-storming/target-design.jpg)
 
 #### Paso 1: Timelines
 
@@ -899,27 +899,27 @@ Se organizaron en una línea de tiempo vertical los eventos de cada contexto, co
 
 **Identity & Access Management**
 
-![Identity & Access Management - paso 1](../assets/img/chapter4/design-level-event-storming/timelines/iam-1-timelines.jpg)
+![Identity & Access Management - paso 1](assets/img/chapter4/design-level-event-storming/timelines/iam-1-timelines.jpg)
 
 **Organizations & Profiles**
 
-![Organizations & Profiles - paso 1](../assets/img/chapter4/design-level-event-storming/timelines/org-1-timelines.jpg)
+![Organizations & Profiles - paso 1](assets/img/chapter4/design-level-event-storming/timelines/org-1-timelines.jpg)
 
 **Subscriptions & Payments**
 
-![Subscriptions & Payments - paso 1](../assets/img/chapter4/design-level-event-storming/timelines/sub-1-timelines.jpg)
+![Subscriptions & Payments - paso 1](assets/img/chapter4/design-level-event-storming/timelines/sub-1-timelines.jpg)
 
 **Manufacturing & Batch Management**
 
-![Manufacturing & Batch Management - paso 1](../assets/img/chapter4/design-level-event-storming/timelines/mfg-1-timelines.jpg)
+![Manufacturing & Batch Management - paso 1](assets/img/chapter4/design-level-event-storming/timelines/mfg-1-timelines.jpg)
 
 **IoT Monitoring**
 
-![IoT Monitoring - paso 1](../assets/img/chapter4/design-level-event-storming/timelines/iot-1-timelines.jpg)
+![IoT Monitoring - paso 1](assets/img/chapter4/design-level-event-storming/timelines/iot-1-timelines.jpg)
 
 **Quality & Compliance** (swimlane 1: liberación de lotes; swimlane 2: desviaciones y auditoría)
 
-![Quality & Compliance - paso 1](../assets/img/chapter4/design-level-event-storming/timelines/qa-1-timelines.jpg)
+![Quality & Compliance - paso 1](assets/img/chapter4/design-level-event-storming/timelines/qa-1-timelines.jpg)
 
 #### Paso 2: Commands
 
@@ -927,27 +927,27 @@ Cada evento se antecedió por el command que lo provoca, redactado en imperativo
 
 **Identity & Access Management**
 
-![Identity & Access Management - paso 2](../assets/img/chapter4/design-level-event-storming/commands/iam-2-commands.jpg)
+![Identity & Access Management - paso 2](assets/img/chapter4/design-level-event-storming/commands/iam-2-commands.jpg)
 
 **Organizations & Profiles**
 
-![Organizations & Profiles - paso 2](../assets/img/chapter4/design-level-event-storming/commands/org-2-commands.jpg)
+![Organizations & Profiles - paso 2](assets/img/chapter4/design-level-event-storming/commands/org-2-commands.jpg)
 
 **Subscriptions & Payments**
 
-![Subscriptions & Payments - paso 2](../assets/img/chapter4/design-level-event-storming/commands/sub-2-commands.jpg)
+![Subscriptions & Payments - paso 2](assets/img/chapter4/design-level-event-storming/commands/sub-2-commands.jpg)
 
 **Manufacturing & Batch Management**
 
-![Manufacturing & Batch Management - paso 2](../assets/img/chapter4/design-level-event-storming/commands/mfg-2-commands.jpg)
+![Manufacturing & Batch Management - paso 2](assets/img/chapter4/design-level-event-storming/commands/mfg-2-commands.jpg)
 
 **IoT Monitoring**
 
-![IoT Monitoring - paso 2](../assets/img/chapter4/design-level-event-storming/commands/iot-2-commands.jpg)
+![IoT Monitoring - paso 2](assets/img/chapter4/design-level-event-storming/commands/iot-2-commands.jpg)
 
 **Quality & Compliance** (swimlane 1: liberación de lotes; swimlane 2: desviaciones y auditoría)
 
-![Quality & Compliance - paso 2](../assets/img/chapter4/design-level-event-storming/commands/qa-2-commands.jpg)
+![Quality & Compliance - paso 2](assets/img/chapter4/design-level-event-storming/commands/qa-2-commands.jpg)
 
 #### Paso 3: Actors and policies
 
@@ -970,27 +970,27 @@ Se identificó quién ejecuta cada command: Laboratory Administrator, QA/QC Spec
 
 **Identity & Access Management**
 
-![Identity & Access Management - paso 3](../assets/img/chapter4/design-level-event-storming/actors-policies/iam-3-actors-policies.jpg)
+![Identity & Access Management - paso 3](assets/img/chapter4/design-level-event-storming/actors-policies/iam-3-actors-policies.jpg)
 
 **Organizations & Profiles**
 
-![Organizations & Profiles - paso 3](../assets/img/chapter4/design-level-event-storming/actors-policies/org-3-actors-policies.jpg)
+![Organizations & Profiles - paso 3](assets/img/chapter4/design-level-event-storming/actors-policies/org-3-actors-policies.jpg)
 
 **Subscriptions & Payments**
 
-![Subscriptions & Payments - paso 3](../assets/img/chapter4/design-level-event-storming/actors-policies/sub-3-actors-policies.jpg)
+![Subscriptions & Payments - paso 3](assets/img/chapter4/design-level-event-storming/actors-policies/sub-3-actors-policies.jpg)
 
 **Manufacturing & Batch Management**
 
-![Manufacturing & Batch Management - paso 3](../assets/img/chapter4/design-level-event-storming/actors-policies/mfg-3-actors-policies.jpg)
+![Manufacturing & Batch Management - paso 3](assets/img/chapter4/design-level-event-storming/actors-policies/mfg-3-actors-policies.jpg)
 
 **IoT Monitoring**
 
-![IoT Monitoring - paso 3](../assets/img/chapter4/design-level-event-storming/actors-policies/iot-3-actors-policies.jpg)
+![IoT Monitoring - paso 3](assets/img/chapter4/design-level-event-storming/actors-policies/iot-3-actors-policies.jpg)
 
 **Quality & Compliance** (swimlane 1: liberación de lotes; swimlane 2: desviaciones y auditoría)
 
-![Quality & Compliance - paso 3](../assets/img/chapter4/design-level-event-storming/actors-policies/qa-3-actors-policies.jpg)
+![Quality & Compliance - paso 3](assets/img/chapter4/design-level-event-storming/actors-policies/qa-3-actors-policies.jpg)
 
 #### Paso 4: Read models
 
@@ -998,27 +998,27 @@ Se registró la información que cada actor consulta antes de decidir. Estos rea
 
 **Identity & Access Management**
 
-![Identity & Access Management - paso 4](../assets/img/chapter4/design-level-event-storming/read-models/iam-4-read-models.jpg)
+![Identity & Access Management - paso 4](assets/img/chapter4/design-level-event-storming/read-models/iam-4-read-models.jpg)
 
 **Organizations & Profiles**
 
-![Organizations & Profiles - paso 4](../assets/img/chapter4/design-level-event-storming/read-models/org-4-read-models.jpg)
+![Organizations & Profiles - paso 4](assets/img/chapter4/design-level-event-storming/read-models/org-4-read-models.jpg)
 
 **Subscriptions & Payments**
 
-![Subscriptions & Payments - paso 4](../assets/img/chapter4/design-level-event-storming/read-models/sub-4-read-models.jpg)
+![Subscriptions & Payments - paso 4](assets/img/chapter4/design-level-event-storming/read-models/sub-4-read-models.jpg)
 
 **Manufacturing & Batch Management**
 
-![Manufacturing & Batch Management - paso 4](../assets/img/chapter4/design-level-event-storming/read-models/mfg-4-read-models.jpg)
+![Manufacturing & Batch Management - paso 4](assets/img/chapter4/design-level-event-storming/read-models/mfg-4-read-models.jpg)
 
 **IoT Monitoring**
 
-![IoT Monitoring - paso 4](../assets/img/chapter4/design-level-event-storming/read-models/iot-4-read-models.jpg)
+![IoT Monitoring - paso 4](assets/img/chapter4/design-level-event-storming/read-models/iot-4-read-models.jpg)
 
 **Quality & Compliance** (swimlane 1: liberación de lotes; swimlane 2: desviaciones y auditoría)
 
-![Quality & Compliance - paso 4](../assets/img/chapter4/design-level-event-storming/read-models/qa-4-read-models.jpg)
+![Quality & Compliance - paso 4](assets/img/chapter4/design-level-event-storming/read-models/qa-4-read-models.jpg)
 
 #### Paso 5: External systems
 
@@ -1026,27 +1026,27 @@ Se ubicaron los sistemas externos en el punto donde intervienen: Niubiz (pago y 
 
 **Identity & Access Management**
 
-![Identity & Access Management - paso 5](../assets/img/chapter4/design-level-event-storming/external-systems/iam-5-external-systems.jpg)
+![Identity & Access Management - paso 5](assets/img/chapter4/design-level-event-storming/external-systems/iam-5-external-systems.jpg)
 
 **Organizations & Profiles**
 
-![Organizations & Profiles - paso 5](../assets/img/chapter4/design-level-event-storming/external-systems/org-5-external-systems.jpg)
+![Organizations & Profiles - paso 5](assets/img/chapter4/design-level-event-storming/external-systems/org-5-external-systems.jpg)
 
 **Subscriptions & Payments**
 
-![Subscriptions & Payments - paso 5](../assets/img/chapter4/design-level-event-storming/external-systems/sub-5-external-systems.jpg)
+![Subscriptions & Payments - paso 5](assets/img/chapter4/design-level-event-storming/external-systems/sub-5-external-systems.jpg)
 
 **Manufacturing & Batch Management**
 
-![Manufacturing & Batch Management - paso 5](../assets/img/chapter4/design-level-event-storming/external-systems/mfg-5-external-systems.jpg)
+![Manufacturing & Batch Management - paso 5](assets/img/chapter4/design-level-event-storming/external-systems/mfg-5-external-systems.jpg)
 
 **IoT Monitoring**
 
-![IoT Monitoring - paso 5](../assets/img/chapter4/design-level-event-storming/external-systems/iot-5-external-systems.jpg)
+![IoT Monitoring - paso 5](assets/img/chapter4/design-level-event-storming/external-systems/iot-5-external-systems.jpg)
 
 **Quality & Compliance** (swimlane 1: liberación de lotes; swimlane 2: desviaciones y auditoría)
 
-![Quality & Compliance - paso 5](../assets/img/chapter4/design-level-event-storming/external-systems/qa-5-external-systems.jpg)
+![Quality & Compliance - paso 5](assets/img/chapter4/design-level-event-storming/external-systems/qa-5-external-systems.jpg)
 
 #### Paso 6: Business rules y aggregates
 
@@ -1074,27 +1074,27 @@ Frames en Miro por bounded context. Debajo de los frames finales, el tablero tie
 
 **Identity & Access Management**
 
-![Identity & Access Management - paso 6](../assets/img/chapter4/design-level-event-storming/aggregates/iam-6-aggregates.jpg)
+![Identity & Access Management - paso 6](assets/img/chapter4/design-level-event-storming/aggregates/iam-6-aggregates.jpg)
 
 **Organizations & Profiles**
 
-![Organizations & Profiles - paso 6](../assets/img/chapter4/design-level-event-storming/aggregates/org-6-aggregates.jpg)
+![Organizations & Profiles - paso 6](assets/img/chapter4/design-level-event-storming/aggregates/org-6-aggregates.jpg)
 
 **Subscriptions & Payments**
 
-![Subscriptions & Payments - paso 6](../assets/img/chapter4/design-level-event-storming/aggregates/sub-6-aggregates.jpg)
+![Subscriptions & Payments - paso 6](assets/img/chapter4/design-level-event-storming/aggregates/sub-6-aggregates.jpg)
 
 **Manufacturing & Batch Management**
 
-![Manufacturing & Batch Management - paso 6](../assets/img/chapter4/design-level-event-storming/aggregates/mfg-6-aggregates.jpg)
+![Manufacturing & Batch Management - paso 6](assets/img/chapter4/design-level-event-storming/aggregates/mfg-6-aggregates.jpg)
 
 **IoT Monitoring**
 
-![IoT Monitoring - paso 6](../assets/img/chapter4/design-level-event-storming/aggregates/iot-6-aggregates.jpg)
+![IoT Monitoring - paso 6](assets/img/chapter4/design-level-event-storming/aggregates/iot-6-aggregates.jpg)
 
 **Quality & Compliance** (swimlane 1: liberación de lotes; swimlane 2: desviaciones y auditoría)
 
-![Quality & Compliance - paso 6](../assets/img/chapter4/design-level-event-storming/aggregates/qa-6-aggregates.jpg)
+![Quality & Compliance - paso 6](assets/img/chapter4/design-level-event-storming/aggregates/qa-6-aggregates.jpg)
 
 #### Paso 7: Bounded contexts
 
@@ -1104,7 +1104,7 @@ El context map muestra cómo se integran los contextos. Las consultas entre cont
 
 Frame en Miro: https://miro.com/app/board/uXjVHkhKOXE=/?moveToWidget=3458764685756367552
 
-![Context map](../assets/img/chapter4/design-level-event-storming/context-map.jpg)
+![Context map](assets/img/chapter4/design-level-event-storming/context-map.jpg)
 
 | Contexto consumidor | Contexto proveedor | Integración | Motivo |
 | --- | --- | --- | --- |
@@ -1118,7 +1118,7 @@ Frame en Miro: https://miro.com/app/board/uXjVHkhKOXE=/?moveToWidget=34587646857
 
 ### 4.6.2. Software Architecture Context Diagram
 
-El diagrama de contexto (nivel 1 del modelo C4) presenta a DoofPlus como una "caja negra": el foco está en el sistema y en las personas y sistemas externos con los que interactúa, sin detallar cómo está construido por dentro. Los diagramas C4 se elaboraron con Structurizr DSL (Diagram-as-Code) y se renderizaron con Structurizr; todas las vistas salen de un único modelo (`assets/diagrams/structurizr/workspace.dsl`), la posición de cada elemento se guarda en `workspace.json` y los textos de los diagramas están en inglés, al igual que el resto de artefactos.
+El diagrama de contexto (nivel 1 del modelo C4) presenta a DoofPlus como una "caja negra": el foco está en el sistema y en las personas y sistemas externos con los que interactúa, sin detallar cómo está construido por dentro. Los diagramas C4 se elaboraron con Structurizr DSL (Diagram-as-Code) y se renderizaron con Structurizr; todas las vistas salen de un único modelo (`report/assets/diagrams/structurizr/workspace.dsl`), la posición de cada elemento se guarda en `workspace.json` y los textos de los diagramas están en inglés, al igual que el resto de artefactos.
 
 Personas que usan DoofPlus:
 
@@ -1137,7 +1137,7 @@ Sistemas externos:
 
 En el diagrama se observa que las cuatro personas usan DoofPlus mediante HTTPS, que ThingsBoard envía la telemetría al sistema mediante un webhook y que DoofPlus se integra con Niubiz y SendGrid a través de sus API REST. DIGEMID, identificada en el EventStorming, no forma parte del diagrama porque inspecciona al laboratorio sin intercambiar datos con DoofPlus: el modelo C4 solo incluye a las personas y los sistemas conectados directamente con el sistema.
 
-![Context Level Diagram](../assets/img/chapter4/software-architecture/c4/c4-01-context.png)
+![Context Level Diagram](assets/img/chapter4/software-architecture/c4/c4-01-context.png)
 
 ### 4.6.3. Software Architecture Container Diagrams
 
@@ -1165,7 +1165,7 @@ En el diagrama se observa que:
 
 Se eligió un monolito modular en lugar de microservicios porque el statement define un único RESTful API y porque el equipo y el volumen de datos de laboratorios pequeños y medianos no justifican la complejidad operativa de varios servicios. La separación por bounded context dentro del código (paquetes independientes que solo se comunican mediante fachadas y eventos) permite extraer un contexto a un servicio propio en el futuro.
 
-![Container Level Diagram](../assets/img/chapter4/software-architecture/c4/c4-02-container.png)
+![Container Level Diagram](assets/img/chapter4/software-architecture/c4/c4-02-container.png)
 
 ### 4.6.4. Software Architecture Components Diagrams
 
@@ -1185,7 +1185,7 @@ La Single-Page Application sigue la estructura del proyecto en Angular: un módu
 
 En el diagrama se observa que los usuarios trabajan en el shell de `Shared`, que carga de forma diferida el módulo del bounded context que corresponde a cada vista; cada módulo llama al RESTful API mediante JSON/HTTPS. El RFID Reader escribe el código de la etiqueta en el módulo de Manufacturing durante la recepción de insumos.
 
-![Component Diagram - Single-Page Application](../assets/img/chapter4/software-architecture/c4/c4-03-spa-components.png)
+![Component Diagram - Single-Page Application](assets/img/chapter4/software-architecture/c4/c4-03-spa-components.png)
 
 #### RESTful API
 
@@ -1207,7 +1207,7 @@ En el diagrama se observa que:
 - Manufacturing & Batch Management pide a IoT Monitoring asignar sensores a cada lote, e IoT Monitoring consulta a Manufacturing el lote en curso al registrar cada lectura y a Subscriptions & Payments el límite de sensores del plan.
 - Cada bounded context persiste sus datos en sus propias tablas de la Database.
 
-![Component Diagram - RESTful API](../assets/img/chapter4/software-architecture/c4/c4-04-api-components.png)
+![Component Diagram - RESTful API](assets/img/chapter4/software-architecture/c4/c4-04-api-components.png)
 
 ## 4.7. Software Object-Oriented Design
 
@@ -1223,27 +1223,27 @@ El diseño orientado a objetos traduce los aggregates del Design-Level EventStor
 
 **Identity & Access Management.** `User` es el aggregate root de la identidad: controla su estado (`INVITED`, `ACTIVE`, `LOCKED`, `DISABLED`), sus roles y los intentos fallidos de inicio de sesión. `ElectronicSignature` registra quién firmó qué registro y con qué significado. Los servicios de tokens (JWT), hashing (BCrypt) y TOTP se definen como interfaces implementadas en la capa de infraestructura.
 
-![Class Diagram - IAM](../assets/img/chapter4/diagram-class/class-01-iam.png)
+![Class Diagram - IAM](assets/img/chapter4/diagram-class/class-01-iam.png)
 
 **Organizations & Profiles.** `Organization` agrupa sus plantas y se identifica por el value object `Ruc`; `Profile` guarda los datos y preferencias de cada usuario; `ContactInquiry` registra las consultas enviadas desde el formulario "Contact us" de la Web Application y, mediante una policy, avisa al equipo de DoofPlus.
 
-![Class Diagram - Organizations & Profiles](../assets/img/chapter4/diagram-class/class-02-organizations.png)
+![Class Diagram - Organizations & Profiles](assets/img/chapter4/diagram-class/class-02-organizations.png)
 
 **Subscriptions & Payments.** `Subscription` controla el ciclo de vida de la suscripción y sus pagos; `Plan` define precios y límites. `PaymentGateway` abstrae la pasarela y `NiubizPaymentGateway` la implementa.
 
-![Class Diagram - Subscriptions & Payments](../assets/img/chapter4/diagram-class/class-03-subscriptions.png)
+![Class Diagram - Subscriptions & Payments](assets/img/chapter4/diagram-class/class-03-subscriptions.png)
 
 **Manufacturing & Batch Management.** `ProductionBatch` es el aggregate central del dominio: concentra el ciclo de vida del lote (`PLANNED` a `RELEASED` o `REJECTED`), sus consumos de insumos, parámetros de proceso, incidencias y su línea de tiempo (`BatchEvent`). `ProductionOrder`, `MasterFormula`, `Product` y `RawMaterialLot` completan el contexto.
 
-![Class Diagram - Manufacturing & Batch Management](../assets/img/chapter4/diagram-class/class-04-manufacturing.png)
+![Class Diagram - Manufacturing & Batch Management](assets/img/chapter4/diagram-class/class-04-manufacturing.png)
 
 **IoT Monitoring.** `Equipment` mantiene su historial de calibraciones y mantenimientos y define si está apto para producción; `IoTDevice` representa un sensor de ThingsBoard asignable a un lote; `TelemetryReading` guarda cada lectura y `AlertRuleEvaluator` genera las alertas.
 
-![Class Diagram - IoT Monitoring](../assets/img/chapter4/diagram-class/class-05-iot.png)
+![Class Diagram - IoT Monitoring](assets/img/chapter4/diagram-class/class-05-iot.png)
 
 **Quality & Compliance.** `QualityDocument` gestiona versiones y aprobación de SOP y protocolos; `MaterialApproval` registra el dictamen de cada lote de insumo; `BatchReview` controla la cuarentena, evaluación y liberación del lote y emite el `ReleaseCertificate`; `AnalyticalResult` calcula el resultado y detecta los OOS. `Deviation` controla la clasificación, investigación, causa raíz y acciones CAPA hasta su cierre; `Audit` registra hallazgos y observaciones; `AuditTrailEntry`, de solo inserción, persiste el read model "Audit trail" del Design-Level EventStorming; `RegulatoryReport` guarda los reportes generados.
 
-![Class Diagram - Quality & Compliance](../assets/img/chapter4/diagram-class/class-06-quality.png)
+![Class Diagram - Quality & Compliance](assets/img/chapter4/diagram-class/class-06-quality.png)
 
 ## 4.8. Database Design
 
@@ -1268,26 +1268,26 @@ Los diagramas se elaboraron con Mermaid (Diagram-as-Code), uno por bounded conte
 
 **Identity & Access Management**
 
-![Database Diagram - IAM](../assets/img/chapter4/database/db-01-iam.png)
+![Database Diagram - IAM](assets/img/chapter4/database/db-01-iam.png)
 
 **Organizations & Profiles**
 
-![Database Diagram - Organizations](../assets/img/chapter4/database/db-02-organizations.png)
+![Database Diagram - Organizations](assets/img/chapter4/database/db-02-organizations.png)
 
 **Subscriptions & Payments**
 
-![Database Diagram - Subscriptions](../assets/img/chapter4/database/db-03-subscriptions.png)
+![Database Diagram - Subscriptions](assets/img/chapter4/database/db-03-subscriptions.png)
 
 **Manufacturing & Batch Management**
 
-![Database Diagram - Manufacturing](../assets/img/chapter4/database/db-04-manufacturing.png)
+![Database Diagram - Manufacturing](assets/img/chapter4/database/db-04-manufacturing.png)
 
 **IoT Monitoring**
 
-![Database Diagram - IoT](../assets/img/chapter4/database/db-05-iot.png)
+![Database Diagram - IoT](assets/img/chapter4/database/db-05-iot.png)
 
 **Quality & Compliance (documentos, insumos, resultados, liberación, desviaciones, CAPA, auditorías y reportes)**
 
-![Database Diagram - Quality & Compliance](../assets/img/chapter4/database/db-06-quality.png)
+![Database Diagram - Quality & Compliance](assets/img/chapter4/database/db-06-quality.png)
 
-La fuente Structurizr DSL de los diagramas C4 se encuentra en `assets/diagrams/structurizr/workspace.dsl`, y las fuentes Mermaid de los diagramas de clases y de base de datos, en `assets/diagrams/mermaid`.
+La fuente Structurizr DSL de los diagramas C4 se encuentra en `report/assets/diagrams/structurizr/workspace.dsl`, y las fuentes Mermaid de los diagramas de clases y de base de datos, en `report/assets/diagrams/mermaid`.

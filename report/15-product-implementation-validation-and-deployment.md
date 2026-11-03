@@ -165,7 +165,7 @@ En el Sprint 1 se consideraron cuatro aspectos: el diseño del Website, su imple
 
 El objetivo principal de este Sprint fue implementar y publicar el Website de DoofPlus para dar a conocer a Inges Company y su propuesta de valor. La siguiente imagen muestra las User Stories del Sprint 1 en Jira, ya cerrado:
 
-![Sprint Backlog 1 en Jira](../assets/img/chapter5/evidencia/jira-pb.png)
+![Sprint Backlog 1 en Jira](assets/img/chapter5/evidencia/jira-pb.png)
 
 *Figura: User Stories del Sprint 1 en Jira Software.*
 
@@ -218,27 +218,27 @@ Durante el Sprint 1 se implementó el Website con HTML5, CSS3 y JavaScript: estr
 
 En este Sprint se logró un Website funcional, responsive y bilingüe (español e inglés), con navegación por secciones, propuesta de valor, características, planes y precios con toggle mensual/anual, sección del equipo, formulario de contacto y páginas de Términos de Servicio y Política de Privacidad. A continuación se presentan las capturas de las principales secciones implementadas:
 
-![Website - Parte 1](../assets/img/chapter5/screenshots/1.png)
+![Website - Parte 1](assets/img/chapter5/screenshots/1.png)
 
-![Website - Parte 2](../assets/img/chapter5/screenshots/2.png)
+![Website - Parte 2](assets/img/chapter5/screenshots/2.png)
 
-![Website - Parte 3](../assets/img/chapter5/screenshots/3.png)
+![Website - Parte 3](assets/img/chapter5/screenshots/3.png)
 
-![Website - Parte 4](../assets/img/chapter5/screenshots/4.png)
+![Website - Parte 4](assets/img/chapter5/screenshots/4.png)
 
-![Website - Parte 5](../assets/img/chapter5/screenshots/5.png)
+![Website - Parte 5](assets/img/chapter5/screenshots/5.png)
 
-![Website - Parte 6](../assets/img/chapter5/screenshots/6.png)
+![Website - Parte 6](assets/img/chapter5/screenshots/6.png)
 
-![Website - Parte 7](../assets/img/chapter5/screenshots/7.png)
+![Website - Parte 7](assets/img/chapter5/screenshots/7.png)
 
-![Website - Parte 8](../assets/img/chapter5/screenshots/8.png)
+![Website - Parte 8](assets/img/chapter5/screenshots/8.png)
 
-![Website - Parte 9](../assets/img/chapter5/screenshots/9.png)
+![Website - Parte 9](assets/img/chapter5/screenshots/9.png)
 
-![Website - Parte 10](../assets/img/chapter5/screenshots/10.png)
+![Website - Parte 10](assets/img/chapter5/screenshots/10.png)
 
-![Website - Parte 11](../assets/img/chapter5/screenshots/11.png)
+![Website - Parte 11](assets/img/chapter5/screenshots/11.png)
 
 **Website desplegado:** https://ingescompany.github.io/doofplus-website/
 
@@ -250,11 +250,11 @@ El alcance del Sprint 1 se limitó al Website, por lo que no se implementaron ni
 
 Durante este Sprint, el equipo publicó el Website en **GitHub Pages**. Para ello se configuró, en *Settings > Pages* del repositorio `doofplus-website`, la publicación desde la rama `main` y la carpeta raíz, de modo que cada cambio integrado en `main` se publica automáticamente.
 
-![Configuración de GitHub Pages](../assets/img/chapter5/evidencia/github-pages.png)
+![Configuración de GitHub Pages](assets/img/chapter5/evidencia/github-pages.png)
 
 *Figura: Configuración de GitHub Pages en el repositorio del Website.*
 
-![Website publicado](../assets/img/chapter5/evidencia/pages.png)
+![Website publicado](assets/img/chapter5/evidencia/pages.png)
 
 *Figura: Website publicado en GitHub Pages.*
 
@@ -262,7 +262,7 @@ Durante este Sprint, el equipo publicó el Website en **GitHub Pages**. Para ell
 
 Todos los miembros del equipo participaron en la implementación del Website. Los cambios se integraron en la rama `develop` y, desde ella, se preparó la rama `release/v1.0.0-rc.1`, que se fusionó con `main` para su publicación. La siguiente imagen muestra los analíticos de commits del repositorio en GitHub:
 
-![Insights del repositorio del Website](../assets/img/chapter5/evidencia/evidencia.png)
+![Insights del repositorio del Website](assets/img/chapter5/evidencia/evidencia.png)
 
 *Figura: Analíticos de colaboración del repositorio del Website en GitHub.*
 
@@ -305,7 +305,7 @@ En el Sprint 2 se consideraron ocho aspectos: el Website y, en la Web Applicatio
 
 El objetivo del Sprint fue completar el Website y entregar la primera versión de la Web Application. Las tareas se organizaron por User Story; las del Website incluyen la reimplementación de las secciones del Sprint 1 sobre el diseño del capítulo 4. La siguiente imagen muestra el board del Sprint 2 en Jira:
 
-![Sprint Backlog 2 en Jira](../assets/img/chapter5/evidencia/jira-pb2.png)
+![Sprint Backlog 2 en Jira](assets/img/chapter5/evidencia/jira-pb2.png)
 
 *Figura: Board del Sprint 2 en Jira Software.*
 
@@ -733,149 +733,149 @@ En este Sprint se completó el Website, publicada en GitHub Pages, y se implemen
 
 **Website:** https://ingescompany.github.io/doofplus-website/
 
-![Hero con la propuesta de valor (US01)](../assets/img/chapter5/sprint2/landing/01-home.png)
+![Hero con la propuesta de valor (US01)](assets/img/chapter5/sprint2/landing/01-home.png)
 
 *Figura: Hero con la propuesta de valor (US01).*
 
-![Acceso por segmento: Choose your workspace (US48)](../assets/img/chapter5/sprint2/landing/02-workspace.png)
+![Acceso por segmento: Choose your workspace (US48)](assets/img/chapter5/sprint2/landing/02-workspace.png)
 
 *Figura: Acceso por segmento: Choose your workspace (US48).*
 
-![Servicios (US02)](../assets/img/chapter5/sprint2/landing/03-services.png)
+![Servicios (US02)](assets/img/chapter5/sprint2/landing/03-services.png)
 
 *Figura: Servicios (US02).*
 
-![Características con acordeón y vista previa (US02)](../assets/img/chapter5/sprint2/landing/04-features.png)
+![Características con acordeón y vista previa (US02)](assets/img/chapter5/sprint2/landing/04-features.png)
 
 *Figura: Características con acordeón y vista previa (US02).*
 
-![Video About the Product (US49)](../assets/img/chapter5/sprint2/landing/05-product.png)
+![Video About the Product (US49)](assets/img/chapter5/sprint2/landing/05-product.png)
 
 *Figura: Video About the Product (US49).*
 
-![Beneficios](../assets/img/chapter5/sprint2/landing/06-benefits.png)
+![Beneficios](assets/img/chapter5/sprint2/landing/06-benefits.png)
 
 *Figura: Beneficios.*
 
-![Planes con toggle mensual/anual (US03)](../assets/img/chapter5/sprint2/landing/07-plans.png)
+![Planes con toggle mensual/anual (US03)](assets/img/chapter5/sprint2/landing/07-plans.png)
 
 *Figura: Planes con toggle mensual/anual (US03).*
 
-![About us: misión y visión (US45)](../assets/img/chapter5/sprint2/landing/08-about.png)
+![About us: misión y visión (US45)](assets/img/chapter5/sprint2/landing/08-about.png)
 
 *Figura: About us: misión y visión (US45).*
 
-![Our Team y video About the Team (US45, US49)](../assets/img/chapter5/sprint2/landing/09-team.png)
+![Our Team y video About the Team (US45, US49)](assets/img/chapter5/sprint2/landing/09-team.png)
 
 *Figura: Our Team y video About the Team (US45, US49).*
 
-![Testimonios](../assets/img/chapter5/sprint2/landing/10-testimonials.png)
+![Testimonios](assets/img/chapter5/sprint2/landing/10-testimonials.png)
 
 *Figura: Testimonios.*
 
-![Preguntas frecuentes (US05)](../assets/img/chapter5/sprint2/landing/11-faq.png)
+![Preguntas frecuentes (US05)](assets/img/chapter5/sprint2/landing/11-faq.png)
 
 *Figura: Preguntas frecuentes (US05).*
 
-![Formulario Contact us y footer (US04)](../assets/img/chapter5/sprint2/landing/12-contact.png)
+![Formulario Contact us y footer (US04)](assets/img/chapter5/sprint2/landing/12-contact.png)
 
 *Figura: Formulario Contact us y footer (US04).*
 
-![Website en español (US46)](../assets/img/chapter5/sprint2/landing/13-home-es.png)
+![Website en español (US46)](assets/img/chapter5/sprint2/landing/13-home-es.png)
 
 *Figura: Website en español (US46).*
 
-![Términos de Servicio (US47)](../assets/img/chapter5/sprint2/landing/14-terms.png)
+![Términos de Servicio (US47)](assets/img/chapter5/sprint2/landing/14-terms.png)
 
 *Figura: Términos de Servicio (US47).*
 
-![Vista mobile](../assets/img/chapter5/sprint2/landing/15-mobile-home.png)
+![Vista mobile](assets/img/chapter5/sprint2/landing/15-mobile-home.png)
 
 *Figura: Vista mobile.*
 
-![Menú de navegación en mobile (US44)](../assets/img/chapter5/sprint2/landing/16-mobile-menu.png)
+![Menú de navegación en mobile (US44)](assets/img/chapter5/sprint2/landing/16-mobile-menu.png)
 
 *Figura: Menú de navegación en mobile (US44).*
 
 **Web Application:** https://doofplus-webapp.web.app (cuentas de prueba en el README del repositorio; contraseña `DoofPlus2026!` y código 2FA `482106`).
 
-![Elección de entorno (US06)](../assets/img/chapter5/sprint2/web-app/01-sign-in.png)
+![Elección de entorno (US06)](assets/img/chapter5/sprint2/web-app/01-sign-in.png)
 
 *Figura: Elección de entorno (US06).*
 
-![Verificación con código 2FA (US06)](../assets/img/chapter5/sprint2/web-app/02-two-factor.png)
+![Verificación con código 2FA (US06)](assets/img/chapter5/sprint2/web-app/02-two-factor.png)
 
 *Figura: Verificación con código 2FA (US06).*
 
-![QA/QC · Quality overview (US31)](../assets/img/chapter5/sprint2/web-app/03-qa-overview.png)
+![QA/QC · Quality overview (US31)](assets/img/chapter5/sprint2/web-app/03-qa-overview.png)
 
 *Figura: QA/QC · Quality overview (US31).*
 
-![QA/QC · Quality documents con versiones y aprobación (US09, US12, US13)](../assets/img/chapter5/sprint2/web-app/04-qa-documents.png)
+![QA/QC · Quality documents con versiones y aprobación (US09, US12, US13)](assets/img/chapter5/sprint2/web-app/04-qa-documents.png)
 
 *Figura: QA/QC · Quality documents con versiones y aprobación (US09, US12, US13).*
 
-![QA/QC · Deviation report y evaluación de riesgo (US18)](../assets/img/chapter5/sprint2/web-app/05-qa-deviations.png)
+![QA/QC · Deviation report y evaluación de riesgo (US18)](assets/img/chapter5/sprint2/web-app/05-qa-deviations.png)
 
 *Figura: QA/QC · Deviation report y evaluación de riesgo (US18).*
 
-![QA/QC · Plan CAPA (US19, US20, US21)](../assets/img/chapter5/sprint2/web-app/06-qa-capa.png)
+![QA/QC · Plan CAPA (US19, US20, US21)](assets/img/chapter5/sprint2/web-app/06-qa-capa.png)
 
 *Figura: QA/QC · Plan CAPA (US19, US20, US21).*
 
-![QA/QC · Liberación de lotes con firma electrónica (US54, US08)](../assets/img/chapter5/sprint2/web-app/07-qa-batch-release.png)
+![QA/QC · Liberación de lotes con firma electrónica (US54, US08)](assets/img/chapter5/sprint2/web-app/07-qa-batch-release.png)
 
 *Figura: QA/QC · Liberación de lotes con firma electrónica (US54, US08).*
 
-![QA/QC · Audit trail (US27)](../assets/img/chapter5/sprint2/web-app/08-qa-audit-trail.png)
+![QA/QC · Audit trail (US27)](assets/img/chapter5/sprint2/web-app/08-qa-audit-trail.png)
 
 *Figura: QA/QC · Audit trail (US27).*
 
-![Production · Production overview (US32)](../assets/img/chapter5/sprint2/web-app/09-production-overview.png)
+![Production · Production overview (US32)](assets/img/chapter5/sprint2/web-app/09-production-overview.png)
 
 *Figura: Production · Production overview (US32).*
 
-![Production · Órdenes de producción (US57)](../assets/img/chapter5/sprint2/web-app/10-production-orders.png)
+![Production · Órdenes de producción (US57)](assets/img/chapter5/sprint2/web-app/10-production-orders.png)
 
 *Figura: Production · Órdenes de producción (US57).*
 
-![Production · Lotes con filtros y lote seleccionado (US14, US15, US16)](../assets/img/chapter5/sprint2/web-app/11-production-batches.png)
+![Production · Lotes con filtros y lote seleccionado (US14, US15, US16)](assets/img/chapter5/sprint2/web-app/11-production-batches.png)
 
 *Figura: Production · Lotes con filtros y lote seleccionado (US14, US15, US16).*
 
-![Production · IoT overview con telemetría (US25, US26)](../assets/img/chapter5/sprint2/web-app/12-iot-overview.png)
+![Production · IoT overview con telemetría (US25, US26)](assets/img/chapter5/sprint2/web-app/12-iot-overview.png)
 
 *Figura: Production · IoT overview con telemetría (US25, US26).*
 
-![Production · Equipos y sensores IoT (US23, US37, US38)](../assets/img/chapter5/sprint2/web-app/13-equipment.png)
+![Production · Equipos y sensores IoT (US23, US37, US38)](assets/img/chapter5/sprint2/web-app/13-equipment.png)
 
 *Figura: Production · Equipos y sensores IoT (US23, US37, US38).*
 
-![Production · Incidentes (US56, US22)](../assets/img/chapter5/sprint2/web-app/14-incidents.png)
+![Production · Incidentes (US56, US22)](assets/img/chapter5/sprint2/web-app/14-incidents.png)
 
 *Figura: Production · Incidentes (US56, US22).*
 
-![Administration · Resumen de administración (US50)](../assets/img/chapter5/sprint2/web-app/15-admin-overview.png)
+![Administration · Resumen de administración (US50)](assets/img/chapter5/sprint2/web-app/15-admin-overview.png)
 
 *Figura: Administration · Resumen de administración (US50).*
 
-![Administration · Usuarios y perfiles (US55, US07)](../assets/img/chapter5/sprint2/web-app/16-admin-users.png)
+![Administration · Usuarios y perfiles (US55, US07)](assets/img/chapter5/sprint2/web-app/16-admin-users.png)
 
 *Figura: Administration · Usuarios y perfiles (US55, US07).*
 
-![Administration · Suscripción y pagos (US51, US52, US53)](../assets/img/chapter5/sprint2/web-app/17-admin-subscription.png)
+![Administration · Suscripción y pagos (US51, US52, US53)](assets/img/chapter5/sprint2/web-app/17-admin-subscription.png)
 
 *Figura: Administration · Suscripción y pagos (US51, US52, US53).*
 
-![Administration · Suscripción y pagos en español](../assets/img/chapter5/sprint2/web-app/18-admin-subscription-es.png)
+![Administration · Suscripción y pagos en español](assets/img/chapter5/sprint2/web-app/18-admin-subscription-es.png)
 
 *Figura: Administration · Suscripción y pagos en español.*
 
-![Registro de la organización (US50)](../assets/img/chapter5/sprint2/web-app/19-register.png)
+![Registro de la organización (US50)](assets/img/chapter5/sprint2/web-app/19-register.png)
 
 *Figura: Registro de la organización (US50).*
 
-![Inicio de sesión en mobile](../assets/img/chapter5/sprint2/web-app/20-mobile-sign-in.png)
+![Inicio de sesión en mobile](assets/img/chapter5/sprint2/web-app/20-mobile-sign-in.png)
 
 *Figura: Inicio de sesión en mobile.*
 
@@ -985,15 +985,15 @@ En este Sprint se prepararon las versiones estables de ambos productos siguiendo
 - **Website:** la rama `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0`, y luego se publicó el hotfix `v1.0.1`, que agrega el archivo `.nojekyll` para que GitHub Pages publique los archivos estáticos sin procesarlos con Jekyll. El Website se publica en GitHub Pages desde `main` en https://ingescompany.github.io/doofplus-website/.
 - **Web Application:** la rama `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0` y su CHANGELOG. El repositorio incluye `firebase.json`, que configura Firebase Hosting como Single Page Application, y el script `npm run server:prod`, que publica la Fake API en un Web Service de Render. Después del release se agregaron en `main` la lectura de la Fake API publicada en Render, la vinculación del proyecto de Firebase y correcciones de accesibilidad, y la versión se actualizó a 1.0.1 en el CHANGELOG. La Web Application está publicada en Firebase Hosting en https://doofplus-webapp.web.app y la Fake API en Render en https://ingescompany-frontend.onrender.com/api/v1.
 
-![Tag v1.0.0 del Website](../assets/img/chapter5/sprint2/github/release-landing-v1.0.0.png)
+![Tag v1.0.0 del Website](assets/img/chapter5/sprint2/github/release-landing-v1.0.0.png)
 
 *Figura: Tag v1.0.0 del repositorio del Website.*
 
-![Tag v1.0.0 de la Web Application](../assets/img/chapter5/sprint2/github/release-frontend-v1.0.0.png)
+![Tag v1.0.0 de la Web Application](assets/img/chapter5/sprint2/github/release-frontend-v1.0.0.png)
 
 *Figura: Tag v1.0.0 del repositorio de la Web Application.*
 
-![Website publicado](../assets/img/chapter5/sprint2/landing/01-home.png)
+![Website publicado](assets/img/chapter5/sprint2/landing/01-home.png)
 
 *Figura: Website publicado en GitHub Pages.*
 
@@ -1009,19 +1009,19 @@ Los cinco integrantes participaron en ambos repositorios. La siguiente tabla res
 | Angulo Ramírez, Marcelo Martín | Zock2005 | 8 | 28 | 36 |
 | Flores Martinez, Ricardo Andres | Nitoryu28 | 8 | 4 | 12 |
 
-![Contributors del Website](../assets/img/chapter5/sprint2/github/insights-landing-contributors.png)
+![Contributors del Website](assets/img/chapter5/sprint2/github/insights-landing-contributors.png)
 
 *Figura: Contributors del repositorio del Website.*
 
-![Contributors de la Web Application](../assets/img/chapter5/sprint2/github/insights-frontend-contributors.png)
+![Contributors de la Web Application](assets/img/chapter5/sprint2/github/insights-frontend-contributors.png)
 
 *Figura: Contributors del repositorio de la Web Application.*
 
-![Network del Website](../assets/img/chapter5/sprint2/github/insights-landing-network.png)
+![Network del Website](assets/img/chapter5/sprint2/github/insights-landing-network.png)
 
 *Figura: Network graph del repositorio del Website.*
 
-![Network de la Web Application](../assets/img/chapter5/sprint2/github/insights-frontend-network.png)
+![Network de la Web Application](assets/img/chapter5/sprint2/github/insights-frontend-network.png)
 
 *Figura: Network graph del repositorio de la Web Application.*
 
@@ -1034,104 +1034,3 @@ Los cinco integrantes participaron en ambos repositorios. La siguiente tabla res
 ### 5.3.3. Evaluaciones según heurísticas
 
 ## 5.4. Video About-the-Product
-
-# Conclusiones
-
-## Conclusiones y recomendaciones
-
-### Conclusiones
-
-1. **Sobre los Problem Statements:** las entrevistas confirmaron el problema planteado. El 100 % de los especialistas QA/QC trabaja con un esquema mixto de registros físicos y digitales, el 100 % de los jefes y supervisores de producción registra el seguimiento de los lotes en formularios físicos y hojas de cálculo, y el 67 % de ambos segmentos tiene dificultades para reconstruir el historial completo de un lote. DoofPlus responde a esta situación centralizando en una sola plataforma la documentación de calidad, los lotes, las desviaciones y los datos de los equipos.
-2. **Sobre los Assumptions:** el equipo asumió que la resistencia al cambio sería una de las principales barreras de adopción. En las entrevistas, el 100 % de los participantes mostró una percepción favorable hacia la digitalización de sus procesos, siempre que la plataforma reduzca el trabajo manual y no agregue pasos a su rutina; esto orientó el diseño de la Web Application hacia entornos separados por rol y flujos cortos.
-3. **Sobre los Hypothesis Statements y los criterios de éxito:** al cierre del Sprint 2 el Website y la Web Application están publicadas y cubren los flujos necesarios para probar las hipótesis: registro y seguimiento de lotes, desviaciones y CAPA, liberación con firma electrónica, audit trail y monitoreo IoT. La validación de las hipótesis y de los criterios de éxito con usuarios de cada segmento se realizará en las Validation Interviews (sección 5.3) de la siguiente entrega.
-
-### Recomendaciones
-
-1. **Para la siguiente entrega (AV2):** implementar los RESTful Web Services en Spring Boot y conectar la Web Application, que hoy consume una Fake API, empezando por Identity & Access Management, del que dependen el inicio de sesión con 2FA y las firmas electrónicas.
-2. **Para la validación:** realizar las Validation Interviews con especialistas QA/QC y jefes de producción sobre la versión publicada de la Web Application, midiendo el tiempo necesario para reconstruir el historial de un lote y para preparar una auditoría, que son los criterios de éxito del Problem Statement.
-
-## Video About-the-Team
-
-El video About-the-Team se presentará en la entrega AV2. En él, cada integrante contará su experiencia en el desarrollo de DoofPlus y el equipo expondrá la proyección del producto: la integración de la Web Application con los RESTful Web Services, la conexión con ThingsBoard para la telemetría real de los sensores y la incorporación de los laboratorios piloto.
-
-# Bibliografía
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Brown, S. (2018). <em>Software Architecture for Developers: Visualise, document and explore your software architecture</em>. Leanpub.
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Brown, T. (2009). <em>Change by design: How design thinking transforms organizations and inspires innovation</em>. HarperBusiness.
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-DrugXafe. (2025). <em>DrugXafe: Sistema de Seguimiento y Rastreo Farmacéutico</em>. tiga. https://www.tigahealth.com/es/productos/drugxafe-sistema-de-seguimiento-y-rastreo-farmaceutico/
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Evans, E. (2004). <em>Domain-driven design: Tackling complexity in the heart of software</em>. Addison-Wesley Professional.
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Google. (2024). <em>Angular Documentation: The modern web developer's platform</em>. https://angular.dev/
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Gothelf, J., & Seiden, J. (2021). <em>Lean UX: Designing great products with agile teams</em> (3rd ed.). O'Reilly Media.
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-LoLimsa. (2026). <em>EMPRESA DE SOFTWARE MÉDICO. Expertos en tecnología para la salud</em>. https://www.lolimsa.com.pe
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Martin, R. C. (2017). <em>Clean architecture: A craftsman's guide to software structure and design</em>. Prentice Hall.
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-MasterControl. (2024). <em>Quality Management System (QMS) Software for Life Sciences</em>. https://www.mastercontrol.com/
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Organización Mundial de la Salud. (2014). <em>Buenas prácticas de manufactura (BPM) para productos farmacéuticos</em>. https://www.who.int/es/news-room/fact-sheets/detail/good-manufacturing-practices
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Osterwalder, A., & Pigneur, Y. (2010). <em>Business model generation: A handbook for visionaries, game changers, and challengers</em>. John Wiley & Sons.
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Patton, J. (2014). <em>User story mapping: Discover the whole story, build the right product</em>. O'Reilly Media.
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Ries, E. (2011). <em>The lean startup: How today's entrepreneurs use continuous innovation to create radically successful businesses</em>. Crown Business.
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Schwaber, K., & Sutherland, J. (2020). <em>The Scrum Guide</em>. Scrum.org.
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-tuhub. (2025). <em>Más control en la operación. Menos pérdidas invisibles.</em>. https://tuhub.co
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Tulip Interfaces. (2024). <em>Frontline Operations Platform for Manufacturing</em>. https://tulip.co/
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Veeva Systems. (2024). <em>Veeva Vault Quality: Modernizing Quality Management</em>. https://www.veeva.com/products/vault-quality/
-</div>
-
-<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
-Vernon, V. (2013). <em>Implementing Domain-Driven Design</em>. Addison-Wesley Professional.
-</div>
-
-# Anexos
-
-## Anexo A. Videos de exposiciones
-
-| Entrega | Título del video | Enlace |
-| --- | --- | --- |
-| TB1 | upc-pre-202620-1asi0729-7742-IngesCompany-exposition-tb1 | ENLACE PENDIENTE |

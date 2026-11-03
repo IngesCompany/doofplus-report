@@ -36,7 +36,7 @@ header#title-block-header {
   display: none;
 }
 
-/* Cover rebuilt by report.lua from README.md. Every line is placed at the
+/* Cover rebuilt by report.lua from report/front-matter/01-cover.md. Every line is placed at the
    position, size and weight of the course's reference cover (A4, in points),
    since the cover must match the template exactly. */
 @page cover {

@@ -41,9 +41,9 @@ El PDF se genera en `build/upc-pre-202620-1asi0729-7742-IngesCompany-report.pdf`
 
 | Archivo | Propósito |
 |---------|-----------|
-| `report.yaml` | Defaults file de Pandoc: orden de los archivos, motor PDF y estilos. |
+| `report.yaml` | Defaults file de Pandoc: orden de los archivos de `report/`, motor PDF y estilos. |
 | `report.css` | Diseño del PDF: tamaño A4, encabezado, pie con número de página, carátula con las posiciones de la plantilla del curso, tablas y tabla de contenido. |
-| `report.lua` | Filtro que arma la carátula a partir del README, omite la lista "Contenido" del README e inserta la tabla de contenido con números de página. |
+| `report.lua` | Filtro que arma la carátula a partir de `report/front-matter/01-cover.md` e inserta la tabla de contenido con números de página. |
 | `../.run/Export PDF.run.xml` | Botón **Export PDF** de WebStorm. |
 
-Al agregar un capítulo nuevo, inclúyelo en `input-files` de `report.yaml`.
+Al agregar un archivo nuevo, ponle el prefijo que le toca según Docs-as-Code (`01-09` front matter en `report/front-matter/`, `10-89` capítulos, `99` final y `report/annexes/` para los anexos), inclúyelo en `input-files` de `report.yaml` y enlázalo en la sección «Contenido» del `README.md` de la raíz.
