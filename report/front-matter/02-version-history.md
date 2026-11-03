@@ -50,5 +50,15 @@
 | 2.5.4 | 09/10/2026 | Zavaleta Gutierrez, Rodolfo Martin | Implementación de las referencias bibliográficas |
 | 2.6.0 | 09/10/2026 | Rojas Ambicho, Nestor Daniel | Integración de los capítulos I, III, IV y V para la entrega TB1: prototipo y diseño en el Figma del curso, video de navegación del prototipo, y evidencias del Sprint 2 (Website v1.0.1 en GitHub Pages, Web Application v1.0.0 en Firebase Hosting y Fake API en Render). |
 | 2.6.1 | 09/10/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: se quitaron los marcadores de duración de los videos de navegación del Sprint 2. |
+| 2.6.2 | 09/10/2026 | Rojas Ambicho, Nestor Daniel | Corrección del formato de la tabla de contenido y adición de la sección Student Outcome (ABET – Student Outcome 3). |
+| 2.6.3 | 27/10/2026 | Rojas Ambicho, Nestor Daniel | Capítulo IV: se agregó el aggregate Plan al Design-Level Event Storming del bounded context Subscriptions & Payments. |
+| 2.6.4 | 29/10/2026 | Angulo Ramírez, Marcelo Martín | Capítulo II: mejora de los resúmenes de las entrevistas a profesionales farmacéuticos, nuevas imágenes de los User Personas y sección de características diferenciadoras de DoofPlus; Capítulo III: títulos de secciones más claros. |
+| 2.6.5 | 30/10/2026 | Rojas Ambicho, Nestor Daniel | Revisión posterior a TB1: fotos del equipo estandarizadas, títulos de épicas y User Stories alineados con el Product Backlog y su enlace a Jira, diagramas C4 actualizados y descritos, capturas del Event Storming en inglés, metas, tareas, conclusiones y anexos del Sprint 2, Collaboration Insights de TB1 y acciones orales del Student Outcome. |
+| 2.6.6 | 31/10/2026 | Torres Juárez, Alisee Muriel | Capítulo I: se agregó el perfil de Torres Juárez, Alisee Muriel al equipo. |
+| 2.6.7 | 31/10/2026 | Cobades Zamora, Yhoshua Hebert | Carátula: se agregó a Torres Juárez, Alisee Muriel en la lista de integrantes. |
+| 2.6.8 | 31/10/2026 | Rojas Ambicho, Nestor Daniel | Capítulos I a V: la Landing Page pasa a llamarse Website; diagrama de contenedores con las formas oficiales del C4 Model. |
+| 2.6.9 | 01/11/2026 | Rojas Ambicho, Nestor Daniel | Actualización de los enlaces de la organización y del repositorio del informe, de los nombres de los repositorios y del URL del Website. |
+| 2.6.10 | 02/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulos III y IV: la consulta de contacto (US04) pasa del Website a la Web Application; tabla de contenido con 4 niveles numerados en la exportación a PDF con Pandoc. |
+| 2.7.0 | 03/11/2026 | Cobades Zamora, Yhoshua Hebert | Reestructuración Docs-as-Code: el informe pasa a archivos numerados en `report/` (front matter 01-09, capítulos 10-89, bibliografía 99, anexos y assets), con el `README.md` como archivo principal e índice enlazado. |
 
 ---
