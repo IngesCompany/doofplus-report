@@ -1,6 +1,10 @@
 # Bibliografía
 
 <div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
+ACM/IEEE-CS Joint Task Force on Software Engineering Ethics and Professional Practices. (1999). <em>Software engineering code of ethics and professional practice</em> (Version 5.2). Association for Computing Machinery. https://www.acm.org/code-of-ethics/software-engineering-code
+</div>
+
+<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
 Agencia Andina. (2025). <em>Sector farmacéutico proyecta un crecimiento de 4% para el 2025</em>. Agencia Peruana de Noticias Andina. https://andina.pe/agencia/noticia-sector-farmaceutico-proyecta-un-crecimiento-4-para-2025-1010718.aspx
 </div>
 
@@ -10,6 +14,10 @@ Brown, S. (2018). <em>Software Architecture for Developers: Visualise, document 
 
 <div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
 Brown, T. (2009). <em>Change by design: How design thinking transforms organizations and inspires innovation</em>. HarperBusiness.
+</div>
+
+<div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
+Colegio de Ingenieros del Perú. (s. f.). <em>Código de ética del Colegio de Ingenieros del Perú</em>. https://www.cip.org.pe/
 </div>
 
 <div style="padding-left: 40px; text-indent: -40px; margin-bottom: 15px;">
