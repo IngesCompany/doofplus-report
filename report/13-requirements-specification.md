@@ -97,17 +97,17 @@ Las User Stories se obtuvieron a partir de las necesidades identificadas en las 
 
 El Impact Mapping de DoofPlus conecta los objetivos estratégicos del negocio con los actores involucrados, los impactos esperados, los entregables digitales y sus respectivas User Stories. La solución busca optimizar los tiempos de liberación de lotes y erradicar los errores de transcripción manual en la planta, garantizando el estricto cumplimiento de las normativas de calidad farmacéutica (BPM) mediante trazabilidad centralizada, monitoreo automatizado vía dispositivos IoT, gestión digital de desviaciones y un registro de auditoría inalterable (Audit Trail).
 
-![Impact Mapping - parte 1 de 5](../assets/img/chapter3/impact-mapping/Impact-Mapping-1.png)
+![Impact Mapping - parte 1 de 5](assets/img/chapter3/impact-mapping/Impact-Mapping-1.png)
 
-![Impact Mapping - parte 2 de 5](../assets/img/chapter3/impact-mapping/Impact-Mapping-2.png)
+![Impact Mapping - parte 2 de 5](assets/img/chapter3/impact-mapping/Impact-Mapping-2.png)
 
-![Impact Mapping - parte 3 de 5](../assets/img/chapter3/impact-mapping/Impact-Mapping-3.png)
+![Impact Mapping - parte 3 de 5](assets/img/chapter3/impact-mapping/Impact-Mapping-3.png)
 
-![Impact Mapping - parte 4 de 5](../assets/img/chapter3/impact-mapping/Impact-Mapping-4.png)
+![Impact Mapping - parte 4 de 5](assets/img/chapter3/impact-mapping/Impact-Mapping-4.png)
 
-![Impact Mapping - parte 5 de 5](../assets/img/chapter3/impact-mapping/Impact-Mapping-5.png)
+![Impact Mapping - parte 5 de 5](assets/img/chapter3/impact-mapping/Impact-Mapping-5.png)
 
-*Impact Mapping completo en una sola imagen:* [Impact-Mapping.png](../assets/img/chapter3/Impact-Mapping.png)
+*Impact Mapping completo en una sola imagen:* [Impact-Mapping.png](assets/img/chapter3/Impact-Mapping.png)
 
 ## 3.3. Product Backlog
 
@@ -209,7 +209,7 @@ Entre las dos tareas con puntaje 10, la liberación del lote (US54) precede a la
 
 A continuación, se muestra la gestión del backlog en la herramienta Jira Software, evidenciando la priorización y estimación de las historias.
 
-![Evidence Product Backlog Jira](../assets/img/chapter3/product-backlog-jira.png)
+![Evidence Product Backlog Jira](assets/img/chapter3/product-backlog-jira.png)
 *Figura: Captura del Product Backlog en Jira Software.*
 
 **Enlace al Product Backlog en Jira:** https://doofplus.atlassian.net/jira/software/projects/UPC/boards/3/backlog

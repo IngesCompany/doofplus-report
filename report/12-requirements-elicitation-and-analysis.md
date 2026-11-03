@@ -18,10 +18,10 @@ A continuación, se presenta una tabla comparativa sobre los principales competi
   </tr>
   <tr>
     <td colspan="2"></td>
-    <td><img src="../assets/img/doofplus.png" width="120"><br><b>DoofPlus</b></td>
-    <td><img src="../assets/img/chapter2/competitors/tuhub.png" width="120"><br><b>TuHub</b></td>
-    <td><img src="../assets/img/chapter2/competitors/lolfar.png" width="120"><br><b>LOLFAR (LOLIMSA)</b></td>
-    <td><img src="../assets/img/chapter2/competitors/drugxafe.png" width="120"><br><b>DrugXafe (Tiga Healthcare)</b></td>
+    <td><img src="assets/img/doofplus.png" width="120"><br><b>DoofPlus</b></td>
+    <td><img src="assets/img/chapter2/competitors/tuhub.png" width="120"><br><b>TuHub</b></td>
+    <td><img src="assets/img/chapter2/competitors/lolfar.png" width="120"><br><b>LOLFAR (LOLIMSA)</b></td>
+    <td><img src="assets/img/chapter2/competitors/drugxafe.png" width="120"><br><b>DrugXafe (Tiga Healthcare)</b></td>
   </tr>
   <tr>
     <td rowspan="2">Perfil</td>
@@ -191,7 +191,7 @@ En esta sección se presentan los resultados obtenidos de las entrevistas realiz
 | Apellido | México |
 | Edad | 53 |
 | Distrito | San Juan de Lurigancho |
-| Evidencia | ![Entrevista 1 - Segmento 1](../assets/img/chapter2/interview/segmento1/entrevista1-segmento1.png) |
+| Evidencia | ![Entrevista 1 - Segmento 1](assets/img/chapter2/interview/segmento1/entrevista1-segmento1.png) |
 | Link | https://shorturl.at/c0pBO |
 | Inicio | 00:00 min |
 | Duración | 04:38 min |
@@ -204,7 +204,7 @@ En esta sección se presentan los resultados obtenidos de las entrevistas realiz
 | Apellido | Collasos Zotelo |
 | Edad | 64 |
 | Distrito | San Miguel |
-| Evidencia | ![Entrevista 2 - Segmento 1](../assets/img/chapter2/interview/segmento1/entrevista2-segmento1.png) |
+| Evidencia | ![Entrevista 2 - Segmento 1](assets/img/chapter2/interview/segmento1/entrevista2-segmento1.png) |
 | Link | https://shorturl.at/c0pBO |
 | Inicio | 04:39 min |
 | Duración | 04:59 min |
@@ -217,7 +217,7 @@ En esta sección se presentan los resultados obtenidos de las entrevistas realiz
 | Apellido | Espinoza |
 | Edad | 31 |
 | Distrito | Lima |
-| Evidencia | ![Entrevista 3 - Segmento 1](../assets/img/chapter2/interview/segmento1/entrevista3-segmento1.png) |
+| Evidencia | ![Entrevista 3 - Segmento 1](assets/img/chapter2/interview/segmento1/entrevista3-segmento1.png) |
 | Link | https://shorturl.at/c0pBO |
 | Inicio | 09:37 min |
 | Duración | 04:58 min |
@@ -232,7 +232,7 @@ En esta sección se presentan los resultados obtenidos de las entrevistas realiz
 | Apellido | Valle Vega |
 | Edad | 68 |
 | Distrito | Arequipa |
-| Evidencia | ![Entrevista 1 - Segmento 2](../assets/img/chapter2/interview/segmento2/entrevista1-segmento2.png) |
+| Evidencia | ![Entrevista 1 - Segmento 2](assets/img/chapter2/interview/segmento2/entrevista1-segmento2.png) |
 | Link | https://shorturl.at/c0pBO |
 | Inicio | 14:35 min |
 | Duración | 04:48 min |
@@ -245,7 +245,7 @@ En esta sección se presentan los resultados obtenidos de las entrevistas realiz
 | Apellido | Alanya Mercado |
 | Edad | 35 |
 | Distrito | Lima |
-| Evidencia | ![Entrevista 2 - Segmento 2](../assets/img/chapter2/interview/segmento2/entrevista2-segmento2.png) |
+| Evidencia | ![Entrevista 2 - Segmento 2](assets/img/chapter2/interview/segmento2/entrevista2-segmento2.png) |
 | Link | https://shorturl.at/c0pBO |
 | Inicio | 19:23 min |
 | Duración | 04:59 min |
@@ -258,7 +258,7 @@ En esta sección se presentan los resultados obtenidos de las entrevistas realiz
 | Apellido | Correidos |
 | Edad | 25 |
 | Distrito | Lima |
-| Evidencia | ![Entrevista 3 - Segmento 2](../assets/img/chapter2/interview/segmento2/entrevista3-segmento2.png) |
+| Evidencia | ![Entrevista 3 - Segmento 2](assets/img/chapter2/interview/segmento2/entrevista3-segmento2.png) |
 | Link | https://shorturl.at/c0pBO |
 | Inicio | 24:26 min |
 | Duración | 03:58 min |
@@ -287,7 +287,7 @@ En esta sección se presenta el análisis detallado de la información recolecta
 
 ***Gráficos***
 
-![Gráfico - Segmento 1](../assets/img/chapter2/interview/segmento1/analisis-segmento-1.png)
+![Gráfico - Segmento 1](assets/img/chapter2/interview/segmento1/analisis-segmento-1.png)
 
 ##### Segmento 2: Jefe o Supervisor de Producción Farmacéutica
 
@@ -307,7 +307,7 @@ En esta sección se presenta el análisis detallado de la información recolecta
 
 ***Gráficos***
 
-![Gráfico - Segmento 2](../assets/img/chapter2/interview/segmento2/analisis-segmento-2.png)
+![Gráfico - Segmento 2](assets/img/chapter2/interview/segmento2/analisis-segmento-2.png)
 
 ##### Análisis Comparativo
 
@@ -317,7 +317,7 @@ No obstante, se identifican diferencias en el enfoque de sus necesidades. Los es
 
 Estas diferencias evidencian la necesidad de una plataforma que integre la información generada por ambas áreas dentro de un único entorno, permitiendo a Producción y Calidad trabajar sobre los mismos datos, fortalecer la trazabilidad de los lotes y mejorar la coordinación entre los diferentes actores involucrados en el proceso farmacéutico.
 
-![Gráfico Comparativo](../assets/img/chapter2/interview/analisis/analisis-ambos.png)
+![Gráfico Comparativo](assets/img/chapter2/interview/analisis/analisis-ambos.png)
 
 #### Conclusiones y Definición de Arquetipos
 
@@ -347,14 +347,14 @@ A partir del análisis de las entrevistas y la información recopilada sobre los
 
 Para este segmento se elaboró el User Persona María México, tomando como referencia el perfil de los profesionales responsables de las actividades de aseguramiento y control de calidad dentro de laboratorios farmacéuticos. Se consideraron factores como su experiencia en validaciones, revisión documental, verificación de equipos y evaluación de personal analista, así como su participación en la gestión de protocolos, registros y auditorías regulatorias. Sus principales frustraciones se relacionan con la dependencia de procesos manuales para revisar cálculos, informes y documentación antes de registrar los resultados en los sistemas de la organización, lo que incrementa el tiempo invertido en tareas operativas y dificulta la preparación de evidencias para inspecciones y auditorías. Asimismo, se tomó en cuenta su necesidad de disponer de una plataforma que centralice la información de calidad, facilite la trazabilidad de los lotes, automatice la generación de reportes y reduzca la carga administrativa asociada a la gestión documental, permitiéndole dedicar más tiempo a actividades de supervisión y mejora continua de los procesos de calidad.
 
-![User - Segmento 1](../assets/img/chapter2/interview/segmento1/user-persona1.png)
+![User - Segmento 1](assets/img/chapter2/interview/segmento1/user-persona1.png)
 
 
 **2) Segmento 2: Jefe o Supervisor de Producción Farmacéutica**
 
 Para este segmento se elaboró el User Persona Alberto Valle Vega. Se consideraron factores como su amplia experiencia en la industria farmacéutica, su responsabilidad en la supervisión de los procesos de fabricación y su participación en la coordinación con las áreas de aseguramiento y control de calidad. Sus principales motivaciones están orientadas a garantizar que la producción se desarrolle conforme a los procedimientos establecidos, manteniendo la calidad, la trazabilidad y el cumplimiento de los estándares regulatorios durante todas las etapas de fabricación. Entre sus principales dificultades se encuentra el acceso oportuno a información consolidada sobre los lotes en producción, así como la gestión y comunicación de incidencias que requieren seguimiento y documentación formal. Asimismo, se tomó en cuenta su necesidad de disponer de herramientas que faciliten la consulta del historial de producción, mejoren la coordinación entre las diferentes áreas involucradas y permitan acceder a información confiable para la toma de decisiones operativas, contribuyendo a una gestión más eficiente y a la reducción de errores durante el proceso productivo.
 
-![User - Segmento 2](../assets/img/chapter2/interview/segmento2/user-persona2.png)
+![User - Segmento 2](assets/img/chapter2/interview/segmento2/user-persona2.png)
 
 ### 2.3.2. User Task Matrix
 
@@ -428,7 +428,7 @@ En el escenario actual (As-Is), María se desenvuelve en un entorno altamente de
 
 El análisis de su mapa evidencia estos quiebres operativos y emocionales, justificando la necesidad de nuestra solución tecnológica para digitalizar la captura de datos en el origen, automatizar los cálculos de calidad y centralizar el historial de los lotes en una base de datos accesible al instante.
 
-![User Journey Map - Segmento 1](../assets/img/chapter2/interview/segmento1/User-Journey-Mapping1.png)
+![User Journey Map - Segmento 1](assets/img/chapter2/interview/segmento1/User-Journey-Mapping1.png)
 
 **Segmento 2 – Jefe de Producción Farmacéutica (Alberto Valle)**
 
@@ -438,20 +438,20 @@ Bajo la situación actual (As-Is), el principal obstáculo en la experiencia de 
 
 Este mapa expone cómo la desconexión interdepartamental impacta negativamente en la continuidad de la producción, generando frustración en su perfil de liderazgo. A partir de la identificación de estos puntos de dolor, se establecen las bases para diseñar un sistema que ofrezca comunicación directa, validaciones ágiles y un tablero de control integrado para optimizar los tiempos de la fábrica.
 
-![User Journey Map - Segmento 2](../assets/img/chapter2/interview/segmento2/User-Journey-Mapping2.png)
+![User Journey Map - Segmento 2](assets/img/chapter2/interview/segmento2/User-Journey-Mapping2.png)
 
 ### 2.3.4. Empathy Mapping
 Para la elaboración de los Empathy Maps, el equipo partió del conocimiento y observaciones recolectadas durante el análisis de los User Persona. Se colocó al centro de cada mapa al usuario correspondiente (María México y Alberto Valle Vega) y se respondieron las preguntas claves sobre su entorno, emociones, comportamientos y necesidades.
 
 **1) Segmento 1: Especialista de Aseguramiento y Control de Calidad (QA/QC)**
 
-![EmpathyMap - Segmento 1](../assets/img/chapter2/interview/segmento1/user-empathymap1.png)
+![EmpathyMap - Segmento 1](assets/img/chapter2/interview/segmento1/user-empathymap1.png)
 
 En este mapa se analizó a María México, química farmacéutica encargada del área de aseguramiento y control de calidad en un laboratorio farmacéutico. Se identificó que piensa constantemente en la necesidad de automatizar procesos e informes para liberar la alta carga administrativa del departamento, preocupándose por el riesgo de errores humanos al momento de revisar registros manualmente. Escucha la exigencia de la gerencia para agilizar la entrega de documentación y de las autoridades de salud requerir trazabilidad inmediata. Observa el entorno cargado de expedientes físicos, tablas dispersas y la recurrencia de errores de llenado por parte del personal. María expresa la necesidad de reducir la carga operativa y actúa revisando minuciosamente cálculos a mano e investigando desviaciones operativas junto a su equipo. Su dolor principal es el tiempo invertido en revisiones manuales y la dificultad para recopilar evidencias en auditorías inopinadas, mientras que su ganancia esperada es disponer de generación automática de reportes, un expediente de lotes centralizado y tranquilidad en el cumplimiento normativo.
 
 **2) Segmento 2: Jefe o Supervisor de Producción Farmacéutica**
 
-![EmpathyMap - Segmento 2](../assets/img/chapter2/interview/segmento2/user-empathymap2.png)
+![EmpathyMap - Segmento 2](assets/img/chapter2/interview/segmento2/user-empathymap2.png)
 
 En este mapa se analizó a Alberto Valle, jefe de producción farmacéutica con amplia experiencia en la supervisión de líneas de fabricación. Él piensa en la importancia de integrar información en tiempo real para evitar interrupciones innecesarias en las líneas de envasado. Escucha los reclamos cuando se retrasan las metas de fabricación y los avisos de planta sobre paradas de línea por demoras en las aprobaciones del área de calidad. Observa la dispersión de los registros de lote en papel y las dificultades en la comunicación entre el personal de planta y los departamentos de apoyo. Alberto suele expresar la urgencia de tecnificar la planta y actúa supervisando directamente los avances en línea e investigando las causas de las mermas o desviaciones. Su dolor principal es tener que consultar diferentes registros fragmentados y las demoras al coordinar liberaciones de insumos con Control de Calidad, mientras que su ganancia esperada es garantizar la continuidad productiva, detectar problemas de forma preventiva y tomar decisiones oportunas basadas en datos confiables.
 
@@ -478,7 +478,7 @@ Cada integrante escribió en post-its naranjas, sin orden y en tiempo pasado, lo
 
 Frame en Miro: https://miro.com/app/board/uXjVHl-67N8=/?moveToWidget=3458764685732289571
 
-![Step 4 - Generating Domain Events](../assets/img/chapter2/big-picture/step4-generating-domain-events.jpg)
+![Step 4 - Generating Domain Events](assets/img/chapter2/big-picture/step4-generating-domain-events.jpg)
 
 **Step 5 – Sorting Domain Events**
 
@@ -486,7 +486,7 @@ Los eventos se ordenaron cronológicamente de izquierda a derecha. Los resultado
 
 Frame en Miro: https://miro.com/app/board/uXjVHl-67N8=/?moveToWidget=3458764685732347233
 
-![Step 5 - Sorting Domain Events](../assets/img/chapter2/big-picture/step5-sorting-domain-events.jpg)
+![Step 5 - Sorting Domain Events](assets/img/chapter2/big-picture/step5-sorting-domain-events.jpg)
 
 **Step 6 – Adding Actors and External Systems**
 
@@ -494,7 +494,7 @@ Sobre la línea de tiempo se agregaron los actores que provocan cada grupo de ev
 
 Frame en Miro: https://miro.com/app/board/uXjVHl-67N8=/?moveToWidget=3458764685732347919
 
-![Step 6 - Adding Actors and External Systems](../assets/img/chapter2/big-picture/step6-actors-external-systems.jpg)
+![Step 6 - Adding Actors and External Systems](assets/img/chapter2/big-picture/step6-actors-external-systems.jpg)
 
 **Step 7 – Storytelling**
 
@@ -513,7 +513,7 @@ Un integrante narró la historia completa de inicio a fin mientras el resto vali
 
 Frame en Miro: https://miro.com/app/board/uXjVHl-67N8=/?moveToWidget=3458764685732393843
 
-![Step 7 - Storytelling](../assets/img/chapter2/big-picture/step7-storytelling.jpg)
+![Step 7 - Storytelling](assets/img/chapter2/big-picture/step7-storytelling.jpg)
 
 ## 2.5. Ubiquitous Language
 
