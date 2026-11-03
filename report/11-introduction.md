@@ -289,7 +289,7 @@ Características demográficas:
 Información estadística de sustento:
 
 - Solo 4 de cada 10 laboratorios inspeccionados por DIGEMID obtuvieron la certificación de BPM: de 51 laboratorios inspeccionados hasta mayo de 2026, 20 la obtuvieron, 21 no la lograron y 7 desistieron del proceso. Entre los aspectos evaluados figuran los controles de laboratorio y la trazabilidad de productos, actividades a cargo de QA/QC (Gestión, 2026).
-- 385 laboratorios extranjeros esperaban su certificación de BPM ante una DIGEMID desbordada por la demanda, lo que evidencia la presión regulatoria sobre la documentación de calidad (Infobae, 2025).
+- 385 laboratorios extranjeros esperaban su certificación de BPM ante una DIGEMID desbordada por la demanda, lo que evidencia la presión regulatoria sobre la documentación de calidad (Tuesta, 2025).
 - La OMS establece que los registros de calidad deben ser atribuibles, legibles, contemporáneos, originales y exactos (principios ALCOA) durante todo su ciclo de vida (World Health Organization, 2016).
 - Las BPM de la OMS exigen que toda desviación significativa se registre e investigue completamente para determinar su causa raíz y aplicar acciones correctivas y preventivas, tarea que recae en QA/QC (World Health Organization, 2014).
 - Las mismas BPM exigen conservar registros de fabricación y distribución que permitan rastrear la historia completa de cada lote en forma comprensible y accesible (World Health Organization, 2014).
