@@ -105,17 +105,17 @@ classDiagram
     RELEASED
     REJECTED
   }
-  class BatchReviewCommandService {
-    <<interface>>
-    +handle(StartQuarantineCommand command) Optional~BatchReview~
-    +handle(EvaluateBatchCommand command) Optional~BatchReview~
-    +handle(ReleaseBatchCommand command) Optional~ReleaseCertificate~
+  class DocumentType {
+    <<enumeration>>
+    SOP
+    SPECIFICATION
+    PROTOCOL
+    RECORD
   }
-  class ExternalIamService {
-    +signRecord(Long userId, String password, String entityType, Long entityId) Optional~Long~
-  }
-  class ExternalManufacturingService {
-    +fetchBatchStatus(Long batchId) Optional~String~
+  class ReleaseVerdict {
+    <<enumeration>>
+    APPROVED
+    REJECTED
   }
   QualityDocument "1" *-- "1..*" DocumentVersion : versions
   QualityDocument --> DocumentStatus : status
@@ -124,9 +124,9 @@ classDiagram
   BatchReview "1" *-- "0..1" ReleaseCertificate : issues
   BatchReview ..> AnalyticalResult : evaluates
   BatchReview --> ReviewStatus : status
+  QualityDocument --> DocumentType : type
+  ReleaseCertificate --> ReleaseVerdict : verdict
   AnalyticalResult *-- SpecificationRange : specification
-  BatchReviewCommandService ..> ExternalIamService : uses
-  BatchReviewCommandService ..> ExternalManufacturingService : uses
   class Deviation {
     <<Aggregate Root>>
     -Long id
@@ -218,10 +218,34 @@ classDiagram
     OVERDUE
     VERIFIED
   }
+  class CapaType {
+    <<enumeration>>
+    CORRECTIVE
+    PREVENTIVE
+  }
   class FindingType {
     <<enumeration>>
     FINDING
     OBSERVATION
+  }
+  class AuditType {
+    <<enumeration>>
+    INTERNAL
+    EXTERNAL
+    REGULATORY
+  }
+  class AuditStatus {
+    <<enumeration>>
+    SCHEDULED
+    IN_PROGRESS
+    CLOSED
+  }
+  class AuditAction {
+    <<enumeration>>
+    CREATE
+    UPDATE
+    DELETE
+    SIGN
   }
   class DeviationCommandService {
     <<interface>>
@@ -242,9 +266,27 @@ classDiagram
   Deviation --> Severity : severity
   Deviation --> DeviationStatus : status
   CapaAction --> CapaStatus : status
+  CapaAction --> CapaType : type
   Audit "1" *-- "0..*" AuditFinding : findings
   AuditFinding --> FindingType : type
+  Audit --> AuditType : type
+  Audit --> AuditStatus : status
+  AuditTrailEntry --> AuditAction : action
   DeviationCommandService ..> NotificationService : uses
   ReportGenerationService ..> AuditTrailEntry : reads
   ReportGenerationService ..> Audit : packages
   ReportGenerationService ..> RegulatoryReport : creates
+  class BatchReviewCommandService {
+    <<interface>>
+    +handle(StartQuarantineCommand command) Optional~BatchReview~
+    +handle(EvaluateBatchCommand command) Optional~BatchReview~
+    +handle(ReleaseBatchCommand command) Optional~ReleaseCertificate~
+  }
+  class ExternalIamService {
+    +signRecord(Long userId, String password, String entityType, Long entityId) Optional~Long~
+  }
+  class ExternalManufacturingService {
+    +fetchBatchStatus(Long batchId) Optional~String~
+  }
+  BatchReviewCommandService ..> ExternalIamService : uses
+  BatchReviewCommandService ..> ExternalManufacturingService : uses
