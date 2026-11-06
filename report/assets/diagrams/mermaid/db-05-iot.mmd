@@ -30,7 +30,7 @@ erDiagram
     varchar(100) external_device_id UK "ThingsBoard"
     varchar(20) sensor_type "TEMPERATURE, HUMIDITY, PRESSURE, PH, RFID_READER"
     bigint equipment_id FK
-    varchar(20) status
+    varchar(20) status "AVAILABLE, ASSIGNED_TO_BATCH, OFFLINE"
     bigint current_batch_id "ref manufacturing.production_batches"
   }
   telemetry_readings {

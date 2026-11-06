@@ -107,14 +107,13 @@ classDiagram
   }
   class DocumentType {
     <<enumeration>>
+    PROTOCOL
     SOP
     SPECIFICATION
-    PROTOCOL
-    RECORD
   }
   class ReleaseVerdict {
     <<enumeration>>
-    APPROVED
+    RELEASED
     REJECTED
   }
   QualityDocument "1" *-- "1..*" DocumentVersion : versions
@@ -231,7 +230,6 @@ classDiagram
   class AuditType {
     <<enumeration>>
     INTERNAL
-    EXTERNAL
     REGULATORY
   }
   class AuditStatus {
@@ -242,10 +240,10 @@ classDiagram
   }
   class AuditAction {
     <<enumeration>>
-    CREATE
-    UPDATE
-    DELETE
-    SIGN
+    CREATED
+    UPDATED
+    DELETED
+    SIGNED
   }
   class DeviationCommandService {
     <<interface>>
