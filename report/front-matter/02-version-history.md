@@ -65,5 +65,6 @@
 | 2.7.3 | 03/11/2026 | Cobades Zamora, Yhoshua Hebert | Project Report Collaboration Insights: descripción del trabajo del informe posterior a TB1. |
 | 2.7.4 | 03/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: compromiso ético de los Términos de Servicio según los códigos de ética de ACM/IEEE y del CIP. |
 | 2.7.5 | 07/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo III: se agregó la Technical Story TS12 (API de organizaciones y consultas de contacto, EP02, 3 SP) en las User Stories y en el Product Backlog, después de US50, según el ADR 0007 compartido con AW. |
+| 2.7.6 | 07/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo I: corrección ortográfica en el perfil de Torres Juárez, Alisee Muriel («resiliencia»). |
 
 ---
