@@ -68,5 +68,6 @@
 | 2.7.6 | 07/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo I: corrección ortográfica en el perfil de Torres Juárez, Alisee Muriel («resiliencia»). |
 | 2.7.7 | 09/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: repositorio de los RESTful Web Services (`IngesCompany/doofplus-platform`) en la tabla de 5.1.2. |
 | 2.7.8 | 09/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo III: escenario de registro de un laboratorio nuevo en US48 (llamado a la acción por segmento del Website) y US04 en el Product Backlog con el envío desde la Web Application. |
+| 2.7.9 | 09/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: capturas de Jira de los Sprints 1 y 2 con EP01 «Website y Experiencia Pública» y TS01 «Implementación de Website adaptable y accesible». |
 
 ---
