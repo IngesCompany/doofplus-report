@@ -66,5 +66,6 @@
 | 2.7.4 | 03/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: compromiso ético de los Términos de Servicio según los códigos de ética de ACM/IEEE y del CIP. |
 | 2.7.5 | 07/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo III: se agregó la Technical Story TS12 (API de organizaciones y consultas de contacto, EP02, 3 SP) en las User Stories y en el Product Backlog, después de US50, según el ADR 0007 compartido con AW. |
 | 2.7.6 | 07/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo I: corrección ortográfica en el perfil de Torres Juárez, Alisee Muriel («resiliencia»). |
+| 2.7.7 | 09/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: repositorio de los RESTful Web Services (`IngesCompany/doofplus-platform`) en la tabla de 5.1.2. |
 
 ---
