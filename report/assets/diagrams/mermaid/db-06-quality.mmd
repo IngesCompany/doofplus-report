@@ -5,116 +5,161 @@ erDiagram
   direction LR
   quality_documents {
     bigint id PK
-    varchar(30) code UK
+    varchar(30) code "UK with version"
+    varchar(10) version "2.4"
     varchar(255) title
-    varchar(30) type "PROTOCOL, SOP, SPECIFICATION"
     varchar(20) status "DRAFT, IN_REVIEW, APPROVED, OBSOLETE"
-  }
-  document_versions {
-    bigint id PK
-    bigint quality_document_id FK
-    varchar(10) version_number
-    varchar(500) file_url
-    varchar(500) change_reason
     bigint author_id "ref iam.users"
-    bigint approval_signature_id "ref iam.electronic_signatures"
-  }
-  material_approvals {
-    bigint id PK
-    bigint raw_material_lot_id UK "ref manufacturing.raw_material_lots"
-    varchar(30) sample_code "nullable"
-    varchar(20) status "PENDING, SAMPLED, APPROVED, REJECTED"
-    bigint decided_by "ref iam.users"
-    varchar(500) reason "nullable"
+    bigint technical_reviewer_id "ref iam.users"
+    bigint approver_id "ref iam.users"
+    date changed_at
+    text purpose
+    text scope
+    text procedure
+    text revision_summary
+    int review_cycle_months "12, 24"
   }
   analytical_results {
     bigint id PK
-    bigint production_batch_id "ref manufacturing.production_batches"
-    varchar(150) test_name
-    decimal value "(12,4)"
-    decimal spec_min "(12,4)"
-    decimal spec_max "(12,4)"
-    varchar(10) unit
-    tinyint(1) out_of_specification
+    varchar(30) batch_code "ref manufacturing.production_batches"
+    varchar(30) sample_code
+    varchar(30) report_code
+    varchar(100) test_name
+    varchar(50) protocol
+    varchar(30) result "98.7 %"
+    varchar(50) specification "95.0–105.0 %"
     bigint analyst_id "ref iam.users"
+    varchar(10) status "WITHIN, OOS, PENDING"
+    varchar(20) approval "REQUESTED, APPROVED"
   }
-  batch_reviews {
+  batch_releases {
     bigint id PK
-    bigint production_batch_id UK "ref manufacturing.production_batches"
-    varchar(20) status "IN_QUARANTINE, UNDER_EVALUATION, RELEASED, REJECTED"
-    datetime quarantine_started_at
-    varchar(30) sample_code "nullable"
-    datetime evaluated_at "nullable"
-  }
-  evidence_attachments {
-    bigint id PK
-    bigint batch_review_id FK
-    varchar(500) file_url
-    varchar(255) description
-  }
-  release_certificates {
-    bigint id PK
-    bigint batch_review_id FK, UK
-    varchar(30) certificate_number UK
-    varchar(10) verdict "RELEASED, REJECTED"
+    varchar(30) batch_code UK "ref manufacturing.production_batches"
+    bigint requested_by "ref iam.users"
+    varchar(20) status "PENDING, RELEASED, REJECTED"
+    varchar(500) decision "nullable"
     bigint signature_id "ref iam.electronic_signatures"
-    datetime issued_at
+    datetime signed_at "nullable"
   }
-  quality_documents ||--|{ document_versions : "versions"
-  batch_reviews ||--o{ evidence_attachments : "attaches"
-  batch_reviews ||--o| release_certificates : "issues"
+  evidence {
+    bigint id PK
+    varchar(30) record_code "DEV-26017, B-26041"
+    varchar(255) file_name
+    varchar(255) detail
+    varchar(20) status "ATTACHED, PENDING_REVIEW, REVIEWED"
+  }
   deviations {
     bigint id PK
-    varchar(30) code UK
-    bigint production_batch_id "ref manufacturing.production_batches"
-    varchar(10) severity "MINOR, MAJOR, CRITICAL"
-    varchar(20) status "OPEN, UNDER_INVESTIGATION, CLOSED"
-    text description
-    varchar(50) root_cause_method "nullable"
-    text root_cause_description "nullable"
-    datetime detected_at
-    datetime closed_at "nullable"
+    varchar(30) code UK "DEV-26017"
+    varchar(255) title
+    varchar(30) batch_code "ref manufacturing.production_batches"
+    varchar(30) order_code "ref manufacturing.production_orders"
+    text summary
+    varchar(10) classification "MINOR, MAJOR, CRITICAL"
+    text containment
+    int severity "1-5"
+    int likelihood "1-5"
+    int detectability "1-5"
+    varchar(20) status "OPEN, SUBMITTED, DISPOSITIONED, CLOSED"
+    varchar(150) root_cause "nullable"
+    bigint reported_by "ref iam.users"
+    datetime reported_at
+    bigint owner_id "ref iam.users"
+    datetime due_at
+  }
+  capa_plans {
+    bigint id PK
+    varchar(30) code UK "CAPA-26009"
+    bigint deviation_id FK
+    varchar(255) title
+    bigint owner_id "ref iam.users"
+    bigint reviewer_id "ref iam.users"
+    varchar(150) root_cause "nullable"
+    varchar(500) acceptance_criterion
+    date effectiveness_check_at
+    varchar(20) status "DRAFT, IN_PROGRESS, IN_APPROVAL, CLOSED"
   }
   capa_actions {
     bigint id PK
-    bigint deviation_id FK
+    bigint capa_plan_id FK
+    varchar(10) code "CA-01, PA-01"
     varchar(12) type "CORRECTIVE, PREVENTIVE"
-    varchar(500) description
-    bigint responsible_id "ref iam.users"
-    date due_date
-    int progress "0-100"
-    varchar(20) status "OPEN, IMPLEMENTED, OVERDUE, VERIFIED"
+    varchar(255) title
+    bigint owner_id "ref iam.users"
+    date due_at
+    varchar(20) status "OPEN, PLANNED, IN_REVIEW, COMPLETE"
+    varchar(150) evidence
+    tinyint(1) evidence_attached
   }
   audits {
     bigint id PK
-    varchar(20) type "INTERNAL, REGULATORY"
-    date scheduled_date
+    varchar(30) code UK "AUD-26004"
+    varchar(255) title
+    varchar(40) period
+    int areas_reviewed
+    int areas_total
     varchar(20) status "SCHEDULED, IN_PROGRESS, CLOSED"
-    varchar(500) evidence_package_url "nullable"
   }
   audit_findings {
     bigint id PK
     bigint audit_id FK
-    varchar(20) type "FINDING, OBSERVATION"
-    varchar(500) description
+    varchar(10) code "F-01"
+    varchar(255) title
+    varchar(10) classification "MINOR, MAJOR, CRITICAL"
+    bigint owner_id "ref iam.users"
+    date due_at
+    varchar(20) status "EVIDENCE_PENDING, IN_REVIEW, CLOSED"
+    text observation
+    text response "nullable"
+    text closure_requirement
   }
-  audit_trail_entries {
+  audit_events {
     bigint id PK
-    varchar(100) entity_type
-    varchar(36) entity_id
-    varchar(20) action "CREATED, UPDATED, DELETED, SIGNED"
-    json old_value "nullable"
-    json new_value "nullable"
-    bigint changed_by "ref iam.users"
-    datetime changed_at
+    varchar(30) event_code UK "EVT-89416"
+    datetime occurred_at
+    bigint actor_id "ref iam.users"
+    varchar(40) actor_role
+    varchar(100) event
+    varchar(30) record_code
+    varchar(20) result "RECORDED, BLOCKED, ON_HOLD, ACKNOWLEDGED"
+    varchar(100) field
+    varchar(255) before_value "nullable"
+    varchar(255) after_value "nullable"
     varchar(255) reason "nullable"
   }
   regulatory_reports {
     bigint id PK
-    bigint organization_id "ref organizations.organizations"
-    char(7) period "YYYY-MM"
-    varchar(500) file_url
-    datetime generated_at
+    varchar(30) code UK "RPT-26012"
+    varchar(20) type "BATCH_DOSSIER, QUALITY_REVIEW, CAPA_SUMMARY, AUDIT_EVIDENCE"
+    varchar(100) scope
+    bigint owner_id "ref iam.users"
+    varchar(10) status "DRAFT, BLOCKED, APPROVED"
+    varchar(100) template
+    varchar(100) format
   }
-  deviations ||--o{ capa_actions : "resolved by"
+  collaboration_tasks {
+    bigint id PK
+    varchar(255) title
+    varchar(60) record_code
+    varchar(255) detail
+    bigint owner_id "ref iam.users"
+    datetime due_at
+    varchar(10) status "TO_DO, OPEN, PENDING, IN_REVIEW, READY, DONE"
+  }
+  task_comments {
+    bigint id PK
+    varchar(30) record_code
+    bigint author_id "ref iam.users"
+    datetime posted_at
+    text text
+  }
+  traceability_gaps {
+    bigint id PK
+    varchar(30) batch_code "ref manufacturing.production_batches"
+    varchar(150) missing_record
+    varchar(500) detail
+    varchar(20) status "OPEN, UNDER_REVIEW, RESOLVED"
+  }
+  deviations ||--o| capa_plans : "addressed by"
+  capa_plans ||--|{ capa_actions : "contains"
   audits ||--o{ audit_findings : "records"

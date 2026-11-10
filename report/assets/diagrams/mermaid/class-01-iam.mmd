@@ -1,24 +1,25 @@
 ---
-title: "Class Diagram – Identity & Access Management (IAM) Bounded Context"
+title: "Class Diagram – IAM Bounded Context"
 ---
 classDiagram
   direction LR
-  class AuditableAbstractAggregateRoot~T~ {
+  class AbstractDomainAggregateRoot~T~ {
     <<abstract>>
-    #Long id
-    #Date createdAt
-    #Date updatedAt
+    #registerDomainEvent(Object event) void
   }
   class User {
     <<Aggregate Root>>
+    -Long id
     -Long organizationId
+    -Long facilityId
+    -String fullName
     -EmailAddress email
     -String passwordHash
     -String mfaSecret
     -UserStatus status
     -int failedSignInAttempts
     -Set~Role~ roles
-    +User(Long organizationId, EmailAddress email, String passwordHash)
+    +User(SignUpCommand command, String passwordHash, List~Role~ roles)
     +activate(String passwordHash, String mfaSecret) void
     +assignRole(Role role) User
     +registerFailedSignIn() void
@@ -32,14 +33,30 @@ classDiagram
     -Roles name
     +getStringName() String
   }
+  class Invitation {
+    <<Aggregate Root>>
+    -Long id
+    -Long organizationId
+    -Long facilityId
+    -Role role
+    -String fullName
+    -EmailAddress email
+    -String note
+    -InvitationStatus status
+    -LocalDateTime sentAt
+    +Invitation(SendInvitationCommand command)
+    +accept() void
+    +expire() void
+  }
   class ElectronicSignature {
     <<Aggregate Root>>
+    -Long id
     -Long userId
     -String entityType
     -Long entityId
     -SignatureMeaning meaning
     -LocalDateTime signedAt
-    +ElectronicSignature(Long userId, String entityType, Long entityId, SignatureMeaning meaning)
+    +ElectronicSignature(SignRecordCommand command)
   }
   class EmailAddress {
     <<Value Object>>
@@ -60,6 +77,12 @@ classDiagram
     LOCKED
     DISABLED
   }
+  class InvitationStatus {
+    <<enumeration>>
+    PENDING
+    ACCEPTED
+    EXPIRED
+  }
   class SignatureMeaning {
     <<enumeration>>
     AUTHORED
@@ -72,19 +95,28 @@ classDiagram
     +findByEmail(EmailAddress email) Optional~User~
     +existsByEmail(EmailAddress email) boolean
   }
+  class InvitationRepository {
+    <<interface>>
+    +findAllByOrganizationId(Long organizationId) List~Invitation~
+  }
   class ElectronicSignatureRepository {
     <<interface>>
     +findByEntityTypeAndEntityId(String entityType, Long entityId) List~ElectronicSignature~
   }
   class UserCommandService {
     <<interface>>
-    +handle(RegisterUserCommand command) Optional~User~
-    +handle(SignInCommand command) Optional~AuthenticatedUser~
-    +handle(AssignRoleCommand command) Optional~User~
+    +handle(SignUpCommand command) Result~User, ApplicationError~
+    +handle(SignInCommand command) Result~AuthenticatedUser, ApplicationError~
+    +handle(AssignRoleCommand command) Result~User, ApplicationError~
+  }
+  class InvitationCommandService {
+    <<interface>>
+    +handle(SendInvitationCommand command) Result~Invitation, ApplicationError~
+    +handle(AcceptInvitationCommand command) Result~User, ApplicationError~
   }
   class SignatureCommandService {
     <<interface>>
-    +handle(SignRecordCommand command) Optional~ElectronicSignature~
+    +handle(SignRecordCommand command) Result~ElectronicSignature, ApplicationError~
   }
   class TokenService {
     <<interface>>
@@ -101,22 +133,27 @@ classDiagram
     +verifyCode(String secret, String code) boolean
   }
   class IamContextFacade {
-    +createAdministrator(Long organizationId, String email) Long
+    +createAdministrator(Long organizationId, String fullName, String email, String password) Long
     +signRecord(Long userId, String password, String entityType, Long entityId, String meaning) Long
   }
-  AuditableAbstractAggregateRoot <|-- User
-  AuditableAbstractAggregateRoot <|-- ElectronicSignature
+  AbstractDomainAggregateRoot <|-- User
+  AbstractDomainAggregateRoot <|-- Invitation
+  AbstractDomainAggregateRoot <|-- ElectronicSignature
   User "0..*" o-- "1..*" Role : has
   User *-- EmailAddress : email
   User --> UserStatus : status
+  Invitation "0..*" --> "1" Role : offers
+  Invitation --> InvitationStatus : status
   Role --> Roles : name
   ElectronicSignature "0..*" --> "1" User : signedBy
   ElectronicSignature --> SignatureMeaning : meaning
   UserRepository ..> User : persists
+  InvitationRepository ..> Invitation : persists
   ElectronicSignatureRepository ..> ElectronicSignature : persists
   UserCommandService ..> TokenService : uses
   UserCommandService ..> HashingService : uses
   UserCommandService ..> TotpService : uses
+  InvitationCommandService ..> UserCommandService : createsUser
   SignatureCommandService ..> HashingService : verifiesIdentity
   IamContextFacade ..> UserCommandService : delegates
   IamContextFacade ..> SignatureCommandService : delegates

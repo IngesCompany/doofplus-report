@@ -8,18 +8,23 @@ classDiagram
     -Long id
     -String legalName
     -Ruc ruc
+    -String region
+    -String ownerName
     -OrganizationStatus status
-    -List~Plant~ plants
-    +Organization(String legalName, Ruc ruc)
-    +addPlant(String name, String address) Plant
-    +suspend() void
-    +reactivate() void
+    -List~Facility~ facilities
+    +Organization(RegisterOrganizationCommand command)
+    +addFacility(String name, FacilityType type, String timezone) Facility
+    +verify() void
+    +deactivate() void
   }
-  class Plant {
+  class Facility {
     <<Entity>>
     -Long id
     -String name
-    -String address
+    -FacilityType type
+    -String timezone
+    -String ownerName
+    -FacilityStatus status
   }
   class Ruc {
     <<Value Object>>
@@ -32,12 +37,13 @@ classDiagram
     -Long userId
     -Long organizationId
     -PersonName name
-    -String position
+    -String email
     -Area area
-    -String preferredLanguage
+    -String site
+    -String language
     -NotificationPreferences preferences
     +updatePreferences(NotificationPreferences preferences) void
-    +changeLanguage(String languageTag) void
+    +changeLanguage(String language) void
   }
   class PersonName {
     <<Value Object>>
@@ -50,6 +56,14 @@ classDiagram
     +boolean emailEnabled
     +boolean inAppEnabled
   }
+  class AdministrativeActivity {
+    <<Aggregate Root>>
+    -Long id
+    -Long organizationId
+    -String title
+    -String actor
+    -LocalDateTime occurredAt
+  }
   class ContactInquiry {
     <<Aggregate Root>>
     -Long id
@@ -58,13 +72,25 @@ classDiagram
     -String message
     -InquiryStatus status
     -LocalDateTime receivedAt
-    +ContactInquiry(String fullName, String email, String message)
+    +ContactInquiry(SendContactInquiryCommand command)
     +markAsAnswered() void
   }
   class OrganizationStatus {
     <<enumeration>>
     ACTIVE
-    SUSPENDED
+    PENDING
+    PENDING_VERIFICATION
+    INACTIVE
+  }
+  class FacilityType {
+    <<enumeration>>
+    MANUFACTURING
+    QC_LABORATORY
+  }
+  class FacilityStatus {
+    <<enumeration>>
+    ACTIVE
+    INACTIVE
   }
   class Area {
     <<enumeration>>
@@ -87,24 +113,32 @@ classDiagram
   }
   class OrganizationCommandService {
     <<interface>>
-    +handle(RegisterOrganizationCommand command) Optional~Organization~
-    +handle(AddPlantCommand command) Optional~Plant~
+    +handle(RegisterOrganizationCommand command) Result~Organization, ApplicationError~
+    +handle(AddFacilityCommand command) Result~Facility, ApplicationError~
+  }
+  class ProfileCommandService {
+    <<interface>>
+    +handle(UpdateProfilePreferencesCommand command) Result~Profile, ApplicationError~
   }
   class ContactInquiryCommandService {
     <<interface>>
-    +handle(SendContactInquiryCommand command) Optional~ContactInquiry~
+    +handle(SendContactInquiryCommand command) Result~ContactInquiry, ApplicationError~
   }
   class ExternalIamService {
-    +createAdministrator(Long organizationId, String email) Optional~Long~
+    +createAdministrator(Long organizationId, String fullName, String email, String password) Optional~Long~
   }
-  Organization "1" *-- "1..*" Plant : operates
+  Organization "1" *-- "1..*" Facility : operates
   Organization *-- Ruc : ruc
   Organization --> OrganizationStatus : status
+  Facility --> FacilityType : type
+  Facility --> FacilityStatus : status
   Profile "0..*" --> "1" Organization : belongsTo
   Profile *-- PersonName : name
   Profile *-- NotificationPreferences : preferences
   Profile --> Area : area
+  AdministrativeActivity "0..*" --> "1" Organization : loggedFor
   ContactInquiry --> InquiryStatus : status
   OrganizationRepository ..> Organization : persists
   ProfileRepository ..> Profile : persists
   OrganizationCommandService ..> ExternalIamService : uses
+  ProfileCommandService ..> ProfileRepository : uses

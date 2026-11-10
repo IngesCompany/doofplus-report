@@ -4,48 +4,81 @@ title: "Database Diagram – Manufacturing & Batch Management Bounded Context (M
 erDiagram
   products {
     bigint id PK
-    varchar(30) code UK
+    varchar(30) code UK "AC500"
     varchar(150) name
-    varchar(30) dosage_form "TABLET, SYRUP, INJECTABLE, CREAM"
+    varchar(20) dosage_form "TABLET, CAPSULE, SYRUP, INJECTABLE"
   }
   master_formulas {
     bigint id PK
     bigint product_id FK
-    varchar(10) version
-    varchar(20) status "DRAFT, APPROVED, OBSOLETE"
+    varchar(10) version "v3.2"
+    varchar(20) status "DRAFT, PENDING, APPROVED, LOCKED"
+    int batch_size
+    bigint approved_by "ref iam.users, nullable"
+    date approved_at "nullable"
   }
-  formula_components {
+  formula_items {
     bigint id PK
     bigint master_formula_id FK
-    varchar(30) raw_material_code
-    decimal quantity "(12,4)"
-    varchar(10) unit
+    varchar(10) kind "COMPONENT, PARAMETER"
+    varchar(150) name
+    varchar(40) role "nullable"
+    varchar(40) target "60.0 kg"
+    varchar(40) tolerance
+    varchar(150) control
   }
   raw_material_lots {
     bigint id PK
-    varchar(30) code UK
-    varchar(150) name
+    varchar(30) code UK "RM-26098"
+    varchar(30) receipt_code "RCV-26098"
+    varchar(150) material
+    varchar(20) category "API, EXCIPIENT, PACKAGING"
+    varchar(150) supplier
     varchar(50) supplier_lot
     varchar(100) rfid_tag UK "nullable"
     decimal received_quantity "(12,4)"
-    varchar(50) warehouse_location "nullable"
-    varchar(20) quality_status "QUARANTINE ... REJECTED"
-    date expiration_date
+    varchar(60) quantity_detail "20 sealed drums"
+    varchar(100) storage_location
+    varchar(255) certificate "CoA file"
+    varchar(20) status "QUARANTINE, SAMPLING, INSPECTION, APPROVED, REJECTED"
+    varchar(20) sampling_status "PENDING, REQUESTED, DONE"
+    tinyint(1) packaging_verified
+    tinyint(1) identity_verified
+    date expiry_date
   }
   production_orders {
     bigint id PK
+    varchar(30) code UK "PO-26041"
     bigint master_formula_id FK
-    bigint plant_id "ref organizations.plants"
+    bigint facility_id "ref organizations.facilities"
+    varchar(30) line "Line 02"
     decimal planned_quantity "(12,4)"
-    varchar(20) status "CREATED, APPROVED, REJECTED, PLANNED"
-    date planned_start_date "nullable"
+    varchar(20) status "PLANNED, APPROVED, IN_PROGRESS, ON_HOLD, COMPLETED"
+    datetime planned_start
+    datetime planned_end
+  }
+  operations {
+    bigint id PK
+    bigint production_order_id FK
+    int sequence
+    varchar(100) name
+    varchar(150) equipment
+    int progress "0-100"
+    varchar(20) status "NOT_STARTED, IN_PROGRESS, ON_HOLD, COMPLETE"
+    varchar(100) reference "nullable"
   }
   production_batches {
     bigint id PK
-    varchar(30) batch_number UK
+    varchar(30) batch_number UK "B-26041"
     bigint production_order_id FK
     varchar(20) status "PLANNED ... RELEASED, REJECTED"
-    decimal manufactured_quantity "(12,4) nullable"
+    varchar(30) line
+    bigint owner_id "ref iam.users"
+    int progress "0-100"
+    decimal planned_quantity_value "(12,4)"
+    varchar(10) planned_quantity_unit
+    decimal manufactured_quantity_value "(12,4) nullable"
+    varchar(10) manufactured_quantity_unit "nullable"
     datetime started_at "nullable"
     datetime finished_at "nullable"
   }
@@ -74,14 +107,16 @@ erDiagram
   batch_events {
     bigint id PK
     bigint production_batch_id FK
-    varchar(40) type
-    varchar(500) description
+    varchar(40) type "title"
+    varchar(500) description "detail"
+    varchar(10) tone "NORMAL, WARNING, CRITICAL"
     bigint performed_by "ref iam.users"
     datetime occurred_at
   }
   products ||--o{ master_formulas : "defined by"
-  master_formulas ||--|{ formula_components : "contains"
+  master_formulas ||--|{ formula_items : "contains"
   master_formulas ||--o{ production_orders : "followed by"
+  production_orders ||--|{ operations : "routed through"
   production_orders ||--o{ production_batches : "executed as"
   production_batches ||--o{ material_consumptions : "consumes"
   raw_material_lots ||--o{ material_consumptions : "consumed in"
