@@ -1033,6 +1033,7 @@ En esta sección se registra y explica el avance en términos de producto y trab
 #### 5.2.3.1. Sprint Planning 3
 El Sprint Planning Meeting sirvió para definir los objetivos del Sprint, asignar responsabilidades por bounded context y seleccionar las User Stories pendientes del WebService. A continuación, se presenta el resumen de la reunión de planificación:
 
+//TODO: Completar tabla de Sprint Planning 3.
 | Sprint # | Sprint 3 |
 |----------|----------|
 | **Sprint Planning Background** | |
@@ -1061,8 +1062,29 @@ En el Sprint 3 se consideraron: el WebSite y Web Application, en el WebService, 
 | Zavaleta Gutierrez, Rodolfo Martin | gutierrezrodolfo360-bit | L| C  |C |  | L|  |  |  |C|
 
 #### 5.2.3.3. Sprint Backlog 3.
+El objetivo del Sprint 3 fue entregar la primera versión del WebService, la primera versión del Course de DoofPlus y terminar la versión 3.0.0 del WebSite, 2.0.0 del Web Application. La siguiente tabla resume el Sprint Backlog 3, con las User Stories seleccionadas, su prioridad, el responsable y el estado de cada una.
+//TODO: Agregar jira y tabla de Sprint Backlog 3.
 
 #### 5.2.3.4. Development Evidence for Sprint Review.
+En el Sprint 3 se trabajó en cinco repositorios siguiendo GitFlow: una feature branch por sección del WebSite o por bounded context de la Web Application y WebService, y por lecciones en Course, integradas en `develop` con merges `--no-ff`, y una rama `release/x.y.z` fusionada en `main` con el tag `vx.y.z` en ambos repositorios. El Website recibió el call-to-action; en la Web Application, se registró la versión final desplegada; el WebService recibió su primera versión desplegada para que trabaje junto con el Web Application y la base de datos. Finalmente, el course tuvo su primera versión para las lecciones que se grabarán. 
+Las tablas siguientes presentan todos los commits de `main`; la columna *Branch* indica la rama en que se realizó cada commit..
+
+//TODO: Agregar tabla de commits de `main` del los repositorios.
+
+#### 5.2.3.5. Execution Evidence for Sprint Review.
+En este sprint se completaron las siguientes tareas de ejecución:
+//TODO: Agregar evidencias de tareas de ejecución del Sprint 3.
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review.
+En el sprint 3 todavía no se implementó IAM y ciertos aggregates del WebService, por lo que no hay documentación OpenAPI. Mientras tanto, la Web Application consume una Fake API con json-server (`server/db.json`), cuyas rutas se exponen bajo el prefijo `/api/v1` mediante `server/routes.json`, el mismo que tendrán los Web Services. La siguiente tabla documenta los endpoints que usa la Web Application; la URL base local es `http://localhost:3000/api/v1` y la publicada en Render es `https://ingescompany-frontend.onrender.com/api/v1` (por ejemplo, `/plans`: https://ingescompany-frontend.onrender.com/api/v1/plans).
+//TODO: Agregar tabla de endpoints de la Fake API del Sprint 3.
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review.
+En este sprint se prepararon las versiones estables de ambos productos siguiendo GitFlow:
+//TODO: Agregar evidencias de despliegue del Sprint 3.
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint.
+En este sprint se agregó a una nueva integrante (Alisee Torres), por lo que los 6 participaron en los 5 repositorios y se registraron los commits de cada integrante en `main` (sin contar los commits de merge), seguida de los analíticos de GitHub: *Contributors*, que muestra los commits por integrante, y *Network*, que muestra las ramas de GitFlow y sus merges.
+//TODO: Agregar tabla de commits de `main` del los repositorios del Sprint 3 e imágenes de los analíticos de GitHub.
 
 ## 5.3. Validation Interviews
 
