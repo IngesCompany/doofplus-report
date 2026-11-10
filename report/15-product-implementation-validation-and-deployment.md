@@ -1031,8 +1031,34 @@ Los cinco integrantes participaron en ambos repositorios. La siguiente tabla res
 En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el Sprint 3, cuyo enfoque fue entregar el primer avance del WebService, la primera versión del Course de DoofPlus y terminar la versión 3.0.0 del WebSite, 2.0.0 del Web Application.
 
 #### 5.2.3.1. Sprint Planning 3
+El Sprint Planning Meeting sirvió para definir los objetivos del Sprint, asignar responsabilidades por bounded context y seleccionar las User Stories pendientes del WebService. A continuación, se presenta el resumen de la reunión de planificación:
+
+| Sprint # | Sprint 3 |
+|----------|----------|
+| **Sprint Planning Background** | |
+| **Date** | 2026-11-10 |
+| **Time** | 10:00 AM |
+| **Location** | Reunión virtual vía Discord |
+| **Prepared By** | Zavaleta Gutierrez, Rodolfo Martin |
+| **Attendees (to planning meeting)** | Angulo Ramírez, Marcelo Martín / Cobades Zamora, Yhoshua Hebert / Flores Martinez, Ricardo Andres / Torres Juárez, Alisee Muriel / Rojas Ambicho, Nestor Daniel / Zavaleta Gutierrez, Rodolfo Martin |
+| **Sprint 2 Review Summary** |  |
+| **Sprint 2 Retrospective Summary** |  |
+| **Sprint Goal & User Stories** | |
+| **Sprint 3 Goal** | **Our focus is on**  |
+| **Sprint 3 Velocity** |  |
+| **Sum of Story Points** |  |
 
 #### 5.2.3.2. Aspect Leaders and Collaborators.
+En el Sprint 3 se consideraron: el WebSite y Web Application, en el WebService, los bounded contexts de core business y un genérico (Shared, Organizations, Manufacturing, IoT Monitoring, Quality & Compliance), las releases y el despliegue, y la documentación. El líder (L) de cada aspecto es el integrante con más commits en él, según el historial de los repositorios.
+
+| Team Member (Last Name, First Name) | GitHub Username | Website | Web Application | Shared & IAM | Organizations | Manufacturing | IoT Monitoring | Quality & Compliance | Releases & Deployment | Documentation |
+|-------------------------------------|-----------------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Angulo Ramírez, Marcelo Martín | Zock2005 |  |  | | |  |L | |  |C|
+| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | C|L | |L  | |  |  |  |L|
+| Flores Martinez, Ricardo Andres | Nitoryu28 |  | | | | |  |L | ||
+| Rojas Ambicho, Nestor Daniel | danRO-20 | C|C |L  | |  | |  |  |C|
+| Torres Juárez, Alisee Muriel | lLisee1 |  | |  |C | |  |||C|
+| Zavaleta Gutierrez, Rodolfo Martin | gutierrezrodolfo360-bit | L| C  |C |  | L|  |  |  |C|
 
 #### 5.2.3.3. Sprint Backlog 3.
 
