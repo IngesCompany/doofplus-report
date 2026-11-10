@@ -1249,7 +1249,7 @@ El diseño orientado a objetos traduce los aggregates del Design-Level EventStor
 
 ![Class Diagram - Organizations & Profiles](assets/img/chapter4/diagram-class/class-02-organizations.png)
 
-**Subscriptions & Payments.** `Subscription` controla el ciclo de vida de la suscripción y sus pagos; `Plan` define precios y límites. `PaymentGateway` abstrae la pasarela y `NiubizPaymentGateway` la implementa.
+**Subscriptions & Payments.** `Plan` se identifica por el value object `PlanKey` (`standard-lab`, `enterprise`) y define sus precios y los límites de usuarios y sensores (0 significa ilimitado). `Subscription` controla el ciclo de vida de la suscripción (pendiente, activa, cancelada o vencida) y su periodo vigente, guarda la tarjeta (`PaymentCard`, solo marca, últimos cuatro dígitos y vencimiento) y el correo de facturación (`BillingEmail`), y registra sus pagos; cada `Payment` lleva el número de comprobante que se muestra en el historial de facturas. `PaymentGateway` abstrae la pasarela y `NiubizPaymentGateway` la implementa.
 
 ![Class Diagram - Subscriptions & Payments](assets/img/chapter4/diagram-class/class-03-subscriptions.png)
 
