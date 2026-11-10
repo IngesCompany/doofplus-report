@@ -1031,7 +1031,11 @@ Los cinco integrantes participaron en ambos repositorios. La siguiente tabla res
 
 #### 5.2.3.1. Sprint Planning 3
 
+#### 5.2.3.2. Aspect Leaders and Collaborators.
 
+#### 5.2.3.3. Sprint Backlog 3.
+
+#### 5.2.3.4. Development Evidence for Sprint Review.
 
 ## 5.3. Validation Interviews
 
