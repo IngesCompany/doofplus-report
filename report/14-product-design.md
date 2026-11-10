@@ -668,7 +668,7 @@ Los mock-ups aplican el Design System de la sección 4.1 sobre los wireframes y 
 
 ![Mock-up · Raw-material receipt](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-raw-material-receipt.png)
 
-**Equipment & IoT devices:** registro de equipos y sensores con su estado (Fit for use, Not fit for use, In maintenance), calibraciones y mantenimientos (US23, US37, US38, US39). Un equipo no apto o un sensor ya asociado a otro lote no puede vincularse (US24).
+**Equipment & IoT devices:** registro de equipos y sensores con su estado de calibración (Fit for use, Calibration due, Not fit for use), calibraciones y mantenimientos (US23, US37, US38, US39). Un equipo no apto o un sensor ya asociado a otro lote no puede vincularse (US24).
 
 ![Mock-up · Equipment & IoT devices](assets/img/chapter4/web-application/mockups/desktop-segment-2-production-supervisor/production-equipment-iot-devices.png)
 
@@ -1233,19 +1233,20 @@ En el diagrama se observa que:
 
 El diseño orientado a objetos traduce los aggregates del Design-Level EventStorming a clases Java del RESTful API. Se aplicaron estas convenciones:
 
-- Cada aggregate root extiende `AuditableAbstractAggregateRoot`, que aporta el identificador `Long id` y las fechas `createdAt` y `updatedAt` (en los diagramas, `id` se muestra en cada aggregate y la clase base solo en IAM).
+- Cada aggregate root extiende `AbstractDomainAggregateRoot` de la capa shared, que registra sus domain events, y no tiene anotaciones JPA. Se persiste mediante una entidad de infraestructura que extiende `AuditableAbstractPersistenceEntity` y aporta el identificador `Long id` y las fechas `createdAt` y `updatedAt` (en los diagramas, `id` se muestra en cada aggregate y la clase base solo en IAM).
 - Las entities internas de un aggregate se acceden solo a través de su raíz; los value objects (por ejemplo, `BatchNumber`, `Quantity`, `Money`, `Ruc`) se implementan como Java records inmutables.
 - Los nombres siguen la Google Java Style Guide: clases en PascalCase, atributos y métodos en camelCase y constantes de enumeraciones en UPPER_SNAKE_CASE. Los getters se generan con Lombok y no se muestran.
-- Los cambios de estado se solicitan con commands (`CreateBatchCommand`, `CloseDeviationCommand`, etc.) atendidos por command services; las consultas usan query services. Los repositorios son interfaces de Spring Data JPA.
-- Las relaciones entre contextos se modelan por identificador (`batchId`, `userId`) y no por referencia directa, respetando los límites de cada bounded context.
+- Los cambios de estado se solicitan con commands (`CreateBatchCommand`, `CloseDeviationCommand`, etc.) atendidos por command services, que devuelven `Result<T, ApplicationError>` en lugar de lanzar excepciones; las consultas usan query services. Los repositorios son interfaces del dominio implementadas con Spring Data JPA en la capa de infraestructura.
+- Las relaciones entre contextos se modelan por identificador o por código de negocio (`userId`, `batchCode`) y no por referencia directa, respetando los límites de cada bounded context.
+- Los diagramas reflejan el modelo que implementan la Web Application y el RESTful API. Respecto de los aggregates del Design-Level EventStorming, `Plant` pasó a llamarse `Facility`, `IoTDevice` y `TelemetryReading` pasaron a `Sensor` y `Reading` (los límites de cada sensor reemplazan a las reglas de alerta), `BatchReview` y `ReleaseCertificate` se integraron en `BatchRelease`, las versiones de un documento se guardan como filas de `QualityDocument`, `AuditTrailEntry` pasó a `AuditEvent` y el dictamen de los insumos quedó en el estado de `RawMaterialLot`. Se agregaron `Invitation`, `AdministrativeActivity`, `Operation`, `Evidence`, `CapaPlan`, `CollaborationTask`, `TaskComment` y `TraceabilityGap`, que usa la Web Application.
 
 ### 4.7.1. Class Diagrams
 
-**Identity & Access Management.** `User` es el aggregate root de la identidad: controla su estado (`INVITED`, `ACTIVE`, `LOCKED`, `DISABLED`), sus roles y los intentos fallidos de inicio de sesión. `ElectronicSignature` registra quién firmó qué registro y con qué significado. Los servicios de tokens (JWT), hashing (BCrypt) y TOTP se definen como interfaces implementadas en la capa de infraestructura.
+**Identity & Access Management.** `User` es el aggregate root de la identidad: controla su estado (`INVITED`, `ACTIVE`, `LOCKED`, `DISABLED`), su planta, sus roles y los intentos fallidos de inicio de sesión. `Invitation` registra la invitación de un nuevo usuario con su rol y su planta hasta que la acepta o vence. `ElectronicSignature` registra quién firmó qué registro y con qué significado. Los servicios de tokens (JWT), hashing (BCrypt) y TOTP se definen como interfaces implementadas en la capa de infraestructura.
 
 ![Class Diagram - IAM](assets/img/chapter4/diagram-class/class-01-iam.png)
 
-**Organizations & Profiles.** `Organization` agrupa sus plantas y se identifica por el value object `Ruc`; `Profile` guarda los datos y preferencias de cada usuario; `ContactInquiry` registra las consultas enviadas desde el formulario "Contact us" de la Web Application y, mediante una policy, avisa al equipo de DoofPlus.
+**Organizations & Profiles.** `Organization` agrupa sus plantas (`Facility`, de manufactura o de laboratorio de control de calidad) y se identifica por el value object `Ruc`; `Profile` guarda los datos, el área, la sede y las preferencias de cada usuario; `AdministrativeActivity` registra la actividad reciente que muestra el resumen de administración; `ContactInquiry` registra las consultas enviadas desde el formulario "Contact us" de la Web Application y, mediante una policy, avisa al equipo de DoofPlus.
 
 ![Class Diagram - Organizations & Profiles](assets/img/chapter4/diagram-class/class-02-organizations.png)
 
@@ -1253,15 +1254,15 @@ El diseño orientado a objetos traduce los aggregates del Design-Level EventStor
 
 ![Class Diagram - Subscriptions & Payments](assets/img/chapter4/diagram-class/class-03-subscriptions.png)
 
-**Manufacturing & Batch Management.** `ProductionBatch` es el aggregate central del dominio: concentra el ciclo de vida del lote (`PLANNED` a `RELEASED` o `REJECTED`), sus consumos de insumos, parámetros de proceso, incidencias y su línea de tiempo (`BatchEvent`). `ProductionOrder`, `MasterFormula`, `Product` y `RawMaterialLot` completan el contexto.
+**Manufacturing & Batch Management.** `ProductionBatch` es el aggregate central del dominio: concentra el ciclo de vida del lote (`PLANNED` a `RELEASED` o `REJECTED`), sus consumos de insumos, parámetros de proceso, incidencias y su línea de tiempo (`BatchEvent`). `ProductionOrder` agrupa sus operaciones (`Operation`) con su avance; `MasterFormula` contiene los componentes y parámetros de la fórmula (`FormulaItem`); `RawMaterialLot` controla la recepción, el muestreo y el dictamen de cada lote de insumo, y `Product` completa el contexto.
 
 ![Class Diagram - Manufacturing & Batch Management](assets/img/chapter4/diagram-class/class-04-manufacturing.png)
 
-**IoT Monitoring.** `Equipment` mantiene su historial de calibraciones y mantenimientos y define si está apto para producción; `IoTDevice` representa un sensor de ThingsBoard asignable a un lote; `TelemetryReading` guarda cada lectura y `AlertRuleEvaluator` genera las alertas.
+**IoT Monitoring.** `Equipment` mantiene su estado de calibración (`FIT`, `DUE`, `NOT_FIT`) y su historial de calibraciones y mantenimientos; `Sensor` representa un dispositivo de ThingsBoard instalado en un equipo, con sus límites y el lote asignado; `Reading` guarda cada lectura y, cuando un valor sale de los límites del sensor, se crea un `Alert` que se reconoce y se vincula a una desviación.
 
 ![Class Diagram - IoT Monitoring](assets/img/chapter4/diagram-class/class-05-iot.png)
 
-**Quality & Compliance.** `QualityDocument` gestiona versiones y aprobación de SOP y protocolos; `MaterialApproval` registra el dictamen de cada lote de insumo; `BatchReview` controla la cuarentena, evaluación y liberación del lote y emite el `ReleaseCertificate`; `AnalyticalResult` calcula el resultado y detecta los OOS. `Deviation` controla la clasificación, investigación, causa raíz y acciones CAPA hasta su cierre; `Audit` registra hallazgos y observaciones; `AuditTrailEntry`, de solo inserción, persiste el read model "Audit trail" del Design-Level EventStorming; `RegulatoryReport` guarda los reportes generados.
+**Quality & Compliance.** `QualityDocument` gestiona cada versión de los SOP y protocolos con su revisión y aprobación; `AnalyticalResult` registra los ensayos de cada lote y detecta los OOS; `BatchRelease` controla la liberación del lote con firma electrónica; `Evidence` adjunta los archivos de cada registro. `Deviation` controla la clasificación, el riesgo, la causa raíz y la disposición; `CapaPlan` agrupa sus acciones correctivas y preventivas (`CapaAction`); `Audit` registra sus hallazgos (`AuditFinding`); `AuditEvent`, de solo inserción, persiste el read model "Audit trail" del Design-Level EventStorming; `RegulatoryReport` guarda los reportes generados; `CollaborationTask` y `TaskComment` soportan las tareas entre áreas, y `TraceabilityGap` señala los registros que faltan en un lote.
 
 ![Class Diagram - Quality & Compliance](assets/img/chapter4/diagram-class/class-06-quality.png)
 
@@ -1271,7 +1272,7 @@ La base de datos de DoofPlus se implementa en MySQL 8 y se genera a partir de la
 
 - **Organización por bounded context:** cada contexto tiene su propio conjunto de tablas, que corresponde a sus aggregates. Dentro de un contexto se usan llaves foráneas; entre contextos las referencias son lógicas (solo el identificador) y se marcan como "ref <contexto>.<tabla>" en los diagramas.
 - **Convenciones:** nombres en inglés, en snake_case y en plural, aplicados con la estrategia `SnakeCaseWithPluralizedTablePhysicalNamingStrategy`; llaves primarias `bigint AUTO_INCREMENT`; restricciones `NOT NULL`, `UNIQUE` y estados como enumeraciones en texto.
-- **Auditoría e integridad:** todas las tablas incluyen `created_at` y `updated_at` (omitidos en los diagramas); `audit_trail_entries` es de solo inserción y `electronic_signatures` conserva las firmas de cada registro, en línea con los principios ALCOA y 21 CFR Part 11.
+- **Auditoría e integridad:** todas las tablas incluyen `created_at` y `updated_at` (omitidos en los diagramas); `audit_events` es de solo inserción y `electronic_signatures` conserva las firmas de cada registro, en línea con los principios ALCOA y 21 CFR Part 11.
 
 ### 4.8.1. Database Diagrams
 
@@ -1279,12 +1280,12 @@ Los diagramas se elaboraron con Mermaid (Diagram-as-Code), uno por bounded conte
 
 | Bounded context | Tablas | Aggregates que persiste |
 | --- | --- | --- |
-| IAM | users, roles, user_roles, electronic_signatures | User, ElectronicSignature |
-| Organizations & Profiles | organizations, plants, profiles, contact_inquiries | Organization, Profile, ContactInquiry |
+| IAM | users, roles, user_roles, invitations, electronic_signatures | User, Invitation, ElectronicSignature |
+| Organizations & Profiles | organizations, facilities, profiles, administrative_activities, contact_inquiries | Organization, Profile, AdministrativeActivity, ContactInquiry |
 | Subscriptions & Payments | plans, subscriptions, payments | Plan, Subscription |
-| Manufacturing & Batch Management | products, master_formulas, formula_components, raw_material_lots, production_orders, production_batches, material_consumptions, process_parameters, incidents, batch_events | Product, MasterFormula, RawMaterialLot, ProductionOrder, ProductionBatch |
-| IoT Monitoring | equipment, calibration_records, maintenance_records, iot_devices, telemetry_readings, alert_rules, alerts | Equipment, IoTDevice, TelemetryReading, Alert |
-| Quality & Compliance | quality_documents, document_versions, material_approvals, analytical_results, batch_reviews, evidence_attachments, release_certificates, deviations, capa_actions, audits, audit_findings, audit_trail_entries, regulatory_reports | QualityDocument, MaterialApproval, AnalyticalResult, BatchReview, Deviation, Audit, AuditTrailEntry, RegulatoryReport |
+| Manufacturing & Batch Management | products, master_formulas, formula_items, raw_material_lots, production_orders, operations, production_batches, material_consumptions, process_parameters, incidents, batch_events | Product, MasterFormula, RawMaterialLot, ProductionOrder, ProductionBatch |
+| IoT Monitoring | equipment, calibration_records, maintenance_records, sensors, readings, alerts | Equipment, Sensor, Reading, Alert |
+| Quality & Compliance | quality_documents, analytical_results, batch_releases, evidence, deviations, capa_plans, capa_actions, audits, audit_findings, audit_events, regulatory_reports, collaboration_tasks, task_comments, traceability_gaps | QualityDocument, AnalyticalResult, BatchRelease, Evidence, Deviation, CapaPlan, Audit, AuditEvent, RegulatoryReport, CollaborationTask, TaskComment, TraceabilityGap |
 
 **Identity & Access Management**
 
