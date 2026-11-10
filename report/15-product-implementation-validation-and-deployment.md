@@ -1027,6 +1027,12 @@ Los cinco integrantes participaron en ambos repositorios. La siguiente tabla res
 
 *Figura: Network graph del repositorio de la Web Application.*
 
+### 5.2.3. Sprint 3
+
+#### 5.2.3.1. Sprint Planning 3
+
+
+
 ## 5.3. Validation Interviews
 
 ### 5.3.1. Diseño de Entrevistas
