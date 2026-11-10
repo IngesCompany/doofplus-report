@@ -1028,6 +1028,7 @@ Los cinco integrantes participaron en ambos repositorios. La siguiente tabla res
 *Figura: Network graph del repositorio de la Web Application.*
 
 ### 5.2.3. Sprint 3
+En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el Sprint 3, cuyo enfoque fue entregar el primer avance del WebService, la primera versión del Course de DoofPlus y terminar la versión 3.0.0 del WebSite, 2.0.0 del Web Application.
 
 #### 5.2.3.1. Sprint Planning 3
 
