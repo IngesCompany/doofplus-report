@@ -4,12 +4,13 @@ title: "Database Diagram – Subscriptions & Payments Bounded Context (MySQL 8)"
 erDiagram
   plans {
     bigint id PK
-    varchar(50) name UK "Standard Lab, Enterprise"
+    varchar(64) plan_key UK "standard-lab, enterprise"
+    varchar(50) name "Standard Lab, Enterprise"
     decimal monthly_price "(10,2)"
     decimal annual_price "(10,2)"
     char(3) currency "USD"
-    int iot_device_limit
-    int user_limit
+    int iot_device_limit "0 = unlimited"
+    int user_limit "0 = unlimited"
   }
   subscriptions {
     bigint id PK
@@ -20,10 +21,15 @@ erDiagram
     date current_period_start
     date current_period_end
     tinyint(1) auto_renew
+    varchar(20) card_brand "Visa, Mastercard"
+    char(4) card_last4
+    char(7) card_expiry "MM/yyyy"
+    varchar(254) billing_email
   }
   payments {
     bigint id PK
     bigint subscription_id FK
+    varchar(20) invoice_number UK "INV-2026-0801"
     decimal amount "(10,2)"
     char(3) currency
     varchar(100) gateway_transaction_id UK "Niubiz"
