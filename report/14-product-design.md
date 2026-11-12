@@ -858,13 +858,13 @@ El diseño del prototipo se guió por cuatro criterios:
 
 Prototipo navegable en Figma (página "Prototype", que une los mock-ups del Website y de la Web Application para navegar entre ambas): abrir el prototipo: https://www.figma.com/proto/E9MAGI3LDC0m8o6lWTGyfK/DoofPlus?page-id=353%3A237&node-id=393-2011&starting-point-node-id=393%3A2011. Desde el selector de flujos del visor se accede a los puntos de inicio de cada user goal.
 
-Video de navegación del prototipo: upc-pre-202620-1asi0729-7742-IngesCompany-prototypenavigation-sprint-1, ver en Microsoft Stream: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202423162_upc_edu_pe/IQC9TP0VdDx0SbIEr4nWmikhAceGoBqdZ78DiR68qJ8FV-A?e=1BIqfW (copia en YouTube: https://youtu.be/6PLCLqaF8Tg). Inicio: 00:00. Duración: 06:10.
+Video de navegación del prototipo: upc-pre-202620-1asi0729-7742-IngesCompany-prototypenavigation-sprint-3, ver en Microsoft Stream: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202321425_upc_edu_pe/IQCNcqZ-CwFlQb9HHt5mWiRoAVsNK48xM11oj8GiI0g3NJA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=pvB6fo (copia en YouTube: https://youtu.be/hJEWpAOAEFI). Inicio: 00:00. Duración: 18:28.
 
-**Website** (desde 00:00 hasta 00:24)
+**Website** (desde 00:00 hasta 04:15)
 
 ![Video de navegación del prototipo · Website](assets/img/chapter4/prototype/video-landing-page.png)
 
-**Web Application** (desde 00:24 hasta 06:10)
+**Web Application** (desde 04:16 hasta 18:28)
 
 ![Video de navegación del prototipo · Web Application](assets/img/chapter4/prototype/video-web-application.png)
 
