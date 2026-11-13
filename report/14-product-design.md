@@ -860,11 +860,11 @@ Prototipo navegable en Figma (página "Prototype", que une los mock-ups del Webs
 
 Video de navegación del prototipo: upc-pre-202620-1asi0729-7742-IngesCompany-prototypenavigation-sprint-3, ver en Microsoft Stream: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202321425_upc_edu_pe/IQCNcqZ-CwFlQb9HHt5mWiRoAVsNK48xM11oj8GiI0g3NJA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=pvB6fo (copia en YouTube: https://youtu.be/hJEWpAOAEFI). Inicio: 00:00. Duración: 18:28.
 
-**Website** (desde 00:00 hasta 01:15)
+**Website** (desde 00:00 hasta 01:05)
 
 ![Video de navegación del prototipo · Website](assets/img/chapter4/prototype/video-landing-page.png)
 
-**Web Application** (desde 01:16 hasta 18:28)
+**Web Application** (desde 01:06 hasta 18:28)
 
 ![Video de navegación del prototipo · Web Application](assets/img/chapter4/prototype/video-web-application.png)
 
