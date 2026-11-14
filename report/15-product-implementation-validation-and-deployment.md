@@ -1027,6 +1027,735 @@ Los cinco integrantes participaron en ambos repositorios. La siguiente tabla res
 
 *Figura: Network graph del repositorio de la Web Application.*
 
+### 5.2.3. Sprint 3
+
+En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el **Sprint 3** (del 18/10/2026 al 14/11/2026), cuyo enfoque fue entregar la primera versión desplegada de los RESTful Web Services, mejorar el Website y la Web Application a partir del feedback del Sprint 2 y preparar la primera versión del curso de Responsabilidad Social.
+
+#### 5.2.3.1. Sprint Planning 3
+
+El Sprint Planning Meeting sirvió para definir los objetivos del Sprint, asignar responsabilidades por bounded context y seleccionar las Technical Stories de los RESTful Web Services. A continuación, se presenta el resumen de la reunión de planificación:
+
+| Sprint # | Sprint 3 |
+|----------|----------|
+| **Sprint Planning Background** | |
+| **Date** | 2026-10-18 |
+| **Time** | 10:00 AM |
+| **Location** | Reunión virtual vía Discord |
+| **Prepared By** | Zavaleta Gutierrez, Rodolfo Martin |
+| **Attendees (to planning meeting)** | Angulo Ramírez, Marcelo Martín / Cobades Zamora, Yhoshua Hebert / Flores Martinez, Ricardo Andres / Torres Juárez, Alisee Muriel / Rojas Ambicho, Nestor Daniel / Zavaleta Gutierrez, Rodolfo Martin |
+| **Sprint 2 Review Summary** | Se entregó el Website completo en GitHub Pages y la primera versión de la Web Application (`v1.0.0`) en Firebase Hosting, con sus tres entornos y una Fake API en Render. Como feedback, se pidió llevar el formulario de contacto a la Web Application, unir el Website con el entorno de cada segmento y empezar los RESTful Web Services que reemplacen a la Fake API. |
+| **Sprint 2 Retrospective Summary** | Como acierto, el equipo publicó cada versión con ramas `release/` y `hotfix/` y tags SemVer. Como oportunidades de mejora, se acordó unir las feature branches a `develop` con más frecuencia (varias ramas de los Web Services acumularon más de cien commits sin unir) y mantener Jira al día con el estado real de cada tarea. |
+| **Sprint Goal & User Stories** | |
+| **Sprint 3 Goal** | **Our focus is on** delivering the first deployed version of the DoofPlus RESTful Web Services for organizations, subscriptions, manufacturing, IoT monitoring and quality, documented with OpenAPI.<br>**We believe it delivers** a real backend that the Web Application can use instead of the Fake API, together with a website that takes each segment to its own environment, **to** QA/QC specialists and production supervisors of small and medium-sized pharmaceutical laboratories.<br>**This will be confirmed when** the API is published on Render with its database on Railway, its Swagger documentation lists the endpoints of each bounded context and a contact inquiry sent through the API is stored. |
+| **Sprint 3 Velocity** | 34 Story Points |
+| **Sum of Story Points** | 34 Story Points (TS12: 3, TS09: 5, TS07: 5, TS03: 5, TS10: 5, TS11: 5, TS02: 3, US48: 2, US04: 1) |
+
+#### 5.2.3.2. Aspect Leaders and Collaborators
+
+En el Sprint 3 se consideraron el Website y la Web Application y, en los RESTful Web Services, los bounded contexts (Shared & IAM, Organizations, Subscriptions, Manufacturing, IoT Monitoring y Quality & Compliance), las releases y el despliegue, y la documentación. El líder (L) de cada aspecto es el integrante con más commits en él, según el historial de los repositorios.
+
+| Team Member (Last Name, First Name) | GitHub Username | Website | Web Application | Shared & IAM | Organizations | Subscriptions | Manufacturing | IoT Monitoring | Quality & Compliance | Releases & Deployment | Documentation |
+|-------------------------------------|-----------------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Angulo Ramírez, Marcelo Martín | Zock2005 | | | | | | | L | | | C |
+| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | C | L | C | L | | | | C | L | C |
+| Flores Martinez, Ricardo Andres | Nitoryu28 | | | | | | | | L | | |
+| Rojas Ambicho, Nestor Daniel | danRO-20 | L | C | L | | L | | | | C | L |
+| Torres Juárez, Alisee Muriel | lLisee1 | | | | C | | | | | | C |
+| Zavaleta Gutierrez, Rodolfo Martin | gutierrezrodolfo360-bit | C | C | C | | | L | | | C | C |
+
+#### 5.2.3.3. Sprint Backlog 3
+
+El objetivo del Sprint fue entregar la primera versión desplegada de los RESTful Web Services. El Sprint Backlog 3 junta tres bloques: las mejoras del Website y de la Web Application hechas desde el 18/10 (T184 a T198), las tareas de los Web Services por Technical Story (T137 a T165) y la autenticación con JWT (TS02, T199 a T201). Una tarea está en *Done* solo cuando su rama se unió a `develop`; lo que no se termine pasa al Sprint 4. Al cierre del Sprint hay 30 tareas en *Done*, 7 en *In-Process* y 10 en *To-do*, con 177 horas estimadas en total.
+
+**Enlace al board en Jira:** https://doofplus.atlassian.net/jira/software/projects/UPC/boards/3
+
+| Sprint # | Sprint 3 | | | | | | |
+|----------|----------|---|---|---|---|---|---|
+| **User Story** | | **Work-Item / Task** | | | | | |
+| **Id** | **Title** | **Id** | **Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
+| TS12 | API de organizaciones y consultas de contacto | T137 | Organizations: dominio y persistencia | Completar los aggregates Organization, UserProfile y ContactInquiry con sus value objects y repositorios Spring Data JPA (rama feature/organizations). | 4 | Cobades Zamora, Yhoshua Hebert | Done |
+| TS12 | API de organizaciones y consultas de contacto | T138 | Organizations: servicios de aplicación | Implementar los command services y query services de registro de la organización, perfiles y consultas de contacto. | 3 | Cobades Zamora, Yhoshua Hebert | Done |
+| TS12 | API de organizaciones y consultas de contacto | T139 | Organizations: endpoints REST | Exponer /api/v1/organizations, /api/v1/user-profiles y POST /api/v1/contact-inquiries con resources, assemblers y documentación OpenAPI. | 4 | Cobades Zamora, Yhoshua Hebert | Done |
+| TS12 | API de organizaciones y consultas de contacto | T140 | Organizations: fachada ACL | Implementar OrganizationsContextFacade para que Subscriptions consulte la organización sin acceder a su modelo. | 2 | Cobades Zamora, Yhoshua Hebert | To-do |
+| TS12 | API de organizaciones y consultas de contacto | T141 | Web App: registro de organización y contacto contra el API | Reemplazar la Fake API en el módulo organizations de la Web Application (US50, US04). | 3 | Cobades Zamora, Yhoshua Hebert | To-do |
+| TS09 | API de suscripciones y pagos | T142 | Subscriptions: revisión e integración en develop | Revisar feature/subscriptions, corregir observaciones y fusionarla en develop. | 2 | Rojas Ambicho, Nestor Daniel | Done |
+| TS09 | API de suscripciones y pagos | T143 | Subscriptions: pago con Niubiz | Agregar el pago de la suscripción: POST /api/v1/subscriptions/{id}/payments con el sandbox de Niubiz; responde 503 si la pasarela no está disponible y no registra el pago. | 5 | Rojas Ambicho, Nestor Daniel | Done |
+| TS09 | API de suscripciones y pagos | T144 | Subscriptions: renovación | Agregar la renovación de la suscripción (US53) junto a la activación y cancelación existentes. | 2 | Rojas Ambicho, Nestor Daniel | Done |
+| TS09 | API de suscripciones y pagos | T145 | Web App: planes, suscripción y pago contra el API | Reemplazar la Fake API en el módulo subscriptions de la Web Application (US51, US52, US53). | 3 | Rojas Ambicho, Nestor Daniel | To-do |
+| TS09 | API de suscripciones y pagos | T146 | Subscriptions: pruebas | Pruebas unitarias del dominio y pruebas de integración de los endpoints de planes, suscripciones y pagos. | 3 | Rojas Ambicho, Nestor Daniel | Done |
+| TS07 | API de operaciones de laboratorio | T147 | Manufacturing: productos y fórmulas maestras (dominio) | Implementar los aggregates Product y MasterFormula con sus value objects y repositorios JPA. | 4 | Zavaleta Gutierrez, Rodolfo Martin | Done |
+| TS07 | API de operaciones de laboratorio | T148 | Manufacturing: endpoints de productos y fórmulas | Servicios y endpoints /api/v1/products y /api/v1/master-formulas con documentación OpenAPI (US35, US36). | 4 | Zavaleta Gutierrez, Rodolfo Martin | Done |
+| TS07 | API de operaciones de laboratorio | T149 | IoT Monitoring: equipos, calibraciones y mantenimientos | Servicios y endpoints /api/v1/equipment con calibraciones y mantenimientos; DELETE responde 409 si el equipo está asociado a un lote en curso (US37, US38, US39). | 5 | Angulo Ramírez, Marcelo Martín | In-Process |
+| TS07 | API de operaciones de laboratorio | T150 | IoT Monitoring: sensores y telemetría | Servicios y endpoints /api/v1/sensors para el inventario de sensores (US23) y POST /api/v1/telemetry para recibir las lecturas de ThingsBoard con X-Api-Key; una lectura fuera de rango abre una alerta. | 3 | Angulo Ramírez, Marcelo Martín | Done |
+| TS07 | API de operaciones de laboratorio | T151 | Web App: productos, fórmulas y equipos contra el API | Reemplazar la Fake API en los módulos manufacturing (productos y fórmulas) e iot-monitoring (equipos y dispositivos). | 3 | Angulo Ramírez, Marcelo Martín | To-do |
+| TS03 | API de trazabilidad de lotes | T152 | Manufacturing: órdenes, lotes y materias primas (dominio) | Implementar los aggregates ProductionOrder, ProductionBatch y RawMaterialLot con sus estados y repositorios JPA. | 5 | Zavaleta Gutierrez, Rodolfo Martin | Done |
+| TS03 | API de trazabilidad de lotes | T153 | Manufacturing: endpoints de órdenes y lotes | Endpoints /api/v1/production-orders y /api/v1/production-batches: registro (409 si el número de lote ya existe), cambio de estado con los estados de la Web Application (start, resume, release y progreso), GET /{batchId} con su línea de tiempo, y registro de las incidencias, eventos y consumos de cada lote (US57, US14, US15, US16). | 5 | Zavaleta Gutierrez, Rodolfo Martin | Done |
+| TS03 | API de trazabilidad de lotes | T154 | Manufacturing: recepción y asociación de materias primas | Endpoints de recepción de materias primas, que dejan el lote en SAMPLING/PENDING, y su asociación a un lote de producción (US58, US17). | 3 | Cobades Zamora, Yhoshua Hebert | Done |
+| TS03 | API de trazabilidad de lotes | T155 | Manufacturing: incidencias y escalamiento a Calidad | Registrar incidencias de un lote y publicar el domain event que Quality usa para abrir una desviación (US56). | 3 | Angulo Ramírez, Marcelo Martín | In-Process |
+| TS03 | API de trazabilidad de lotes | T156 | Manufacturing: fachada ACL | Implementar ManufacturingContextFacade para que Quality e IoT Monitoring consulten lotes y equipos. | 2 | Cobades Zamora, Yhoshua Hebert | To-do |
+| TS03 | API de trazabilidad de lotes | T157 | Web App: trazabilidad de lotes contra el API | Reemplazar la Fake API en el módulo manufacturing (órdenes, lotes, materias primas e incidencias). | 4 | Cobades Zamora, Yhoshua Hebert | To-do |
+| TS10 | API de documentación de calidad | T158 | Quality: servicios de documentación | Implementar los command y query services de QualityDocument: registro, nuevas versiones y aprobación (US09, US10, US12, US13). | 4 | Flores Martinez, Ricardo Andres | In-Process |
+| TS10 | API de documentación de calidad | T159 | Quality: endpoints de documentación | Implementar QualityDocumentController: POST /api/v1/quality-documents responde 201 con la versión 1.0 y GET /{id} inexistente responde 404; documentación OpenAPI. | 3 | Flores Martinez, Ricardo Andres | Done |
+| TS10 | API de documentación de calidad | T160 | Web App: documentación de calidad contra el API | Reemplazar la Fake API en las vistas de protocolos, SOP y versiones del módulo quality. | 3 | Cobades Zamora, Yhoshua Hebert | To-do |
+| TS11 | API de desviaciones y CAPA | T161 | Quality: servicios de desviaciones y CAPA | Implementar los servicios de Deviation, CapaPlan y CapaAction: registro, causa raíz, acciones y cierre (US18, US19, US20, US21). | 5 | Flores Martinez, Ricardo Andres | In-Process |
+| TS11 | API de desviaciones y CAPA | T162 | Quality: endpoints de desviaciones y CAPA | Implementar DeviationController, CapaPlanController y CapaActionController; PATCH /api/v1/deviations/{id}/close sin causa raíz responde 422. | 4 | Flores Martinez, Ricardo Andres | In-Process |
+| TS11 | API de desviaciones y CAPA | T163 | Quality: desviación desde incidencia de Producción | Policy que abre una desviación cuando Manufacturing escala una incidencia (US56). | 2 | Flores Martinez, Ricardo Andres | To-do |
+| TS11 | API de desviaciones y CAPA | T164 | Web App: desviaciones y CAPA contra el API | Reemplazar la Fake API en las vistas de desviaciones y CAPA del módulo quality. | 3 | Cobades Zamora, Yhoshua Hebert | To-do |
+| — | Tareas técnicas | T165 | Despliegue del RESTful API | Publicar el RESTful API en Render con la base de datos MySQL en Railway y la documentación Swagger accesible; configurar la URL del API en la Web Application. | 4 | Rojas Ambicho, Nestor Daniel | Done |
+| US48 | Acceso por segmento a la Web Application | T184 | Website: sección Call to action | Implementar la sección Call to action con sus estilos y sus textos en en.json y es.json. | 3 | Zavaleta Gutierrez, Rodolfo Martin | Done |
+| US48 | Acceso por segmento a la Web Application | T185 | Website: CTA por segmento y enlaces a la Web App | Mostrar un CTA por segmento y enlazar los botones de acceso y registro con el entorno correspondiente de la Web Application. | 3 | Rojas Ambicho, Nestor Daniel | Done |
+| — | Tareas técnicas | T186 | Website: redes sociales en el footer | Agregar los enlaces a las redes sociales de DoofPlus en el footer. | 2 | Zavaleta Gutierrez, Rodolfo Martin | Done |
+| — | Tareas técnicas | T187 | Website: release v2.1.0 y publicación con GitHub Actions | Preparar release/v2.1.0 y publicar el Website en GitHub Pages con un workflow de GitHub Actions. | 3 | Zavaleta Gutierrez, Rodolfo Martin | Done |
+| — | Tareas técnicas | T188 | Website: hotfix v2.1.1 | Corregir los enlaces del Website publicado y etiquetar v2.1.1. | 2 | Rojas Ambicho, Nestor Daniel | Done |
+| US04 | Formulario de contacto | T189 | Website: estilos de contacto, footer y release v2.2.0 | Ajustar los estilos de la sección de contacto y el footer con la organización de GitHub, y publicar v2.2.0. | 4 | Cobades Zamora, Yhoshua Hebert | Done |
+| — | Tareas técnicas | T190 | Web App: correcciones de las pruebas de QA | Aplicar las observaciones de las pruebas de QA de la Web Application. | 4 | Zavaleta Gutierrez, Rodolfo Martin | Done |
+| US48 | Acceso por segmento a la Web Application | T191 | Web App: enlaces de la Web App al Website | Enlazar el sign-in y la zona pública de la Web Application con el Website. | 2 | Rojas Ambicho, Nestor Daniel | Done |
+| — | Tareas técnicas | T192 | Web App: traducción de los permisos por rol | Traducir los permisos de cada rol en inglés y español. | 2 | Rojas Ambicho, Nestor Daniel | Done |
+| — | Tareas técnicas | T193 | Web App: búsqueda global por código | Buscar lotes, órdenes, documentos y desviaciones por su código desde la barra superior. | 4 | Rojas Ambicho, Nestor Daniel | Done |
+| — | Tareas técnicas | T194 | Web App: hotfix v1.0.2 | Corregir la Web Application publicada y etiquetar v1.0.2. | 2 | Rojas Ambicho, Nestor Daniel | Done |
+| US04 | Formulario de contacto | T195 | Web App: Contact us en la zona pública | Implementar Contact us en la zona pública del sign-in con validación y envío de la consulta. | 6 | Cobades Zamora, Yhoshua Hebert | Done |
+| — | Tareas técnicas | T196 | Web App: release v1.1.0 y despliegue en Firebase | Preparar release/v1.1.0 y publicar la Web Application en Firebase Hosting. | 2 | Cobades Zamora, Yhoshua Hebert | Done |
+| — | Tareas técnicas | T197 | Platform: configuración del proyecto y capa shared | Crear el proyecto Spring Boot con su configuración, OpenAPI y la capa shared. | 6 | Zavaleta Gutierrez, Rodolfo Martin | Done |
+| — | Tareas técnicas | T198 | Platform: shared con Result y ApplicationError | Agregar Result, ApplicationError y los assemblers de errores a la capa shared. | 6 | Rojas Ambicho, Nestor Daniel | Done |
+| TS02 | Autenticación JWT en el RESTful API | T199 | IAM: dominio y persistencia de User y Role | Implementar los aggregates User y Role con sus repositorios JPA y la carga inicial de roles. | 10 | Cobades Zamora, Yhoshua Hebert | In-Process |
+| TS02 | Autenticación JWT en el RESTful API | T200 | IAM: sign-up y sign-in con JWT | Exponer sign-up y sign-in que devuelven un JWT y filtrar las rutas por rol. | 10 | Cobades Zamora, Yhoshua Hebert | In-Process |
+| TS02 | Autenticación JWT en el RESTful API | T201 | Web App: sign-in contra el API | Iniciar sesión en la Web Application contra el API y enviar el token en cada petición. | 6 | Cobades Zamora, Yhoshua Hebert | To-do |
+
+#### 5.2.3.4. Development Evidence for Sprint Review
+
+En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature branch por sección del Website, por mejora de la Web Application o por bounded context de los Web Services, integradas en `develop` con merges `--no-ff`, y ramas `release/` y `hotfix/` fusionadas en `main` con su tag. El Website pasó por `v2.1.0`, `v2.1.1` y `v2.2.0`; la Web Application, por `v1.0.2` y `v1.1.0`, y los RESTful Web Services tuvieron su primera versión, `v1.0.0`. Las tablas siguientes presentan los commits de `main` del Sprint (desde el 18/10/2026); la columna *Branch* indica la rama en que se realizó cada commit. El curso de Responsabilidad Social se trabaja en `develop` de su repositorio, que todavía no tiene release.
+
+**Website** (47 commits)
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|------------|--------|-----------|----------------|---------------------|---------------------|
+| IngesCompany/doofplus-website | feature/call-to-action-section | `ac5f52e` | feat(cta): add final call to action section with quick access links | — | 26/10/2026 |
+| IngesCompany/doofplus-website | feature/call-to-action-section | `bf072bf` | feat(cta): add styles for final call to action section with quick access links | — | 26/10/2026 |
+| IngesCompany/doofplus-website | feature/call-to-action-section | `96d7eb0` | feat(i18n): add call to action section translations for English and Spanish | — | 26/10/2026 |
+| IngesCompany/doofplus-website | feature/call-to-action-section | `37251bf` | fix(cta): update launch button segment to sign-in for better user flow | — | 26/10/2026 |
+| IngesCompany/doofplus-website | develop | `37586cf` | Merge branch 'feature/call-to-action-section' into develop | — | 26/10/2026 |
+| IngesCompany/doofplus-website | feature/footer-social-media | `5f54282` | feat(footer): add social media links and direct contact channels | — | 26/10/2026 |
+| IngesCompany/doofplus-website | develop | `f60293c` | Merge branch 'feature/footer-social-media' into develop | — | 26/10/2026 |
+| IngesCompany/doofplus-website | feature/call-to-action-section | `c55beec` | feat(workspace): show the segment cards as information only | — | 30/10/2026 |
+| IngesCompany/doofplus-website | feature/call-to-action-section | `288dc56` | feat(plans): show the plans as information only | — | 30/10/2026 |
+| IngesCompany/doofplus-website | feature/call-to-action-section | `a8b1e5a` | feat(cta): add a call to action for each segment | — | 30/10/2026 |
+| IngesCompany/doofplus-website | feature/call-to-action-section | `6898ccf` | feat(navbar): lead get started to the call to action | — | 30/10/2026 |
+| IngesCompany/doofplus-website | feature/call-to-action-section | `4f4e65f` | refactor(contact): remove the contact section | — | 30/10/2026 |
+| IngesCompany/doofplus-website | feature/call-to-action-section | `57d880a` | fix(footer): center the social media icons | — | 30/10/2026 |
+| IngesCompany/doofplus-website | develop | `b5f87eb` | Merge branch 'feature/call-to-action-section' into develop | — | 30/10/2026 |
+| IngesCompany/doofplus-website | feature/web-app-links | `ecb1fb9` | feat(config): open the local web application from localhost | — | 30/10/2026 |
+| IngesCompany/doofplus-website | feature/web-app-links | `63490ab` | chore: remove unused boilerplate files | — | 30/10/2026 |
+| IngesCompany/doofplus-website | feature/web-app-links | `a4159bb` | docs: add readme and project license | — | 30/10/2026 |
+| IngesCompany/doofplus-website | feature/web-app-links | `8e1c5c8` | style: use the doofplus shield as favicon | — | 30/10/2026 |
+| IngesCompany/doofplus-website | develop | `326c6ac` | Merge branch 'feature/web-app-links' into develop | — | 30/10/2026 |
+| IngesCompany/doofplus-website | release/v2.1.0 | `a03bafb` | chore: remove npm, the site is served as static files | — | 31/10/2026 |
+| IngesCompany/doofplus-website | release/v2.1.0 | `8d15baa` | refactor: move the pages into public and keep the assets in scripts, styles, images and i18n | — | 31/10/2026 |
+| IngesCompany/doofplus-website | release/v2.1.0 | `096c806` | ci(deploy): publish the public folder on GitHub Pages | — | 31/10/2026 |
+| IngesCompany/doofplus-website | release/v2.1.0 | `a92b371` | docs(readme): describe the public folder structure and how to run the site without npm | — | 31/10/2026 |
+| IngesCompany/doofplus-website | release/v2.1.0 | `9dd1eed` | docs: add CHANGELOG.md and CONTRIBUTING.md files | — | 31/10/2026 |
+| IngesCompany/doofplus-website | release/v2.1.0 | `f0d572e` | docs: update CHANGELOG.md | — | 31/10/2026 |
+| IngesCompany/doofplus-website | main | `be9ea4e` | Merge branch 'release/v2.1.0' into main | — | 31/10/2026 |
+| IngesCompany/doofplus-website | main | `567cd5d` | Merge branch 'release/v2.1.0' into main | — | 31/10/2026 |
+| IngesCompany/doofplus-website | fix/public-static-site | `b90947c` | style: remove the styles of the deleted contact section | — | 31/10/2026 |
+| IngesCompany/doofplus-website | fix/public-static-site | `bd6b827` | chore: remove robots.txt, .nojekyll and the boilerplate 404 page | — | 31/10/2026 |
+| IngesCompany/doofplus-website | fix/public-static-site | `6e52a4d` | refactor: share the header and footer of every page through partials | — | 31/10/2026 |
+| IngesCompany/doofplus-website | fix/public-static-site | `09e7da3` | fix(team): update team member images to use consistent naming convention | — | 01/11/2026 |
+| IngesCompany/doofplus-website | hotfix/v2.1.1 | `bf0c154` | fix: point the links to the new organization | — | 01/11/2026 |
+| IngesCompany/doofplus-website | hotfix/v2.1.1 | `5c4470f` | docs: update the changelog for version 2.1.1 | — | 01/11/2026 |
+| IngesCompany/doofplus-website | main | `6fbd40a` | Merge branch 'hotfix/v2.1.1' | — | 01/11/2026 |
+| IngesCompany/doofplus-website | develop | `dbd2469` | Merge branch 'hotfix/v2.1.1' into develop | — | 01/11/2026 |
+| IngesCompany/doofplus-website | fix/contact-styles | `c7d43c9` | fix(styles): remove the unused contact form styles | — | 02/11/2026 |
+| IngesCompany/doofplus-website | fix/public-static-site | `3e26329` | refactor(scripts): rename component files and update import paths for consistency | — | 02/11/2026 |
+| IngesCompany/doofplus-website | fix/public-static-site | `ad5530f` | refactor(cursor): update cursor file paths for consistency and remove unnecessary directory | — | 02/11/2026 |
+| IngesCompany/doofplus-website | fix/public-static-site | `19ac275` | feat(team): add Alisee Torres member to the team section and update role descriptions for consistency | — | 02/11/2026 |
+| IngesCompany/doofplus-website | develop | `e926cba` | Merge branch 'fix/contact-styles' into develop | — | 02/11/2026 |
+| IngesCompany/doofplus-website | develop | `5903961` | Merge branch 'fix/public-static-site' into develop | — | 02/11/2026 |
+| IngesCompany/doofplus-website | fix/contributing-title | `6a60629` | docs(contributing): use the doofplus-website repository name in the title (W-026) | — | 07/11/2026 |
+| IngesCompany/doofplus-website | develop | `4dc7925` | Merge branch 'fix/contributing-title' into develop | — | 07/11/2026 |
+| IngesCompany/doofplus-website | fix/footer-github-org | `5417ba7` | fix(footer): point the github link to the ingescompany organization | — | 07/11/2026 |
+| IngesCompany/doofplus-website | develop | `adb3505` | Merge branch 'fix/footer-github-org' into develop | — | 07/11/2026 |
+| IngesCompany/doofplus-website | release/v2.2.0 | `8edef98` | docs: update the changelog for version 2.2.0 | — | 09/11/2026 |
+| IngesCompany/doofplus-website | main | `a228dc5` | Merge branch 'release/v2.2.0' into main | — | 09/11/2026 |
+
+**Web Application** (41 commits)
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|------------|--------|-----------|----------------|---------------------|---------------------|
+| IngesCompany/doofplus-web-application | feature/qa-test-feedback | `253858d` | refactor(overview): remove redundant invite user button | — | 28/10/2026 |
+| IngesCompany/doofplus-web-application | feature/qa-test-feedback | `92632ee` | fix(footer): open terms and privacy links in a new tab | — | 28/10/2026 |
+| IngesCompany/doofplus-web-application | feature/qa-test-feedback | `69881d3` | fix(i18n): translate dosage forms in product catalog and form | — | 28/10/2026 |
+| IngesCompany/doofplus-web-application | feature/qa-test-feedback | `3166ae6` | fix(iam): translate role permission previews in invitation form | — | 29/10/2026 |
+| IngesCompany/doofplus-web-application | feature/qa-test-feedback | `b758dee` | fix(quality): populate change details for all audit trail events | — | 29/10/2026 |
+| IngesCompany/doofplus-web-application | feature/qa-test-feedback | `ddefd88` | fix(quality): add snackbar feedback and lock state when saving capa root cause | — | 29/10/2026 |
+| IngesCompany/doofplus-web-application | feature/qa-test-feedback | `cf7f00f` | fix(manufacturing): add validation feedback and success notification to material receipt | — | 29/10/2026 |
+| IngesCompany/doofplus-web-application | feature/qa-test-feedback | `05f7787` | fix(quality): add removeEvidence method to avoid mistakes while uploading evidence | — | 29/10/2026 |
+| IngesCompany/doofplus-web-application | feature/qa-test-feedback | `d92cfc1` | fix(quality): translate evidence package metadata in audits | — | 29/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `4f05e1c` | Merge branch 'feature/qa-test-feedback' into develop | — | 29/10/2026 |
+| IngesCompany/doofplus-web-application | feature/landing-links | `7e5fdfe` | feat(navigation): link the public pages one level up and to the local landing page | — | 30/10/2026 |
+| IngesCompany/doofplus-web-application | feature/landing-links | `106891d` | feat(registration): ask before leaving with unsaved data | — | 30/10/2026 |
+| IngesCompany/doofplus-web-application | feature/landing-links | `35abc44` | style: use the doofplus shield as favicon | — | 30/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `b50ba5e` | Merge branch 'feature/landing-links' into develop | — | 30/10/2026 |
+| IngesCompany/doofplus-web-application | fix/role-permission-translations | `976aece` | fix(i18n): translate the role permissions in the profile matrix | — | 31/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `2849511` | Merge branch 'fix/role-permission-translations' into develop | — | 31/10/2026 |
+| IngesCompany/doofplus-web-application | feature/global-search | `f1d1e13` | feat(shell): search a record by its exact code from the top bar | — | 31/10/2026 |
+| IngesCompany/doofplus-web-application | feature/global-search | `ad9d91c` | feat(quality): open the document and the batch given in the url | — | 31/10/2026 |
+| IngesCompany/doofplus-web-application | develop | `06deb35` | Merge branch 'feature/global-search' into develop | — | 31/10/2026 |
+| IngesCompany/doofplus-web-application | hotfix/v1.0.2 | `8f36f0c` | fix(environment): link the website published by the new organization | — | 01/11/2026 |
+| IngesCompany/doofplus-web-application | hotfix/v1.0.2 | `5f0c52a` | chore(release): set the web application version to 1.0.2 and update the changelog | — | 01/11/2026 |
+| IngesCompany/doofplus-web-application | main | `bf120b7` | Merge branch 'hotfix/v1.0.2' | — | 01/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `d34183f` | Merge branch 'hotfix/v1.0.2' into develop | — | 01/11/2026 |
+| IngesCompany/doofplus-web-application | feature/contact-inquiry | `dfe1043` | feat(organizations): add contact inquiries to the fake api | — | 02/11/2026 |
+| IngesCompany/doofplus-web-application | feature/contact-inquiry | `aa50d8c` | feat(organizations): add contact inquiry entity, assembler and api endpoint | — | 02/11/2026 |
+| IngesCompany/doofplus-web-application | feature/contact-inquiry | `ec7a0a7` | feat(organizations): send contact inquiries from the organizations store | — | 02/11/2026 |
+| IngesCompany/doofplus-web-application | feature/contact-inquiry | `00db3b8` | feat(i18n): add contact us translations | — | 02/11/2026 |
+| IngesCompany/doofplus-web-application | feature/contact-inquiry | `152096b` | feat(organizations): add the public contact us view and route | — | 02/11/2026 |
+| IngesCompany/doofplus-web-application | feature/contact-inquiry | `a4aa4bd` | feat(shell): link contact us from the public header and the sign-in page | — | 02/11/2026 |
+| IngesCompany/doofplus-web-application | feature/contact-inquiry | `366c034` | fix(organizations): show the office city without a country in the contact panel | — | 02/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `30c0946` | Merge branch 'feature/contact-inquiry' into develop | — | 02/11/2026 |
+| IngesCompany/doofplus-web-application | feature/contact-inquiry | `41a3518` | style(organizations): match the contact us look of the aw frontend | Teal panel with the forum icon and label, check_circle topics, form inside a card with a full-width button, 64 px check on the confirmation and a 1100 px bre… | 02/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `17465b8` | Merge branch 'feature/contact-inquiry' into develop | — | 02/11/2026 |
+| IngesCompany/doofplus-web-application | feature/contact-us-estilo-aw | `cea8525` | style(organizations): match the aw contact us look in fields, card shadow and footer | — | 04/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `5195e7a` | Merge branch 'feature/contact-us-estilo-aw' into develop | — | 04/11/2026 |
+| IngesCompany/doofplus-web-application | fix/contact-us-title-line-height | `4a22393` | fix(organizations): give the contact us titles their own line height so they do not overlap on mobile | — | 07/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `68a5477` | Merge branch 'fix/contact-us-title-line-height' into develop | — | 07/11/2026 |
+| IngesCompany/doofplus-web-application | fix/contributing-title | `c40dbef` | docs(contributing): use the doofplus-web-application repository name in the title (W-026) | — | 07/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `99fcc80` | Merge branch 'fix/contributing-title' into develop | — | 07/11/2026 |
+| IngesCompany/doofplus-web-application | release/v1.1.0 | `f13d1a1` | chore(release): prepare version 1.1.0 | — | 09/11/2026 |
+| IngesCompany/doofplus-web-application | main | `59dde7a` | Merge branch 'release/v1.1.0' into main | — | 09/11/2026 |
+
+**RESTful Web Services** (372 commits)
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|------------|--------|-----------|----------------|---------------------|---------------------|
+| IngesCompany/doofplus-platform | main | `f878fc4` | chore: initial commit | — | 20/10/2026 |
+| IngesCompany/doofplus-platform | feature/project-configuration | `55b128f` | docs: add project-level documentation files | — | 20/10/2026 |
+| IngesCompany/doofplus-platform | feature/project-configuration | `af308fd` | docs: add initial reference documentation to README | — | 20/10/2026 |
+| IngesCompany/doofplus-platform | develop | `75bb286` | Merge branch 'feature/project-configuration' into develop | — | 20/10/2026 |
+| IngesCompany/doofplus-platform | feature/shared | `ca6fe28` | feat(conventions): add Snake Case Naming strategy | — | 25/10/2026 |
+| IngesCompany/doofplus-platform | feature/shared | `9663ba2` | feat(result): add base implementation of Result pattern | — | 25/10/2026 |
+| IngesCompany/doofplus-platform | feature/shared | `2ae3b5f` | feat(orm): configure ORM parameters | — | 25/10/2026 |
+| IngesCompany/doofplus-platform | develop | `61e3f0d` | Merge branch 'feature/shared' into develop | — | 25/10/2026 |
+| IngesCompany/doofplus-platform | release/v1.0.0 | `a31af48` | chore: update README.md | — | 25/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `5085fe6` | feat(subscriptions): add aggregate Subscription | — | 26/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `e0654cc` | feat(facility): add initial Facility value object | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `405df6f` | feat(subscriptions): add PlanKey value object | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | release/v1.0.0 | `ba1f579` | chore: update README.md | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `45c8186` | fix(subscriptions): use plan message keys in PlanKey value object | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `6f952f4` | feat(subscriptions): add OrganizationId value object | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `f6c9aad` | feat(subscriptions): add BillingEmail value object | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `c4fafa5` | feat(subscriptions): add Money embeddable value object | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `80eb72c` | feat(subscriptions): add PaymentCard embeddable value object | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `836489d` | feat(subscriptions): add BillingCycle and SubscriptionStatus enums | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `d79f43d` | feat(subscriptions): add PlanKey, OrganizationId and BillingEmail attribute converters | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `46b9408` | feat(subscriptions): add plan and subscription commands | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `b1fc863` | feat(subscriptions): add Plan aggregate | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `0f7e6d1` | feat(subscriptions): implement Subscription aggregate | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `deee12a` | feat(production-batch): add BatchNumber value object | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `5535222` | feat(production-batch): add Quantity value object | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `7015d20` | feat(subscriptions): add plan and subscription queries | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `ee08cf6` | feat(subscriptions): add PlanRepository and SubscriptionRepository | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `8d3db98` | feat(alert): introduce AlertCode value object with validation | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `97ef59e` | feat(alert): add documentation for AlertCode value object | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `11ee64c` | Merge branch 'develop' into feature/monitoring | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `354e05d` | feat(device): introduce DeviceId value object with validation | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `574fd9e` | feat(device): add documentation for DeviceId value object | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `cc1343c` | feat(monitoring): introduce EquipmentCode value object with validation | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `5b4d72e` | feat(monitoring): add documentation for EquipmentCode value object | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `30516d1` | feat(monitoring): introduce Facility value object with validation | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `ed7cbae` | feat(monitoring): add documentation for Facility value object | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `2fc4478` | feat(monitoring): introduce SensorCode value object with validation | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `7a046e8` | feat(monitoring): add documentation for SensorCode value object | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `b274df8` | feat(monitoring): introduce CalibrationStatus value object for equipment status | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `a94f90f` | feat(subscriptions): implement command and query services for plans and subscriptions | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `14ac422` | feat(subscriptions): add resources and assemblers for plans and subscriptions | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `b54b68c` | feat(monitoring): introduce GetAllAlertsQuery for retrieving all monitoring alerts | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `f6014d0` | feat(monitoring): introduce GetAllEquipmentQuery for retrieving all equipment | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `af4cb80` | feat(monitoring): introduce GetAllReadingsQuery for retrieving all telemetry readings | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `ce68eb2` | feat(monitoring): introduce GetAlertByCodeQuery for retrieving a monitoring alert by alert code | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `44f1951` | feat(monitoring): introduce GetAlertByIdQuery for retrieving a monitoring alert by ID | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `2f15aa9` | feat(monitoring): introduce GetAllAlertsByBatchCodeQuery for retrieving alerts by batch code | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `1f47f70` | feat(monitoring): introduce GetAllAlertsBySensorCodeQuery for retrieving alerts by sensor code | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `75032a7` | feat(monitoring): introduce GetAllAlertsBySensorCodeQuery for retrieving alerts by sensor code | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `9d51e64` | feat(monitoring): introduce GetAllReadingsBySensorCodeQuery for retrieving readings by sensor code | — | 30/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `2ad45da` | feat(monitoring): introduce GetAllSensorsByEquipmentCodeQuery for retrieving sensors by equipment code | — | 30/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `934ffb0` | feat(monitoring): introduce GetAllSensorsQuery for retrieving all registered IoT sensors | — | 30/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `95b4b97` | feat(monitoring): introduce GetEquipmentByCodeQuery for retrieving equipment by equipment code | — | 30/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `b2997ba` | feat(subscriptions): implement PlansController and SubscriptionsController | — | 30/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `a7cbca1` | feat(monitoring): introduce GetEquipmentByIdQuery for retrieving equipment by ID | — | 30/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `dc2aa2c` | feat(monitoring): introduce GetReadingByIdQuery for retrieving telemetry reading by ID | — | 30/10/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `defc701` | feat(configuration): add subscriptions error messages | — | 31/10/2026 |
+| IngesCompany/doofplus-platform | feature/organizations | `fe592de` | feat(organizations): implement domain model, Ruc value object and repository | — | 31/10/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `907b38e` | feat(production-batch): add BatchNumber attribute converter | — | 31/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `3901680` | feat(monitoring): update AlertCode to increase max length and improve validation messages | — | 31/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `7d35f1e` | feat(monitoring): enhance DeviceId validation with improved error messages | — | 31/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `c1c42a4` | feat(monitoring): improve Facility location validation with constants for error messages | — | 31/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `5d590aa` | feat(monitoring): refactor SensorCode validation to use constants for error messages | — | 31/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `7ff0ce0` | feat(monitoring): refactor EquipmentCode validation to use constants for error messages | — | 31/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `e9746f3` | feat(monitoring): simplify CalibrationStatus from method with streamlined logic | — | 31/10/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `b2633d8` | feat(monitoring): add value object representations for AlertCode, CalibrationStatus, DeviceId, EquipmentCode, Facility, and SensorCode | — | 31/10/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `d5f1dfa` | feat(production-batch): implement CreateBatch Command | — | 01/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `e46dacb` | feat(manufacturing): add IncidentSeverity enumeration | — | 01/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `414e45a` | feat(manufacturing): add RegisterIncident Command | — | 01/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `724f0ea` | feat(production-batch): add CloseBatch Command for closing batches | — | 01/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `9563438` | feat(manufacturing): add BatchStatus enumeration for batch lifecycle management | — | 02/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `4696525` | feat(manufacturing): add query for searching batches by their identifier | — | 02/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `2e538fe` | feat(manufacturing): add query for retrieving a batch by its number | — | 02/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `7ee29b0` | feat(manufacturing): add query for retrieving all batches | — | 02/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `b1d8658` | feat(quality): add deviation and CAPA status enums | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `140f86a` | feat(quality): add batch release and document status enums | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `e6fc60b` | feat(quality): add analytical result audit and report enums | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `923766c` | feat(quality): add deviation and CAPA aggregates | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `540b9b3` | feat(quality): add batch release aggregate | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `5916647` | feat(quality): add quality documents and evidence aggregates | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `d842fd6` | feat(quality): add analytical result aggregate | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `110dd21` | feat(quality): add audit and audit finding aggregates | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `0323f27` | feat(quality): add audit event aggregate | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `67aa8a7` | feat(quality): add regulatory report aggregate | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `0229c2a` | feat(quality): add collaboration task and comment aggregates | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `7fabc8a` | feat(quality): add traceability gap aggregate | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `f826d15` | feat(quality): add deviation and CAPA domain repositories | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `f9de05b` | feat(quality): add batch release domain repository | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `974e796` | feat(quality): add document and evidence domain repositories | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `ef50952` | feat(quality): add analytical result domain repository | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `df25e48` | feat(quality): add audit domain repositories | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `15670cb` | feat(quality): add regulatory report domain repository | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `ac90aa5` | feat(quality): add collaboration domain repositories | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `1b552e8` | feat(quality): add traceability gap domain repository | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `b9b8507` | feat(quality): add deviation and CAPA JPA repositories | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `889c1de` | feat(quality): add batch release JPA repository | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `106c6a3` | feat(quality): add document and evidence JPA repositories | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `b437f4a` | feat(quality): add analytical result JPA repository | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `d014dc8` | feat(quality): add audit JPA repositories | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `e2ff614` | feat(quality): add regulatory report JPA repository | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `8830c5f` | feat(quality): add collaboration JPA repositories | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `1d08e6f` | feat(quality): add traceability gap JPA repository | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `2b19323` | feat(quality): add interfaces | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `9fd5a28` | feat(quality): add acl | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `96aaff6` | feat(quality): add commands services | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `eebd9c2` | feat(quality): add query services | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `c3ef732` | feat(monitoring): add CreateAlertCommand for creating monitoring alerts | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `55fbfb2` | feat(monitoring): add CreateEquipmentCommand for creating equipment identification | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `00b4d77` | feat(monitoring): add CreateReadingCommand for creating reading function | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `4348c30` | feat(monitoring): add CreateSensorCommand for creating sensor readibility | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `2a08e27` | feat(monitoring): add UpdateAlertCommand for updatining an alert message | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `7ed8e67` | feat(monitoring): add UpdateEquipmentCommand for update equipment registration | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `5db100b` | feat(monitoring): add UpdateSensorCommand for update sensors detection | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `57f4e28` | feat(monitoring): add AlertRepository for managing alert aggregates | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `a29bb08` | feat(monitoring): add EquipmentRepository for managing equipment aggregates | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `4442c5b` | feat(monitoring): add ReadingRepository for managing reading aggregates | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `2b2e039` | feat(monitoring): add SensorRepository for managing sensor aggregates | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `19c62f5` | feat(monitoring): add AlertCodeAttributeConverter for AlertCode persistence | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `8748207` | feat(monitoring): add CalibrationStatusAttributeConverter for CalibrationStatus persistence | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `5eec8b1` | feat(monitoring): add DeviceIdAttributeConverter for DeviceId persistence | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `a6deb4e` | feat(monitoring): add EquipmentCodeAttributeConverter for EquipmentCode persistence | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `694b752` | feat(monitoring): add FacilityAttributeConverter for Facility persistence | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `e0cb109` | feat(monitoring): add SensorCodeAttributeConverter for SensorCode persistence | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `75ae88c` | feat(monitoring): add Alert entity for telemetry alerts and monitoring anomalies | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `3af8456` | feat(monitoring): add Equipment entity for managing equipment details and maintenance | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `b90a02e` | feat(monitoring): add Reading entity for capturing IoT telemetry readings | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `2fd788b` | feat(monitoring): add Sensor entity for managing IoT telemetry sensors | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `11ac224` | refactor(manufacturing): implement comments for understanding in java docs | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `e5d0120` | refactor(manufacturing): rename BatchNumberAttributeConverter to BatchNumberPersistenceConverter for clarity | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `b5b8f1f` | feat(monitoring): refactor AlertCode, CalibrationStatus, and DeviceId value objects for improved validation and UUID support | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `5a152db` | feat(manufacturing): add embeddable for Quantity value object to be persistent | — | 03/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-learning-center | `910208e` | build: pin lombok so the project compiles with java 27 | — | 04/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `1143cfd` | fix(subscriptions): enable jpa auditing so creation dates are saved | — | 05/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-learning-center | `69af5aa` | feat(shared): add application error and functional result | — | 05/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `f502aab` | fix(manufacturing): mark QuantityPersistenceEmbeddable as embeddable for persistence | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `6ab837d` | refactor(manufacturing): remove unnecessary import of jakarta.persistence.Embeddable from Quantity.java | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-learning-center | `310e33c` | feat(shared): add domain aggregate root and event publisher | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `6ddc877` | feat(manufacturing): add IncidentStatus enum for incident status representation | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `5f13809` | feat(manufacturing): add Incident entity to represent manufacturing incidents | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `fbdedb8` | feat(manufacturing): add MaterialConsumption entity to track material usage | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `fadd609` | feat(manufacturing): add MaterialConsumption entity to track material usage | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `51650c3` | feat(manufacturing): add MaterialConsumption entity to track material usage | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `a02e8f3` | fix(manufacturing): remove status parameter from Incident constructor | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `592faea` | feat(production-batch): add ProductionBatch aggregate root to manage production batches | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-learning-center | `a1f8282` | feat(shared): add auditable persistence entity and enable jpa auditing | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `888af88` | feat(monitoring): enhance validation for value objects and improve error handling | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `1e240d3` | feat(monitoring): add validation to command constructors for alerts, equipment, readings, and sensors | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `fc5bbd3` | feat(monitoring): add validation for alert, batch, sensor, and equipment query parameters | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `b37dc19` | feat(monitoring): add validation for alert, batch, sensor, and equipment query parameters | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `98c25c7` | refactor(monitoring): rename query classes for consistency and clarity | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `318f15d` | feat(monitoring): add queries for retrieving sensors by code and ID with validation | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `ddbce2f` | feat(monitoring): add validation for ID in update commands for alerts, equipment, and sensors | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `34f5fa0` | feat(monitoring): enhance aggregate classes with validation and reconstitution methods | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `ca085f9` | feat(monitoring): add AlertNotFoundException for handling missing alerts | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `c49c392` | feat(monitoring): add EquipmentNotFoundException for handling missing equipment | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `cc418b9` | feat(monitoring): add ReadingNotFoundException for handling missing readings | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-learning-center | `d80c4ff` | feat(shared): add plural snake case naming strategy for tables | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `7cf1b01` | feat(monitoring): add SensorNotFoundException for handling missing sensors | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `76c960c` | feat(monitoring): add AlertRepository interface for managing Alert aggregates | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `4dda23f` | feat(monitoring): add EquipmentRepository interface for managing Equipment aggregates | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `e47b8a7` | feat(monitoring): add ReadingRepository interface for managing Reading aggregates | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `c956cb7` | feat(monitoring): add SensorRepository interface for managing Sensor aggregates | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `9bbd792` | feat(monitoring): add AlertCommandService and AlertQueryService interfaces for managing Alert commands and queries | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `59eb1c8` | feat(monitoring): add EquipmentCommandService and EquipmentQueryService interfaces for managing Equipment commands and queries | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `86d1896` | feat(monitoring): add ReadingCommandService and ReadingQueryService interfaces for managing Reading commands and queries | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `3584997` | feat(monitoring): add SensorCommandService and SensorQueryService interfaces for managing Sensor commands and queries | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `acb29c3` | feat(monitoring): add AlertCommandServiceImpl and AlertQueryServiceImpl for managing Alert commands and queries | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `2ed9ac2` | feat(monitoring): add EquipmentCommandServiceImpl and EquipmentQueryServiceImpl for managing Equipment commands and queries | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `0311af8` | feat(monitoring): add ReadingCommandServiceImpl and ReadingQueryServiceImpl for managing Reading commands and queries | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `4a60b2c` | feat(monitoring): add SensorCommandServiceImpl and SensorQueryServiceImpl for managing Sensor commands and queries | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `0d955e7` | feat(monitoring): improve null handling in attribute converters | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `7965089` | feat(monitoring): add AlertPersistenceEntity for JPA persistence of alerts | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `fd9e45a` | feat(monitoring): add EquipmentPersistenceEntity for JPA persistence of equipment | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `f835d45` | feat(monitoring): add ReadingPersistenceEntity for JPA persistence of readings | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `a5fcbda` | feat(monitoring): add SensorPersistenceEntity for JPA persistence of sensors | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `1d0ae45` | feat(monitoring): add AlertPersistenceRepository for JPA operations on alerts | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-learning-center | `861d8ee` | feat(shared): return errors as localized problem details | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `ba1f07f` | feat(monitoring): add EquipmentPersistenceRepository for JPA operations on equipment | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `2ce4ab8` | feat(monitoring): add EquipmentPersistenceRepository for JPA operations on equipment | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `0b9ff51` | feat(monitoring): add SensorPersistenceRepository for JPA operations on sensors | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `f614d3f` | feat(monitoring): add AlertPersistenceAssembler for converting between Alert and AlertPersistenceEntity | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `a0cb20a` | feat(monitoring): add EquipmentPersistenceAssembler for converting between Equipment and EquipmentPersistenceEntity | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `6486d91` | feat(monitoring): add ReadingPersistenceAssembler for converting between Reading and ReadingPersistenceEntity | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `ac61363` | feat(monitoring): add SensorPersistenceAssembler for converting between Sensor and SensorPersistenceEntity | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `bae6453` | feat(monitoring): implement AlertRepositoryImpl for JPA operations on alerts | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `1473344` | feat(monitoring): implement EquipmentRepositoryImpl for JPA operations on equipment | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `a516389` | feat(monitoring): implement EquipmentRepositoryImpl for JPA operations on equipment | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `48ddaeb` | feat(monitoring): implement SensorRepositoryImpl for JPA operations on sensors | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-learning-center | `a4f1163` | chore(config): add dev and prod profiles, a dockerfile and shared settings | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-learning-center | `2c8a63d` | feat(shared): document the api with openapi and run on virtual threads | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | develop | `7621c3e` | Merge branch 'feature/shared-learning-center' into develop | — | 06/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `1df362c` | feat(monitoring): add AlertResource for monitoring alert representation | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `adbe54f` | feat(monitoring): add CreateAlertResource for creating monitoring alerts | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `e55e201` | feat(monitoring): add CreateEquipmentResource for creating equipment items | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `d1eefa8` | feat(monitoring): add CreateReadingResource for recording telemetry readings | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `585e345` | feat(monitoring): add CreateSensorResource for creating IoT sensors | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `bac4e80` | feat(monitoring): add EquipmentResource for equipment item representation | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `eadd8a1` | feat(monitoring): add ReadingResource for telemetry reading representation | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `451e287` | feat(monitoring): add SensorResource for IoT sensor representation | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `0bad7a7` | feat(monitoring): add UpdateAlertResource for updating monitoring alerts | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `3d47099` | feat(monitoring): add UpdateEquipmentResource for updating equipment items | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `6478a2f` | feat(monitoring): add UpdateSensorResource for updating IoT sensor details | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `2256efd` | feat(monitoring): add AlertResourceFromEntityAssembler for converting Alert domain to AlertResource | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `a09cdd6` | feat(exceptions): add BatchNotFoundException to handle missing batches | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `9527f32` | feat(repositories): add ProductionBatchRepository interface for managing production batches | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `44d20fd` | Merge branch 'develop' into feature/manufacturing | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `a3ea01c` | feat(infrastructure): add ProductionBatchPersistenceEntity for JPA mapping of production batches | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `9f600bf` | feat(repositories): add ProductionBatchPersistenceRepository for managing ProductionBatch entities | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `8b3fbaf` | feat(infrastructure): add ProductionBatchPersistenceAssembler for domain and persistence mapping | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `04b795f` | refactor(domain): move ProductionBatch to aggregates package and update imports | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `00f351c` | feat(repositories): implement ProductionBatchRepositoryImpl for domain repository integration with JPA | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `da715d6` | feat(monitoring): add command assemblers for creating alerts, equipment, readings, and sensors from resources | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `f28887c` | feat(monitoring): add assemblers for Equipment, Reading, and Sensor resources | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `0459d9a` | feat(monitoring): add AlertsController for managing monitoring alerts | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `ccddb83` | feat(monitoring): add EquipmentController for managing equipment resources | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `f94c798` | feat(monitoring): add ReadingsController for managing telemetry readings | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `7ea814c` | feat(monitoring): add SensorsController for managing IoT telemetry sensors | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `e253df8` | Merge branch 'develop' into feature/monitoring | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `01b31c2` | feat(monitoring): extend aggregate roots to support domain event registration | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `ad1bba0` | feat(monitoring): update command services to use ApplicationError for result handling | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `9d25f2a` | feat(monitoring): refactor command services to use ApplicationError for result handling | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `eb6c654` | feat(monitoring): integrate DomainEventPublisher in repository implementations for event handling | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `fc69fba` | feat(monitoring): refactor persistence entities to extend AuditableAbstractPersistenceEntity for unified auditing | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `a5451fb` | feat(monitoring): refactor controllers to use ApplicationError and ResponseEntityAssembler for error handling | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `4d88cb3` | feat(monitoring): remove unused JPA repository interfaces for Alert, Equipment, Reading, and Sensor | — | 07/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `75046f8` | feat(application): implement Production Batch command service and implementation | — | 08/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `523f04d` | feat(resources): add REST resources for Production Batch and Incident management | — | 08/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `4181278` | feat(queryservices): add ProductionBatchQueryService interface and implementation for querying production batches | — | 08/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `a7b87a7` | fix(application): annotate ProductionBatchCommandServiceImpl and ProductionBatchQueryServiceImpl with @Service | — | 08/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `e3548ea` | feat(transform): add assemblers for creating and converting production batch and incident resources | — | 08/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `9091e6d` | feat(controller): add ProductionBatchesController for managing production batch operations | — | 08/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing | `94be293` | fix(events): relax DomainEventPublisher signature to accept any AbstractDomainAggregateRoot | — | 08/11/2026 |
+| IngesCompany/doofplus-platform | develop | `8aab90c` | Merge branch 'feature/manufacturing' into develop | — | 08/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring | `0e39884` | Merge branch 'develop' into feature/monitoring | — | 08/11/2026 |
+| IngesCompany/doofplus-platform | develop | `30f01b7` | Merge branch 'feature/monitoring' into develop | — | 08/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `5784e24` | Merge branch 'develop' into feature/quality | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `ea11ed6` | fix(quality): add deviation, capa domain and batch release aggregate | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `2c020b6` | feat(quality): add evidence domain value objects | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `590005d` | fix(quality): add quality document and evidence aggregates | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `d894a84` | fix(quality): add analytical result aggregate | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `e73038b` | fix(quality): add audit domain aggregates | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `f9c8c52` | fix(quality): add regulatory report aggregate | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `e93622a` | fix(quality): add collaboration task aggregates | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `4e458ed` | fix(quality): add traceability gap aggregate | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `2c7cf6e` | feat(quality): add deviation and CAPA commands | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `9df092a` | feat(quality): add batch release commands | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `bbbb384` | feat(quality): add quality management commands | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `0f583e6` | feat(quality): add quality queries | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `e971527` | feat(quality): add domain events | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `47f8847` | feat(quality): add domain exceptions | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `c1c939a` | feat(quality): define deviation and CAPA repository contracts | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `17a71a5` | feat(quality): define batch release repository contract | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `e1ba1ad` | feat(quality): define quality document and evidence repository contracts | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `8b9f618` | feat(quality): define analytical result repository contract | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `786bc42` | feat(quality): define audit repository contracts | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `5ed55f3` | feat(quality): define regulatory report repository contract | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `682d284` | feat(quality): define collaboration repository contracts | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `327499c` | feat(quality): define traceability gap repository contract | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `048b3bb` | feat(quality): add deviation and CAPA persistence entities | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `f4abdd5` | feat(quality): add deviation and CAPA persistence repositories | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `dd19658` | feat(quality): implement deviation and CAPA repository adapters | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `007c01f` | fix(quality): implement deviation and CAPA repository adapters | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `d1c7e6d` | fix(quality): implement deviation repository adapters | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `c56e61d` | feat(quality): add CAPA action persistence | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `eb44f32` | feat(quality): add batch release persistence | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `a5758fa` | feat(quality): add quality document persistence | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `3fd9196` | feat(quality): add evidence persistence | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `d326723` | feat(quality): add analytical result persistence | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `85fb737` | feat(quality): add audit persistence | — | 09/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `8d31998` | feat(quality): add audit finding persistence | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `6db7ffc` | feat(quality): add audit event persistence | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `befd0f2` | feat(quality): add regulatory report persistence | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `c041451` | feat(quality): add collaboration task persistence | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `ec6a5a2` | feat(quality): add task comment persistence | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `0429150` | feat(quality): add traceability gap persistence | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `ddb87a8` | refactor(quality): reorganize bounded context architecture | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `5a6646a` | feat(quality): define deviation application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `7b62642` | feat(quality): define analytical result command service | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `9d2f34d` | feat(quality): define audit command service | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `df7e8ae` | feat(quality): define audit command service | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `66aae6b` | feat(quality): implement audit application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `342ac3d` | feat(quality): implement audit finding application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `5a5fba1` | feat(quality): implement batch release application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `b1dd88e` | feat(quality): implement batch release application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `c93d8d6` | feat(quality): implement capa plan application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `adb76e1` | feat(quality): implement collaboration task application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `4ec34be` | feat(quality): implement deviation application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `4372062` | feat(quality): implement evidence application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `e918e1f` | feat(quality): implement quality document application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `62ca56d` | feat(quality): implement regulatory report application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `1d7e12a` | feat(quality): implement task comment application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `3ee40c8` | feat(quality): implement traceability gap application services | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `2e7670f` | feat(quality): implement deviation trend query service | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `43ceb5b` | feat(quality): add analytical result REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `d5b442b` | feat(quality): add audit REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `539ea74` | feat(quality): add audit event REST resource and assembler | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `33589bb` | feat(quality): add audit finding REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `904f0b1` | feat(quality): add batch release REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `d514f9a` | feat(quality): add capa action REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `98daaba` | feat(quality): add capa plan REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `3324d13` | feat(quality): add collaboration task REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `8fb0044` | feat(quality): add deviation REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `53b1435` | feat(quality): add deviation trend REST resource and assembler | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `616c5dc` | feat(quality): add evidence REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `cf9575d` | feat(quality): add quality document REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `4dc19df` | feat(quality): add regulatory report REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `a98c29d` | feat(quality): add task comment REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `4b5ac07` | feat(quality): add traceability gap REST resources and assemblers | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `acb414a` | feat(quality): implement analytical result REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `42012aa` | feat(quality): implement audit REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `1e6d2e5` | feat(quality): add audit event REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `c635a13` | feat(quality): add audit finding REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `f72c449` | feat(quality): add batch release REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `1f70d83` | feat(quality): add capa action REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `d2cc4b8` | feat(quality): add capa plan REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `50d7436` | fix(quality): fix batch controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `ab689da` | feat(quality): add collaboration task REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `8dacf6d` | feat(quality): add deviation REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `6c460aa` | feat(quality): add deviation trend REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `3554b70` | feat(quality): add evidence REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `7155fc2` | feat(quality): add quality document REST endpoints | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `b06a1a1` | feat(quality): add regulatory report REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `22b036b` | feat(quality): add task comment REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `22d2902` | feat(quality): add traceability gap REST controller | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `f7c981d` | Merge branch 'develop' into feature/subscriptions | # Conflicts: # src/main/resources/messages.properties # src/main/resources/messages_es.properties | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `8b724fc` | refactor(subscriptions): use the shared result and error responses | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `77fdfed` | refactor(subscriptions): separate the domain model from the jpa persistence | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `be331bf` | feat(subscriptions): add the current period start and the renewal endpoint | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations | `95e298d` | refactor(organizations): aling the domain model with the class diagram | — | 10/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `89cc186` | fix(subscriptions): accept zero as unlimited in plan limits | — | 12/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `7518324` | fix(subscriptions): limit the card brand length | — | 12/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `5d1d921` | docs(subscriptions): use the same currency as the diagram | — | 12/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `d839364` | feat(subscriptions): add the payment entity | — | 12/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `eb69350` | feat(subscriptions): add the payment persistence | — | 12/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `d4ce337` | feat(subscriptions): add the niubiz payment gateway | — | 12/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-value-object-messages | `7e5f589` | fix(shared): translate value object error messages | — | 12/11/2026 |
+| IngesCompany/doofplus-platform | develop | `a4c1fe2` | Merge branch 'feature/shared-value-object-messages' into develop | — | 12/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations | `213438a` | Merge remote-tracking branch 'origin/develop' into feature/organizations | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations | `e710dba` | refactor(organizations): fix the command, query and repository names and add the error messages | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations | `bd60fc1` | feat(organizations): add organization command and query services | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations | `17ee993` | feat(organizations): persist organizations and plants with jpa | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations | `bb9fcaa` | feat(organizations): expose the organizations rest endpoints (TS12) | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/cors-configuration | `c7ac61c` | feat(shared): add cors configuration for the web application | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `35eafb3` | Merge branch 'feature/cors-configuration' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-error-responses | `d86d9a4` | fix(shared): answer missing or mistyped request parameters with a bad request | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-error-responses | `e552e37` | fix(shared): translate the message keys of the application error details | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `4c447b5` | Merge branch 'feature/shared-error-responses' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `637cb3f` | feat(subscriptions): add the pay subscription endpoint | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `1cdb08d` | test(subscriptions): add plan and subscription tests | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `60118ff` | test(subscriptions): add payment tests | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | pub-org | `46d3122` | Merge remote-tracking branch 'origin/develop' into pub-org | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations | `60f351f` | fix(organizations): answer a duplicate ruc with a localized message | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | pub-quality | `5a42fdc` | Merge remote-tracking branch 'origin/develop' into pub-quality | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality | `83134c7` | fix(quality): read the creation date of batch releases and capa plans from the audit column | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `396c94e` | Merge branch 'feature/quality' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations | `9c77f70` | feat(organizations): add the contact inquiry domain model | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `9260ffa` | fix(subscriptions): use the niubiz security token path | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations | `2e8852e` | feat(organizations): add the contact inquiry services and jpa persistence | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations | `aa2d522` | feat(organizations): expose the contact inquiries rest endpoints (TS12) | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `8624efc` | Merge branch 'feature/organizations' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations-facilities | `9fc9a8e` | refactor(organizations): replace plant with facility as in the class diagram | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations-facilities | `c6e8e89` | feat(organizations): list organizations and facilities | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations-facilities | `a52f74d` | feat(organizations): add user profiles with their notification preferences | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations-facilities | `fe53339` | feat(organizations): record and list the administrative activities | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `cad7ef9` | Merge branch 'feature/organizations-facilities' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/bounded-context-messages | `1a42271` | feat(shared): add the error messages of manufacturing, monitoring and quality | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `622c347` | Merge branch 'feature/bounded-context-messages' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/shared-unreadable-body | `1573168` | fix(shared): answer an unreadable request body with a bad request | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `b468f15` | Merge branch 'feature/shared-unreadable-body' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `fd94b12` | Merge branch 'feature/subscriptions' into develop | # Conflicts: # src/main/resources/messages.properties # src/main/resources/messages_es.properties | 13/11/2026 |
+| IngesCompany/doofplus-platform | release/v1.0.0 | `6a47dc2` | chore(release): prepare version 1.0.0 | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | main | `529e7b6` | Merge branch 'release/v1.0.0' into main | — | 13/11/2026 |
+
+**Curso de Responsabilidad Social** (`develop`, 29 commits)
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|------------|--------|-----------|----------------|---------------------|---------------------|
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `841c5d5` | chore: initial commit | — | 04/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/project-configuration | `1c41cd0` | docs: add course outline and resources for Java fundamentals | — | 04/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/project-configuration | `2552c8c` | docs: update team details and NRC in README | — | 04/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `04ad6f4` | Merge branch 'feature/project-configuration' into develop | — | 04/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-04 | `692fb89` | feat(lesson-04): add the starter code | — | 05/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-04 | `3c2df5f` | feat(lesson-04): add the completed example | — | 06/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-04 | `2f6f835` | docs(lesson-04): add the lesson script | — | 06/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-04 | `42b1ff5` | feat(slides): add the course slide deck | — | 06/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `10bdee3` | Merge branch 'feature/leccion-04' into develop | — | 06/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-03 | `f82c0d2` | feat(lesson-03): add the starter code | — | 07/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-03 | `bf4166c` | feat(lesson-03): add the completed example | — | 07/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-03 | `837f78b` | docs(lesson-03): add the lesson script | — | 07/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `aea5073` | Merge branch 'feature/leccion-03' into develop | — | 07/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-02 | `842ccb3` | feat(lesson-02): add the starter code | — | 07/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-02 | `90342f8` | feat(lesson-02): add the completed example | — | 07/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-02 | `bbad5b3` | docs(lesson-02): add the lesson script | — | 07/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-02 | `5cfba29` | build: add the pandoc settings for the course plan pdf | — | 07/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `021b821` | Merge branch 'feature/leccion-02' into develop | — | 07/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-04-starter | `20fd139` | fix(lesson-04): remove the scanner from the starter code | — | 10/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `245dc96` | Merge branch 'feature/leccion-04-starter' into develop | — | 10/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/leccion-03-starter | `6aea3be` | fix(lesson-03): remove the points variable from the starter code | — | 12/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `58eeaaa` | Merge branch 'feature/leccion-03-starter' into develop | — | 12/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/scripts-actualizados | `5faa98b` | docs(scripts): update the six lesson scripts with the new narration | — | 12/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/lecciones-1-5-6 | `5da4cc0` | feat(lessons): add the starter and completed code of lessons 1, 5 and 6 | — | 12/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `37abbe4` | Merge branch 'feature/scripts-actualizados' into develop | — | 12/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/plan-del-curso | `54c1e93` | docs(course-plan): add the course plan and its pdf styles | — | 12/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/plan-del-curso | `1f379cb` | build: ignore the pandoc build folder | — | 12/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `d947c2a` | Merge branch 'feature/lecciones-1-5-6' into develop | — | 12/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `276da07` | Merge branch 'feature/plan-del-curso' into develop | — | 12/11/2026 |
+
+#### 5.2.3.5. Execution Evidence for Sprint Review
+
+En este Sprint el Website lleva a cada segmento a su entorno con un call to action propio, tiene enlaces a las redes sociales y se publica en GitHub Pages con GitHub Actions. La Web Application traduce los permisos de cada rol, busca por código desde la barra superior, enlaza con el Website y recibe las consultas de Contact us en su zona pública. Los RESTful Web Services quedaron desplegados con los bounded contexts Organizations, Subscriptions (con el pago por Niubiz), Manufacturing, IoT Monitoring y Quality & Compliance; la Web Application todavía usa la Fake API y se conecta al API real en el Sprint 4.
+
+- **Website:** https://ingescompany.github.io/doofplus-website/
+- **Web Application:** https://doofplus-webapp.web.app
+- **RESTful Web Services (Swagger UI):** https://doofplus-platform.onrender.com/swagger-ui.html
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+Los RESTful Web Services se documentan con OpenAPI (springdoc-openapi) y Swagger UI. La versión `v1.0.0`, desplegada en Render, expone 56 rutas y 82 operaciones bajo el prefijo `/api/v1`; la especificación se puede descargar en https://doofplus-platform.onrender.com/v3/api-docs. La URL base publicada es `https://doofplus-platform.onrender.com/api/v1` y la local, `http://localhost:8080/api/v1`. La siguiente tabla documenta cada operación, con su enlace a Swagger UI. El servicio usa el plan gratuito de Render, que lo suspende cuando no recibe peticiones, por lo que la primera petición puede tardar cerca de un minuto.
+
+| Endpoint | Verbo HTTP | Sintaxis | Parámetros | Response | URL documentación |
+|---|---|---|---|---|---|
+| `/administrative-activities` | GET | `/api/v1/administrative-activities` | — | 200: Get the administrative activities, the most recent first | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Administrative%20Activities/getAllAdministrativeActivities |
+| `/alerts` | GET | `/api/v1/alerts` | `sensorCode` (query), `batchCode` (query) | 200: Get alerts | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Alerts/getAllAlerts |
+| `/alerts` | POST | `/api/v1/alerts` | recurso en el body (JSON) | 201, 400, 409: Create alert | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Alerts/createAlert |
+| `/alerts` | GET | `/api/v1/alerts/{id}` | `id` (path) | 200, 404: Get alert by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Alerts/getAlertById |
+| `/alerts` | PUT | `/api/v1/alerts/{id}` | `id` (path), recurso en el body (JSON) | 200, 400, 404: Update alert | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Alerts/updateAlert |
+| `/analytical-results` | GET | `/api/v1/analytical-results` | `batchId` (query) | 200: Get analytical results by batch ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Analytical%20Results/getByBatchId |
+| `/analytical-results` | POST | `/api/v1/analytical-results` | recurso en el body (JSON) | 201: Create an analytical result | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Analytical%20Results/createAnalyticalResult |
+| `/audit-events` | GET | `/api/v1/audit-events` | `aggregateType` (query), `aggregateId` (query) | 200: Get audit events | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20Events/getAuditEvents |
+| `/audit-findings` | GET | `/api/v1/audit-findings` | `auditId` (query) | 200: Get audit findings by audit ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20Findings/getAuditFindingsByAuditId |
+| `/audit-findings` | POST | `/api/v1/audit-findings` | recurso en el body (JSON) | 201: Create a new audit finding | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20Findings/createAuditFinding |
+| `/audits` | GET | `/api/v1/audits` | — | 200: Get all audits | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audits/getAllAudits |
+| `/audits` | POST | `/api/v1/audits` | recurso en el body (JSON) | 201: Create a new audit | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audits/createAudit |
+| `/audits` | GET | `/api/v1/audits/{auditId}` | `auditId` (path) | 200: Get audit by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audits/getAuditById |
+| `/batch-releases` | GET | `/api/v1/batch-releases` | — | 200: Get all batch releases | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/getAllBatchReleases |
+| `/batch-releases` | POST | `/api/v1/batch-releases` | recurso en el body (JSON) | 201: Request a batch release | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/requestBatchRelease |
+| `/batch-releases` | GET | `/api/v1/batch-releases/by-batch/{batchId}` | `batchId` (path) | 200: Get batch releases by batch ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/getBatchReleasesByBatchId |
+| `/batch-releases` | GET | `/api/v1/batch-releases/{releaseId}` | `releaseId` (path) | 200: Get batch release by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/getBatchReleaseById |
+| `/batch-releases` | PUT | `/api/v1/batch-releases/{releaseId}/approve` | `releaseId` (path), recurso en el body (JSON) | 200: Approve a batch release | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/approveBatchRelease |
+| `/batch-releases` | PUT | `/api/v1/batch-releases/{releaseId}/reject` | `releaseId` (path), recurso en el body (JSON) | 200: Reject a batch release | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/rejectBatchRelease |
+| `/capa-actions` | GET | `/api/v1/capa-actions` | — | 200: Get all CAPA actions | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Actions/getAllCapaActions |
+| `/capa-actions` | POST | `/api/v1/capa-actions` | recurso en el body (JSON) | 201: Create a CAPA action | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Actions/createCapaAction |
+| `/capa-actions` | GET | `/api/v1/capa-actions/by-plan/{capaPlanId}` | `capaPlanId` (path) | 200: Get CAPA actions by plan ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Actions/getCapaActionsByCapaPlanId |
+| `/capa-actions` | GET | `/api/v1/capa-actions/{actionId}` | `actionId` (path) | 200: Get CAPA action by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Actions/getCapaActionById |
+| `/capa-plans` | GET | `/api/v1/capa-plans` | — | 200: Get all CAPA plans | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Plans/getAllCapaPlans |
+| `/capa-plans` | POST | `/api/v1/capa-plans` | recurso en el body (JSON) | 201: Create a CAPA plan | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Plans/createCapaPlan |
+| `/capa-plans` | GET | `/api/v1/capa-plans/{capaPlanId}` | `capaPlanId` (path) | 200: Get CAPA plan by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Plans/getCapaPlanById |
+| `/collaboration-tasks` | GET | `/api/v1/collaboration-tasks` | — | 200: Get all collaboration tasks | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Collaboration%20Tasks/getAllCollaborationTasks |
+| `/collaboration-tasks` | POST | `/api/v1/collaboration-tasks` | recurso en el body (JSON) | 201: Create a collaboration task | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Collaboration%20Tasks/createCollaborationTask |
+| `/contact-inquiries` | GET | `/api/v1/contact-inquiries` | — | 200: Get every contact inquiry, the most recent first | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Contact%20Inquiries/getAllContactInquiries |
+| `/contact-inquiries` | POST | `/api/v1/contact-inquiries` | recurso en el body (JSON) | 201: Send a contact inquiry | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Contact%20Inquiries/sendContactInquiry |
+| `/deviation-trends` | GET | `/api/v1/deviation-trends` | — | 200: Get deviation trends | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviation%20Trends/getDeviationTrends |
+| `/deviations` | GET | `/api/v1/deviations` | — | 200: Get all deviations | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/getAllDeviations |
+| `/deviations` | POST | `/api/v1/deviations` | recurso en el body (JSON) | 201: Create a deviation | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/createDeviation |
+| `/deviations` | GET | `/api/v1/deviations/by-batch/{batchId}` | `batchId` (path) | 200: Get deviations by batch ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/getDeviationsByBatchId |
+| `/deviations` | GET | `/api/v1/deviations/{deviationId}` | `deviationId` (path) | 200: Get deviation by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/getDeviationById |
+| `/equipment` | GET | `/api/v1/equipment` | — | 200: Get all equipment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Equipment/getAllEquipment |
+| `/equipment` | POST | `/api/v1/equipment` | recurso en el body (JSON) | 201, 400, 409: Create equipment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Equipment/createEquipment |
+| `/equipment` | GET | `/api/v1/equipment/{id}` | `id` (path) | 200, 404: Get equipment by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Equipment/getEquipmentById |
+| `/equipment` | PUT | `/api/v1/equipment/{id}` | `id` (path), recurso en el body (JSON) | 200, 400, 404: Update equipment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Equipment/updateEquipment |
+| `/evidence` | GET | `/api/v1/evidence` | — | 200: Get all evidence | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/getAllEvidence |
+| `/evidence` | POST | `/api/v1/evidence` | recurso en el body (JSON) | 201: Create evidence | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/createEvidence |
+| `/evidence` | GET | `/api/v1/evidence/by-deviation/{deviationId}` | `deviationId` (path) | 200: Get evidence by deviation ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/getEvidenceByDeviationId |
+| `/facilities` | GET | `/api/v1/facilities` | `organizationId` (query) | 200: Get every facility, or the ones of an organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Facilities/getAllFacilities |
+| `/facilities` | POST | `/api/v1/facilities` | recurso en el body (JSON) | 201: Add a facility to an organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Facilities/addFacility |
+| `/organizations` | GET | `/api/v1/organizations` | `ruc` (query) | 200: Get every organization, or the one registered with a RUC | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Organizations/getAllOrganizations |
+| `/organizations` | POST | `/api/v1/organizations` | recurso en el body (JSON) | 201: Register a new organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Organizations/registerOrganization |
+| `/organizations` | GET | `/api/v1/organizations/{organizationId}` | `organizationId` (path) | 200: Get an organization by id | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Organizations/getOrganizationById |
+| `/plans` | GET | `/api/v1/plans` | — | 200: Get all plans | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Plans/getAllPlans |
+| `/plans` | POST | `/api/v1/plans` | recurso en el body (JSON) | 201, 400, 409: Create a plan | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Plans/createPlan |
+| `/plans` | GET | `/api/v1/plans/{id}` | `id` (path) | 200, 404: Get a plan by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Plans/getPlanById |
+| `/production-batches` | GET | `/api/v1/production-batches` | `batchNumber` (query) | 200: Get all production batches or filter by batch number | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/getBatches |
+| `/production-batches` | POST | `/api/v1/production-batches` | recurso en el body (JSON) | 201: Create a new production batch | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/createBatch |
+| `/production-batches` | GET | `/api/v1/production-batches/{batchId}` | `batchId` (path) | 200: Get production batch by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/getBatchById |
+| `/production-batches` | POST | `/api/v1/production-batches/{batchId}/close` | `batchId` (path), recurso en el body (JSON) | 200: Close a production batch | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/closeBatch |
+| `/production-batches` | POST | `/api/v1/production-batches/{batchId}/incidents` | `batchId` (path), recurso en el body (JSON) | 201: Register an incident for a production batch | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/registerIncident |
+| `/quality-documents` | GET | `/api/v1/quality-documents` | — | 200: Get all quality documents | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Quality%20Documents/getAllDocuments |
+| `/quality-documents` | POST | `/api/v1/quality-documents` | recurso en el body (JSON) | 201: Create a quality document | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Quality%20Documents/createDocument |
+| `/quality-documents` | GET | `/api/v1/quality-documents/{documentId}` | `documentId` (path) | 200: Get quality document by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Quality%20Documents/getDocumentById |
+| `/readings` | GET | `/api/v1/readings` | `sensorCode` (query), `batchCode` (query) | 200: Get readings | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Readings/getAllReadings |
+| `/readings` | POST | `/api/v1/readings` | recurso en el body (JSON) | 201, 400: Record reading | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Readings/createReading |
+| `/readings` | GET | `/api/v1/readings/{id}` | `id` (path) | 200, 404: Get reading by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Readings/getReadingById |
+| `/regulatory-reports` | GET | `/api/v1/regulatory-reports` | — | 200: Get all regulatory reports | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Regulatory%20Reports/getAllReports |
+| `/regulatory-reports` | POST | `/api/v1/regulatory-reports` | recurso en el body (JSON) | 201: Create a regulatory report | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Regulatory%20Reports/createReport |
+| `/sensors` | GET | `/api/v1/sensors` | `equipmentCode` (query) | 200: Get sensors | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Sensors/getAllSensors |
+| `/sensors` | POST | `/api/v1/sensors` | recurso en el body (JSON) | 201, 400, 409: Create sensor | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Sensors/createSensor |
+| `/sensors` | GET | `/api/v1/sensors/{id}` | `id` (path) | 200, 404: Get sensor by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Sensors/getSensorById |
+| `/sensors` | PUT | `/api/v1/sensors/{id}` | `id` (path), recurso en el body (JSON) | 200, 400, 404: Update sensor | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Sensors/updateSensor |
+| `/subscriptions` | GET | `/api/v1/subscriptions` | `organizationId` (query) | 200, 400: Get subscriptions by organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/getSubscriptionsByOrganizationId |
+| `/subscriptions` | POST | `/api/v1/subscriptions` | recurso en el body (JSON) | 201, 400, 404, 409: Create a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/createSubscription |
+| `/subscriptions` | GET | `/api/v1/subscriptions/{id}` | `id` (path) | 200, 404: Get a subscription by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/getSubscriptionById |
+| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/activation` | `id` (path) | 200, 404, 422: Activate a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/activateSubscription |
+| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/cancellation` | `id` (path) | 200, 404, 422: Cancel a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/cancelSubscription |
+| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/payments` | `id` (path), recurso en el body (JSON) | 200, 400, 404, 422: Pay a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/paySubscription |
+| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/renewal` | `id` (path) | 200, 404, 422: Renew a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/renewSubscription |
+| `/task-comments` | POST | `/api/v1/task-comments` | recurso en el body (JSON) | 201: Create a task comment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Task%20Comments/createComment |
+| `/task-comments` | GET | `/api/v1/task-comments/by-task/{taskId}` | `taskId` (path) | 200: Get comments by task ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Task%20Comments/getCommentsByTaskId |
+| `/traceability-gaps` | GET | `/api/v1/traceability-gaps` | — | 200: Get all traceability gaps | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Traceability%20Gaps/getAllGaps |
+| `/traceability-gaps` | POST | `/api/v1/traceability-gaps` | recurso en el body (JSON) | 201: Create a traceability gap | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Traceability%20Gaps/createGap |
+| `/traceability-gaps` | GET | `/api/v1/traceability-gaps/by-batch/{batchId}` | `batchId` (path) | 200: Get traceability gaps by batch ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Traceability%20Gaps/getGapsByBatchId |
+| `/user-profiles` | GET | `/api/v1/user-profiles` | — | 200: Get every user profile | https://doofplus-platform.onrender.com/swagger-ui/index.html#/User%20Profiles/getAllUserProfiles |
+| `/user-profiles` | POST | `/api/v1/user-profiles` | recurso en el body (JSON) | 201: Create the profile of a user | https://doofplus-platform.onrender.com/swagger-ui/index.html#/User%20Profiles/createUserProfile |
+| `/user-profiles` | PUT | `/api/v1/user-profiles/{profileId}` | `profileId` (path), recurso en el body (JSON) | 200: Update the notification preferences and the language of a user profile | https://doofplus-platform.onrender.com/swagger-ui/index.html#/User%20Profiles/updateUserProfile |
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+En este Sprint se publicaron las siguientes versiones, siguiendo GitFlow:
+
+- **Website:** `release/v2.1.0` se fusionó en `main` con el tag `v2.1.0` (31/10/2026) y desde entonces el Website se publica en GitHub Pages con un workflow de GitHub Actions. Después se publicaron el hotfix `v2.1.1` (01/11/2026) y `v2.2.0` (09/11/2026). URL: https://ingescompany.github.io/doofplus-website/.
+- **Web Application:** el hotfix `v1.0.2` (01/11/2026) y `release/v1.1.0` (09/11/2026), con Contact us y los permisos por rol, publicados en Firebase Hosting. URL: https://doofplus-webapp.web.app.
+- **RESTful Web Services:** `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0` (13/11/2026). El API se publicó en un Web Service de Render con Docker, desde `main`, y su base de datos MySQL 8 en Railway; las credenciales se cargan como variables de entorno del servicio y no están en el repositorio. URL: https://doofplus-platform.onrender.com y Swagger UI en https://doofplus-platform.onrender.com/swagger-ui.html. Se comprobó que `POST /api/v1/contact-inquiries` responde 201 y, con un correo inválido, 400; y que los `GET` de cada bounded context responden 200.
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
+
+En este Sprint se incorporó Alisee Torres al equipo, por lo que participaron seis integrantes. La siguiente tabla resume los commits de cada integrante en el Sprint (desde el 18/10/2026, sin contar los commits de merge): en `main` del Website, de la Web Application y de los RESTful Web Services, y en `develop` del curso de Responsabilidad Social. Los analíticos de GitHub de cada repositorio están en *Insights › Contributors* y *Insights › Network*:
+
+| Team Member | GitHub Username | Website | Web Application | RESTful Web Services | Curso (develop) | Total |
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| Angulo Ramírez, Marcelo Martín | Zock2005 | 0 | 0 | 121 | 4 | 125 |
+| Flores Martinez, Ricardo Andres | Nitoryu28 | 0 | 0 | 120 | 0 | 120 |
+| Zavaleta Gutierrez, Rodolfo Martin | gutierrezrodolfo360-bit | 11 | 9 | 43 | 3 | 66 |
+| Rojas Ambicho, Nestor Daniel | danRO-20 | 12 | 8 | 40 | 5 | 65 |
+| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | 11 | 12 | 23 | 8 | 54 |
+| Torres Juárez, Alisee Muriel | lLisee1 | 0 | 0 | 1 | 0 | 1 |
+
+- **Website:** https://github.com/IngesCompany/doofplus-website/graphs/contributors y https://github.com/IngesCompany/doofplus-website/network
+- **Web Application:** https://github.com/IngesCompany/doofplus-web-application/graphs/contributors y https://github.com/IngesCompany/doofplus-web-application/network
+- **RESTful Web Services:** https://github.com/IngesCompany/doofplus-platform/graphs/contributors y https://github.com/IngesCompany/doofplus-platform/network
+
 ## 5.3. Validation Interviews
 
 ### 5.3.1. Diseño de Entrevistas
