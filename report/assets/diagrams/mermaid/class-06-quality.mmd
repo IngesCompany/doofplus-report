@@ -7,82 +7,207 @@ classDiagram
     <<Aggregate Root>>
     -Long id
     -String code
+    -String version
     -String title
-    -DocumentType type
     -DocumentStatus status
-    -List~DocumentVersion~ versions
+    -Long authorId
+    -Long technicalReviewerId
+    -Long approverId
+    -LocalDate changedAt
+    -DocumentContent content
+    -int reviewCycleMonths
     +submitForReview() void
     +approve(Long signatureId) void
-    +reject(String reason) void
-    +publishNewVersion(String fileUrl, String changeReason, Long authorId) DocumentVersion
+    +publishNewVersion(String version, DocumentContent content) QualityDocument
+    +markAsObsolete() void
   }
-  class DocumentVersion {
-    <<Entity>>
-    -Long id
-    -String versionNumber
-    -String fileUrl
-    -String changeReason
-    -Long authorId
-    -Long approvalSignatureId
-  }
-  class MaterialApproval {
-    <<Aggregate Root>>
-    -Long id
-    -Long rawMaterialLotId
-    -String sampleCode
-    -MaterialApprovalStatus status
-    -Long decidedBy
-    -String reason
-    +registerSample(String sampleCode) void
-    +approve(Long signatureId) void
-    +reject(String reason) void
-  }
-  class BatchReview {
-    <<Aggregate Root>>
-    -Long id
-    -Long batchId
-    -ReviewStatus status
-    -LocalDateTime quarantineStartedAt
-    -String sampleCode
-    -List~EvidenceAttachment~ evidences
-    -ReleaseCertificate certificate
-    +registerSample(String sampleCode) void
-    +attachEvidence(String fileUrl, String description) void
-    +evaluate(List~AnalyticalResult~ results, boolean hasOpenDeviations) void
-    +release(Long signatureId) ReleaseCertificate
-    +reject(String reason) void
-  }
-  class EvidenceAttachment {
-    <<Entity>>
-    -Long id
-    -String fileUrl
-    -String description
-  }
-  class ReleaseCertificate {
-    <<Entity>>
-    -Long id
-    -String certificateNumber
-    -ReleaseVerdict verdict
-    -Long signatureId
-    -LocalDateTime issuedAt
+  class DocumentContent {
+    <<Value Object>>
+    +String purpose
+    +String scope
+    +String procedure
+    +String revisionSummary
   }
   class AnalyticalResult {
     <<Aggregate Root>>
     -Long id
-    -Long batchId
+    -String batchCode
+    -String sampleCode
+    -String reportCode
     -String testName
-    -BigDecimal value
-    -SpecificationRange specification
-    -boolean outOfSpecification
+    -String protocol
+    -String result
+    -String specification
     -Long analystId
-    +calculate(Map~String, BigDecimal~ variables, String formula) void
+    -ResultStatus status
+    -ApprovalState approval
+    +evaluate() void
+    +approve() void
   }
-  class SpecificationRange {
+  class BatchRelease {
+    <<Aggregate Root>>
+    -Long id
+    -String batchCode
+    -Long requestedBy
+    -ReleaseStatus status
+    -String decision
+    -Long signatureId
+    -LocalDateTime signedAt
+    +release(Long signatureId) void
+    +reject(String decision) void
+  }
+  class Evidence {
+    <<Aggregate Root>>
+    -Long id
+    -String recordCode
+    -String fileName
+    -String detail
+    -EvidenceStatus status
+    +markAsReviewed() void
+  }
+  class Deviation {
+    <<Aggregate Root>>
+    -Long id
+    -String code
+    -String title
+    -String batchCode
+    -String orderCode
+    -String summary
+    -Classification classification
+    -String containment
+    -RiskScore risk
+    -DeviationStatus status
+    -String rootCause
+    -Long reportedBy
+    -LocalDateTime reportedAt
+    -Long ownerId
+    -LocalDateTime dueAt
+    +classify(Classification classification, RiskScore risk) void
+    +registerRootCause(String rootCause) void
+    +submit() void
+    +disposition() void
+    +close() void
+  }
+  class RiskScore {
     <<Value Object>>
-    +BigDecimal min
-    +BigDecimal max
-    +String unit
-    +contains(BigDecimal value) boolean
+    +int severity
+    +int likelihood
+    +int detectability
+  }
+  class CapaPlan {
+    <<Aggregate Root>>
+    -Long id
+    -String code
+    -Long deviationId
+    -String title
+    -Long ownerId
+    -Long reviewerId
+    -String rootCause
+    -String acceptanceCriterion
+    -LocalDate effectivenessCheckAt
+    -CapaStatus status
+    -List~CapaAction~ actions
+    +addAction(CapaType type, String title, Long ownerId, LocalDate dueAt) CapaAction
+    +submitForApproval() void
+    +close() void
+  }
+  class CapaAction {
+    <<Entity>>
+    -Long id
+    -String code
+    -CapaType type
+    -String title
+    -Long ownerId
+    -LocalDate dueAt
+    -ActionStatus status
+    -String evidence
+    -boolean evidenceAttached
+    +attachEvidence() void
+    +complete() void
+  }
+  class Audit {
+    <<Aggregate Root>>
+    -Long id
+    -String code
+    -String title
+    -String period
+    -int areasReviewed
+    -int areasTotal
+    -AuditStatus status
+    -List~AuditFinding~ findings
+    +start() void
+    +registerFinding(String title, Classification classification) AuditFinding
+    +close() void
+  }
+  class AuditFinding {
+    <<Entity>>
+    -Long id
+    -String code
+    -String title
+    -Classification classification
+    -Long ownerId
+    -LocalDate dueAt
+    -FindingStatus status
+    -String observation
+    -String response
+    -String closureRequirement
+    +respond(String response) void
+    +close() void
+  }
+  class AuditEvent {
+    <<Aggregate Root>>
+    -Long id
+    -String eventCode
+    -LocalDateTime occurredAt
+    -Long actorId
+    -String actorRole
+    -String event
+    -String recordCode
+    -EventResult result
+    -String field
+    -String beforeValue
+    -String afterValue
+    -String reason
+  }
+  class RegulatoryReport {
+    <<Aggregate Root>>
+    -Long id
+    -String code
+    -ReportType type
+    -String scope
+    -Long ownerId
+    -ReportStatus status
+    -String template
+    -String format
+    +approve() void
+  }
+  class CollaborationTask {
+    <<Aggregate Root>>
+    -Long id
+    -String title
+    -String recordCode
+    -String detail
+    -Long ownerId
+    -LocalDateTime dueAt
+    -TaskStatus status
+    +changeStatus(TaskStatus status) void
+  }
+  class TaskComment {
+    <<Aggregate Root>>
+    -Long id
+    -String recordCode
+    -Long authorId
+    -LocalDateTime postedAt
+    -String text
+  }
+  class TraceabilityGap {
+    <<Aggregate Root>>
+    -Long id
+    -String batchCode
+    -String missingRecord
+    -String detail
+    -GapStatus status
+    +resolve() void
   }
   class DocumentStatus {
     <<enumeration>>
@@ -91,114 +216,30 @@ classDiagram
     APPROVED
     OBSOLETE
   }
-  class MaterialApprovalStatus {
+  class ResultStatus {
+    <<enumeration>>
+    WITHIN
+    OOS
+    PENDING
+  }
+  class ApprovalState {
+    <<enumeration>>
+    REQUESTED
+    APPROVED
+  }
+  class ReleaseStatus {
     <<enumeration>>
     PENDING
-    SAMPLED
-    APPROVED
-    REJECTED
-  }
-  class ReviewStatus {
-    <<enumeration>>
-    IN_QUARANTINE
-    UNDER_EVALUATION
     RELEASED
     REJECTED
   }
-  class DocumentType {
+  class EvidenceStatus {
     <<enumeration>>
-    PROTOCOL
-    SOP
-    SPECIFICATION
+    ATTACHED
+    PENDING_REVIEW
+    REVIEWED
   }
-  class ReleaseVerdict {
-    <<enumeration>>
-    RELEASED
-    REJECTED
-  }
-  QualityDocument "1" *-- "1..*" DocumentVersion : versions
-  QualityDocument --> DocumentStatus : status
-  MaterialApproval --> MaterialApprovalStatus : status
-  BatchReview "1" *-- "0..*" EvidenceAttachment : evidences
-  BatchReview "1" *-- "0..1" ReleaseCertificate : issues
-  BatchReview ..> AnalyticalResult : evaluates
-  BatchReview --> ReviewStatus : status
-  QualityDocument --> DocumentType : type
-  ReleaseCertificate --> ReleaseVerdict : verdict
-  AnalyticalResult *-- SpecificationRange : specification
-  class Deviation {
-    <<Aggregate Root>>
-    -Long id
-    -String code
-    -Long batchId
-    -Severity severity
-    -DeviationStatus status
-    -String description
-    -RootCause rootCause
-    -List~CapaAction~ actions
-    +classify(Severity severity) void
-    +startInvestigation() void
-    +registerRootCause(RootCause rootCause) void
-    +addCapaAction(CapaAction action) void
-    +close() void
-  }
-  class CapaAction {
-    <<Entity>>
-    -Long id
-    -CapaType type
-    -String description
-    -Long responsibleId
-    -LocalDate dueDate
-    -int progress
-    -CapaStatus status
-    +updateProgress(int progress) void
-    +verify() void
-    +isOverdue() boolean
-  }
-  class RootCause {
-    <<Value Object>>
-    +String method
-    +String description
-  }
-  class Audit {
-    <<Aggregate Root>>
-    -Long id
-    -AuditType type
-    -LocalDate scheduledDate
-    -AuditStatus status
-    -List~AuditFinding~ findings
-    -String evidencePackageUrl
-    +start() void
-    +registerFinding(FindingType type, String description) AuditFinding
-    +attachEvidencePackage(String fileUrl) void
-    +close() void
-  }
-  class AuditFinding {
-    <<Entity>>
-    -Long id
-    -FindingType type
-    -String description
-  }
-  class AuditTrailEntry {
-    <<Aggregate Root>>
-    -Long id
-    -String entityType
-    -String entityId
-    -AuditAction action
-    -String oldValue
-    -String newValue
-    -Long changedBy
-    -LocalDateTime changedAt
-    -String reason
-  }
-  class RegulatoryReport {
-    <<Aggregate Root>>
-    -Long id
-    -YearMonth period
-    -String fileUrl
-    -LocalDateTime generatedAt
-  }
-  class Severity {
+  class Classification {
     <<enumeration>>
     MINOR
     MAJOR
@@ -207,30 +248,28 @@ classDiagram
   class DeviationStatus {
     <<enumeration>>
     OPEN
-    UNDER_INVESTIGATION
+    SUBMITTED
+    DISPOSITIONED
     CLOSED
   }
   class CapaStatus {
     <<enumeration>>
-    OPEN
-    IMPLEMENTED
-    OVERDUE
-    VERIFIED
+    DRAFT
+    IN_PROGRESS
+    IN_APPROVAL
+    CLOSED
   }
   class CapaType {
     <<enumeration>>
     CORRECTIVE
     PREVENTIVE
   }
-  class FindingType {
+  class ActionStatus {
     <<enumeration>>
-    FINDING
-    OBSERVATION
-  }
-  class AuditType {
-    <<enumeration>>
-    INTERNAL
-    REGULATORY
+    OPEN
+    PLANNED
+    IN_REVIEW
+    COMPLETE
   }
   class AuditStatus {
     <<enumeration>>
@@ -238,53 +277,96 @@ classDiagram
     IN_PROGRESS
     CLOSED
   }
-  class AuditAction {
+  class FindingStatus {
     <<enumeration>>
-    CREATED
-    UPDATED
-    DELETED
-    SIGNED
+    EVIDENCE_PENDING
+    IN_REVIEW
+    CLOSED
+  }
+  class EventResult {
+    <<enumeration>>
+    RECORDED
+    BLOCKED
+    ON_HOLD
+    ACKNOWLEDGED
+  }
+  class ReportType {
+    <<enumeration>>
+    BATCH_DOSSIER
+    QUALITY_REVIEW
+    CAPA_SUMMARY
+    AUDIT_EVIDENCE
+  }
+  class ReportStatus {
+    <<enumeration>>
+    DRAFT
+    BLOCKED
+    APPROVED
+  }
+  class TaskStatus {
+    <<enumeration>>
+    TO_DO
+    OPEN
+    PENDING
+    IN_REVIEW
+    READY
+    DONE
+  }
+  class GapStatus {
+    <<enumeration>>
+    OPEN
+    UNDER_REVIEW
+    RESOLVED
   }
   class DeviationCommandService {
     <<interface>>
-    +handle(RegisterDeviationCommand command) Optional~Deviation~
-    +handle(CloseDeviationCommand command) Optional~Deviation~
+    +handle(RegisterDeviationCommand command) Result~Deviation, ApplicationError~
+    +handle(CloseDeviationCommand command) Result~Deviation, ApplicationError~
+  }
+  class BatchReleaseCommandService {
+    <<interface>>
+    +handle(RequestBatchReleaseCommand command) Result~BatchRelease, ApplicationError~
+    +handle(ReleaseBatchCommand command) Result~BatchRelease, ApplicationError~
   }
   class ReportGenerationService {
     <<interface>>
-    +generateAuditPackage(Long organizationId, LocalDate from, LocalDate to) byte[]
-    +generateMonthlyReport(Long organizationId, YearMonth period) byte[]
+    +generateReport(RegulatoryReport report) byte[]
   }
   class NotificationService {
     <<interface>>
     +notifyCriticalDeviation(Deviation deviation) void
   }
-  Deviation "1" *-- "0..*" CapaAction : resolvedBy
-  Deviation *-- RootCause : rootCause
-  Deviation --> Severity : severity
-  Deviation --> DeviationStatus : status
-  CapaAction --> CapaStatus : status
-  CapaAction --> CapaType : type
-  Audit "1" *-- "0..*" AuditFinding : findings
-  AuditFinding --> FindingType : type
-  Audit --> AuditType : type
-  Audit --> AuditStatus : status
-  AuditTrailEntry --> AuditAction : action
-  DeviationCommandService ..> NotificationService : uses
-  ReportGenerationService ..> AuditTrailEntry : reads
-  ReportGenerationService ..> Audit : packages
-  ReportGenerationService ..> RegulatoryReport : creates
-  class BatchReviewCommandService {
-    <<interface>>
-    +handle(StartQuarantineCommand command) Optional~BatchReview~
-    +handle(EvaluateBatchCommand command) Optional~BatchReview~
-    +handle(ReleaseBatchCommand command) Optional~ReleaseCertificate~
-  }
   class ExternalIamService {
     +signRecord(Long userId, String password, String entityType, Long entityId) Optional~Long~
   }
   class ExternalManufacturingService {
-    +fetchBatchStatus(Long batchId) Optional~String~
+    +fetchBatchStatus(String batchCode) Optional~String~
   }
-  BatchReviewCommandService ..> ExternalIamService : uses
-  BatchReviewCommandService ..> ExternalManufacturingService : uses
+  QualityDocument *-- DocumentContent : content
+  QualityDocument --> DocumentStatus : status
+  AnalyticalResult --> ResultStatus : status
+  AnalyticalResult --> ApprovalState : approval
+  BatchRelease ..> AnalyticalResult : checks
+  BatchRelease --> ReleaseStatus : status
+  Evidence --> EvidenceStatus : status
+  Deviation *-- RiskScore : risk
+  Deviation --> Classification : classification
+  Deviation --> DeviationStatus : status
+  CapaPlan "0..1" --> "1" Deviation : addresses
+  CapaPlan "1" *-- "1..*" CapaAction : actions
+  CapaPlan --> CapaStatus : status
+  CapaAction --> CapaType : type
+  CapaAction --> ActionStatus : status
+  Audit "1" *-- "0..*" AuditFinding : findings
+  Audit --> AuditStatus : status
+  AuditFinding --> FindingStatus : status
+  AuditEvent --> EventResult : result
+  RegulatoryReport --> ReportType : type
+  RegulatoryReport --> ReportStatus : status
+  CollaborationTask --> TaskStatus : status
+  TraceabilityGap --> GapStatus : status
+  DeviationCommandService ..> NotificationService : uses
+  BatchReleaseCommandService ..> ExternalIamService : uses
+  BatchReleaseCommandService ..> ExternalManufacturingService : uses
+  ReportGenerationService ..> AuditEvent : reads
+  ReportGenerationService ..> RegulatoryReport : creates

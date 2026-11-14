@@ -1,13 +1,15 @@
 ---
-title: "Database Diagram – Identity & Access Management (IAM) Bounded Context (MySQL 8)"
+title: "Database Diagram – IAM Bounded Context (MySQL 8)"
 ---
 erDiagram
   users {
     bigint id PK
     bigint organization_id "ref organizations.organizations"
+    bigint facility_id "ref organizations.facilities"
+    varchar(150) full_name
     varchar(255) email UK
     varchar(255) password_hash
-    varchar(64) mfa_secret "cifrado"
+    varchar(64) mfa_secret "encrypted (TOTP)"
     varchar(20) status "INVITED, ACTIVE, LOCKED, DISABLED"
     int failed_sign_in_attempts
     datetime locked_until "nullable"
@@ -20,6 +22,17 @@ erDiagram
     bigint user_id PK, FK
     bigint role_id PK, FK
   }
+  invitations {
+    bigint id PK
+    bigint organization_id "ref organizations.organizations"
+    bigint facility_id "ref organizations.facilities"
+    bigint role_id FK
+    varchar(150) full_name
+    varchar(255) email
+    varchar(500) note "nullable"
+    varchar(20) status "PENDING, ACCEPTED, EXPIRED"
+    datetime sent_at
+  }
   electronic_signatures {
     bigint id PK
     bigint user_id FK
@@ -30,4 +43,5 @@ erDiagram
   }
   users ||--o{ user_roles : "has"
   roles ||--o{ user_roles : "grants"
+  roles ||--o{ invitations : "offered in"
   users ||--o{ electronic_signatures : "signs"

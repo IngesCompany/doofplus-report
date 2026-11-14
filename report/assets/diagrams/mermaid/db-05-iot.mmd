@@ -4,62 +4,71 @@ title: "Database Diagram – IoT Monitoring Bounded Context (MySQL 8)"
 erDiagram
   equipment {
     bigint id PK
-    varchar(30) code UK
+    varchar(30) code UK "EQ-MIX-02"
     varchar(150) name
-    varchar(60) serial_number UK
-    varchar(20) status "FIT_FOR_USE, NOT_FIT_FOR_USE, IN_MAINTENANCE"
-    date next_calibration_date
-    date next_maintenance_date
+    varchar(150) model "brand, model and serial"
+    varchar(100) location "Ate · Line 02"
+    varchar(10) calibration_status "FIT, DUE, NOT_FIT"
+    date calibration_due
+    varchar(50) certificate "CAL-MIX-0326"
+    date next_maintenance
+    varchar(150) maintenance_owner
+    varchar(30) work_order "nullable"
+    varchar(255) health_note
   }
   calibration_records {
     bigint id PK
     bigint equipment_id FK
     date calibrated_at
     date valid_until
-    varchar(500) certificate_url
+    varchar(50) certificate
   }
   maintenance_records {
     bigint id PK
     bigint equipment_id FK
     date performed_at
-    varchar(500) description
+    varchar(30) work_order
+    varchar(150) owner
     date next_due_date
   }
-  iot_devices {
+  sensors {
     bigint id PK
-    varchar(100) external_device_id UK "ThingsBoard"
-    varchar(20) sensor_type "TEMPERATURE, HUMIDITY, PRESSURE, PH, RFID_READER"
-    bigint equipment_id FK
-    varchar(20) status "AVAILABLE, ASSIGNED_TO_BATCH, OFFLINE"
-    bigint current_batch_id "ref manufacturing.production_batches"
+    varchar(30) code UK "T-204"
+    varchar(128) device_id UK "ThingsBoard"
+    varchar(20) type "TEMPERATURE, HUMIDITY, PRESSURE"
+    varchar(10) unit "°C, %RH, Pa"
+    varchar(30) equipment_code FK
+    decimal lower_limit "(12,4)"
+    decimal upper_limit "(12,4)"
+    varchar(10) status "ACTIVE, OFFLINE"
+    varchar(30) assigned_batch "ref manufacturing.production_batches"
   }
-  telemetry_readings {
+  readings {
     bigint id PK
-    bigint iot_device_id FK
-    bigint production_batch_id "ref manufacturing.production_batches"
+    varchar(30) sensor_code FK
+    varchar(30) batch_code "ref manufacturing.production_batches"
     decimal value "(12,4)"
-    varchar(10) unit
     datetime recorded_at "indexed"
-    tinyint(1) out_of_range
-  }
-  alert_rules {
-    bigint id PK
-    varchar(20) sensor_type
-    decimal min_value "(12,4)"
-    decimal max_value "(12,4)"
-    varchar(10) level "WARNING, CRITICAL"
+    varchar(30) source "ThingsBoard"
   }
   alerts {
     bigint id PK
-    bigint telemetry_reading_id FK
-    bigint alert_rule_id FK
-    varchar(10) level
-    varchar(20) status "OPEN, ACKNOWLEDGED"
-    bigint acknowledged_by "ref iam.users"
+    varchar(30) code UK "ALT-26031"
+    varchar(30) sensor_code FK
+    varchar(30) equipment_code FK
+    varchar(30) batch_code "ref manufacturing.production_batches"
+    varchar(10) severity "WARNING, CRITICAL"
+    varchar(25) status "OPEN, ACKNOWLEDGED, UNDER_INVESTIGATION, CLOSED"
+    varchar(150) title
+    varchar(500) detail
+    varchar(150) acknowledged_by "nullable"
+    datetime acknowledged_at "nullable"
+    varchar(500) response_note "nullable"
+    varchar(30) linked_record "DEV-26017, nullable"
   }
   equipment ||--o{ calibration_records : "calibrated"
   equipment ||--o{ maintenance_records : "maintained"
-  equipment ||--o{ iot_devices : "monitored by"
-  iot_devices ||--o{ telemetry_readings : "emits"
-  telemetry_readings ||--o| alerts : "raises"
-  alert_rules ||--o{ alerts : "triggers"
+  equipment ||--o{ sensors : "monitored by"
+  sensors ||--o{ readings : "emits"
+  sensors ||--o{ alerts : "raises"
+  equipment ||--o{ alerts : "affected by"

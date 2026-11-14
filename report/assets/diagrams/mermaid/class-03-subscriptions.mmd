@@ -6,33 +6,39 @@ classDiagram
   class Plan {
     <<Aggregate Root>>
     -Long id
+    -PlanKey planKey
     -String name
     -Money monthlyPrice
     -Money annualPrice
     -int iotDeviceLimit
     -int userLimit
+    +Plan(CreatePlanCommand command)
     +getPrice(BillingCycle cycle) Money
+    +allowsOneMoreIotDevice(int registeredDevices) boolean
   }
   class Subscription {
     <<Aggregate Root>>
     -Long id
-    -Long organizationId
+    -OrganizationId organizationId
     -Long planId
     -BillingCycle billingCycle
     -SubscriptionStatus status
     -LocalDate currentPeriodStart
     -LocalDate currentPeriodEnd
     -boolean autoRenew
+    -PaymentCard paymentCard
+    -BillingEmail billingEmail
     -List~Payment~ payments
-    +Subscription(Long organizationId, Long planId, BillingCycle cycle)
-    +activate(Payment payment) void
-    +renew(Payment payment) void
+    +Subscription(CreateSubscriptionCommand command)
+    +activate() void
+    +renew() void
     +cancel() void
-    +isWithinDeviceLimit(int registeredDevices, Plan plan) boolean
+    +isCurrent() boolean
   }
   class Payment {
     <<Entity>>
     -Long id
+    -String invoiceNumber
     -Money amount
     -String gatewayTransactionId
     -PaymentStatus status
@@ -44,6 +50,24 @@ classDiagram
     <<Value Object>>
     +BigDecimal amount
     +String currency
+  }
+  class PlanKey {
+    <<Value Object>>
+    +String value
+  }
+  class OrganizationId {
+    <<Value Object>>
+    +Long value
+  }
+  class PaymentCard {
+    <<Value Object>>
+    +String brand
+    +String last4
+    +String expiry
+  }
+  class BillingEmail {
+    <<Value Object>>
+    +String value
   }
   class BillingCycle {
     <<enumeration>>
@@ -71,24 +95,41 @@ classDiagram
     -RestClient restClient
     +authorize(Money amount, String cardToken) PaymentResult
   }
+  class PlanRepository {
+    <<interface>>
+    +existsByPlanKey(PlanKey planKey) boolean
+  }
   class SubscriptionRepository {
     <<interface>>
-    +findByOrganizationIdAndStatus(Long organizationId, SubscriptionStatus status) Optional~Subscription~
+    +findAllByOrganizationId(OrganizationId organizationId) List~Subscription~
+    +existsByOrganizationIdAndStatusIn(OrganizationId organizationId, Collection~SubscriptionStatus~ statuses) boolean
+  }
+  class PlanCommandService {
+    <<interface>>
+    +handle(CreatePlanCommand command) Result~Plan, ApplicationError~
   }
   class SubscriptionCommandService {
     <<interface>>
-    +handle(SelectPlanCommand command) Optional~Subscription~
-    +handle(PaySubscriptionCommand command) Optional~Subscription~
-    +handle(RenewSubscriptionCommand command) Optional~Subscription~
-    +handle(CancelSubscriptionCommand command) Optional~Subscription~
+    +handle(CreateSubscriptionCommand command) Result~Subscription, ApplicationError~
+    +handle(PaySubscriptionCommand command) Result~Subscription, ApplicationError~
+    +handle(ActivateSubscriptionCommand command) Result~Subscription, ApplicationError~
+    +handle(RenewSubscriptionCommand command) Result~Subscription, ApplicationError~
+    +handle(CancelSubscriptionCommand command) Result~Subscription, ApplicationError~
   }
   Subscription "0..*" --> "1" Plan : subscribesTo
   Subscription "1" *-- "0..*" Payment : records
   Subscription --> BillingCycle : billingCycle
   Subscription --> SubscriptionStatus : status
+  Subscription *-- OrganizationId : organizationId
+  Subscription *-- PaymentCard : paymentCard
+  Subscription *-- BillingEmail : billingEmail
   Payment --> PaymentStatus : status
   Payment *-- Money : amount
   Plan *-- Money : prices
+  Plan *-- PlanKey : planKey
   NiubizPaymentGateway ..|> PaymentGateway
   SubscriptionCommandService ..> PaymentGateway : uses
+  PlanCommandService ..> PlanRepository : uses
+  SubscriptionCommandService ..> SubscriptionRepository : uses
+  PlanRepository ..> Plan : persists
   SubscriptionRepository ..> Subscription : persists
