@@ -1065,7 +1065,7 @@ En el Sprint 3 se consideraron el Website y la Web Application y, en los RESTful
 
 #### 5.2.3.3. Sprint Backlog 3
 
-El objetivo del Sprint fue entregar la primera versión desplegada de los RESTful Web Services. El Sprint Backlog 3 junta tres bloques: las mejoras del Website y de la Web Application hechas desde el 18/10 (T184 a T198), las tareas de los Web Services por Technical Story (T137 a T165) y la autenticación con JWT (TS02, T199 a T201). Una tarea está en *Done* solo cuando su rama se unió a `develop`; lo que no se termine pasa al Sprint 4. Al cierre del Sprint hay 30 tareas en *Done*, 7 en *In-Process* y 10 en *To-do*, con 177 horas estimadas en total.
+El objetivo del Sprint fue entregar la primera versión desplegada de los RESTful Web Services. El Sprint Backlog 3 junta tres bloques: las mejoras del Website y de la Web Application hechas desde el 18/10 (T184 a T198), las tareas de los Web Services por Technical Story (T137 a T165) y la autenticación con JWT (TS02, T199 a T201). Una tarea está en *Done* solo cuando su rama se unió a `develop`; lo que no se termine pasa al Sprint 4. Al cierre del Sprint hay 31 tareas en *Done*, 7 en *In-Process* y 9 en *To-do*, con 177 horas estimadas en total.
 
 **Enlace al board en Jira:** https://doofplus.atlassian.net/jira/software/projects/UPC/boards/3
 
@@ -1081,7 +1081,7 @@ El objetivo del Sprint fue entregar la primera versión desplegada de los RESTfu
 | TS09 | API de suscripciones y pagos | T142 | Subscriptions: revisión e integración en develop | Revisar feature/subscriptions, corregir observaciones y fusionarla en develop. | 2 | Rojas Ambicho, Nestor Daniel | Done |
 | TS09 | API de suscripciones y pagos | T143 | Subscriptions: pago con Niubiz | Agregar el pago de la suscripción: POST /api/v1/subscriptions/{id}/payments con el sandbox de Niubiz; responde 503 si la pasarela no está disponible y no registra el pago. | 5 | Rojas Ambicho, Nestor Daniel | Done |
 | TS09 | API de suscripciones y pagos | T144 | Subscriptions: renovación | Agregar la renovación de la suscripción (US53) junto a la activación y cancelación existentes. | 2 | Rojas Ambicho, Nestor Daniel | Done |
-| TS09 | API de suscripciones y pagos | T145 | Web App: planes, suscripción y pago contra el API | Reemplazar la Fake API en el módulo subscriptions de la Web Application (US51, US52, US53). | 3 | Rojas Ambicho, Nestor Daniel | To-do |
+| TS09 | API de suscripciones y pagos | T145 | Web App: planes, suscripción y pago contra el API | Usar el API en el módulo subscriptions de la Web Application: planes, suscripción, pago con Niubiz, cambio de plan y facturas desde los pagos (US51, US52, US53). | 3 | Rojas Ambicho, Nestor Daniel | Done |
 | TS09 | API de suscripciones y pagos | T146 | Subscriptions: pruebas | Pruebas unitarias del dominio y pruebas de integración de los endpoints de planes, suscripciones y pagos. | 3 | Rojas Ambicho, Nestor Daniel | Done |
 | TS07 | API de operaciones de laboratorio | T147 | Manufacturing: productos y fórmulas maestras (dominio) | Implementar los aggregates Product y MasterFormula con sus value objects y repositorios JPA. | 4 | Zavaleta Gutierrez, Rodolfo Martin | Done |
 | TS07 | API de operaciones de laboratorio | T148 | Manufacturing: endpoints de productos y fórmulas | Servicios y endpoints /api/v1/products y /api/v1/master-formulas con documentación OpenAPI (US35, US36). | 4 | Zavaleta Gutierrez, Rodolfo Martin | Done |

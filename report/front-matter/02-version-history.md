@@ -76,5 +76,6 @@
 | 3.0.4 | 14/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo IV: el diseño del Website describe las secciones publicadas («Your workspace», servicios con «Learn more», panel de lecturas IoT, video con capítulos, cuatro resultados medibles, «Nosotros» y equipo antes de testimonios y FAQ) y los wireframes y mock-ups siguen ese orden. |
 | 3.0.5 | 14/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: sección 5.2.3 Sprint 3 completa: Sprint Planning, Aspect Leaders, Sprint Backlog (T137 a T165, T184 a T201), commits de `main` del Sprint, evidencia de ejecución, documentación OpenAPI de la versión 1.0.0 desplegada, despliegue e insights. |
 | 3.0.6 | 14/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: correcciones de la revisión del Sprint Backlog 3 (fecha del Sprint Planning, UserProfile, sensores y telemetría, estados de los lotes y recepción en SAMPLING/PENDING). Conclusiones: enlace al video About-the-Team. |
+| 3.0.7 | 14/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: en el Sprint Backlog 3, T145 pasa a *Done*: la Web Application usa el API para planes, suscripciones, pagos y cambio de plan. |
 
 ---
