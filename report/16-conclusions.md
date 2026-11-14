@@ -15,4 +15,6 @@
 
 ## Video About-the-Team
 
-El video About-the-Team se presentará en la entrega AV2. En él, cada integrante contará su experiencia en el desarrollo de DoofPlus y el equipo expondrá la proyección del producto: la integración de la Web Application con los RESTful Web Services, la conexión con ThingsBoard para la telemetría real de los sensores y la incorporación de los laboratorios piloto.
+En el video About-the-Team, cada integrante cuenta su experiencia en el desarrollo de DoofPlus y el equipo expone la proyección del producto: la integración de la Web Application con los RESTful Web Services, la conexión con ThingsBoard para la telemetría real de los sensores y la incorporación de los laboratorios piloto.
+
+**Enlace al video:** https://youtu.be/U-Wlk2l3wbA
