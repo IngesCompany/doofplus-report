@@ -9,21 +9,23 @@ classDiagram
     -String code
     -String name
     -DosageForm dosageForm
+    +Product(CreateProductCommand command)
+    +update(UpdateProductCommand command) void
   }
   class MasterFormula {
     <<Aggregate Root>>
     -Long id
-    -Long productId
+    -String productCode
     -String version
     -FormulaStatus status
-    -int batchSize
-    -Long approvedBy
+    -BigDecimal batchSize
+    -String approvedBy
     -LocalDate approvedAt
     -List~FormulaItem~ items
-    +addItem(FormulaItemKind kind, String name, String target, String tolerance) void
-    +submitForApproval() void
-    +approve(Long userId) void
+    +MasterFormula(CreateMasterFormulaCommand command)
+    +approve(ApproveMasterFormulaCommand command) void
     +lock() void
+    +isApproved() boolean
   }
   class FormulaItem {
     <<Entity>>
@@ -44,8 +46,7 @@ classDiagram
     -MaterialCategory category
     -String supplier
     -String supplierLot
-    -String rfidTag
-    -Quantity receivedQuantity
+    -String quantity
     -String storageLocation
     -String certificate
     -MaterialLotStatus status
@@ -53,27 +54,29 @@ classDiagram
     -boolean packagingVerified
     -boolean identityVerified
     -LocalDate expiryDate
-    +requestSampling() void
-    +markAsApproved() void
-    +markAsRejected() void
-    +isApprovedForUse() boolean
+    -String allocatedBatch
+    +RawMaterialLot(ReceiveRawMaterialLotCommand command)
+    +inspect(InspectRawMaterialLotCommand command) void
+    +approve() void
+    +reject() void
+    +allocate(AllocateRawMaterialLotCommand command) void
   }
   class ProductionOrder {
     <<Aggregate Root>>
     -Long id
     -String code
+    -String productCode
     -Long masterFormulaId
-    -Long facilityId
+    -String batchCode
     -String line
-    -Quantity plannedQuantity
+    -BigDecimal plannedQuantity
     -ProductionOrderStatus status
     -LocalDateTime plannedStart
     -LocalDateTime plannedEnd
     -List~Operation~ operations
-    +approve() void
-    +start() void
-    +hold(String reason) void
-    +complete() void
+    +ProductionOrder(CreateProductionOrderCommand command, String productCode)
+    +changeStatus(ProductionOrderStatus status) void
+    +updateOperation(UpdateOperationCommand command) boolean
   }
   class Operation {
     <<Entity>>
@@ -84,6 +87,7 @@ classDiagram
     -int progress
     -OperationStatus status
     -String reference
+    +update(UpdateOperationCommand command) void
   }
   class ProductionBatch {
     <<Aggregate Root>>
@@ -92,39 +96,30 @@ classDiagram
     -Long productionOrderId
     -BatchStatus status
     -String line
-    -Long ownerId
+    -String owner
     -int progress
     -Quantity plannedQuantity
     -Quantity manufacturedQuantity
     -LocalDateTime startedAt
     -LocalDateTime finishedAt
     -List~MaterialConsumption~ consumptions
-    -List~ProcessParameter~ parameters
     -List~Incident~ incidents
     -List~BatchEvent~ events
     +ProductionBatch(CreateBatchCommand command)
+    +start() void
     +consumeMaterial(Long rawMaterialLotId, Quantity quantity) void
-    +recordParameter(String name, BigDecimal value, String unit) void
-    +registerIncident(String description, IncidentSeverity severity) Incident
-    +hold(String reason) void
-    +close(Quantity manufactured) void
-    +requestRelease() void
-    +markAsReleased() void
-    +markAsRejected(String reason) void
+    +updateProgress(UpdateBatchProgressCommand command) void
+    +registerIncident(RegisterIncidentCommand command) Incident
+    +resume() void
+    +close(CloseBatchCommand command) void
+    +release(ReleaseBatchCommand command) void
   }
   class MaterialConsumption {
     <<Entity>>
     -Long id
     -Long rawMaterialLotId
-    -Quantity quantityUsed
-  }
-  class ProcessParameter {
-    <<Entity>>
-    -Long id
-    -String name
-    -BigDecimal value
-    -String unit
-    -LocalDateTime recordedAt
+    -Quantity consumedQuantity
+    -LocalDateTime consumedAt
   }
   class Incident {
     <<Entity>>
@@ -132,8 +127,9 @@ classDiagram
     -String description
     -IncidentSeverity severity
     -IncidentStatus status
+    -LocalDateTime recordedAt
     +escalate() void
-    +resolve() void
+    +resolve(String resolution) void
   }
   class BatchEvent {
     <<Entity>>
@@ -158,11 +154,8 @@ classDiagram
     PLANNED
     IN_PROGRESS
     ON_HOLD
-    FINISHED
-    CLOSED
     RELEASE_REQUESTED
     RELEASED
-    REJECTED
   }
   class ProductionOrderStatus {
     <<enumeration>>
@@ -234,7 +227,7 @@ classDiagram
     <<enumeration>>
     NORMAL
     WARNING
-    CRITICAL
+    DANGER
   }
   class ProductionBatchRepository {
     <<interface>>
@@ -246,6 +239,10 @@ classDiagram
     +handle(CreateBatchCommand command) Result~ProductionBatch, ApplicationError~
     +handle(RegisterIncidentCommand command) Result~Incident, ApplicationError~
     +handle(CloseBatchCommand command) Result~ProductionBatch, ApplicationError~
+    +handle(UpdateBatchProgressCommand command) Result~ProductionBatch, ApplicationError~
+    +handle(StartBatchCommand command) Result~ProductionBatch, ApplicationError~
+    +handle(ResumeBatchCommand command) Result~ProductionBatch, ApplicationError~
+    +handle(ReleaseBatchCommand command) Result~ProductionBatch, ApplicationError~
   }
   class ExternalQualityService {
     +requestMaterialSampling(Long rawMaterialLotId) Long
@@ -254,10 +251,9 @@ classDiagram
   MasterFormula "0..*" --> "1" Product : defines
   MasterFormula "1" *-- "1..*" FormulaItem : contains
   ProductionOrder "0..*" --> "1" MasterFormula : follows
-  ProductionOrder "1" *-- "1..*" Operation : routedThrough
+  ProductionOrder "1" *-- "0..*" Operation : routedThrough
   ProductionBatch "0..*" --> "1" ProductionOrder : executes
   ProductionBatch "1" *-- "0..*" MaterialConsumption : consumes
-  ProductionBatch "1" *-- "0..*" ProcessParameter : records
   ProductionBatch "1" *-- "0..*" Incident : registers
   ProductionBatch "1" *-- "0..*" BatchEvent : timeline
   MaterialConsumption "0..*" --> "1" RawMaterialLot : uses

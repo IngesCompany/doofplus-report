@@ -19,7 +19,7 @@ erDiagram
     varchar(150) owner_name
     varchar(20) status "ACTIVE, INACTIVE"
   }
-  profiles {
+  user_profiles {
     bigint id PK
     bigint user_id UK "ref iam.users"
     bigint organization_id FK
@@ -48,5 +48,5 @@ erDiagram
     datetime received_at
   }
   organizations ||--|{ facilities : "operates"
-  organizations ||--o{ profiles : "employs"
+  organizations ||--o{ user_profiles : "employs"
   organizations ||--o{ administrative_activities : "logs"

@@ -10,11 +10,11 @@ erDiagram
   }
   master_formulas {
     bigint id PK
-    bigint product_id FK
+    varchar(30) product_code "ref products.code"
     varchar(10) version "v3.2"
     varchar(20) status "DRAFT, PENDING, APPROVED, LOCKED"
-    int batch_size
-    bigint approved_by "ref iam.users, nullable"
+    decimal batch_size "(12,2)"
+    varchar(100) approved_by "name, empty until approved"
     date approved_at "nullable"
   }
   formula_items {
@@ -35,9 +35,7 @@ erDiagram
     varchar(20) category "API, EXCIPIENT, PACKAGING"
     varchar(150) supplier
     varchar(50) supplier_lot
-    varchar(100) rfid_tag UK "nullable"
-    decimal received_quantity "(12,4)"
-    varchar(60) quantity_detail "20 sealed drums"
+    varchar(100) quantity "500 kg · 20 sealed drums"
     varchar(100) storage_location
     varchar(255) certificate "CoA file"
     varchar(20) status "QUARANTINE, SAMPLING, INSPECTION, APPROVED, REJECTED"
@@ -45,12 +43,14 @@ erDiagram
     tinyint(1) packaging_verified
     tinyint(1) identity_verified
     date expiry_date
+    varchar(30) allocated_batch "B-26041, empty until allocated"
   }
   production_orders {
     bigint id PK
     varchar(30) code UK "PO-26041"
     bigint master_formula_id FK
-    bigint facility_id "ref organizations.facilities"
+    varchar(30) product_code "ref products.code"
+    varchar(30) batch_code "B-26041"
     varchar(30) line "Line 02"
     decimal planned_quantity "(12,4)"
     varchar(20) status "PLANNED, APPROVED, IN_PROGRESS, ON_HOLD, COMPLETED"
@@ -71,9 +71,9 @@ erDiagram
     bigint id PK
     varchar(30) batch_number UK "B-26041"
     bigint production_order_id FK
-    varchar(20) status "PLANNED ... RELEASED, REJECTED"
+    varchar(20) status "PLANNED, IN_PROGRESS, ON_HOLD, RELEASE_REQUESTED, RELEASED"
     varchar(30) line
-    bigint owner_id "ref iam.users"
+    varchar(100) owner "Alberto Valle"
     int progress "0-100"
     decimal planned_quantity_value "(12,4)"
     varchar(10) planned_quantity_unit
@@ -86,16 +86,9 @@ erDiagram
     bigint id PK
     bigint production_batch_id FK
     bigint raw_material_lot_id FK
-    decimal quantity_used "(12,4)"
-    varchar(10) unit
-  }
-  process_parameters {
-    bigint id PK
-    bigint production_batch_id FK
-    varchar(100) name
-    decimal value "(12,4)"
-    varchar(10) unit
-    datetime recorded_at
+    decimal consumed_quantity_value "(12,4)"
+    varchar(10) consumed_quantity_unit
+    datetime consumed_at
   }
   incidents {
     bigint id PK
@@ -103,23 +96,23 @@ erDiagram
     varchar(500) description
     varchar(10) severity "MINOR, MAJOR, CRITICAL"
     varchar(20) status "OPEN, ESCALATED, RESOLVED"
+    datetime recorded_at
   }
   batch_events {
     bigint id PK
     bigint production_batch_id FK
     varchar(40) type "title"
     varchar(500) description "detail"
-    varchar(10) tone "NORMAL, WARNING, CRITICAL"
+    varchar(10) tone "NORMAL, WARNING, DANGER"
     bigint performed_by "ref iam.users"
     datetime occurred_at
   }
   products ||--o{ master_formulas : "defined by"
   master_formulas ||--|{ formula_items : "contains"
   master_formulas ||--o{ production_orders : "followed by"
-  production_orders ||--|{ operations : "routed through"
+  production_orders ||--o{ operations : "routed through"
   production_orders ||--o{ production_batches : "executed as"
   production_batches ||--o{ material_consumptions : "consumes"
   raw_material_lots ||--o{ material_consumptions : "consumed in"
-  production_batches ||--o{ process_parameters : "records"
   production_batches ||--o{ incidents : "registers"
   production_batches ||--o{ batch_events : "timeline"

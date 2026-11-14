@@ -31,7 +31,7 @@ classDiagram
     +String value
     +Ruc(String value)
   }
-  class Profile {
+  class UserProfile {
     <<Aggregate Root>>
     -Long id
     -Long userId
@@ -107,18 +107,18 @@ classDiagram
     <<interface>>
     +existsByRuc(Ruc ruc) boolean
   }
-  class ProfileRepository {
+  class UserProfileRepository {
     <<interface>>
-    +findByUserId(Long userId) Optional~Profile~
+    +findByUserId(Long userId) Optional~UserProfile~
   }
   class OrganizationCommandService {
     <<interface>>
     +handle(RegisterOrganizationCommand command) Result~Organization, ApplicationError~
     +handle(AddFacilityCommand command) Result~Facility, ApplicationError~
   }
-  class ProfileCommandService {
+  class UserProfileCommandService {
     <<interface>>
-    +handle(UpdateProfilePreferencesCommand command) Result~Profile, ApplicationError~
+    +handle(UpdateUserProfilePreferencesCommand command) Result~UserProfile, ApplicationError~
   }
   class ContactInquiryCommandService {
     <<interface>>
@@ -132,13 +132,13 @@ classDiagram
   Organization --> OrganizationStatus : status
   Facility --> FacilityType : type
   Facility --> FacilityStatus : status
-  Profile "0..*" --> "1" Organization : belongsTo
-  Profile *-- PersonName : name
-  Profile *-- NotificationPreferences : preferences
-  Profile --> Area : area
+  UserProfile "0..*" --> "1" Organization : belongsTo
+  UserProfile *-- PersonName : name
+  UserProfile *-- NotificationPreferences : preferences
+  UserProfile --> Area : area
   AdministrativeActivity "0..*" --> "1" Organization : loggedFor
   ContactInquiry --> InquiryStatus : status
   OrganizationRepository ..> Organization : persists
-  ProfileRepository ..> Profile : persists
+  UserProfileRepository ..> UserProfile : persists
   OrganizationCommandService ..> ExternalIamService : uses
-  ProfileCommandService ..> ProfileRepository : uses
+  UserProfileCommandService ..> UserProfileRepository : uses
