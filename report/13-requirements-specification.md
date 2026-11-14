@@ -3,7 +3,7 @@ En este capítulo se presentan los requisitos especificados de DoofPlus, acorde 
 
 ## 3.1. User Stories
 
-Las User Stories se obtuvieron a partir de las necesidades identificadas en las entrevistas, los User Personas, el User Task Matrix y el Big Picture EventStorming del capítulo II. Se organizan en 11 epics que agrupan 59 User Stories y 11 Technical Stories, presentadas en un único cuadro con una fila por epic o historia:
+Las User Stories se obtuvieron a partir de las necesidades identificadas en las entrevistas, los User Personas, el User Task Matrix y el Big Picture EventStorming del capítulo II. Se organizan en 11 epics que agrupan 59 User Stories y 12 Technical Stories, presentadas en un único cuadro con una fila por epic o historia:
 
 - **Website y experiencia pública (EP01):** historias redactadas con el rol de visitante o de visitante de un segmento (especialista QA/QC o jefe de producción), que cubren las secciones del sitio estático, su vínculo con la Web Application y el formulario de contacto de la zona pública de la Web Application (US04).
 - **Web Application (EP02 a EP11):** historias de los roles de especialista QA/QC, jefe o supervisor de producción y administrador del laboratorio, agrupadas por capacidades del negocio: identidad y accesos, documentación de calidad, trazabilidad de lotes, desviaciones y CAPA, integración IoT, cumplimiento y auditoría, dashboards, operaciones de laboratorio, comunicación entre áreas y suscripciones.
