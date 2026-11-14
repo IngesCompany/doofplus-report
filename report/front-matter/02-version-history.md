@@ -69,5 +69,6 @@
 | 2.7.7 | 09/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: repositorio de los RESTful Web Services (`IngesCompany/doofplus-platform`) en la tabla de 5.1.2. |
 | 2.7.8 | 09/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo III: escenario de registro de un laboratorio nuevo en US48 (llamado a la acción por segmento del Website) y US04 en el Product Backlog con el envío desde la Web Application. |
 | 2.7.9 | 09/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: capturas de Jira de los Sprints 1 y 2 con EP01 «Website y Experiencia Pública» y TS01 «Implementación de Website adaptable y accesible». |
+| 3.0.1 | 13/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo IV: los diagramas de clases y de base de datos de Organizations & Profiles y de Manufacturing & Batch Management siguen a la Web Application y al backend (`user_profiles`, catálogo enlazado por código, estados del lote, tono de los eventos, sin `process_parameters`), con el texto de 4.7.1 y la tabla de 4.8.1. |
 
 ---
