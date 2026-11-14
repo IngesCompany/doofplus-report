@@ -72,5 +72,6 @@
 | 3.0.1 | 13/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo IV: los diagramas de clases y de base de datos de Organizations & Profiles y de Manufacturing & Batch Management siguen a la Web Application y al backend (`user_profiles`, catálogo enlazado por código, estados del lote, tono de los eventos, sin `process_parameters`), con el texto de 4.7.1 y la tabla de 4.8.1. |
 | 3.0.2 | 14/11/2026 | Rojas Ambicho, Nestor Daniel | Student Outcome: acciones del AV2 de Rojas Ambicho, Nestor Daniel en los criterios de comunicación oral y escrita. |
 | 3.0.3 | 14/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo III: el total de Technical Stories pasa a 12, con TS12. |
+| 3.0.4 | 14/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo IV: el diseño del Website describe las secciones publicadas («Your workspace», servicios con «Learn more», panel de lecturas IoT, video con capítulos, cuatro resultados medibles, «Nosotros» y equipo antes de testimonios y FAQ) y los wireframes y mock-ups siguen ese orden. |
 
 ---
