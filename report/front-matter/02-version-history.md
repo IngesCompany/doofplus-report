@@ -70,4 +70,5 @@
 | 2.7.8 | 09/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo III: escenario de registro de un laboratorio nuevo en US48 (llamado a la acción por segmento del Website) y US04 en el Product Backlog con el envío desde la Web Application. |
 | 2.7.9 | 09/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: capturas de Jira de los Sprints 1 y 2 con EP01 «Website y Experiencia Pública» y TS01 «Implementación de Website adaptable y accesible». |
 | 3.0.0 | 10/11/2026 | Zavaleta Gutierrez, Rodolfo Martin | Capítulo V: inicio del Sprint 3 con Sprint Planning, Sprint Backlog y User Stories de la Web Application en la sección 5.2.3. |
+| 3.0.5 | 14/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: sección 5.2.3 Sprint 3 completa: Sprint Planning, Aspect Leaders, Sprint Backlog (T137 a T165, T184 a T201), commits de `main` del Sprint, evidencia de ejecución, documentación OpenAPI de la versión 1.0.0 desplegada, despliegue e insights. |
 ---
