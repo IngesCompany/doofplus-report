@@ -113,7 +113,7 @@ A continuación se describen los pasos para desplegar cada producto de la soluci
 2. **Frontend Web Application (Firebase Hosting)**
     1. Instalar Firebase CLI (`npm install -g firebase-tools`) e iniciar sesión con `firebase login`.
     2. Seleccionar el proyecto de Firebase con `firebase use --add`. El repositorio ya incluye `firebase.json`, que publica la carpeta `dist/IngesCompany-Frontend/browser` como Single Page Application.
-    3. Publicar la Fake API en un Web Service de Render vinculado a la rama `main` del repositorio `doofplus-web-application`, con el comando de build `npm install` y el de inicio `npm run server:prod`, y registrar su URL en `src/environments/environment.ts`.
+    3. Publicar la Fake API en un Web Service de Render vinculado a la rama `main` del repositorio `doofplus-web-application`, con el comando de build `npm install` y el de inicio `npm run server:prod`, y registrar su URL en `fakeApiBaseUrl` de `src/environments/environment.ts`; ahí mismo, `platformProviderApiBaseUrl` apunta a los RESTful Web Services publicados (`https://doofplus-platform.onrender.com/api/v1`). Desde la versión `v1.3.0`, la Fake API solo atiende las invitaciones de usuarios, los perfiles de rol y las facturas.
     4. Compilar la versión de producción con `ng build --configuration production`.
     5. Publicar con `firebase deploy`.
 3. **RESTful Web Services (Render y Railway)**
@@ -1029,7 +1029,7 @@ Los cinco integrantes participaron en ambos repositorios. La siguiente tabla res
 
 ### 5.2.3. Sprint 3
 
-En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el **Sprint 3** (del 18/10/2026 al 14/11/2026), cuyo enfoque fue entregar la primera versión desplegada de los RESTful Web Services, mejorar el Website y la Web Application a partir del feedback del Sprint 2 y preparar la primera versión del curso de Responsabilidad Social.
+En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el **Sprint 3** (del 18/10/2026 al 15/11/2026), cuyo enfoque fue entregar la primera versión desplegada de los RESTful Web Services, mejorar el Website y la Web Application a partir del feedback del Sprint 2 y preparar la primera versión del curso de Responsabilidad Social.
 
 #### 5.2.3.1. Sprint Planning 3
 
@@ -1056,16 +1056,16 @@ En el Sprint 3 se consideraron el Website y la Web Application y, en los RESTful
 
 | Team Member (Last Name, First Name) | GitHub Username | Website | Web Application | Shared & IAM | Organizations | Subscriptions | Manufacturing | IoT Monitoring | Quality & Compliance | Releases & Deployment | Documentation |
 |-------------------------------------|-----------------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Angulo Ramírez, Marcelo Martín | Zock2005 | | | | | | | L | | | C |
-| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | C | L | C | L | | | | C | L | C |
+| Angulo Ramírez, Marcelo Martín | Zock2005 | | | C | | | | L | | | C |
+| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | C | L | C | L | | | C | C | L | C |
 | Flores Martinez, Ricardo Andres | Nitoryu28 | | | | | | | | L | | |
-| Rojas Ambicho, Nestor Daniel | danRO-20 | L | C | L | | L | | | | C | L |
+| Rojas Ambicho, Nestor Daniel | danRO-20 | L | C | L | C | L | C | C | | C | L |
 | Torres Juárez, Alisee Muriel | lLisee1 | | | | C | | | | | | C |
 | Zavaleta Gutierrez, Rodolfo Martin | gutierrezrodolfo360-bit | C | C | C | | | L | | | C | C |
 
 #### 5.2.3.3. Sprint Backlog 3
 
-El objetivo del Sprint fue entregar la primera versión desplegada de los RESTful Web Services. El Sprint Backlog 3 junta tres bloques: las mejoras del Website y de la Web Application hechas desde el 18/10 (T184 a T198), las tareas de los Web Services por Technical Story (T137 a T165) y la autenticación con JWT (TS02, T199 a T201). Una tarea está en *Done* solo cuando su rama se unió a `develop`; lo que no se termine pasa al Sprint 4. Al cierre del Sprint hay 31 tareas en *Done*, 7 en *In-Process* y 9 en *To-do*, con 177 horas estimadas en total.
+El objetivo del Sprint fue entregar la primera versión desplegada de los RESTful Web Services. El Sprint Backlog 3 junta tres bloques: las mejoras del Website y de la Web Application hechas desde el 18/10 (T184 a T198), las tareas de los Web Services por Technical Story (T137 a T165) y la autenticación con JWT (TS02, T199 a T201). Una tarea está en *Done* solo cuando su rama se unió a `develop`; lo que no se termine pasa al Sprint 4. Al cierre del Sprint (15/11/2026) hay 40 tareas en *Done*, 4 en *In-Process* y 3 en *To-do*, con 177 horas estimadas en total. Las tareas que no se terminaron (las fachadas ACL T140 y T156, las calibraciones y mantenimientos de T149, el escalamiento de incidencias T155 y T163, y el cierre de desviaciones con causa raíz T161 y T162) pasan al Sprint 4.
 
 **Enlace al board en Jira:** https://doofplus.atlassian.net/jira/software/projects/UPC/boards/3
 
@@ -1077,7 +1077,7 @@ El objetivo del Sprint fue entregar la primera versión desplegada de los RESTfu
 | TS12 | API de organizaciones y consultas de contacto | T138 | Organizations: servicios de aplicación | Implementar los command services y query services de registro de la organización, perfiles y consultas de contacto. | 3 | Cobades Zamora, Yhoshua Hebert | Done |
 | TS12 | API de organizaciones y consultas de contacto | T139 | Organizations: endpoints REST | Exponer /api/v1/organizations, /api/v1/user-profiles y POST /api/v1/contact-inquiries con resources, assemblers y documentación OpenAPI. | 4 | Cobades Zamora, Yhoshua Hebert | Done |
 | TS12 | API de organizaciones y consultas de contacto | T140 | Organizations: fachada ACL | Implementar OrganizationsContextFacade para que Subscriptions consulte la organización sin acceder a su modelo. | 2 | Cobades Zamora, Yhoshua Hebert | To-do |
-| TS12 | API de organizaciones y consultas de contacto | T141 | Web App: registro de organización y contacto contra el API | Reemplazar la Fake API en el módulo organizations de la Web Application (US50, US04). | 3 | Cobades Zamora, Yhoshua Hebert | To-do |
+| TS12 | API de organizaciones y consultas de contacto | T141 | Web App: registro de organización y contacto contra el API | Reemplazar la Fake API en el módulo organizations de la Web Application (US50, US04). | 3 | Cobades Zamora, Yhoshua Hebert | Done |
 | TS09 | API de suscripciones y pagos | T142 | Subscriptions: revisión e integración en develop | Revisar feature/subscriptions, corregir observaciones y fusionarla en develop. | 2 | Rojas Ambicho, Nestor Daniel | Done |
 | TS09 | API de suscripciones y pagos | T143 | Subscriptions: pago con Niubiz | Agregar el pago de la suscripción: POST /api/v1/subscriptions/{id}/payments con el sandbox de Niubiz; responde 503 si la pasarela no está disponible y no registra el pago. | 5 | Rojas Ambicho, Nestor Daniel | Done |
 | TS09 | API de suscripciones y pagos | T144 | Subscriptions: renovación | Agregar la renovación de la suscripción (US53) junto a la activación y cancelación existentes. | 2 | Rojas Ambicho, Nestor Daniel | Done |
@@ -1087,20 +1087,20 @@ El objetivo del Sprint fue entregar la primera versión desplegada de los RESTfu
 | TS07 | API de operaciones de laboratorio | T148 | Manufacturing: endpoints de productos y fórmulas | Servicios y endpoints /api/v1/products y /api/v1/master-formulas con documentación OpenAPI (US35, US36). | 4 | Zavaleta Gutierrez, Rodolfo Martin | Done |
 | TS07 | API de operaciones de laboratorio | T149 | IoT Monitoring: equipos, calibraciones y mantenimientos | Servicios y endpoints /api/v1/equipment con calibraciones y mantenimientos; DELETE responde 409 si el equipo está asociado a un lote en curso (US37, US38, US39). | 5 | Angulo Ramírez, Marcelo Martín | In-Process |
 | TS07 | API de operaciones de laboratorio | T150 | IoT Monitoring: sensores y telemetría | Servicios y endpoints /api/v1/sensors para el inventario de sensores (US23) y POST /api/v1/telemetry para recibir las lecturas de ThingsBoard con X-Api-Key; una lectura fuera de rango abre una alerta. | 3 | Angulo Ramírez, Marcelo Martín | Done |
-| TS07 | API de operaciones de laboratorio | T151 | Web App: productos, fórmulas y equipos contra el API | Reemplazar la Fake API en los módulos manufacturing (productos y fórmulas) e iot-monitoring (equipos y dispositivos). | 3 | Angulo Ramírez, Marcelo Martín | To-do |
+| TS07 | API de operaciones de laboratorio | T151 | Web App: productos, fórmulas y equipos contra el API | Reemplazar la Fake API en los módulos manufacturing (productos y fórmulas) e iot-monitoring (equipos y dispositivos). | 3 | Angulo Ramírez, Marcelo Martín | Done |
 | TS03 | API de trazabilidad de lotes | T152 | Manufacturing: órdenes, lotes y materias primas (dominio) | Implementar los aggregates ProductionOrder, ProductionBatch y RawMaterialLot con sus estados y repositorios JPA. | 5 | Zavaleta Gutierrez, Rodolfo Martin | Done |
 | TS03 | API de trazabilidad de lotes | T153 | Manufacturing: endpoints de órdenes y lotes | Endpoints /api/v1/production-orders y /api/v1/production-batches: registro (409 si el número de lote ya existe), cambio de estado con los estados de la Web Application (start, resume, release y progreso), GET /{batchId} con su línea de tiempo, y registro de las incidencias, eventos y consumos de cada lote (US57, US14, US15, US16). | 5 | Zavaleta Gutierrez, Rodolfo Martin | Done |
 | TS03 | API de trazabilidad de lotes | T154 | Manufacturing: recepción y asociación de materias primas | Endpoints de recepción de materias primas, que dejan el lote en SAMPLING/PENDING, y su asociación a un lote de producción (US58, US17). | 3 | Cobades Zamora, Yhoshua Hebert | Done |
 | TS03 | API de trazabilidad de lotes | T155 | Manufacturing: incidencias y escalamiento a Calidad | Registrar incidencias de un lote y publicar el domain event que Quality usa para abrir una desviación (US56). | 3 | Angulo Ramírez, Marcelo Martín | In-Process |
 | TS03 | API de trazabilidad de lotes | T156 | Manufacturing: fachada ACL | Implementar ManufacturingContextFacade para que Quality e IoT Monitoring consulten lotes y equipos. | 2 | Cobades Zamora, Yhoshua Hebert | To-do |
-| TS03 | API de trazabilidad de lotes | T157 | Web App: trazabilidad de lotes contra el API | Reemplazar la Fake API en el módulo manufacturing (órdenes, lotes, materias primas e incidencias). | 4 | Cobades Zamora, Yhoshua Hebert | To-do |
-| TS10 | API de documentación de calidad | T158 | Quality: servicios de documentación | Implementar los command y query services de QualityDocument: registro, nuevas versiones y aprobación (US09, US10, US12, US13). | 4 | Flores Martinez, Ricardo Andres | In-Process |
+| TS03 | API de trazabilidad de lotes | T157 | Web App: trazabilidad de lotes contra el API | Reemplazar la Fake API en el módulo manufacturing (órdenes, lotes, materias primas e incidencias). | 4 | Cobades Zamora, Yhoshua Hebert | Done |
+| TS10 | API de documentación de calidad | T158 | Quality: servicios de documentación | Implementar los command y query services de QualityDocument: registro, nuevas versiones y aprobación (US09, US10, US12, US13). | 4 | Flores Martinez, Ricardo Andres | Done |
 | TS10 | API de documentación de calidad | T159 | Quality: endpoints de documentación | Implementar QualityDocumentController: POST /api/v1/quality-documents responde 201 con la versión 1.0 y GET /{id} inexistente responde 404; documentación OpenAPI. | 3 | Flores Martinez, Ricardo Andres | Done |
-| TS10 | API de documentación de calidad | T160 | Web App: documentación de calidad contra el API | Reemplazar la Fake API en las vistas de protocolos, SOP y versiones del módulo quality. | 3 | Cobades Zamora, Yhoshua Hebert | To-do |
+| TS10 | API de documentación de calidad | T160 | Web App: documentación de calidad contra el API | Reemplazar la Fake API en las vistas de protocolos, SOP y versiones del módulo quality. | 3 | Cobades Zamora, Yhoshua Hebert | Done |
 | TS11 | API de desviaciones y CAPA | T161 | Quality: servicios de desviaciones y CAPA | Implementar los servicios de Deviation, CapaPlan y CapaAction: registro, causa raíz, acciones y cierre (US18, US19, US20, US21). | 5 | Flores Martinez, Ricardo Andres | In-Process |
 | TS11 | API de desviaciones y CAPA | T162 | Quality: endpoints de desviaciones y CAPA | Implementar DeviationController, CapaPlanController y CapaActionController; PATCH /api/v1/deviations/{id}/close sin causa raíz responde 422. | 4 | Flores Martinez, Ricardo Andres | In-Process |
 | TS11 | API de desviaciones y CAPA | T163 | Quality: desviación desde incidencia de Producción | Policy que abre una desviación cuando Manufacturing escala una incidencia (US56). | 2 | Flores Martinez, Ricardo Andres | To-do |
-| TS11 | API de desviaciones y CAPA | T164 | Web App: desviaciones y CAPA contra el API | Reemplazar la Fake API en las vistas de desviaciones y CAPA del módulo quality. | 3 | Cobades Zamora, Yhoshua Hebert | To-do |
+| TS11 | API de desviaciones y CAPA | T164 | Web App: desviaciones y CAPA contra el API | Reemplazar la Fake API en las vistas de desviaciones y CAPA del módulo quality. | 3 | Cobades Zamora, Yhoshua Hebert | Done |
 | — | Tareas técnicas | T165 | Despliegue del RESTful API | Publicar el RESTful API en Render con la base de datos MySQL en Railway y la documentación Swagger accesible; configurar la URL del API en la Web Application. | 4 | Rojas Ambicho, Nestor Daniel | Done |
 | US48 | Acceso por segmento a la Web Application | T184 | Website: sección Call to action | Implementar la sección Call to action con sus estilos y sus textos en en.json y es.json. | 3 | Zavaleta Gutierrez, Rodolfo Martin | Done |
 | US48 | Acceso por segmento a la Web Application | T185 | Website: CTA por segmento y enlaces a la Web App | Mostrar un CTA por segmento y enlazar los botones de acceso y registro con el entorno correspondiente de la Web Application. | 3 | Rojas Ambicho, Nestor Daniel | Done |
@@ -1117,13 +1117,13 @@ El objetivo del Sprint fue entregar la primera versión desplegada de los RESTfu
 | — | Tareas técnicas | T196 | Web App: release v1.1.0 y despliegue en Firebase | Preparar release/v1.1.0 y publicar la Web Application en Firebase Hosting. | 2 | Cobades Zamora, Yhoshua Hebert | Done |
 | — | Tareas técnicas | T197 | Platform: configuración del proyecto y capa shared | Crear el proyecto Spring Boot con su configuración, OpenAPI y la capa shared. | 6 | Zavaleta Gutierrez, Rodolfo Martin | Done |
 | — | Tareas técnicas | T198 | Platform: shared con Result y ApplicationError | Agregar Result, ApplicationError y los assemblers de errores a la capa shared. | 6 | Rojas Ambicho, Nestor Daniel | Done |
-| TS02 | Autenticación JWT en el RESTful API | T199 | IAM: dominio y persistencia de User y Role | Implementar los aggregates User y Role con sus repositorios JPA y la carga inicial de roles. | 10 | Cobades Zamora, Yhoshua Hebert | In-Process |
-| TS02 | Autenticación JWT en el RESTful API | T200 | IAM: sign-up y sign-in con JWT | Exponer sign-up y sign-in que devuelven un JWT y filtrar las rutas por rol. | 10 | Cobades Zamora, Yhoshua Hebert | In-Process |
-| TS02 | Autenticación JWT en el RESTful API | T201 | Web App: sign-in contra el API | Iniciar sesión en la Web Application contra el API y enviar el token en cada petición. | 6 | Cobades Zamora, Yhoshua Hebert | To-do |
+| TS02 | Autenticación JWT en el RESTful API | T199 | IAM: dominio y persistencia de User y Role | Implementar los aggregates User y Role con sus repositorios JPA y la carga inicial de roles. | 10 | Cobades Zamora, Yhoshua Hebert | Done |
+| TS02 | Autenticación JWT en el RESTful API | T200 | IAM: sign-up y sign-in con JWT | Exponer sign-up y sign-in que devuelven un JWT y filtrar las rutas por rol. | 10 | Cobades Zamora, Yhoshua Hebert | Done |
+| TS02 | Autenticación JWT en el RESTful API | T201 | Web App: sign-in contra el API | Iniciar sesión en la Web Application contra el API y enviar el token en cada petición. | 6 | Cobades Zamora, Yhoshua Hebert | Done |
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
-En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature branch por sección del Website, por mejora de la Web Application o por bounded context de los Web Services, integradas en `develop` con merges `--no-ff`, y ramas `release/` y `hotfix/` fusionadas en `main` con su tag. El Website pasó por `v2.1.0`, `v2.1.1` y `v2.2.0`; la Web Application, por `v1.0.2` y `v1.1.0`, y los RESTful Web Services tuvieron su primera versión, `v1.0.0`. Las tablas siguientes presentan los commits de `main` del Sprint (desde el 18/10/2026); la columna *Branch* indica la rama en que se realizó cada commit. El curso de Responsabilidad Social se trabaja en `develop` de su repositorio, que todavía no tiene release.
+En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature branch por sección del Website, por mejora de la Web Application o por bounded context de los Web Services, integradas en `develop` con merges `--no-ff`, y ramas `release/` y `hotfix/` fusionadas en `main` con su tag. El Website pasó por `v2.1.0`, `v2.1.1` y `v2.2.0`; la Web Application, por `v1.0.2`, `v1.1.0`, `v1.2.0` y `v1.3.0`, y los RESTful Web Services tuvieron su primera versión, `v1.0.0`, seguida de `v1.1.0` y `v1.2.0`. Las tablas siguientes presentan los commits de `main` del Sprint (desde el 18/10/2026); la columna *Branch* indica la rama en que se realizó cada commit. El curso de Responsabilidad Social se trabaja en `develop` de su repositorio, que todavía no tiene release.
 
 **Website** (47 commits)
 
@@ -1177,7 +1177,7 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/doofplus-website | release/v2.2.0 | `8edef98` | docs: update the changelog for version 2.2.0 | — | 09/11/2026 |
 | IngesCompany/doofplus-website | main | `a228dc5` | Merge branch 'release/v2.2.0' into main | — | 09/11/2026 |
 
-**Web Application** (41 commits)
+**Web Application** (59 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
@@ -1222,8 +1222,26 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/doofplus-web-application | develop | `99fcc80` | Merge branch 'fix/contributing-title' into develop | — | 07/11/2026 |
 | IngesCompany/doofplus-web-application | release/v1.1.0 | `f13d1a1` | chore(release): prepare version 1.1.0 | — | 09/11/2026 |
 | IngesCompany/doofplus-web-application | main | `59dde7a` | Merge branch 'release/v1.1.0' into main | — | 09/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `3ef7d40` | Merge branch 'release/v1.1.0' into develop | — | 09/11/2026 |
+| IngesCompany/doofplus-web-application | feature/connect-platform-api | `fb0dfc6` | feat(platform): connect organizations and iot monitoring to the doofplus platform api | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `d43c34f` | Merge branch 'feature/connect-platform-api' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | release/v1.2.0 | `7eb7960` | chore(release): prepare version 1.2.0 | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `27ccc98` | Merge branch 'release/v1.2.0' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | main | `e7e2646` | Merge branch 'release/v1.2.0' into main | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | feature/subscriptions-platform-api | `27dc6cc` | feat(subscriptions): use the platform api for plans, subscriptions, payments and plan changes | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `100b2c6` | Merge branch 'feature/subscriptions-platform-api' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | feature/iam-real-api | `750b36b` | feat(iam): sign in with the iam of the doofplus platform | - Sign-in calls POST /authentication/sign-in of the platform: the first request checks the password and answers two-factor-required; the second one sends the… | 14/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `3fca89f` | Merge branch 'feature/iam-real-api' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | feature/translated-workspace-texts | `7af696f` | feat(i18n): translate the toasts, labels and not found page of the workspace | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `34e6a4f` | Merge branch 'feature/translated-workspace-texts' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing-platform-api | `eeeec92` | feat(manufacturing): use the platform API for products, formulas, orders, batches and lots | The Manufacturing store now reads and writes the DoofPlus Platform instead of the Fake API. The assemblers flatten the formula items, the order operations an… | 15/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `d0d1065` | Merge branch 'feature/manufacturing-platform-api' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | feature/quality-platform-api | `74b3fb8` | feat(quality): use the platform API for the Quality and Compliance records | Quality reads and writes the DoofPlus Platform, following contratos/quality-api.json as in AW: the assemblers turn the enums from UPPER_SNAKE_CASE to kebab-c… | 15/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `3fba861` | Merge branch 'feature/quality-platform-api' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | release/v1.3.0 | `b9537bc` | chore(release): prepare version 1.3.0 | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | main | `cf78130` | Merge branch 'release/v1.3.0' into main | — | 15/11/2026 |
 
-**RESTful Web Services** (372 commits)
+**RESTful Web Services** (415 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
@@ -1599,8 +1617,51 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/doofplus-platform | develop | `fd94b12` | Merge branch 'feature/subscriptions' into develop | # Conflicts: # src/main/resources/messages.properties # src/main/resources/messages_es.properties | 13/11/2026 |
 | IngesCompany/doofplus-platform | release/v1.0.0 | `6a47dc2` | chore(release): prepare version 1.0.0 | — | 13/11/2026 |
 | IngesCompany/doofplus-platform | main | `529e7b6` | Merge branch 'release/v1.0.0' into main | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `2f4bfe2` | feat(user): add User class to domain model in bounded context iam | — | 27/10/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `cf42e2a` | feat(iam): add EmailAddress, OrganizationId value objects and Roles enum | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `38f92b2` | feat(iam): add EmailAddress and OrganizationId attribute converters | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `915e63b` | feat(iam): add Role entity | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `0380ada` | feat(iam): add sign-up, sign-in and seed roles commands and user queries | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `3cc35f4` | feat(iam): implement User aggregate | — | 28/10/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `f7e3ffb` | feat(iam): add user and role repositories | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `8f4b73a` | feat(iam): implement role seeding command service | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `a30edfe` | feat(iam): seed roles when the application is ready | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `2f3dc6e` | feat(iam): implement user and role query services | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `f35f7a0` | feat(iam): add user command service contract and failure types | — | 29/10/2026 |
+| IngesCompany/doofplus-platform | develop | `e51e9b6` | Merge branch 'release/v1.0.0' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions | `f45c676` | fix(subscriptions): answer 503 when niubiz is not available | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `851d8b2` | Merge branch 'feature/subscriptions' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing-batch-children | `2d8efef` | fix(manufacturing): save the incidents, events and consumptions of a batch | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `17bdf32` | Merge branch 'feature/manufacturing-batch-children' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/production-batch-product-fields | `5e9086c` | feat(manufacturing): add the line, owner, progress and event tone of a batch | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `d041105` | Merge branch 'feature/production-batch-product-fields' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/production-batch-statuses | `fc3bb6e` | feat(manufacturing): use the batch statuses of the web app | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `4805ab5` | Merge branch 'feature/production-batch-statuses' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/manufacturing-catalog | `97bda7b` | feat(manufacturing): add the catalog of products, formulas, orders and material lots | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `96198fa` | Merge branch 'feature/manufacturing-catalog' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/organizations-user-profiles | `7208eca` | refactor(organizations): rename profiles to user profiles as in the web app | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `b162172` | Merge branch 'feature/organizations-user-profiles' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring-telemetry | `756a995` | feat(monitoring): receive the thingsboard telemetry | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | develop | `dab69b2` | Merge branch 'feature/monitoring-telemetry' into develop | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring-delete-equipment-and-conflicts | `9a60d2c` | feat(monitoring): delete equipment and answer 409 for state changes that are not allowed | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | develop | `69f5245` | Merge branch 'feature/monitoring-delete-equipment-and-conflicts' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | release/v1.1.0 | `4e1d432` | chore(release): prepare version 1.1.0 | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | main | `63d5a24` | Merge branch 'release/v1.1.0' into main | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | develop | `05dd12d` | Merge branch 'release/v1.1.0' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `51b6190` | Merge branch 'develop' into feature/iam | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions-change-plan | `bdfa7a6` | feat(subscriptions): change the plan and the billing cycle of a subscription | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | develop | `ed3d544` | Merge branch 'feature/subscriptions-change-plan' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `0de216c` | feat(iam): add sign-in with two-factor authentication and sign-up with jwt | Rebuild the IAM bounded context with the model of the professor's learning center platform: Spring Security, BCrypt and JWT. - POST /api/v1/authentication/si… | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `e3f7969` | feat(iam): only administrators read the contact inquiries | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | develop | `31d3f4f` | Merge branch 'feature/iam' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/lookups-by-id-and-filters | `6377058` | feat(platform): add the lookups by id and the filters that the web app can use | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | develop | `2e52aa3` | Merge branch 'feature/lookups-by-id-and-filters' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality-model-from-diagrams | `983c470` | feat(quality): implement the Quality contract from the class and database diagrams | The 13 Quality resources and the deviation trend follow contratos/quality-api.json, as in AW: people by name and related records by code, list/get/create/upd… | 15/11/2026 |
+| IngesCompany/doofplus-platform | develop | `1a6c7cb` | Merge branch 'feature/quality-model-from-diagrams' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-platform | release/v1.2.0 | `e536f9c` | chore(release): prepare version 1.2.0 | — | 15/11/2026 |
+| IngesCompany/doofplus-platform | main | `451e551` | Merge branch 'release/v1.2.0' into main | — | 15/11/2026 |
 
-**Curso de Responsabilidad Social** (`develop`, 29 commits)
+**Curso de Responsabilidad Social** (`develop`, 31 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
@@ -1633,10 +1694,12 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/java-fundamentals-course-ingescompany | feature/plan-del-curso | `1f379cb` | build: ignore the pandoc build folder | — | 12/11/2026 |
 | IngesCompany/java-fundamentals-course-ingescompany | develop | `d947c2a` | Merge branch 'feature/lecciones-1-5-6' into develop | — | 12/11/2026 |
 | IngesCompany/java-fundamentals-course-ingescompany | develop | `276da07` | Merge branch 'feature/plan-del-curso' into develop | — | 12/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/readme-course-plan | `c0e5a64` | docs(readme): use the final course plan as the readme | — | 14/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `62cfedb` | Merge branch 'feature/readme-course-plan' into develop | — | 14/11/2026 |
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
-En este Sprint el Website lleva a cada segmento a su entorno con un call to action propio, tiene enlaces a las redes sociales y se publica en GitHub Pages con GitHub Actions. La Web Application traduce los permisos de cada rol, busca por código desde la barra superior, enlaza con el Website y recibe las consultas de Contact us en su zona pública. Los RESTful Web Services quedaron desplegados con los bounded contexts Organizations, Subscriptions (con el pago por Niubiz), Manufacturing, IoT Monitoring y Quality & Compliance; la Web Application todavía usa la Fake API y se conecta al API real en el Sprint 4.
+En este Sprint el Website lleva a cada segmento a su entorno con un call to action propio, tiene enlaces a las redes sociales y se publica en GitHub Pages con GitHub Actions. La Web Application traduce los permisos de cada rol, busca por código desde la barra superior, enlaza con el Website y recibe las consultas de Contact us en su zona pública. Los RESTful Web Services quedaron desplegados con los bounded contexts IAM (sign-up y sign-in con JWT y código de verificación en dos pasos), Organizations, Subscriptions (con el pago por Niubiz y el cambio de plan), Manufacturing, IoT Monitoring y Quality & Compliance. Desde la versión `v1.3.0`, la Web Application inicia sesión con el IAM del API y usa los RESTful Web Services en Organizations & Profiles, Subscriptions, Manufacturing, IoT Monitoring y Quality & Compliance; solo las invitaciones de usuarios, los perfiles de rol y las facturas siguen en la Fake API y pasan al API en el Sprint 4.
 
 - **Website:** https://ingescompany.github.io/doofplus-website/
 - **Web Application:** https://doofplus-webapp.web.app
@@ -1644,73 +1707,114 @@ En este Sprint el Website lleva a cada segmento a su entorno con un call to acti
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
-Los RESTful Web Services se documentan con OpenAPI (springdoc-openapi) y Swagger UI. La versión `v1.0.0`, desplegada en Render, expone 56 rutas y 82 operaciones bajo el prefijo `/api/v1`; la especificación se puede descargar en https://doofplus-platform.onrender.com/v3/api-docs. La URL base publicada es `https://doofplus-platform.onrender.com/api/v1` y la local, `http://localhost:8080/api/v1`. La siguiente tabla documenta cada operación, con su enlace a Swagger UI. El servicio usa el plan gratuito de Render, que lo suspende cuando no recibe peticiones, por lo que la primera petición puede tardar cerca de un minuto.
+Los RESTful Web Services se documentan con OpenAPI (springdoc-openapi) y Swagger UI. La versión `v1.2.0`, desplegada en Render, expone 89 rutas y 131 operaciones bajo el prefijo `/api/v1`; la especificación se puede descargar en https://doofplus-platform.onrender.com/v3/api-docs. La URL base publicada es `https://doofplus-platform.onrender.com/api/v1` y la local, `http://localhost:8080/api/v1`. El sign-up y el sign-in (`/api/v1/authentication`) devuelven el JWT; las operaciones de usuarios y roles lo piden en la cabecera `Authorization: Bearer <token>`, y la lista de usuarios y la de consultas de contacto solo las lee un administrador. La siguiente tabla documenta cada operación, con su enlace a Swagger UI. El servicio usa el plan gratuito de Render, que lo suspende cuando no recibe peticiones, por lo que la primera petición puede tardar cerca de un minuto.
 
 | Endpoint | Verbo HTTP | Sintaxis | Parámetros | Response | URL documentación |
 |---|---|---|---|---|---|
-| `/administrative-activities` | GET | `/api/v1/administrative-activities` | — | 200: Get the administrative activities, the most recent first | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Administrative%20Activities/getAllAdministrativeActivities |
+| `/administrative-activities` | GET | `/api/v1/administrative-activities` | `organizationId` (query) | 200: Get the administrative activities, the most recent first | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Administrative%20Activities/getAllAdministrativeActivities |
 | `/alerts` | GET | `/api/v1/alerts` | `sensorCode` (query), `batchCode` (query) | 200: Get alerts | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Alerts/getAllAlerts |
 | `/alerts` | POST | `/api/v1/alerts` | recurso en el body (JSON) | 201, 400, 409: Create alert | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Alerts/createAlert |
 | `/alerts` | GET | `/api/v1/alerts/{id}` | `id` (path) | 200, 404: Get alert by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Alerts/getAlertById |
 | `/alerts` | PUT | `/api/v1/alerts/{id}` | `id` (path), recurso en el body (JSON) | 200, 400, 404: Update alert | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Alerts/updateAlert |
-| `/analytical-results` | GET | `/api/v1/analytical-results` | `batchId` (query) | 200: Get analytical results by batch ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Analytical%20Results/getByBatchId |
-| `/analytical-results` | POST | `/api/v1/analytical-results` | recurso en el body (JSON) | 201: Create an analytical result | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Analytical%20Results/createAnalyticalResult |
-| `/audit-events` | GET | `/api/v1/audit-events` | `aggregateType` (query), `aggregateId` (query) | 200: Get audit events | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20Events/getAuditEvents |
-| `/audit-findings` | GET | `/api/v1/audit-findings` | `auditId` (query) | 200: Get audit findings by audit ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20Findings/getAuditFindingsByAuditId |
-| `/audit-findings` | POST | `/api/v1/audit-findings` | recurso en el body (JSON) | 201: Create a new audit finding | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20Findings/createAuditFinding |
-| `/audits` | GET | `/api/v1/audits` | — | 200: Get all audits | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audits/getAllAudits |
-| `/audits` | POST | `/api/v1/audits` | recurso en el body (JSON) | 201: Create a new audit | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audits/createAudit |
-| `/audits` | GET | `/api/v1/audits/{auditId}` | `auditId` (path) | 200: Get audit by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audits/getAuditById |
+| `/analytical-results` | GET | `/api/v1/analytical-results` | `batchCode` (query) | 200: Get the analytical results | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Analytical%20results/getAnalyticalResults |
+| `/analytical-results` | POST | `/api/v1/analytical-results` | recurso en el body (JSON) | 200: Create a analytical result | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Analytical%20results/createAnalyticalResult |
+| `/analytical-results` | GET | `/api/v1/analytical-results/{analyticalResultId}` | `analyticalResultId` (path) | 200: Get a analytical result by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Analytical%20results/getAnalyticalResultById |
+| `/analytical-results` | PUT | `/api/v1/analytical-results/{analyticalResultId}` | `analyticalResultId` (path), recurso en el body (JSON) | 200: Update a analytical result | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Analytical%20results/updateAnalyticalResult |
+| `/audit-events` | GET | `/api/v1/audit-events` | `record` (query) | 200: Get the audit events | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20events/getAuditEvents |
+| `/audit-events` | POST | `/api/v1/audit-events` | recurso en el body (JSON) | 200: Create a audit event | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20events/createAuditEvent |
+| `/audit-events` | GET | `/api/v1/audit-events/{auditEventId}` | `auditEventId` (path) | 200: Get a audit event by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20events/getAuditEventById |
+| `/audit-findings` | GET | `/api/v1/audit-findings` | `auditCode` (query) | 200: Get the audit findings | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20findings/getAuditFindings |
+| `/audit-findings` | POST | `/api/v1/audit-findings` | recurso en el body (JSON) | 200: Create a audit finding | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20findings/createAuditFinding |
+| `/audit-findings` | GET | `/api/v1/audit-findings/{auditFindingId}` | `auditFindingId` (path) | 200: Get a audit finding by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audit%20findings/getAuditFindingById |
+| `/audits` | GET | `/api/v1/audits` | — | 200: Get the audits | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audits/getAudits |
+| `/audits` | POST | `/api/v1/audits` | recurso en el body (JSON) | 200: Create a audit | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audits/createAudit |
+| `/audits` | GET | `/api/v1/audits/{auditId}` | `auditId` (path) | 200: Get a audit by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Audits/getAuditById |
+| `/authentication` | POST | `/api/v1/authentication/sign-in` | recurso en el body (JSON) | 200, 401: Sign in | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Authentication/signIn |
+| `/authentication` | POST | `/api/v1/authentication/sign-up` | recurso en el body (JSON) | 201, 400, 409: Sign up | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Authentication/signUp |
 | `/batch-releases` | GET | `/api/v1/batch-releases` | — | 200: Get all batch releases | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/getAllBatchReleases |
-| `/batch-releases` | POST | `/api/v1/batch-releases` | recurso en el body (JSON) | 201: Request a batch release | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/requestBatchRelease |
+| `/batch-releases` | POST | `/api/v1/batch-releases` | recurso en el body (JSON) | 200: Request a batch release | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/requestBatchRelease |
 | `/batch-releases` | GET | `/api/v1/batch-releases/by-batch/{batchId}` | `batchId` (path) | 200: Get batch releases by batch ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/getBatchReleasesByBatchId |
 | `/batch-releases` | GET | `/api/v1/batch-releases/{releaseId}` | `releaseId` (path) | 200: Get batch release by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/getBatchReleaseById |
 | `/batch-releases` | PUT | `/api/v1/batch-releases/{releaseId}/approve` | `releaseId` (path), recurso en el body (JSON) | 200: Approve a batch release | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/approveBatchRelease |
 | `/batch-releases` | PUT | `/api/v1/batch-releases/{releaseId}/reject` | `releaseId` (path), recurso en el body (JSON) | 200: Reject a batch release | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Batch%20Releases/rejectBatchRelease |
-| `/capa-actions` | GET | `/api/v1/capa-actions` | — | 200: Get all CAPA actions | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Actions/getAllCapaActions |
-| `/capa-actions` | POST | `/api/v1/capa-actions` | recurso en el body (JSON) | 201: Create a CAPA action | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Actions/createCapaAction |
-| `/capa-actions` | GET | `/api/v1/capa-actions/by-plan/{capaPlanId}` | `capaPlanId` (path) | 200: Get CAPA actions by plan ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Actions/getCapaActionsByCapaPlanId |
-| `/capa-actions` | GET | `/api/v1/capa-actions/{actionId}` | `actionId` (path) | 200: Get CAPA action by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Actions/getCapaActionById |
-| `/capa-plans` | GET | `/api/v1/capa-plans` | — | 200: Get all CAPA plans | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Plans/getAllCapaPlans |
-| `/capa-plans` | POST | `/api/v1/capa-plans` | recurso en el body (JSON) | 201: Create a CAPA plan | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Plans/createCapaPlan |
-| `/capa-plans` | GET | `/api/v1/capa-plans/{capaPlanId}` | `capaPlanId` (path) | 200: Get CAPA plan by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/CAPA%20Plans/getCapaPlanById |
-| `/collaboration-tasks` | GET | `/api/v1/collaboration-tasks` | — | 200: Get all collaboration tasks | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Collaboration%20Tasks/getAllCollaborationTasks |
-| `/collaboration-tasks` | POST | `/api/v1/collaboration-tasks` | recurso en el body (JSON) | 201: Create a collaboration task | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Collaboration%20Tasks/createCollaborationTask |
+| `/capa-actions` | GET | `/api/v1/capa-actions` | `capaCode` (query) | 200: Get the capa actions | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Capa%20actions/getCapaActions |
+| `/capa-actions` | POST | `/api/v1/capa-actions` | recurso en el body (JSON) | 200: Create a capa action | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Capa%20actions/createCapaAction |
+| `/capa-actions` | GET | `/api/v1/capa-actions/{capaActionId}` | `capaActionId` (path) | 200: Get a capa action by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Capa%20actions/getCapaActionById |
+| `/capa-actions` | PUT | `/api/v1/capa-actions/{capaActionId}` | `capaActionId` (path), recurso en el body (JSON) | 200: Update a capa action | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Capa%20actions/updateCapaAction |
+| `/capa-plans` | GET | `/api/v1/capa-plans` | `sourceDeviation` (query) | 200: Get the capa plans | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Capa%20plans/getCapaPlans |
+| `/capa-plans` | POST | `/api/v1/capa-plans` | recurso en el body (JSON) | 200: Create a capa plan | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Capa%20plans/createCapaPlan |
+| `/capa-plans` | GET | `/api/v1/capa-plans/{capaPlanId}` | `capaPlanId` (path) | 200: Get a capa plan by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Capa%20plans/getCapaPlanById |
+| `/capa-plans` | PUT | `/api/v1/capa-plans/{capaPlanId}` | `capaPlanId` (path), recurso en el body (JSON) | 200: Update a capa plan | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Capa%20plans/updateCapaPlan |
+| `/collaboration-tasks` | GET | `/api/v1/collaboration-tasks` | `recordCode` (query) | 200: Get the collaboration tasks | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Collaboration%20tasks/getCollaborationTasks |
+| `/collaboration-tasks` | POST | `/api/v1/collaboration-tasks` | recurso en el body (JSON) | 200: Create a collaboration task | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Collaboration%20tasks/createCollaborationTask |
+| `/collaboration-tasks` | GET | `/api/v1/collaboration-tasks/{collaborationTaskId}` | `collaborationTaskId` (path) | 200: Get a collaboration task by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Collaboration%20tasks/getCollaborationTaskById |
 | `/contact-inquiries` | GET | `/api/v1/contact-inquiries` | — | 200: Get every contact inquiry, the most recent first | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Contact%20Inquiries/getAllContactInquiries |
-| `/contact-inquiries` | POST | `/api/v1/contact-inquiries` | recurso en el body (JSON) | 201: Send a contact inquiry | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Contact%20Inquiries/sendContactInquiry |
-| `/deviation-trends` | GET | `/api/v1/deviation-trends` | — | 200: Get deviation trends | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviation%20Trends/getDeviationTrends |
-| `/deviations` | GET | `/api/v1/deviations` | — | 200: Get all deviations | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/getAllDeviations |
-| `/deviations` | POST | `/api/v1/deviations` | recurso en el body (JSON) | 201: Create a deviation | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/createDeviation |
-| `/deviations` | GET | `/api/v1/deviations/by-batch/{batchId}` | `batchId` (path) | 200: Get deviations by batch ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/getDeviationsByBatchId |
-| `/deviations` | GET | `/api/v1/deviations/{deviationId}` | `deviationId` (path) | 200: Get deviation by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/getDeviationById |
-| `/equipment` | GET | `/api/v1/equipment` | — | 200: Get all equipment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Equipment/getAllEquipment |
+| `/contact-inquiries` | POST | `/api/v1/contact-inquiries` | recurso en el body (JSON) | 200: Send a contact inquiry | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Contact%20Inquiries/sendContactInquiry |
+| `/contact-inquiries` | GET | `/api/v1/contact-inquiries/{id}` | `id` (path) | 200: Get a contact inquiry by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Contact%20Inquiries/getContactInquiryById |
+| `/deviation-trends` | GET | `/api/v1/deviation-trends` | — | 200: Get the deviation trend | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviation%20trends/getDeviationTrends |
+| `/deviations` | GET | `/api/v1/deviations` | `batchCode` (query) | 200: Get the deviations | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/getDeviations |
+| `/deviations` | POST | `/api/v1/deviations` | recurso en el body (JSON) | 200: Create a deviation | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/createDeviation |
+| `/deviations` | GET | `/api/v1/deviations/{deviationId}` | `deviationId` (path) | 200: Get a deviation by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/getDeviationById |
+| `/deviations` | PUT | `/api/v1/deviations/{deviationId}` | `deviationId` (path), recurso en el body (JSON) | 200: Update a deviation | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Deviations/updateDeviation |
+| `/equipment` | GET | `/api/v1/equipment` | `code` (query) | 200: Get all equipment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Equipment/getAllEquipment |
 | `/equipment` | POST | `/api/v1/equipment` | recurso en el body (JSON) | 201, 400, 409: Create equipment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Equipment/createEquipment |
 | `/equipment` | GET | `/api/v1/equipment/{id}` | `id` (path) | 200, 404: Get equipment by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Equipment/getEquipmentById |
 | `/equipment` | PUT | `/api/v1/equipment/{id}` | `id` (path), recurso en el body (JSON) | 200, 400, 404: Update equipment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Equipment/updateEquipment |
-| `/evidence` | GET | `/api/v1/evidence` | — | 200: Get all evidence | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/getAllEvidence |
-| `/evidence` | POST | `/api/v1/evidence` | recurso en el body (JSON) | 201: Create evidence | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/createEvidence |
-| `/evidence` | GET | `/api/v1/evidence/by-deviation/{deviationId}` | `deviationId` (path) | 200: Get evidence by deviation ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/getEvidenceByDeviationId |
+| `/equipment` | DELETE | `/api/v1/equipment/{id}` | `id` (path) | 204, 404, 409: Delete equipment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Equipment/deleteEquipment |
+| `/evidence` | GET | `/api/v1/evidence` | `recordCode` (query) | 200: Get the evidence | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/getEvidence |
+| `/evidence` | POST | `/api/v1/evidence` | recurso en el body (JSON) | 200: Create a evidence | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/createEvidence |
+| `/evidence` | GET | `/api/v1/evidence/{evidenceId}` | `evidenceId` (path) | 200: Get a evidence by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/getEvidenceById |
+| `/evidence` | PUT | `/api/v1/evidence/{evidenceId}` | `evidenceId` (path), recurso en el body (JSON) | 200: Update a evidence | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/updateEvidence |
+| `/evidence` | DELETE | `/api/v1/evidence/{evidenceId}` | `evidenceId` (path) | 200: Delete a evidence | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/deleteEvidence |
 | `/facilities` | GET | `/api/v1/facilities` | `organizationId` (query) | 200: Get every facility, or the ones of an organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Facilities/getAllFacilities |
-| `/facilities` | POST | `/api/v1/facilities` | recurso en el body (JSON) | 201: Add a facility to an organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Facilities/addFacility |
+| `/facilities` | POST | `/api/v1/facilities` | recurso en el body (JSON) | 200: Add a facility to an organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Facilities/addFacility |
+| `/master-formulas` | GET | `/api/v1/master-formulas` | `productCode` (query) | 200: Get the master formulas, optionally of one product | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Master%20Formulas/getMasterFormulas |
+| `/master-formulas` | POST | `/api/v1/master-formulas` | recurso en el body (JSON) | 200: Write a master formula | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Master%20Formulas/createMasterFormula |
+| `/master-formulas` | GET | `/api/v1/master-formulas/{masterFormulaId}` | `masterFormulaId` (path) | 200: Get a master formula by its id | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Master%20Formulas/getMasterFormulaById |
+| `/master-formulas` | POST | `/api/v1/master-formulas/{masterFormulaId}/approval` | `masterFormulaId` (path), recurso en el body (JSON) | 200: Approve a master formula | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Master%20Formulas/approveMasterFormula |
+| `/material-lots` | GET | `/api/v1/material-lots` | — | 200: Get all raw material lots | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Material%20Lots/getLots |
+| `/material-lots` | POST | `/api/v1/material-lots` | recurso en el body (JSON) | 200: Receive a raw material lot | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Material%20Lots/receiveLot |
+| `/material-lots` | GET | `/api/v1/material-lots/{rawMaterialLotId}` | `rawMaterialLotId` (path) | 200: Get a raw material lot by its id | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Material%20Lots/getLotById |
+| `/material-lots` | POST | `/api/v1/material-lots/{rawMaterialLotId}/allocation` | `rawMaterialLotId` (path), recurso en el body (JSON) | 200: Allocate an approved lot to a batch | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Material%20Lots/allocateLot |
+| `/material-lots` | POST | `/api/v1/material-lots/{rawMaterialLotId}/approval` | `rawMaterialLotId` (path) | 200: Approve a lot in inspection | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Material%20Lots/approveLot |
+| `/material-lots` | PUT | `/api/v1/material-lots/{rawMaterialLotId}/inspection` | `rawMaterialLotId` (path), recurso en el body (JSON) | 200: Record the QC inspection of a lot | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Material%20Lots/inspectLot |
+| `/material-lots` | POST | `/api/v1/material-lots/{rawMaterialLotId}/rejection` | `rawMaterialLotId` (path) | 200: Reject a lot in inspection | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Material%20Lots/rejectLot |
 | `/organizations` | GET | `/api/v1/organizations` | `ruc` (query) | 200: Get every organization, or the one registered with a RUC | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Organizations/getAllOrganizations |
-| `/organizations` | POST | `/api/v1/organizations` | recurso en el body (JSON) | 201: Register a new organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Organizations/registerOrganization |
+| `/organizations` | POST | `/api/v1/organizations` | recurso en el body (JSON) | 200: Register a new organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Organizations/registerOrganization |
 | `/organizations` | GET | `/api/v1/organizations/{organizationId}` | `organizationId` (path) | 200: Get an organization by id | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Organizations/getOrganizationById |
 | `/plans` | GET | `/api/v1/plans` | — | 200: Get all plans | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Plans/getAllPlans |
 | `/plans` | POST | `/api/v1/plans` | recurso en el body (JSON) | 201, 400, 409: Create a plan | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Plans/createPlan |
 | `/plans` | GET | `/api/v1/plans/{id}` | `id` (path) | 200, 404: Get a plan by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Plans/getPlanById |
 | `/production-batches` | GET | `/api/v1/production-batches` | `batchNumber` (query) | 200: Get all production batches or filter by batch number | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/getBatches |
-| `/production-batches` | POST | `/api/v1/production-batches` | recurso en el body (JSON) | 201: Create a new production batch | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/createBatch |
+| `/production-batches` | POST | `/api/v1/production-batches` | recurso en el body (JSON) | 200: Create a new production batch | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/createBatch |
+| `/production-batches` | GET | `/api/v1/production-batches/by-number/{batchNumber}` | `batchNumber` (path) | 200: Get a production batch by its batch number | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/getBatchByNumber |
 | `/production-batches` | GET | `/api/v1/production-batches/{batchId}` | `batchId` (path) | 200: Get production batch by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/getBatchById |
 | `/production-batches` | POST | `/api/v1/production-batches/{batchId}/close` | `batchId` (path), recurso en el body (JSON) | 200: Close a production batch | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/closeBatch |
-| `/production-batches` | POST | `/api/v1/production-batches/{batchId}/incidents` | `batchId` (path), recurso en el body (JSON) | 201: Register an incident for a production batch | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/registerIncident |
-| `/quality-documents` | GET | `/api/v1/quality-documents` | — | 200: Get all quality documents | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Quality%20Documents/getAllDocuments |
-| `/quality-documents` | POST | `/api/v1/quality-documents` | recurso en el body (JSON) | 201: Create a quality document | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Quality%20Documents/createDocument |
-| `/quality-documents` | GET | `/api/v1/quality-documents/{documentId}` | `documentId` (path) | 200: Get quality document by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Quality%20Documents/getDocumentById |
+| `/production-batches` | POST | `/api/v1/production-batches/{batchId}/incidents` | `batchId` (path), recurso en el body (JSON) | 200: Register an incident for a production batch | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/registerIncident |
+| `/production-batches` | PATCH | `/api/v1/production-batches/{batchId}/progress` | `batchId` (path), recurso en el body (JSON) | 200: Update the progress of a production batch | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/updateProgress |
+| `/production-batches` | POST | `/api/v1/production-batches/{batchId}/release` | `batchId` (path), recurso en el body (JSON) | 200: Release a production batch for distribution | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/releaseBatch |
+| `/production-batches` | POST | `/api/v1/production-batches/{batchId}/resume` | `batchId` (path) | 200: Resume a production batch that is on hold | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/resumeBatch |
+| `/production-batches` | POST | `/api/v1/production-batches/{batchId}/start` | `batchId` (path) | 200: Start a planned production batch | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Batches/startBatch |
+| `/production-orders` | GET | `/api/v1/production-orders` | — | 200: Get all production orders | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Orders/getProductionOrders |
+| `/production-orders` | POST | `/api/v1/production-orders` | recurso en el body (JSON) | 200: Plan a production order | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Orders/createProductionOrder |
+| `/production-orders` | GET | `/api/v1/production-orders/{productionOrderId}` | `productionOrderId` (path) | 200: Get a production order by its id | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Orders/getProductionOrderById |
+| `/production-orders` | PUT | `/api/v1/production-orders/{productionOrderId}/operations/{sequence}` | `productionOrderId` (path), `sequence` (path), recurso en el body (JSON) | 200: Record the progress of an operation | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Orders/updateOperation |
+| `/production-orders` | PUT | `/api/v1/production-orders/{productionOrderId}/status` | `productionOrderId` (path), recurso en el body (JSON) | 200: Change the status of a production order | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Production%20Orders/changeStatus |
+| `/products` | GET | `/api/v1/products` | — | 200: Get all products | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Products/getProducts |
+| `/products` | POST | `/api/v1/products` | recurso en el body (JSON) | 200: Register a product | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Products/createProduct |
+| `/products` | GET | `/api/v1/products/{productId}` | `productId` (path) | 200: Get a product by its id | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Products/getProductById |
+| `/products` | PUT | `/api/v1/products/{productId}` | `productId` (path), recurso en el body (JSON) | 200: Update a product | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Products/updateProduct |
+| `/quality-documents` | GET | `/api/v1/quality-documents` | `code` (query) | 200: Get the quality documents | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Quality%20documents/getQualityDocuments |
+| `/quality-documents` | POST | `/api/v1/quality-documents` | recurso en el body (JSON) | 200: Create a quality document | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Quality%20documents/createQualityDocument |
+| `/quality-documents` | GET | `/api/v1/quality-documents/{qualityDocumentId}` | `qualityDocumentId` (path) | 200: Get a quality document by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Quality%20documents/getQualityDocumentById |
+| `/quality-documents` | PUT | `/api/v1/quality-documents/{qualityDocumentId}` | `qualityDocumentId` (path), recurso en el body (JSON) | 200: Update a quality document | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Quality%20documents/updateQualityDocument |
 | `/readings` | GET | `/api/v1/readings` | `sensorCode` (query), `batchCode` (query) | 200: Get readings | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Readings/getAllReadings |
 | `/readings` | POST | `/api/v1/readings` | recurso en el body (JSON) | 201, 400: Record reading | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Readings/createReading |
 | `/readings` | GET | `/api/v1/readings/{id}` | `id` (path) | 200, 404: Get reading by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Readings/getReadingById |
-| `/regulatory-reports` | GET | `/api/v1/regulatory-reports` | — | 200: Get all regulatory reports | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Regulatory%20Reports/getAllReports |
-| `/regulatory-reports` | POST | `/api/v1/regulatory-reports` | recurso en el body (JSON) | 201: Create a regulatory report | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Regulatory%20Reports/createReport |
+| `/regulatory-reports` | GET | `/api/v1/regulatory-reports` | — | 200: Get the regulatory reports | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Regulatory%20reports/getRegulatoryReports |
+| `/regulatory-reports` | POST | `/api/v1/regulatory-reports` | recurso en el body (JSON) | 200: Create a regulatory report | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Regulatory%20reports/createRegulatoryReport |
+| `/regulatory-reports` | GET | `/api/v1/regulatory-reports/{regulatoryReportId}` | `regulatoryReportId` (path) | 200: Get a regulatory report by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Regulatory%20reports/getRegulatoryReportById |
+| `/roles` | GET | `/api/v1/roles` | — | 200, 401, 403: Get all roles | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Roles/getAllRoles |
 | `/sensors` | GET | `/api/v1/sensors` | `equipmentCode` (query) | 200: Get sensors | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Sensors/getAllSensors |
 | `/sensors` | POST | `/api/v1/sensors` | recurso en el body (JSON) | 201, 400, 409: Create sensor | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Sensors/createSensor |
 | `/sensors` | GET | `/api/v1/sensors/{id}` | `id` (path) | 200, 404: Get sensor by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Sensors/getSensorById |
@@ -1718,26 +1822,34 @@ Los RESTful Web Services se documentan con OpenAPI (springdoc-openapi) y Swagger
 | `/subscriptions` | GET | `/api/v1/subscriptions` | `organizationId` (query) | 200, 400: Get subscriptions by organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/getSubscriptionsByOrganizationId |
 | `/subscriptions` | POST | `/api/v1/subscriptions` | recurso en el body (JSON) | 201, 400, 404, 409: Create a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/createSubscription |
 | `/subscriptions` | GET | `/api/v1/subscriptions/{id}` | `id` (path) | 200, 404: Get a subscription by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/getSubscriptionById |
-| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/activation` | `id` (path) | 200, 404, 422: Activate a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/activateSubscription |
-| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/cancellation` | `id` (path) | 200, 404, 422: Cancel a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/cancelSubscription |
-| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/payments` | `id` (path), recurso en el body (JSON) | 200, 400, 404, 422: Pay a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/paySubscription |
-| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/renewal` | `id` (path) | 200, 404, 422: Renew a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/renewSubscription |
-| `/task-comments` | POST | `/api/v1/task-comments` | recurso en el body (JSON) | 201: Create a task comment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Task%20Comments/createComment |
-| `/task-comments` | GET | `/api/v1/task-comments/by-task/{taskId}` | `taskId` (path) | 200: Get comments by task ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Task%20Comments/getCommentsByTaskId |
-| `/traceability-gaps` | GET | `/api/v1/traceability-gaps` | — | 200: Get all traceability gaps | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Traceability%20Gaps/getAllGaps |
-| `/traceability-gaps` | POST | `/api/v1/traceability-gaps` | recurso en el body (JSON) | 201: Create a traceability gap | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Traceability%20Gaps/createGap |
-| `/traceability-gaps` | GET | `/api/v1/traceability-gaps/by-batch/{batchId}` | `batchId` (path) | 200: Get traceability gaps by batch ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Traceability%20Gaps/getGapsByBatchId |
-| `/user-profiles` | GET | `/api/v1/user-profiles` | — | 200: Get every user profile | https://doofplus-platform.onrender.com/swagger-ui/index.html#/User%20Profiles/getAllUserProfiles |
-| `/user-profiles` | POST | `/api/v1/user-profiles` | recurso en el body (JSON) | 201: Create the profile of a user | https://doofplus-platform.onrender.com/swagger-ui/index.html#/User%20Profiles/createUserProfile |
+| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/activation` | `id` (path) | 200, 404, 409: Activate a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/activateSubscription |
+| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/cancellation` | `id` (path) | 200, 404, 409: Cancel a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/cancelSubscription |
+| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/payments` | `id` (path), recurso en el body (JSON) | 200, 400, 404, 409, 422, 503: Pay a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/paySubscription |
+| `/subscriptions` | PUT | `/api/v1/subscriptions/{id}/plan` | `id` (path), recurso en el body (JSON) | 200, 400, 404, 409: Change the plan of a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/changeSubscriptionPlan |
+| `/subscriptions` | POST | `/api/v1/subscriptions/{id}/renewal` | `id` (path) | 200, 404, 409: Renew a subscription | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Subscriptions/renewSubscription |
+| `/task-comments` | GET | `/api/v1/task-comments` | `recordCode` (query) | 200: Get the task comments | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Task%20comments/getTaskComments |
+| `/task-comments` | POST | `/api/v1/task-comments` | recurso en el body (JSON) | 200: Create a task comment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Task%20comments/createTaskComment |
+| `/task-comments` | GET | `/api/v1/task-comments/{taskCommentId}` | `taskCommentId` (path) | 200: Get a task comment by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Task%20comments/getTaskCommentById |
+| `/telemetry` | POST | `/api/v1/telemetry` | `X-Api-Key` (header), recurso en el body (JSON) | 200: Receive a reading from ThingsBoard | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Telemetry/receiveTelemetry |
+| `/tokens` | POST | `/api/v1/tokens` | recurso en el body (JSON) | 200, 401: Create authentication token (Sign-in) | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Tokens/generateToken |
+| `/traceability-gaps` | GET | `/api/v1/traceability-gaps` | `batchCode` (query) | 200: Get the traceability gaps | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Traceability%20gaps/getTraceabilityGaps |
+| `/traceability-gaps` | POST | `/api/v1/traceability-gaps` | recurso en el body (JSON) | 200: Create a traceability gap | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Traceability%20gaps/createTraceabilityGap |
+| `/traceability-gaps` | GET | `/api/v1/traceability-gaps/{traceabilityGapId}` | `traceabilityGapId` (path) | 200: Get a traceability gap by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Traceability%20gaps/getTraceabilityGapById |
+| `/user-profiles` | GET | `/api/v1/user-profiles` | `organizationId` (query) | 200: Get every user profile | https://doofplus-platform.onrender.com/swagger-ui/index.html#/User%20Profiles/getAllUserProfiles |
+| `/user-profiles` | POST | `/api/v1/user-profiles` | recurso en el body (JSON) | 200: Create the profile of a user | https://doofplus-platform.onrender.com/swagger-ui/index.html#/User%20Profiles/createUserProfile |
+| `/user-profiles` | GET | `/api/v1/user-profiles/{id}` | `id` (path) | 200: Get a user profile by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/User%20Profiles/getUserProfileById |
 | `/user-profiles` | PUT | `/api/v1/user-profiles/{profileId}` | `profileId` (path), recurso en el body (JSON) | 200: Update the notification preferences and the language of a user profile | https://doofplus-platform.onrender.com/swagger-ui/index.html#/User%20Profiles/updateUserProfile |
+| `/users` | GET | `/api/v1/users` | — | 200, 401, 403: Get all users | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Users/getAllUsers |
+| `/users` | POST | `/api/v1/users` | recurso en el body (JSON) | 201, 400, 409: Create user (Sign-up) | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Users/createUser |
+| `/users` | GET | `/api/v1/users/{userId}` | `userId` (path) | 200, 401, 403, 404: Get user by ID | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Users/getUserById |
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
 En este Sprint se publicaron las siguientes versiones, siguiendo GitFlow:
 
 - **Website:** `release/v2.1.0` se fusionó en `main` con el tag `v2.1.0` (31/10/2026) y desde entonces el Website se publica en GitHub Pages con un workflow de GitHub Actions. Después se publicaron el hotfix `v2.1.1` (01/11/2026) y `v2.2.0` (09/11/2026). URL: https://ingescompany.github.io/doofplus-website/.
-- **Web Application:** el hotfix `v1.0.2` (01/11/2026) y `release/v1.1.0` (09/11/2026), con Contact us y los permisos por rol, publicados en Firebase Hosting. URL: https://doofplus-webapp.web.app.
-- **RESTful Web Services:** `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0` (13/11/2026). El API se publicó en un Web Service de Render con Docker, desde `main`, y su base de datos MySQL 8 en Railway; las credenciales se cargan como variables de entorno del servicio y no están en el repositorio. URL: https://doofplus-platform.onrender.com y Swagger UI en https://doofplus-platform.onrender.com/swagger-ui.html. Se comprobó que `POST /api/v1/contact-inquiries` responde 201 y, con un correo inválido, 400; y que los `GET` de cada bounded context responden 200.
+- **Web Application:** el hotfix `v1.0.2` (01/11/2026), `release/v1.1.0` (09/11/2026), con Contact us y los permisos por rol, `release/v1.2.0` (14/11/2026), con Organizations & Profiles e IoT Monitoring sobre el API, y `release/v1.3.0` (15/11/2026), con el sign-in del IAM del API y Subscriptions, Manufacturing y Quality & Compliance sobre el API, publicados en Firebase Hosting. URL: https://doofplus-webapp.web.app.
+- **RESTful Web Services:** `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0` (13/11/2026); después se publicaron `v1.1.0` (14/11/2026), con el catálogo de Manufacturing, la telemetría de ThingsBoard y la baja de equipos, y `v1.2.0` (15/11/2026), con el IAM (JWT y verificación en dos pasos) y Quality & Compliance según los diagramas de clases y de base de datos. El API se publicó en un Web Service de Render con Docker, desde `main`, y su base de datos MySQL 8 en Railway; las credenciales se cargan como variables de entorno del servicio y no están en el repositorio. URL: https://doofplus-platform.onrender.com y Swagger UI en https://doofplus-platform.onrender.com/swagger-ui.html. Se comprobó que `POST /api/v1/contact-inquiries` responde 201 y, con un correo inválido, 400; y que los `GET` de cada bounded context responden 200.
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
@@ -1745,11 +1857,11 @@ En este Sprint se incorporó Alisee Torres al equipo, por lo que participaron se
 
 | Team Member | GitHub Username | Website | Web Application | RESTful Web Services | Curso (develop) | Total |
 |---|---|:---:|:---:|:---:|:---:|:---:|
-| Angulo Ramírez, Marcelo Martín | Zock2005 | 0 | 0 | 121 | 4 | 125 |
+| Angulo Ramírez, Marcelo Martín | Zock2005 | 0 | 0 | 122 | 4 | 126 |
 | Flores Martinez, Ricardo Andres | Nitoryu28 | 0 | 0 | 120 | 0 | 120 |
+| Rojas Ambicho, Nestor Daniel | danRO-20 | 12 | 10 | 49 | 6 | 77 |
+| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | 11 | 18 | 39 | 8 | 76 |
 | Zavaleta Gutierrez, Rodolfo Martin | gutierrezrodolfo360-bit | 11 | 9 | 43 | 3 | 66 |
-| Rojas Ambicho, Nestor Daniel | danRO-20 | 12 | 8 | 40 | 5 | 65 |
-| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | 11 | 12 | 23 | 8 | 54 |
 | Torres Juárez, Alisee Muriel | lLisee1 | 0 | 0 | 1 | 0 | 1 |
 
 - **Website:** https://github.com/IngesCompany/doofplus-website/graphs/contributors y https://github.com/IngesCompany/doofplus-website/network
