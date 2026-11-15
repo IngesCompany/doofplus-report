@@ -82,5 +82,6 @@
 | 3.1.0 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V con lo publicado para el AV2: la Web Application `v1.4.0` usa el API en los seis bounded contexts y ya no usa la Fake API (5.1.4 y 5.2.3.5), la documentación de los RESTful Web Services `v1.3.0` con sus 134 operaciones (5.2.3.6) y las versiones publicadas del Website, la Web Application y los Web Services (5.2.3.7). |
 | 3.1.1 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: en el Sprint Backlog 3 pasan a *Done* las tareas de la Web Application contra el API (T141, T151, T157, T160 y T164), las de Quality & Compliance (T158, T161 y T162) y la autenticación JWT (T199, T200 y T201), con la captura del board del Sprint 3 en Jira. |
 | 3.2.0 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo IV: diagramas de clases y de base de datos de Quality & Compliance y de IAM alineados con el RESTful API: personas por nombre, registros relacionados por código, `CapaAction` y `AuditFinding` como aggregates e invitaciones con la sede por nombre y el rol como valor de `Roles`. |
+| 3.3.0 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Student Outcome: acciones del AV2 de Cobades Zamora, Yhoshua Hebert. Capítulo V: commits del 14 y 15/11/2026 en 5.2.3.4 y conteo de commits por integrante en 5.2.3.8. |
 
 ---
