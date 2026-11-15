@@ -13,8 +13,39 @@
 1. **Para la siguiente entrega (AV2):** implementar los RESTful Web Services en Spring Boot y conectar la Web Application, que hoy consume una Fake API, empezando por Identity & Access Management, del que dependen el inicio de sesión con 2FA y las firmas electrónicas.
 2. **Para la validación:** realizar las Validation Interviews con especialistas QA/QC y jefes de producción sobre la versión publicada de la Web Application, midiendo el tiempo necesario para reconstruir el historial de un lote y para preparar una auditoría, que son los criterios de éxito del Problem Statement.
 
-## Video About-the-Team
+## Video About-The-Team
 
-En el video About-the-Team, cada integrante cuenta su experiencia en el desarrollo de DoofPlus y el equipo expone la proyección del producto: la integración de la Web Application con los RESTful Web Services, la conexión con ThingsBoard para la telemetría real de los sensores y la incorporación de los laboratorios piloto.
+### Resumen del video
 
-**Enlace al video:** https://youtu.be/U-Wlk2l3wbA
+El video About-The-Team presenta una síntesis del proceso de trabajo desarrollado por el equipo a lo largo del proyecto. Combina imágenes y video de sesiones reales de trabajo con una narración en voz en off que guía al espectador por las etapas principales: la organización del equipo, la distribución de roles, el desarrollo de las actividades y los resultados obtenidos. De este modo muestra la dinámica colaborativa y la manera en que se abordaron los desafíos del proyecto.
+
+Además, el video incluye el testimonio ante cámara de cada participante, quien describe las actividades que realizó, el logro de los outcomes planteados y las competencias que desarrolló durante la experiencia. Estos testimonios aportan una mirada personal y complementan la visión global del trabajo en equipo, y muestran el aprendizaje alcanzado de forma individual y colectiva.
+
+**Duración total:** [00:09:12]
+
+### Cuadro de video representativo
+
+[![About-The-Team](https://img.youtube.com/vi/pE0AvoDX4XY/maxresdefault.jpg)](https://www.youtube.com/watch?v=pE0AvoDX4XY)
+
+*Cuadro representativo del video About-The-Team.*
+
+### Pauta de secuencias de contenido
+
+| N.º | Sección / Secuencia                        | Tiempo de inicio (hh:mm:ss) | Descripción breve                                                                                                                                                                                                      |
+|:---:|--------------------------------------------|:---------------------------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  1  | Introducción / Presentación del equipo     |          00:00:00           | Startup IngesCompanyCC, desarrolladora de Doofplus, empezamos escuchando a los usuarios, haciendo entrevistas, oyendo sus problemas, gracias a esto se pudo hacer el needfinding, para luego pasar a DDD               |
+|  2  | Proceso de trabajo del equipo (voz en off) |          00:00:19           | Una explicación del trabajo realizado a lo largo del curso, se menciona lo desarrollado en el sprint 1, sprint 2 y el sprint 3. Además, de mencionar brevemente de lo que desarrollará en el sprint 4                  |
+|  3  | Testimonio de Marcelo Angulo               |          00:04:15           | Trabajó en las entrevistas con los segmentos objetivos. Además, se encargó de la programación del bounded context Monitoring. <br> Para el outcome: trabajó comunicandose de forma clara tanto en oral como en escrito |
+|  4  | Testimonio de Yhoshua Cobades              |          00:05:13           | Trabajó en los aspectos de Domain Driven Design (Lenguaje Ubicuo), se encargó de los bounded context Quality y Manufacturing. <br> Para el outcome: expuso en el diseño del dominio                                    |
+|  5  | Testimonio de Ricardo Flores               |          00:06:25           | Trabajó en las entrevistas de segmentos por producción. se encargó del bounded context Quality. <br> Para el outcome: presentó el sprint planning por escrito.                                                         |
+|  6  | Testimonio de Daniel Rojas                 |          00:07:18           | Diseñó la arquitectura C4, diagramas c4, se encargó del bounded context Subscriptions. <br> Para el outcome: se encargó de explicar a sus compañeros sobre el código que implementaba.                                 |
+|  7  | Testimonio de Rodolfo Zavaleta             |          00:08:10           | Presentó al equipo, trabajó en la arquitectura del código de la Web Application, se encargó del bounded context Manufacturing y Shared. <br> Para el outcome: expuso el proyecto a un público de negocio.              |
+
+### Enlaces del video
+
+| Plataforma | URL                                                                                                                                                                                                                                                                                                                     | Uso |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
+| Microsoft Stream | https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241f733_upc_edu_pe/IQDAODnF4cJATq3fvJ5N25dXAbNuKp45yHqBcpQGjiZQMS4?e=MVjjbN&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D | Versión publicada |
+| YouTube | https://youtu.be/U-Wlk2l3wbA                                                                                                                                                                                                                                                                              | Versión incrustada en el Landing Page |
+
+
