@@ -9,9 +9,9 @@ erDiagram
     varchar(10) version "2.4"
     varchar(255) title
     varchar(20) status "DRAFT, IN_REVIEW, APPROVED, OBSOLETE"
-    bigint author_id "ref iam.users"
-    bigint technical_reviewer_id "ref iam.users"
-    bigint approver_id "ref iam.users"
+    varchar(100) author "person name"
+    varchar(100) technical_reviewer "person name"
+    varchar(100) approver "person name"
     date changed_at
     text purpose
     text scope
@@ -28,17 +28,19 @@ erDiagram
     varchar(50) protocol
     varchar(30) result "98.7 %"
     varchar(50) specification "95.0–105.0 %"
-    bigint analyst_id "ref iam.users"
+    varchar(100) analyst "person name"
     varchar(10) status "WITHIN, OOS, PENDING"
     varchar(20) approval "REQUESTED, APPROVED"
   }
   batch_releases {
     bigint id PK
+    bigint batch_id "ref manufacturing.production_batches"
     varchar(30) batch_code UK "ref manufacturing.production_batches"
-    bigint requested_by "ref iam.users"
+    varchar(100) requested_by "person name"
     varchar(20) status "PENDING, RELEASED, REJECTED"
     varchar(500) decision "nullable"
-    bigint signature_id "ref iam.electronic_signatures"
+    varchar(60) signature_reference
+    varchar(100) signed_by "person name"
     datetime signed_at "nullable"
   }
   evidence {
@@ -62,18 +64,19 @@ erDiagram
     int detectability "1-5"
     varchar(20) status "OPEN, SUBMITTED, DISPOSITIONED, CLOSED"
     varchar(150) root_cause "nullable"
-    bigint reported_by "ref iam.users"
+    varchar(100) reported_by "person name"
+    varchar(30) capa_code "capa_plans.code"
     datetime reported_at
-    bigint owner_id "ref iam.users"
+    varchar(100) owner "person name"
     datetime due_at
   }
   capa_plans {
     bigint id PK
     varchar(30) code UK "CAPA-26009"
-    bigint deviation_id FK
+    varchar(30) source_deviation "deviations.code"
     varchar(255) title
-    bigint owner_id "ref iam.users"
-    bigint reviewer_id "ref iam.users"
+    varchar(100) owner "person name"
+    varchar(100) reviewer "person name"
     varchar(150) root_cause "nullable"
     varchar(500) acceptance_criterion
     date effectiveness_check_at
@@ -81,11 +84,11 @@ erDiagram
   }
   capa_actions {
     bigint id PK
-    bigint capa_plan_id FK
+    varchar(30) capa_code "capa_plans.code"
     varchar(10) code "CA-01, PA-01"
     varchar(12) type "CORRECTIVE, PREVENTIVE"
     varchar(255) title
-    bigint owner_id "ref iam.users"
+    varchar(100) owner "person name"
     date due_at
     varchar(20) status "OPEN, PLANNED, IN_REVIEW, COMPLETE"
     varchar(150) evidence
@@ -102,11 +105,11 @@ erDiagram
   }
   audit_findings {
     bigint id PK
-    bigint audit_id FK
+    varchar(30) audit_code "audits.code"
     varchar(10) code "F-01"
     varchar(255) title
     varchar(10) classification "MINOR, MAJOR, CRITICAL"
-    bigint owner_id "ref iam.users"
+    varchar(100) owner "person name"
     date due_at
     varchar(20) status "EVIDENCE_PENDING, IN_REVIEW, CLOSED"
     text observation
@@ -117,11 +120,11 @@ erDiagram
     bigint id PK
     varchar(30) event_code UK "EVT-89416"
     datetime occurred_at
-    bigint actor_id "ref iam.users"
+    varchar(100) actor "person name"
     varchar(40) actor_role
     varchar(100) event
     varchar(30) record_code
-    varchar(20) result "RECORDED, BLOCKED, ON_HOLD, ACKNOWLEDGED"
+    varchar(100) result "free text"
     varchar(100) field
     varchar(255) before_value "nullable"
     varchar(255) after_value "nullable"
@@ -132,34 +135,37 @@ erDiagram
     varchar(30) code UK "RPT-26012"
     varchar(20) type "BATCH_DOSSIER, QUALITY_REVIEW, CAPA_SUMMARY, AUDIT_EVIDENCE"
     varchar(100) scope
-    bigint owner_id "ref iam.users"
+    varchar(100) owner "person name"
     varchar(10) status "DRAFT, BLOCKED, APPROVED"
     varchar(100) template
     varchar(100) format
+    date created_at
   }
   collaboration_tasks {
     bigint id PK
     varchar(255) title
     varchar(60) record_code
     varchar(255) detail
-    bigint owner_id "ref iam.users"
+    varchar(100) owner "person name"
     datetime due_at
     varchar(10) status "TO_DO, OPEN, PENDING, IN_REVIEW, READY, DONE"
   }
   task_comments {
     bigint id PK
     varchar(30) record_code
-    bigint author_id "ref iam.users"
+    varchar(100) author "person name"
+    varchar(5) initials
     datetime posted_at
     text text
   }
   traceability_gaps {
     bigint id PK
     varchar(30) batch_code "ref manufacturing.production_batches"
+    varchar(150) product
     varchar(150) missing_record
     varchar(500) detail
     varchar(20) status "OPEN, UNDER_REVIEW, RESOLVED"
   }
-  deviations ||--o| capa_plans : "addressed by"
-  capa_plans ||--|{ capa_actions : "contains"
-  audits ||--o{ audit_findings : "records"
+  deviations ||..o| capa_plans : "source_deviation (code)"
+  capa_plans ||..|{ capa_actions : "capa_code (code)"
+  audits ||..o{ audit_findings : "audit_code (code)"

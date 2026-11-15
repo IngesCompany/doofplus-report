@@ -10,14 +10,14 @@ classDiagram
     -String version
     -String title
     -DocumentStatus status
-    -Long authorId
-    -Long technicalReviewerId
-    -Long approverId
+    -String author
+    -String technicalReviewer
+    -String approver
     -LocalDate changedAt
     -DocumentContent content
     -int reviewCycleMonths
     +submitForReview() void
-    +approve(Long signatureId) void
+    +approve(String signedBy) void
     +publishNewVersion(String version, DocumentContent content) QualityDocument
     +markAsObsolete() void
   }
@@ -38,7 +38,7 @@ classDiagram
     -String protocol
     -String result
     -String specification
-    -Long analystId
+    -String analyst
     -ResultStatus status
     -ApprovalState approval
     +evaluate() void
@@ -47,13 +47,15 @@ classDiagram
   class BatchRelease {
     <<Aggregate Root>>
     -Long id
+    -Long batchId
     -String batchCode
-    -Long requestedBy
+    -String requestedBy
     -ReleaseStatus status
     -String decision
-    -Long signatureId
+    -String signatureReference
+    -String signedBy
     -LocalDateTime signedAt
-    +release(Long signatureId) void
+    +release(String signedBy) void
     +reject(String decision) void
   }
   class Evidence {
@@ -78,9 +80,10 @@ classDiagram
     -RiskScore risk
     -DeviationStatus status
     -String rootCause
-    -Long reportedBy
+    -String capaCode
+    -String reportedBy
     -LocalDateTime reportedAt
-    -Long ownerId
+    -String owner
     -LocalDateTime dueAt
     +classify(Classification classification, RiskScore risk) void
     +registerRootCause(String rootCause) void
@@ -98,26 +101,25 @@ classDiagram
     <<Aggregate Root>>
     -Long id
     -String code
-    -Long deviationId
+    -String sourceDeviation
     -String title
-    -Long ownerId
-    -Long reviewerId
+    -String owner
+    -String reviewer
     -String rootCause
     -String acceptanceCriterion
     -LocalDate effectivenessCheckAt
     -CapaStatus status
-    -List~CapaAction~ actions
-    +addAction(CapaType type, String title, Long ownerId, LocalDate dueAt) CapaAction
     +submitForApproval() void
     +close() void
   }
   class CapaAction {
-    <<Entity>>
+    <<Aggregate Root>>
     -Long id
+    -String capaCode
     -String code
     -CapaType type
     -String title
-    -Long ownerId
+    -String owner
     -LocalDate dueAt
     -ActionStatus status
     -String evidence
@@ -134,18 +136,17 @@ classDiagram
     -int areasReviewed
     -int areasTotal
     -AuditStatus status
-    -List~AuditFinding~ findings
     +start() void
-    +registerFinding(String title, Classification classification) AuditFinding
     +close() void
   }
   class AuditFinding {
-    <<Entity>>
+    <<Aggregate Root>>
     -Long id
+    -String auditCode
     -String code
     -String title
     -Classification classification
-    -Long ownerId
+    -String owner
     -LocalDate dueAt
     -FindingStatus status
     -String observation
@@ -159,11 +160,11 @@ classDiagram
     -Long id
     -String eventCode
     -LocalDateTime occurredAt
-    -Long actorId
+    -String actor
     -String actorRole
     -String event
     -String recordCode
-    -EventResult result
+    -String result
     -String field
     -String beforeValue
     -String afterValue
@@ -175,10 +176,11 @@ classDiagram
     -String code
     -ReportType type
     -String scope
-    -Long ownerId
+    -String owner
     -ReportStatus status
     -String template
     -String format
+    -LocalDate createdAt
     +approve() void
   }
   class CollaborationTask {
@@ -187,7 +189,7 @@ classDiagram
     -String title
     -String recordCode
     -String detail
-    -Long ownerId
+    -String owner
     -LocalDateTime dueAt
     -TaskStatus status
     +changeStatus(TaskStatus status) void
@@ -196,7 +198,8 @@ classDiagram
     <<Aggregate Root>>
     -Long id
     -String recordCode
-    -Long authorId
+    -String author
+    -String initials
     -LocalDateTime postedAt
     -String text
   }
@@ -204,6 +207,7 @@ classDiagram
     <<Aggregate Root>>
     -Long id
     -String batchCode
+    -String product
     -String missingRecord
     -String detail
     -GapStatus status
@@ -283,13 +287,6 @@ classDiagram
     IN_REVIEW
     CLOSED
   }
-  class EventResult {
-    <<enumeration>>
-    RECORDED
-    BLOCKED
-    ON_HOLD
-    ACKNOWLEDGED
-  }
   class ReportType {
     <<enumeration>>
     BATCH_DOSSIER
@@ -352,15 +349,14 @@ classDiagram
   Deviation *-- RiskScore : risk
   Deviation --> Classification : classification
   Deviation --> DeviationStatus : status
-  CapaPlan "0..1" --> "1" Deviation : addresses
-  CapaPlan "1" *-- "1..*" CapaAction : actions
+  CapaPlan "0..1" ..> "1" Deviation : sourceDeviation (code)
+  CapaAction "1..*" ..> "1" CapaPlan : capaCode (code)
   CapaPlan --> CapaStatus : status
   CapaAction --> CapaType : type
   CapaAction --> ActionStatus : status
-  Audit "1" *-- "0..*" AuditFinding : findings
+  AuditFinding "0..*" ..> "1" Audit : auditCode (code)
   Audit --> AuditStatus : status
   AuditFinding --> FindingStatus : status
-  AuditEvent --> EventResult : result
   RegulatoryReport --> ReportType : type
   RegulatoryReport --> ReportStatus : status
   CollaborationTask --> TaskStatus : status
