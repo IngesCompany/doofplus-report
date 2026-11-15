@@ -1765,3 +1765,7 @@ En este Sprint se incorporó Alisee Torres al equipo, por lo que participaron se
 ### 5.3.3. Evaluaciones según heurísticas
 
 ## 5.4. Video About-the-Product
+
+En el video About-the-Product se presenta DoofPlus y se recorren el Website y la Web Application publicados.
+
+**Enlace al video:** https://youtu.be/saSnknxFqKw
