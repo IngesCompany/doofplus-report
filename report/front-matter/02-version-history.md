@@ -78,5 +78,6 @@
 | 3.0.6 | 14/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: correcciones de la revisión del Sprint Backlog 3 (fecha del Sprint Planning, UserProfile, sensores y telemetría, estados de los lotes y recepción en SAMPLING/PENDING). Conclusiones: enlace al video About-the-Team. |
 | 3.0.7 | 14/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: en el Sprint Backlog 3, T145 pasa a *Done*: la Web Application usa el API para planes, suscripciones, pagos y cambio de plan. |
 | 3.0.8 | 15/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: sección 5.4 con el enlace al video About-the-Product. |
+| 3.1.0 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V con lo publicado para el AV2: la Web Application `v1.4.0` usa el API en los seis bounded contexts y ya no usa la Fake API (5.1.4 y 5.2.3.5), la documentación de los RESTful Web Services `v1.3.0` con sus 134 operaciones (5.2.3.6) y las versiones publicadas del Website, la Web Application y los Web Services (5.2.3.7). |
 
 ---
