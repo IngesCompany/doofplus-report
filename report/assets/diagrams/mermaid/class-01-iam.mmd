@@ -37,8 +37,8 @@ classDiagram
     <<Aggregate Root>>
     -Long id
     -Long organizationId
-    -Long facilityId
-    -Role role
+    -String facility
+    -Roles role
     -String fullName
     -EmailAddress email
     -String note
@@ -142,7 +142,7 @@ classDiagram
   User "0..*" o-- "1..*" Role : has
   User *-- EmailAddress : email
   User --> UserStatus : status
-  Invitation "0..*" --> "1" Role : offers
+  Invitation --> Roles : role
   Invitation --> InvitationStatus : status
   Role --> Roles : name
   ElectronicSignature "0..*" --> "1" User : signedBy

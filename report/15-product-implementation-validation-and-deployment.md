@@ -113,7 +113,7 @@ A continuación se describen los pasos para desplegar cada producto de la soluci
 2. **Frontend Web Application (Firebase Hosting)**
     1. Instalar Firebase CLI (`npm install -g firebase-tools`) e iniciar sesión con `firebase login`.
     2. Seleccionar el proyecto de Firebase con `firebase use --add`. El repositorio ya incluye `firebase.json`, que publica la carpeta `dist/IngesCompany-Frontend/browser` como Single Page Application.
-    3. Publicar la Fake API en un Web Service de Render vinculado a la rama `main` del repositorio `doofplus-web-application`, con el comando de build `npm install` y el de inicio `npm run server:prod`, y registrar su URL en `fakeApiBaseUrl` de `src/environments/environment.ts`; ahí mismo, `platformProviderApiBaseUrl` apunta a los RESTful Web Services publicados (`https://doofplus-platform.onrender.com/api/v1`). Desde la versión `v1.3.0`, la Fake API solo atiende las invitaciones de usuarios, los perfiles de rol y las facturas.
+    3. Registrar en `src/environments/environment.ts` la URL base de los RESTful Web Services publicados (`platformProviderApiBaseUrl`, https://doofplus-platform.onrender.com/api/v1). Desde la versión `v1.4.0`, todos los bounded contexts usan ese API y la Web Application ya no necesita la Fake API.
     4. Compilar la versión de producción con `ng build --configuration production`.
     5. Publicar con `firebase deploy`.
 3. **RESTful Web Services (Render y Railway)**
@@ -1029,7 +1029,7 @@ Los cinco integrantes participaron en ambos repositorios. La siguiente tabla res
 
 ### 5.2.3. Sprint 3
 
-En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el **Sprint 3** (del 18/10/2026 al 15/11/2026), cuyo enfoque fue entregar la primera versión desplegada de los RESTful Web Services, mejorar el Website y la Web Application a partir del feedback del Sprint 2 y preparar la primera versión del curso de Responsabilidad Social.
+En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el **Sprint 3** (del 18/10/2026 al 14/11/2026), cuyo enfoque fue entregar la primera versión desplegada de los RESTful Web Services, mejorar el Website y la Web Application a partir del feedback del Sprint 2 y preparar la primera versión del curso de Responsabilidad Social.
 
 #### 5.2.3.1. Sprint Planning 3
 
@@ -1056,16 +1056,18 @@ En el Sprint 3 se consideraron el Website y la Web Application y, en los RESTful
 
 | Team Member (Last Name, First Name) | GitHub Username | Website | Web Application | Shared & IAM | Organizations | Subscriptions | Manufacturing | IoT Monitoring | Quality & Compliance | Releases & Deployment | Documentation |
 |-------------------------------------|-----------------|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Angulo Ramírez, Marcelo Martín | Zock2005 | | | C | | | | L | | | C |
-| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | C | L | C | L | | | C | C | L | C |
+| Angulo Ramírez, Marcelo Martín | Zock2005 | | | | | | | L | | | C |
+| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | C | L | C | L | | | | C | L | C |
 | Flores Martinez, Ricardo Andres | Nitoryu28 | | | | | | | | L | | |
-| Rojas Ambicho, Nestor Daniel | danRO-20 | L | C | L | C | L | C | C | | C | L |
+| Rojas Ambicho, Nestor Daniel | danRO-20 | L | C | L | | L | | | | C | L |
 | Torres Juárez, Alisee Muriel | lLisee1 | | | | C | | | | | | C |
 | Zavaleta Gutierrez, Rodolfo Martin | gutierrezrodolfo360-bit | C | C | C | | | L | | | C | C |
 
 #### 5.2.3.3. Sprint Backlog 3
 
-El objetivo del Sprint fue entregar la primera versión desplegada de los RESTful Web Services. El Sprint Backlog 3 junta tres bloques: las mejoras del Website y de la Web Application hechas desde el 18/10 (T184 a T198), las tareas de los Web Services por Technical Story (T137 a T165) y la autenticación con JWT (TS02, T199 a T201). Una tarea está en *Done* solo cuando su rama se unió a `develop`; lo que no se termine pasa al Sprint 4. Al cierre del Sprint (15/11/2026) hay 40 tareas en *Done*, 4 en *In-Process* y 3 en *To-do*, con 177 horas estimadas en total. Las tareas que no se terminaron (las fachadas ACL T140 y T156, las calibraciones y mantenimientos de T149, el escalamiento de incidencias T155 y T163, y el cierre de desviaciones con causa raíz T161 y T162) pasan al Sprint 4.
+El objetivo del Sprint fue entregar la primera versión desplegada de los RESTful Web Services. El Sprint Backlog 3 junta tres bloques: las mejoras del Website y de la Web Application hechas desde el 18/10 (T184 a T198), las tareas de los Web Services por Technical Story (T137 a T165) y la autenticación con JWT (TS02, T199 a T201). Una tarea está en *Done* solo cuando su rama se unió a `develop`; lo que no se termine pasa al Sprint 4. Al cierre del Sprint hay 42 tareas en *Done*, 2 en *In-Process* y 3 en *To-do*, con 177 horas estimadas en total.
+
+![Sprint Backlog 3 en Jira](assets/img/chapter5/evidencia/jira-sprint3.png)
 
 **Enlace al board en Jira:** https://doofplus.atlassian.net/jira/software/projects/UPC/boards/3
 
@@ -1097,8 +1099,8 @@ El objetivo del Sprint fue entregar la primera versión desplegada de los RESTfu
 | TS10 | API de documentación de calidad | T158 | Quality: servicios de documentación | Implementar los command y query services de QualityDocument: registro, nuevas versiones y aprobación (US09, US10, US12, US13). | 4 | Flores Martinez, Ricardo Andres | Done |
 | TS10 | API de documentación de calidad | T159 | Quality: endpoints de documentación | Implementar QualityDocumentController: POST /api/v1/quality-documents responde 201 con la versión 1.0 y GET /{id} inexistente responde 404; documentación OpenAPI. | 3 | Flores Martinez, Ricardo Andres | Done |
 | TS10 | API de documentación de calidad | T160 | Web App: documentación de calidad contra el API | Reemplazar la Fake API en las vistas de protocolos, SOP y versiones del módulo quality. | 3 | Cobades Zamora, Yhoshua Hebert | Done |
-| TS11 | API de desviaciones y CAPA | T161 | Quality: servicios de desviaciones y CAPA | Implementar los servicios de Deviation, CapaPlan y CapaAction: registro, causa raíz, acciones y cierre (US18, US19, US20, US21). | 5 | Flores Martinez, Ricardo Andres | In-Process |
-| TS11 | API de desviaciones y CAPA | T162 | Quality: endpoints de desviaciones y CAPA | Implementar DeviationController, CapaPlanController y CapaActionController; PATCH /api/v1/deviations/{id}/close sin causa raíz responde 422. | 4 | Flores Martinez, Ricardo Andres | In-Process |
+| TS11 | API de desviaciones y CAPA | T161 | Quality: servicios de desviaciones y CAPA | Implementar los servicios de Deviation, CapaPlan y CapaAction: registro, causa raíz, acciones y cierre (US18, US19, US20, US21). | 5 | Flores Martinez, Ricardo Andres | Done |
+| TS11 | API de desviaciones y CAPA | T162 | Quality: endpoints de desviaciones y CAPA | Implementar DeviationController, CapaPlanController y CapaActionController; PATCH /api/v1/deviations/{id}/close sin causa raíz responde 422. | 4 | Flores Martinez, Ricardo Andres | Done |
 | TS11 | API de desviaciones y CAPA | T163 | Quality: desviación desde incidencia de Producción | Policy que abre una desviación cuando Manufacturing escala una incidencia (US56). | 2 | Flores Martinez, Ricardo Andres | To-do |
 | TS11 | API de desviaciones y CAPA | T164 | Web App: desviaciones y CAPA contra el API | Reemplazar la Fake API en las vistas de desviaciones y CAPA del módulo quality. | 3 | Cobades Zamora, Yhoshua Hebert | Done |
 | — | Tareas técnicas | T165 | Despliegue del RESTful API | Publicar el RESTful API en Render con la base de datos MySQL en Railway y la documentación Swagger accesible; configurar la URL del API en la Web Application. | 4 | Rojas Ambicho, Nestor Daniel | Done |
@@ -1123,7 +1125,7 @@ El objetivo del Sprint fue entregar la primera versión desplegada de los RESTfu
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
-En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature branch por sección del Website, por mejora de la Web Application o por bounded context de los Web Services, integradas en `develop` con merges `--no-ff`, y ramas `release/` y `hotfix/` fusionadas en `main` con su tag. El Website pasó por `v2.1.0`, `v2.1.1` y `v2.2.0`; la Web Application, por `v1.0.2`, `v1.1.0`, `v1.2.0` y `v1.3.0`, y los RESTful Web Services tuvieron su primera versión, `v1.0.0`, seguida de `v1.1.0` y `v1.2.0`. Las tablas siguientes presentan los commits de `main` del Sprint (desde el 18/10/2026); la columna *Branch* indica la rama en que se realizó cada commit. El curso de Responsabilidad Social se trabaja en `develop` de su repositorio, que todavía no tiene release.
+En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature branch por sección del Website, por mejora de la Web Application o por bounded context de los Web Services, integradas en `develop` con merges `--no-ff`, y ramas `release/` y `hotfix/` fusionadas en `main` con su tag. El Website pasó por `v2.1.0`, `v2.1.1` y `v2.2.0`; la Web Application, por `v1.0.2` y `v1.1.0`, y los RESTful Web Services tuvieron su primera versión, `v1.0.0`. Las tablas siguientes presentan los commits de `main` del Sprint (desde el 18/10/2026); la columna *Branch* indica la rama en que se realizó cada commit. El curso de Responsabilidad Social se trabaja en `develop` de su repositorio, que todavía no tiene release.
 
 **Website** (47 commits)
 
@@ -1177,7 +1179,7 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/doofplus-website | release/v2.2.0 | `8edef98` | docs: update the changelog for version 2.2.0 | — | 09/11/2026 |
 | IngesCompany/doofplus-website | main | `a228dc5` | Merge branch 'release/v2.2.0' into main | — | 09/11/2026 |
 
-**Web Application** (59 commits)
+**Web Application** (41 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
@@ -1222,26 +1224,8 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/doofplus-web-application | develop | `99fcc80` | Merge branch 'fix/contributing-title' into develop | — | 07/11/2026 |
 | IngesCompany/doofplus-web-application | release/v1.1.0 | `f13d1a1` | chore(release): prepare version 1.1.0 | — | 09/11/2026 |
 | IngesCompany/doofplus-web-application | main | `59dde7a` | Merge branch 'release/v1.1.0' into main | — | 09/11/2026 |
-| IngesCompany/doofplus-web-application | develop | `3ef7d40` | Merge branch 'release/v1.1.0' into develop | — | 09/11/2026 |
-| IngesCompany/doofplus-web-application | feature/connect-platform-api | `fb0dfc6` | feat(platform): connect organizations and iot monitoring to the doofplus platform api | — | 14/11/2026 |
-| IngesCompany/doofplus-web-application | develop | `d43c34f` | Merge branch 'feature/connect-platform-api' into develop | — | 14/11/2026 |
-| IngesCompany/doofplus-web-application | release/v1.2.0 | `7eb7960` | chore(release): prepare version 1.2.0 | — | 14/11/2026 |
-| IngesCompany/doofplus-web-application | develop | `27ccc98` | Merge branch 'release/v1.2.0' into develop | — | 14/11/2026 |
-| IngesCompany/doofplus-web-application | main | `e7e2646` | Merge branch 'release/v1.2.0' into main | — | 14/11/2026 |
-| IngesCompany/doofplus-web-application | feature/subscriptions-platform-api | `27dc6cc` | feat(subscriptions): use the platform api for plans, subscriptions, payments and plan changes | — | 14/11/2026 |
-| IngesCompany/doofplus-web-application | develop | `100b2c6` | Merge branch 'feature/subscriptions-platform-api' into develop | — | 14/11/2026 |
-| IngesCompany/doofplus-web-application | feature/iam-real-api | `750b36b` | feat(iam): sign in with the iam of the doofplus platform | - Sign-in calls POST /authentication/sign-in of the platform: the first request checks the password and answers two-factor-required; the second one sends the… | 14/11/2026 |
-| IngesCompany/doofplus-web-application | develop | `3fca89f` | Merge branch 'feature/iam-real-api' into develop | — | 14/11/2026 |
-| IngesCompany/doofplus-web-application | feature/translated-workspace-texts | `7af696f` | feat(i18n): translate the toasts, labels and not found page of the workspace | — | 14/11/2026 |
-| IngesCompany/doofplus-web-application | develop | `34e6a4f` | Merge branch 'feature/translated-workspace-texts' into develop | — | 15/11/2026 |
-| IngesCompany/doofplus-web-application | feature/manufacturing-platform-api | `eeeec92` | feat(manufacturing): use the platform API for products, formulas, orders, batches and lots | The Manufacturing store now reads and writes the DoofPlus Platform instead of the Fake API. The assemblers flatten the formula items, the order operations an… | 15/11/2026 |
-| IngesCompany/doofplus-web-application | develop | `d0d1065` | Merge branch 'feature/manufacturing-platform-api' into develop | — | 15/11/2026 |
-| IngesCompany/doofplus-web-application | feature/quality-platform-api | `74b3fb8` | feat(quality): use the platform API for the Quality and Compliance records | Quality reads and writes the DoofPlus Platform, following contratos/quality-api.json as in AW: the assemblers turn the enums from UPPER_SNAKE_CASE to kebab-c… | 15/11/2026 |
-| IngesCompany/doofplus-web-application | develop | `3fba861` | Merge branch 'feature/quality-platform-api' into develop | — | 15/11/2026 |
-| IngesCompany/doofplus-web-application | release/v1.3.0 | `b9537bc` | chore(release): prepare version 1.3.0 | — | 15/11/2026 |
-| IngesCompany/doofplus-web-application | main | `cf78130` | Merge branch 'release/v1.3.0' into main | — | 15/11/2026 |
 
-**RESTful Web Services** (415 commits)
+**RESTful Web Services** (372 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
@@ -1617,51 +1601,8 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/doofplus-platform | develop | `fd94b12` | Merge branch 'feature/subscriptions' into develop | # Conflicts: # src/main/resources/messages.properties # src/main/resources/messages_es.properties | 13/11/2026 |
 | IngesCompany/doofplus-platform | release/v1.0.0 | `6a47dc2` | chore(release): prepare version 1.0.0 | — | 13/11/2026 |
 | IngesCompany/doofplus-platform | main | `529e7b6` | Merge branch 'release/v1.0.0' into main | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `2f4bfe2` | feat(user): add User class to domain model in bounded context iam | — | 27/10/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `cf42e2a` | feat(iam): add EmailAddress, OrganizationId value objects and Roles enum | — | 28/10/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `38f92b2` | feat(iam): add EmailAddress and OrganizationId attribute converters | — | 28/10/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `915e63b` | feat(iam): add Role entity | — | 28/10/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `0380ada` | feat(iam): add sign-up, sign-in and seed roles commands and user queries | — | 28/10/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `3cc35f4` | feat(iam): implement User aggregate | — | 28/10/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `f7e3ffb` | feat(iam): add user and role repositories | — | 29/10/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `8f4b73a` | feat(iam): implement role seeding command service | — | 29/10/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `a30edfe` | feat(iam): seed roles when the application is ready | — | 29/10/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `2f3dc6e` | feat(iam): implement user and role query services | — | 29/10/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `f35f7a0` | feat(iam): add user command service contract and failure types | — | 29/10/2026 |
-| IngesCompany/doofplus-platform | develop | `e51e9b6` | Merge branch 'release/v1.0.0' into develop | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | feature/subscriptions | `f45c676` | fix(subscriptions): answer 503 when niubiz is not available | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | develop | `851d8b2` | Merge branch 'feature/subscriptions' into develop | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | feature/manufacturing-batch-children | `2d8efef` | fix(manufacturing): save the incidents, events and consumptions of a batch | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | develop | `17bdf32` | Merge branch 'feature/manufacturing-batch-children' into develop | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | feature/production-batch-product-fields | `5e9086c` | feat(manufacturing): add the line, owner, progress and event tone of a batch | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | develop | `d041105` | Merge branch 'feature/production-batch-product-fields' into develop | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | feature/production-batch-statuses | `fc3bb6e` | feat(manufacturing): use the batch statuses of the web app | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | develop | `4805ab5` | Merge branch 'feature/production-batch-statuses' into develop | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | feature/manufacturing-catalog | `97bda7b` | feat(manufacturing): add the catalog of products, formulas, orders and material lots | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | develop | `96198fa` | Merge branch 'feature/manufacturing-catalog' into develop | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | feature/organizations-user-profiles | `7208eca` | refactor(organizations): rename profiles to user profiles as in the web app | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | develop | `b162172` | Merge branch 'feature/organizations-user-profiles' into develop | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | feature/monitoring-telemetry | `756a995` | feat(monitoring): receive the thingsboard telemetry | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | develop | `dab69b2` | Merge branch 'feature/monitoring-telemetry' into develop | — | 13/11/2026 |
-| IngesCompany/doofplus-platform | feature/monitoring-delete-equipment-and-conflicts | `9a60d2c` | feat(monitoring): delete equipment and answer 409 for state changes that are not allowed | — | 14/11/2026 |
-| IngesCompany/doofplus-platform | develop | `69f5245` | Merge branch 'feature/monitoring-delete-equipment-and-conflicts' into develop | — | 14/11/2026 |
-| IngesCompany/doofplus-platform | release/v1.1.0 | `4e1d432` | chore(release): prepare version 1.1.0 | — | 14/11/2026 |
-| IngesCompany/doofplus-platform | main | `63d5a24` | Merge branch 'release/v1.1.0' into main | — | 14/11/2026 |
-| IngesCompany/doofplus-platform | develop | `05dd12d` | Merge branch 'release/v1.1.0' into develop | — | 14/11/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `51b6190` | Merge branch 'develop' into feature/iam | — | 14/11/2026 |
-| IngesCompany/doofplus-platform | feature/subscriptions-change-plan | `bdfa7a6` | feat(subscriptions): change the plan and the billing cycle of a subscription | — | 14/11/2026 |
-| IngesCompany/doofplus-platform | develop | `ed3d544` | Merge branch 'feature/subscriptions-change-plan' into develop | — | 14/11/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `0de216c` | feat(iam): add sign-in with two-factor authentication and sign-up with jwt | Rebuild the IAM bounded context with the model of the professor's learning center platform: Spring Security, BCrypt and JWT. - POST /api/v1/authentication/si… | 14/11/2026 |
-| IngesCompany/doofplus-platform | feature/iam | `e3f7969` | feat(iam): only administrators read the contact inquiries | — | 14/11/2026 |
-| IngesCompany/doofplus-platform | develop | `31d3f4f` | Merge branch 'feature/iam' into develop | — | 14/11/2026 |
-| IngesCompany/doofplus-platform | feature/lookups-by-id-and-filters | `6377058` | feat(platform): add the lookups by id and the filters that the web app can use | — | 14/11/2026 |
-| IngesCompany/doofplus-platform | develop | `2e52aa3` | Merge branch 'feature/lookups-by-id-and-filters' into develop | — | 15/11/2026 |
-| IngesCompany/doofplus-platform | feature/quality-model-from-diagrams | `983c470` | feat(quality): implement the Quality contract from the class and database diagrams | The 13 Quality resources and the deviation trend follow contratos/quality-api.json, as in AW: people by name and related records by code, list/get/create/upd… | 15/11/2026 |
-| IngesCompany/doofplus-platform | develop | `1a6c7cb` | Merge branch 'feature/quality-model-from-diagrams' into develop | — | 15/11/2026 |
-| IngesCompany/doofplus-platform | release/v1.2.0 | `e536f9c` | chore(release): prepare version 1.2.0 | — | 15/11/2026 |
-| IngesCompany/doofplus-platform | main | `451e551` | Merge branch 'release/v1.2.0' into main | — | 15/11/2026 |
 
-**Curso de Responsabilidad Social** (`develop`, 31 commits)
+**Curso de Responsabilidad Social** (`develop`, 29 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
@@ -1694,12 +1635,10 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/java-fundamentals-course-ingescompany | feature/plan-del-curso | `1f379cb` | build: ignore the pandoc build folder | — | 12/11/2026 |
 | IngesCompany/java-fundamentals-course-ingescompany | develop | `d947c2a` | Merge branch 'feature/lecciones-1-5-6' into develop | — | 12/11/2026 |
 | IngesCompany/java-fundamentals-course-ingescompany | develop | `276da07` | Merge branch 'feature/plan-del-curso' into develop | — | 12/11/2026 |
-| IngesCompany/java-fundamentals-course-ingescompany | feature/readme-course-plan | `c0e5a64` | docs(readme): use the final course plan as the readme | — | 14/11/2026 |
-| IngesCompany/java-fundamentals-course-ingescompany | develop | `62cfedb` | Merge branch 'feature/readme-course-plan' into develop | — | 14/11/2026 |
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
-En este Sprint el Website lleva a cada segmento a su entorno con un call to action propio, tiene enlaces a las redes sociales y se publica en GitHub Pages con GitHub Actions. La Web Application traduce los permisos de cada rol, busca por código desde la barra superior, enlaza con el Website y recibe las consultas de Contact us en su zona pública. Los RESTful Web Services quedaron desplegados con los bounded contexts IAM (sign-up y sign-in con JWT y código de verificación en dos pasos), Organizations, Subscriptions (con el pago por Niubiz y el cambio de plan), Manufacturing, IoT Monitoring y Quality & Compliance. Desde la versión `v1.3.0`, la Web Application inicia sesión con el IAM del API y usa los RESTful Web Services en Organizations & Profiles, Subscriptions, Manufacturing, IoT Monitoring y Quality & Compliance; solo las invitaciones de usuarios, los perfiles de rol y las facturas siguen en la Fake API y pasan al API en el Sprint 4.
+En este Sprint el Website lleva a cada segmento a su entorno con un call to action propio, tiene enlaces a las redes sociales y se publica en GitHub Pages con GitHub Actions. La Web Application traduce los permisos de cada rol, busca por código desde la barra superior, enlaza con el Website y recibe las consultas de Contact us en su zona pública. Los RESTful Web Services quedaron desplegados con los seis bounded contexts: IAM (registro, inicio de sesión con JWT y segundo factor, usuarios, roles e invitaciones), Organizations & Profiles, Subscriptions & Payments (con el pago por Niubiz), Manufacturing & Batch Management, IoT Monitoring y Quality & Compliance. La Web Application `v1.4.0` usa ese API en los seis bounded contexts y ya no usa la Fake API. Los datos de demostración del laboratorio (organización, plantas, usuarios, invitaciones, planes, Manufacturing, IoT y Quality) están cargados en la base de producción.
 
 - **Website:** https://ingescompany.github.io/doofplus-website/
 - **Web Application:** https://doofplus-webapp.web.app
@@ -1707,7 +1646,7 @@ En este Sprint el Website lleva a cada segmento a su entorno con un call to acti
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
-Los RESTful Web Services se documentan con OpenAPI (springdoc-openapi) y Swagger UI. La versión `v1.2.0`, desplegada en Render, expone 89 rutas y 131 operaciones bajo el prefijo `/api/v1`; la especificación se puede descargar en https://doofplus-platform.onrender.com/v3/api-docs. La URL base publicada es `https://doofplus-platform.onrender.com/api/v1` y la local, `http://localhost:8080/api/v1`. El sign-up y el sign-in (`/api/v1/authentication`) devuelven el JWT; las operaciones de usuarios y roles lo piden en la cabecera `Authorization: Bearer <token>`, y la lista de usuarios y la de consultas de contacto solo las lee un administrador. La siguiente tabla documenta cada operación, con su enlace a Swagger UI. El servicio usa el plan gratuito de Render, que lo suspende cuando no recibe peticiones, por lo que la primera petición puede tardar cerca de un minuto.
+Los RESTful Web Services se documentan con OpenAPI (springdoc-openapi) y Swagger UI. La versión `v1.3.0`, desplegada en Render, expone 91 rutas y 134 operaciones bajo el prefijo `/api/v1`; la especificación se puede descargar en https://doofplus-platform.onrender.com/v3/api-docs. La URL base publicada es `https://doofplus-platform.onrender.com/api/v1` y la local, `http://localhost:8080/api/v1`. La siguiente tabla documenta cada operación, con su enlace a Swagger UI. El servicio usa el plan gratuito de Render, que lo suspende cuando no recibe peticiones, por lo que la primera petición puede tardar cerca de un minuto.
 
 | Endpoint | Verbo HTTP | Sintaxis | Parámetros | Response | URL documentación |
 |---|---|---|---|---|---|
@@ -1768,6 +1707,9 @@ Los RESTful Web Services se documentan con OpenAPI (springdoc-openapi) y Swagger
 | `/evidence` | DELETE | `/api/v1/evidence/{evidenceId}` | `evidenceId` (path) | 200: Delete a evidence | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Evidence/deleteEvidence |
 | `/facilities` | GET | `/api/v1/facilities` | `organizationId` (query) | 200: Get every facility, or the ones of an organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Facilities/getAllFacilities |
 | `/facilities` | POST | `/api/v1/facilities` | recurso en el body (JSON) | 200: Add a facility to an organization | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Facilities/addFacility |
+| `/invitations` | GET | `/api/v1/invitations` | `organizationId` (query) | 200: Get the invitations | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Invitations/getInvitations |
+| `/invitations` | POST | `/api/v1/invitations` | recurso en el body (JSON) | 201, 400, 401, 403, 409: Send an invitation | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Invitations/sendInvitation |
+| `/invitations` | GET | `/api/v1/invitations/{invitationId}` | `invitationId` (path) | 200, 404: Get an invitation by its id | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Invitations/getInvitationById |
 | `/master-formulas` | GET | `/api/v1/master-formulas` | `productCode` (query) | 200: Get the master formulas, optionally of one product | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Master%20Formulas/getMasterFormulas |
 | `/master-formulas` | POST | `/api/v1/master-formulas` | recurso en el body (JSON) | 200: Write a master formula | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Master%20Formulas/createMasterFormula |
 | `/master-formulas` | GET | `/api/v1/master-formulas/{masterFormulaId}` | `masterFormulaId` (path) | 200: Get a master formula by its id | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Master%20Formulas/getMasterFormulaById |
@@ -1830,7 +1772,7 @@ Los RESTful Web Services se documentan con OpenAPI (springdoc-openapi) y Swagger
 | `/task-comments` | GET | `/api/v1/task-comments` | `recordCode` (query) | 200: Get the task comments | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Task%20comments/getTaskComments |
 | `/task-comments` | POST | `/api/v1/task-comments` | recurso en el body (JSON) | 200: Create a task comment | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Task%20comments/createTaskComment |
 | `/task-comments` | GET | `/api/v1/task-comments/{taskCommentId}` | `taskCommentId` (path) | 200: Get a task comment by its identifier | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Task%20comments/getTaskCommentById |
-| `/telemetry` | POST | `/api/v1/telemetry` | `X-Api-Key` (header), recurso en el body (JSON) | 200: Receive a reading from ThingsBoard | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Telemetry/receiveTelemetry |
+| `/telemetry` | POST | `/api/v1/telemetry` | recurso en el body (JSON) | 200: Receive a reading from ThingsBoard | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Telemetry/receiveTelemetry |
 | `/tokens` | POST | `/api/v1/tokens` | recurso en el body (JSON) | 200, 401: Create authentication token (Sign-in) | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Tokens/generateToken |
 | `/traceability-gaps` | GET | `/api/v1/traceability-gaps` | `batchCode` (query) | 200: Get the traceability gaps | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Traceability%20gaps/getTraceabilityGaps |
 | `/traceability-gaps` | POST | `/api/v1/traceability-gaps` | recurso en el body (JSON) | 200: Create a traceability gap | https://doofplus-platform.onrender.com/swagger-ui/index.html#/Traceability%20gaps/createTraceabilityGap |
@@ -1847,9 +1789,9 @@ Los RESTful Web Services se documentan con OpenAPI (springdoc-openapi) y Swagger
 
 En este Sprint se publicaron las siguientes versiones, siguiendo GitFlow:
 
-- **Website:** `release/v2.1.0` se fusionó en `main` con el tag `v2.1.0` (31/10/2026) y desde entonces el Website se publica en GitHub Pages con un workflow de GitHub Actions. Después se publicaron el hotfix `v2.1.1` (01/11/2026) y `v2.2.0` (09/11/2026). URL: https://ingescompany.github.io/doofplus-website/.
-- **Web Application:** el hotfix `v1.0.2` (01/11/2026), `release/v1.1.0` (09/11/2026), con Contact us y los permisos por rol, `release/v1.2.0` (14/11/2026), con Organizations & Profiles e IoT Monitoring sobre el API, y `release/v1.3.0` (15/11/2026), con el sign-in del IAM del API y Subscriptions, Manufacturing y Quality & Compliance sobre el API, publicados en Firebase Hosting. URL: https://doofplus-webapp.web.app.
-- **RESTful Web Services:** `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0` (13/11/2026); después se publicaron `v1.1.0` (14/11/2026), con el catálogo de Manufacturing, la telemetría de ThingsBoard y la baja de equipos, y `v1.2.0` (15/11/2026), con el IAM (JWT y verificación en dos pasos) y Quality & Compliance según los diagramas de clases y de base de datos. El API se publicó en un Web Service de Render con Docker, desde `main`, y su base de datos MySQL 8 en Railway; las credenciales se cargan como variables de entorno del servicio y no están en el repositorio. URL: https://doofplus-platform.onrender.com y Swagger UI en https://doofplus-platform.onrender.com/swagger-ui.html. Se comprobó que `POST /api/v1/contact-inquiries` responde 201 y, con un correo inválido, 400; y que los `GET` de cada bounded context responden 200.
+- **Website:** `release/v2.1.0` se fusionó en `main` con el tag `v2.1.0` (31/10/2026) y desde entonces el Website se publica en GitHub Pages con un workflow de GitHub Actions. Después se publicaron el hotfix `v2.1.1` (01/11/2026), `v2.2.0` (09/11/2026) y `v2.3.0` (15/11/2026), con los videos About-the-Product y About-the-Team y la página 404. URL: https://ingescompany.github.io/doofplus-website/.
+- **Web Application:** el hotfix `v1.0.2` (01/11/2026) y `release/v1.1.0` (09/11/2026), con Contact us y los permisos por rol. Después se publicaron `v1.2.0` (14/11/2026), con Organizations & Profiles e IoT Monitoring en el API; `v1.3.0` (15/11/2026), con IAM, Subscriptions, Manufacturing y Quality & Compliance en el API; y `v1.4.0` (15/11/2026), con las invitaciones y los perfiles de rol en el API y sin la Fake API. Todas se publicaron en Firebase Hosting. URL: https://doofplus-webapp.web.app.
+- **RESTful Web Services:** `release/v1.0.0` se fusionó en `main` con el tag `v1.0.0` (13/11/2026). Después se publicaron `v1.1.0` (14/11/2026), con el catálogo de Manufacturing y la telemetría de ThingsBoard; `v1.2.0` (15/11/2026), con IAM (JWT y segundo factor) y Quality & Compliance según los diagramas; y `v1.3.0` (15/11/2026), con las invitaciones de nuevos miembros. El API se publicó en un Web Service de Render con Docker, desde `main`, y su base de datos MySQL 8 en Railway; las credenciales se cargan como variables de entorno del servicio y no están en el repositorio. URL: https://doofplus-platform.onrender.com y Swagger UI en https://doofplus-platform.onrender.com/swagger-ui.html. Se comprobó que `POST /api/v1/contact-inquiries` responde 201 y, con un correo inválido, 400; y que los `GET` de cada bounded context responden 200.
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
@@ -1857,11 +1799,11 @@ En este Sprint se incorporó Alisee Torres al equipo, por lo que participaron se
 
 | Team Member | GitHub Username | Website | Web Application | RESTful Web Services | Curso (develop) | Total |
 |---|---|:---:|:---:|:---:|:---:|:---:|
-| Angulo Ramírez, Marcelo Martín | Zock2005 | 0 | 0 | 122 | 4 | 126 |
+| Angulo Ramírez, Marcelo Martín | Zock2005 | 0 | 0 | 121 | 4 | 125 |
 | Flores Martinez, Ricardo Andres | Nitoryu28 | 0 | 0 | 120 | 0 | 120 |
-| Rojas Ambicho, Nestor Daniel | danRO-20 | 12 | 10 | 49 | 6 | 77 |
-| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | 11 | 18 | 39 | 8 | 76 |
 | Zavaleta Gutierrez, Rodolfo Martin | gutierrezrodolfo360-bit | 11 | 9 | 43 | 3 | 66 |
+| Rojas Ambicho, Nestor Daniel | danRO-20 | 12 | 8 | 40 | 5 | 65 |
+| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | 11 | 12 | 23 | 8 | 54 |
 | Torres Juárez, Alisee Muriel | lLisee1 | 0 | 0 | 1 | 0 | 1 |
 
 - **Website:** https://github.com/IngesCompany/doofplus-website/graphs/contributors y https://github.com/IngesCompany/doofplus-website/network
@@ -1877,3 +1819,7 @@ En este Sprint se incorporó Alisee Torres al equipo, por lo que participaron se
 ### 5.3.3. Evaluaciones según heurísticas
 
 ## 5.4. Video About-the-Product
+
+En el video About-the-Product se presenta DoofPlus y se recorren el Website y la Web Application publicados.
+
+**Enlace al video:** https://youtu.be/saSnknxFqKw
