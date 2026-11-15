@@ -1874,6 +1874,86 @@ En este Sprint se incorporó Alisee Torres al equipo, por lo que participaron se
 
 ### 5.3.3. Evaluaciones según heurísticas
 
+Para el AV2 el equipo hizo una primera evaluación heurística interna sobre los productos publicados, con el formato del curso (Anexo D). Las sesiones de validación con usuarios de los segmentos objetivo (5.3.1 y 5.3.2) se hacen en la TB2, y esta evaluación se repetirá sobre ellas.
+
+**UX Heuristics & Principles Evaluation**
+**Usability – Inclusive Design – Information Architecture**
+
+| | |
+|---|---|
+| **CARRERA** | Ingeniería de Software |
+| **CURSO** | Desarrollo de Aplicaciones Open Source |
+| **SECCIÓN** | 7742 |
+| **PROFESORES** | Todos |
+| **AUDITOR** | IngesCompany |
+| **CLIENTE(S)** | Evaluación interna del equipo, sin usuarios externos (15/11/2026) |
+
+**SITE o APP A EVALUAR:** DoofPlus: Website (https://ingescompany.github.io/doofplus-website/) y Web Application (https://doofplus-webapp.web.app).
+
+**TAREAS A EVALUAR:**
+
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+1. Conocer el producto en el Website y cambiar el idioma.
+2. Pasar del Website a la Web Application.
+3. Elegir el entorno de trabajo (QA/QC, Producción o Administración).
+4. Iniciar sesión y corregir los datos del formulario.
+
+No están incluidas en esta versión de la evaluación las siguientes tareas, porque requieren una sesión con usuarios reales de cada rol:
+
+1. Liberar un lote con firma electrónica.
+2. Registrar una desviación y su plan CAPA.
+3. Registrar una orden y un lote de producción.
+4. Invitar a un usuario y gestionar la suscripción.
+
+**ESCALA DE SEVERIDAD:**
+
+| Nivel | Descripción |
+|---|---|
+| 1 | Problema superficial: puede ser fácilmente superado por el usuario u ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
+| 2 | Problema menor: puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja de cara al siguiente release. |
+| 3 | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante que sea corregido y se le debe asignar una prioridad alta. |
+| 4 | Problema muy grave: un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
+
+**TABLA RESUMEN:**
+
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
+|---|---|:---:|---|
+| 1 | La primera petición al API, después de un rato sin uso, puede tardar hasta un minuto | 3 | Usability: Visibilidad del estado del sistema |
+| 2 | El Website y la Web Application se abren en inglés aunque el navegador esté en español | 2 | Inclusive Design: Considera la situación |
+| 3 | Mientras carga la fuente de íconos, se ven nombres como «science» o «check_circle» en lugar de los íconos | 1 | Usability: Consistencia y estándares |
+
+**DESCRIPCIÓN DE PROBLEMAS:**
+
+**PROBLEMA #1: La primera petición al API, después de un rato sin uso, puede tardar hasta un minuto**
+
+Severidad: 3
+Heurística violada: Usability - Visibilidad del estado del sistema
+
+Problema: los RESTful Web Services están en el plan gratuito de Render, que suspende el servicio cuando no recibe peticiones. La primera acción contra el API después de ese tiempo (por ejemplo, iniciar sesión) puede tardar cerca de un minuto, y el usuario no sabe si el sistema está procesando o si falló.
+
+Recomendación: mostrar un mensaje de espera («Conectando con DoofPlus…») cuando una petición tarda más de unos segundos y, para producción, usar un plan que no suspenda el servicio.
+
+**PROBLEMA #2: El Website y la Web Application se abren en inglés aunque el navegador esté en español**
+
+Severidad: 2
+Heurística violada: Inclusive Design - Considera la situación
+
+Problema: con el navegador en español (`es-US`, `es-419`) y sin una preferencia guardada, el Website y la Web Application se muestran en inglés. Los segmentos objetivo trabajan en laboratorios de Lima, por lo que la mayoría tendrá que buscar el selector EN/ES antes de empezar.
+
+Recomendación: elegir el idioma inicial según el idioma del navegador y guardar la elección del usuario.
+
+**PROBLEMA #3: Mientras carga la fuente de íconos, se ven nombres como «science» o «check_circle» en lugar de los íconos**
+
+Severidad: 1
+Heurística violada: Usability - Consistencia y estándares
+
+Problema: en la primera visita a la pantalla de inicio de sesión de la Web Application, los íconos de Material se muestran por un momento como texto («science», «check_circle», «mail») hasta que termina de cargar su fuente.
+
+Recomendación: ocultar los íconos hasta que la fuente esté lista (`font-display: block`) o incluir la fuente de íconos con la aplicación.
+
+**Aspectos que cumplen las heurísticas:** el formulario de inicio de sesión marca cada campo obligatorio vacío con un mensaje claro («Enter a valid work email.», «Enter your password.»), permite mostrar la contraseña y explica antes de empezar que se pedirá un código de dos pasos; las imágenes del Website tienen texto alternativo y las dos aplicaciones tienen enlaces a los términos y la privacidad en el pie de página.
+
 ## 5.4. Video About-the-Product
 
 En el video About-the-Product se presenta DoofPlus y se recorren el Website y la Web Application publicados.
