@@ -1821,5 +1821,7 @@ En este Sprint se incorporó Alisee Torres al equipo, por lo que participaron se
 ## 5.4. Video About-the-Product
 
 En el video About-the-Product se presenta DoofPlus y se recorren el Website y la Web Application publicados.
+[![About-The-Product](https://img.youtube.com/vi/saSnknxFqKw/maxresdefault.jpg)](https://www.youtube.com/watch?v=saSnknxFqKw)
 
-**Enlace al video:** https://youtu.be/saSnknxFqKw
+**Enlace al video en YouTube:** https://youtu.be/saSnknxFqKw
+**Enlace al video en Microsoft Stream**: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241f733_upc_edu_pe/IQCmIMtCezXVQb9zevKOpRwFAXgmSPglJLyvv4aHyw0Epdc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=egQH7V
