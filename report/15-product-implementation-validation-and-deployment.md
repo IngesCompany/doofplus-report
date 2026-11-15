@@ -1127,7 +1127,7 @@ El objetivo del Sprint fue entregar la primera versión desplegada de los RESTfu
 
 En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature branch por sección del Website, por mejora de la Web Application o por bounded context de los Web Services, integradas en `develop` con merges `--no-ff`, y ramas `release/` y `hotfix/` fusionadas en `main` con su tag. El Website pasó por `v2.1.0`, `v2.1.1` y `v2.2.0`; la Web Application, por `v1.0.2` y `v1.1.0`, y los RESTful Web Services tuvieron su primera versión, `v1.0.0`. Las tablas siguientes presentan los commits de `main` del Sprint (desde el 18/10/2026); la columna *Branch* indica la rama en que se realizó cada commit. El curso de Responsabilidad Social se trabaja en `develop` de su repositorio, que todavía no tiene release.
 
-**Website** (47 commits)
+**Website** (55 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
@@ -1178,8 +1178,16 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/doofplus-website | develop | `adb3505` | Merge branch 'fix/footer-github-org' into develop | — | 07/11/2026 |
 | IngesCompany/doofplus-website | release/v2.2.0 | `8edef98` | docs: update the changelog for version 2.2.0 | — | 09/11/2026 |
 | IngesCompany/doofplus-website | main | `a228dc5` | Merge branch 'release/v2.2.0' into main | — | 09/11/2026 |
+| IngesCompany/doofplus-website | feature/legal-pages-back-link | `a93d3cb` | feat(legal): add a link back to the website on the terms and privacy pages | — | 14/11/2026 |
+| IngesCompany/doofplus-website | develop | `c1cca2c` | Merge branch 'feature/legal-pages-back-link' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-website | feature/team-role-and-404 | `dc66a40` | fix(team): use the same role labels as the published team and add a 404 page | — | 14/11/2026 |
+| IngesCompany/doofplus-website | develop | `34bd8e0` | Merge branch 'feature/team-role-and-404' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-website | feature/about-videos | `bdb23a4` | feat(videos): add the about the product and about the team videos | — | 15/11/2026 |
+| IngesCompany/doofplus-website | release/v2.3.0 | `df898c2` | docs: update the changelog for version 2.3.0 | — | 15/11/2026 |
+| IngesCompany/doofplus-website | develop | `b409505` | Merge branch 'feature/about-videos' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-website | develop | `02cc5c5` | Merge branch 'release/v2.3.0' into develop | — | 15/11/2026 |
 
-**Web Application** (41 commits)
+**Web Application** (61 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
@@ -1224,8 +1232,28 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/doofplus-web-application | develop | `99fcc80` | Merge branch 'fix/contributing-title' into develop | — | 07/11/2026 |
 | IngesCompany/doofplus-web-application | release/v1.1.0 | `f13d1a1` | chore(release): prepare version 1.1.0 | — | 09/11/2026 |
 | IngesCompany/doofplus-web-application | main | `59dde7a` | Merge branch 'release/v1.1.0' into main | — | 09/11/2026 |
+| IngesCompany/doofplus-web-application | feature/connect-platform-api | `fb0dfc6` | feat(platform): connect organizations and iot monitoring to the doofplus platform api | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `d43c34f` | Merge branch 'feature/connect-platform-api' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | release/v1.2.0 | `7eb7960` | chore(release): prepare version 1.2.0 | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `27ccc98` | Merge branch 'release/v1.2.0' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | feature/subscriptions-platform-api | `27dc6cc` | feat(subscriptions): use the platform api for plans, subscriptions, payments and plan changes | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `100b2c6` | Merge branch 'feature/subscriptions-platform-api' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | feature/iam-real-api | `750b36b` | feat(iam): sign in with the iam of the doofplus platform | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `3fca89f` | Merge branch 'feature/iam-real-api' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | feature/translated-workspace-texts | `7af696f` | feat(i18n): translate the toasts, labels and not found page of the workspace | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `34e6a4f` | Merge branch 'feature/translated-workspace-texts' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-web-application | feature/manufacturing-platform-api | `eeeec92` | feat(manufacturing): use the platform API for products, formulas, orders, batches and lots | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `d0d1065` | Merge branch 'feature/manufacturing-platform-api' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | feature/quality-platform-api | `74b3fb8` | feat(quality): use the platform API for the Quality and Compliance records | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `3fba861` | Merge branch 'feature/quality-platform-api' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | release/v1.3.0 | `b9537bc` | chore(release): prepare version 1.3.0 | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `a9537cd` | Merge branch 'release/v1.3.0' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | feature/invitations-and-roles-api | `4ba4037` | feat(iam): load the invitations and role profiles from the platform | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `841c481` | Merge branch 'feature/invitations-and-roles-api' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | release/v1.4.0 | `674f818` | chore(release): prepare version 1.4.0 | — | 15/11/2026 |
+| IngesCompany/doofplus-web-application | develop | `37af48f` | Merge branch 'release/v1.4.0' into develop | — | 15/11/2026 |
 
-**RESTful Web Services** (372 commits)
+**RESTful Web Services** (394 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
@@ -1601,8 +1629,30 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/doofplus-platform | develop | `fd94b12` | Merge branch 'feature/subscriptions' into develop | # Conflicts: # src/main/resources/messages.properties # src/main/resources/messages_es.properties | 13/11/2026 |
 | IngesCompany/doofplus-platform | release/v1.0.0 | `6a47dc2` | chore(release): prepare version 1.0.0 | — | 13/11/2026 |
 | IngesCompany/doofplus-platform | main | `529e7b6` | Merge branch 'release/v1.0.0' into main | — | 13/11/2026 |
+| IngesCompany/doofplus-platform | feature/monitoring-delete-equipment-and-conflicts | `9a60d2c` | feat(monitoring): delete equipment and answer 409 for state changes that are not allowed | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | develop | `69f5245` | Merge branch 'feature/monitoring-delete-equipment-and-conflicts' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | release/v1.1.0 | `4e1d432` | chore(release): prepare version 1.1.0 | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/iam-invitations | `63d5a24` | Merge branch 'release/v1.1.0' into main | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | develop | `05dd12d` | Merge branch 'release/v1.1.0' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `51b6190` | Merge branch 'develop' into feature/iam | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/subscriptions-change-plan | `bdfa7a6` | feat(subscriptions): change the plan and the billing cycle of a subscription | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | develop | `ed3d544` | Merge branch 'feature/subscriptions-change-plan' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `0de216c` | feat(iam): add sign-in with two-factor authentication and sign-up with jwt | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/iam | `e3f7969` | feat(iam): only administrators read the contact inquiries | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | develop | `31d3f4f` | Merge branch 'feature/iam' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/lookups-by-id-and-filters | `6377058` | feat(platform): add the lookups by id and the filters that the web app can use | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | develop | `2e52aa3` | Merge branch 'feature/lookups-by-id-and-filters' into develop | — | 14/11/2026 |
+| IngesCompany/doofplus-platform | feature/quality-model-from-diagrams | `983c470` | feat(quality): implement the Quality contract from the class and database diagrams | — | 15/11/2026 |
+| IngesCompany/doofplus-platform | develop | `1a6c7cb` | Merge branch 'feature/quality-model-from-diagrams' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-platform | release/v1.2.0 | `e536f9c` | chore(release): prepare version 1.2.0 | — | 15/11/2026 |
+| IngesCompany/doofplus-platform | feature/iam-invitations | `451e551` | Merge branch 'release/v1.2.0' into main | — | 15/11/2026 |
+| IngesCompany/doofplus-platform | develop | `b8ef89c` | Merge branch 'release/v1.2.0' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-platform | feature/iam-invitations | `b03c18d` | feat(iam): add the invitations of new members for administrators | — | 15/11/2026 |
+| IngesCompany/doofplus-platform | develop | `3b8e4b0` | Merge branch 'feature/iam-invitations' into develop | — | 15/11/2026 |
+| IngesCompany/doofplus-platform | release/v1.3.0 | `e6406a4` | chore(release): prepare version 1.3.0 | — | 15/11/2026 |
+| IngesCompany/doofplus-platform | develop | `3e6729a` | Merge branch 'release/v1.3.0' into develop | — | 15/11/2026 |
 
-**Curso de Responsabilidad Social** (`develop`, 29 commits)
+**Curso de Responsabilidad Social** (`develop`, 35 commits)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |------------|--------|-----------|----------------|---------------------|---------------------|
@@ -1635,6 +1685,12 @@ En el Sprint 3 se trabajó en cuatro repositorios siguiendo GitFlow: una feature
 | IngesCompany/java-fundamentals-course-ingescompany | feature/plan-del-curso | `1f379cb` | build: ignore the pandoc build folder | — | 12/11/2026 |
 | IngesCompany/java-fundamentals-course-ingescompany | develop | `d947c2a` | Merge branch 'feature/lecciones-1-5-6' into develop | — | 12/11/2026 |
 | IngesCompany/java-fundamentals-course-ingescompany | develop | `276da07` | Merge branch 'feature/plan-del-curso' into develop | — | 12/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/readme-course-plan | `c0e5a64` | docs(readme): use the final course plan as the readme | — | 14/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `62cfedb` | Merge branch 'feature/readme-course-plan' into develop | — | 14/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/video | `26ec9ac` | docs(readme): update YouTube video and online practice links for lessons 1-6 | — | 15/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `e297ee5` | Merge branch 'feature/video' into develop | — | 15/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | feature/team-responsibilities | `835b6a8` | docs(readme): update the team responsibilities | — | 15/11/2026 |
+| IngesCompany/java-fundamentals-course-ingescompany | develop | `61cdcbe` | Merge branch 'feature/team-responsibilities' into develop | — | 15/11/2026 |
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
@@ -1799,11 +1855,11 @@ En este Sprint se incorporó Alisee Torres al equipo, por lo que participaron se
 
 | Team Member | GitHub Username | Website | Web Application | RESTful Web Services | Curso (develop) | Total |
 |---|---|:---:|:---:|:---:|:---:|:---:|
-| Angulo Ramírez, Marcelo Martín | Zock2005 | 0 | 0 | 121 | 4 | 125 |
+| Angulo Ramírez, Marcelo Martín | Zock2005 | 0 | 0 | 122 | 5 | 127 |
 | Flores Martinez, Ricardo Andres | Nitoryu28 | 0 | 0 | 120 | 0 | 120 |
+| Rojas Ambicho, Nestor Daniel | danRO-20 | 16 | 10 | 49 | 7 | 82 |
+| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | 11 | 20 | 41 | 8 | 80 |
 | Zavaleta Gutierrez, Rodolfo Martin | gutierrezrodolfo360-bit | 11 | 9 | 43 | 3 | 66 |
-| Rojas Ambicho, Nestor Daniel | danRO-20 | 12 | 8 | 40 | 5 | 65 |
-| Cobades Zamora, Yhoshua Hebert | YhoshuaCZ | 11 | 12 | 23 | 8 | 54 |
 | Torres Juárez, Alisee Muriel | lLisee1 | 0 | 0 | 1 | 0 | 1 |
 
 - **Website:** https://github.com/IngesCompany/doofplus-website/graphs/contributors y https://github.com/IngesCompany/doofplus-website/network
@@ -1821,5 +1877,7 @@ En este Sprint se incorporó Alisee Torres al equipo, por lo que participaron se
 ## 5.4. Video About-the-Product
 
 En el video About-the-Product se presenta DoofPlus y se recorren el Website y la Web Application publicados.
+[![About-The-Product](https://img.youtube.com/vi/saSnknxFqKw/maxresdefault.jpg)](https://www.youtube.com/watch?v=saSnknxFqKw)
 
-**Enlace al video:** https://youtu.be/saSnknxFqKw
+**Enlace al video en YouTube:** https://youtu.be/saSnknxFqKw
+**Enlace al video en Microsoft Stream**: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241f733_upc_edu_pe/IQCmIMtCezXVQb9zevKOpRwFAXgmSPglJLyvv4aHyw0Epdc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=egQH7V

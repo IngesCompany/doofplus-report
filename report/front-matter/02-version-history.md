@@ -78,8 +78,10 @@
 | 3.0.6 | 14/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: correcciones de la revisión del Sprint Backlog 3 (fecha del Sprint Planning, UserProfile, sensores y telemetría, estados de los lotes y recepción en SAMPLING/PENDING). Conclusiones: enlace al video About-the-Team. |
 | 3.0.7 | 14/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: en el Sprint Backlog 3, T145 pasa a *Done*: la Web Application usa el API para planes, suscripciones, pagos y cambio de plan. |
 | 3.0.8 | 15/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: sección 5.4 con el enlace al video About-the-Product. |
+| 3.0.9 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Project Report Collaboration Insights: la sección de la entrega AV2, con los commits de cada integrante desde el 10/10/2026. |
 | 3.1.0 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V con lo publicado para el AV2: la Web Application `v1.4.0` usa el API en los seis bounded contexts y ya no usa la Fake API (5.1.4 y 5.2.3.5), la documentación de los RESTful Web Services `v1.3.0` con sus 134 operaciones (5.2.3.6) y las versiones publicadas del Website, la Web Application y los Web Services (5.2.3.7). |
 | 3.1.1 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: en el Sprint Backlog 3 pasan a *Done* las tareas de la Web Application contra el API (T141, T151, T157, T160 y T164), las de Quality & Compliance (T158, T161 y T162) y la autenticación JWT (T199, T200 y T201), con la captura del board del Sprint 3 en Jira. |
 | 3.2.0 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo IV: diagramas de clases y de base de datos de Quality & Compliance y de IAM alineados con el RESTful API: personas por nombre, registros relacionados por código, `CapaAction` y `AuditFinding` como aggregates e invitaciones con la sede por nombre y el rol como valor de `Roles`. |
+| 3.3.0 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Student Outcome: acciones del AV2 de Cobades Zamora, Yhoshua Hebert. Capítulo V: commits del 14 y 15/11/2026 en 5.2.3.4 y conteo de commits por integrante en 5.2.3.8. |
 
 ---
