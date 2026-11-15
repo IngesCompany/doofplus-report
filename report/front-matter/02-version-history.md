@@ -77,5 +77,7 @@
 | 3.0.5 | 14/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: sección 5.2.3 Sprint 3 completa: Sprint Planning, Aspect Leaders, Sprint Backlog (T137 a T165, T184 a T201), commits de `main` del Sprint, evidencia de ejecución, documentación OpenAPI de la versión 1.0.0 desplegada, despliegue e insights. |
 | 3.0.6 | 14/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: correcciones de la revisión del Sprint Backlog 3 (fecha del Sprint Planning, UserProfile, sensores y telemetría, estados de los lotes y recepción en SAMPLING/PENDING). Conclusiones: enlace al video About-the-Team. |
 | 3.0.7 | 14/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: en el Sprint Backlog 3, T145 pasa a *Done*: la Web Application usa el API para planes, suscripciones, pagos y cambio de plan. |
+| 3.0.8 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: la sección 5.2.3 Sprint 3 describe lo publicado al cierre del Sprint (15/11/2026): Web Application `v1.2.0` y `v1.3.0` con el API, RESTful Web Services `v1.1.0` y `v1.2.0`, estados del Sprint Backlog 3 (40 *Done*, 4 *In-Process*, 3 *To-do*), commits nuevos de `main`, documentación OpenAPI de la versión 1.2.0 (89 rutas y 131 operaciones) e insights. En la 5.1.4, la URL del API en la Web Application. |
+| 3.0.9 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Project Report Collaboration Insights: la sección de la entrega AV2, con los commits de cada integrante desde el 10/10/2026. |
 
 ---
