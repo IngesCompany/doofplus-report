@@ -147,7 +147,7 @@ El Sprint Planning Meeting sirvió para definir los objetivos iniciales, asignar
 | **Sprint Goal & User Stories** | |
 | **Sprint 1 Goal** | **Our focus is on** QA/QC specialists and production supervisors of small and medium-sized pharmaceutical laboratories being able to learn, from a bilingual website, how DoofPlus centralizes their quality records and batch traceability, compare its subscription plans and contact the team.<br>**We believe it delivers** a clear understanding of how DoofPlus replaces paper forms and spreadsheets and shortens audit preparation, so they can decide to evaluate the platform, **to** QA/QC specialists and production supervisors.<br>**This will be confirmed when** a visitor from each segment, on desktop or mobile and in English or Spanish, identifies the features for their role, compares the two plans and sends an inquiry through the contact form. |
 | **Sprint 1 Velocity** | 16 Story Points |
-| **Sum of Story Points** | 16 Story Points (US44: 3, US03: 2, US45: 1, US04: 1, TS01: 3, US46: 5, US47: 1) |
+| **Sum of Story Points** | 13 Story Points (US44: 3, US03: 2, US45: 1, US04: 1, US46: 5, US47: 1) |
 
 #### 5.2.1.2. Aspect Leaders and Collaborators
 
@@ -183,8 +183,8 @@ El objetivo principal de este Sprint fue implementar y publicar el Website de Do
 | US45 | Visualización del equipo y de la startup | T006 | Correcciones sección Our Team | Corregir la estructura y el contenido de la sección del equipo tras la revisión de pares. | 1 | Angulo Ramírez, Marcelo Martín | Done |
 | US04 | Formulario de contacto | T007 | Footer con datos de contacto | Desarrollar el footer con los datos de contacto y los enlaces legales. | 2 | Zavaleta Gutierrez, Rodolfo Martin | Done |
 | US04 | Formulario de contacto | T008 | Formulario de suscripción por email | Implementar el formulario de suscripción por email con la validación del correo. | 1 | Zavaleta Gutierrez, Rodolfo Martin | Done |
-| TS01 | Implementación de Website adaptable y accesible | T009 | Estructura semántica de index | Corregir la estructura general de `index.html` con etiquetas semánticas (header, main, section y footer). | 1 | Flores Martinez, Ricardo Andres | Done |
-| TS01 | Implementación de Website adaptable y accesible | T010 | Revisión de accesibilidad | Revisar los textos alternativos, los atributos aria y el contraste de colores del Website. | 1 | Flores Martinez, Ricardo Andres | Done |
+| US44 | Navegación por secciones | T009 | Estructura semántica de index | Corregir la estructura general de `index.html` con etiquetas semánticas (header, main, section y footer). | 1 | Flores Martinez, Ricardo Andres | Done |
+| US44 | Navegación por secciones | T010 | Revisión de accesibilidad | Revisar los textos alternativos, los atributos aria y el contraste de colores del Website. | 1 | Flores Martinez, Ricardo Andres | Done |
 | US46 | Cambio de idioma | T011 | Archivos de traducción ES/EN | Crear los archivos de traducción en.json y es.json con los textos de cada sección. | 1 | Cobades Zamora, Yhoshua Hebert | Done |
 | US46 | Cambio de idioma | T012 | Selector de idioma e i18n | Implementar el selector de idioma ES/EN y la lógica JavaScript que aplica las traducciones. | 2 | Cobades Zamora, Yhoshua Hebert | Done |
 | US47 | Consulta de términos y política de privacidad | T013 | Agregar Terms of Service | Redactar e implementar la página de Términos de Servicio de DoofPlus. | 2 | Rojas Ambicho, Nestor Daniel | Done |
