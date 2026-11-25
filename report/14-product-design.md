@@ -727,7 +727,7 @@ En mobile, la navegación del entorno se agrupa en una barra inferior y las pant
 
 ### 4.4.4. Web Applications User Flow Diagrams
 
-Los User Flow Diagrams representan, para los mismos user goals de la sección 4.4.2, la secuencia de pantallas y acciones del camino principal (happy path) y las decisiones que llevan a caminos alternativos (unhappy paths). Se elaboraron en FigJam, en el mismo tablero: https://www.figma.com/board/6SfHJP9IQFJtTxZKgOYyWp que los Wireflow Diagrams.
+Los User Flow Diagrams representan, para los mismos user goals de la sección 4.4.2, la secuencia de pantallas y acciones del camino principal (happy path) y las decisiones que llevan a caminos alternativos (unhappy paths). Cada paso muestra el mock-up de su pantalla (sección 4.4.3) y cada camino alternativo, con borde rojo, el mock-up del estado que ve el usuario; así cada User Flow es consistente con el Wireflow del que deriva, que usa los wireframes de las mismas pantallas. Se elaboraron en FigJam, en el mismo tablero: https://www.figma.com/board/6SfHJP9IQFJtTxZKgOYyWp que los Wireflow Diagrams.
 
 #### Segmento 1 – Especialista QA/QC
 
