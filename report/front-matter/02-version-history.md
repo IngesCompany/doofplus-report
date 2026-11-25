@@ -85,5 +85,6 @@
 | 3.3.0 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Student Outcome: acciones del AV2 de Cobades Zamora, Yhoshua Hebert. Capítulo V: commits del 14 y 15/11/2026 en 5.2.3.4 y conteo de commits por integrante en 5.2.3.8. |
 | 3.4.0 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Capítulo V: sección 5.3.3 con la primera evaluación heurística interna del Website y la Web Application publicados, con el formato del Anexo D. |
 | 3.4.1 | 15/11/2026 | Cobades Zamora, Yhoshua Hebert | Anexo A: enlace del video de exposición de la TB1. |
+| 3.5.0 | 24/11/2026 | Zavaleta Gutierrez, Rodolfo Martin | Capítulo III: las Technical Stories TS01 a TS12 se redactan desde el rol que consume (Developer del Website, Frontend Developer de la Web Application y Backend Developer frente a ThingsBoard) y describen lo que necesitan del producto que las provee, con criterios de request y response según los endpoints de la versión 2.0.0 del RESTful API; TS05 y TS06 citan los endpoints implementados (`/audit-events` y `/deviation-trends`). Capítulo V: en el Sprint Backlog 1, las tareas T009 y T010 pasan a US44. |
 
 ---
