@@ -1700,6 +1700,8 @@ En este Sprint el Website lleva a cada segmento a su entorno con un call to acti
 - **Web Application:** https://doofplus-webapp.web.app
 - **RESTful Web Services (Swagger UI):** https://doofplus-platform.onrender.com/swagger-ui.html
 
+Video de navegación del producto: upc-pre-202620-1asi0729-7742-IngesCompany-productnavigation-sprint-3, ver en Microsoft Stream: *enlace por publicar*. Muestra en un solo video la navegación del Website, de la Web Application conectada al API y de los RESTful Web Services en Swagger UI.
+
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
 Los RESTful Web Services se documentan con OpenAPI (springdoc-openapi) y Swagger UI. La versión `v1.3.0`, desplegada en Render, expone 91 rutas y 134 operaciones bajo el prefijo `/api/v1`; la especificación se puede descargar en https://doofplus-platform.onrender.com/v3/api-docs. La URL base publicada es `https://doofplus-platform.onrender.com/api/v1` y la local, `http://localhost:8080/api/v1`. La siguiente tabla documenta cada operación, con su enlace a Swagger UI. El servicio usa el plan gratuito de Render, que lo suspende cuando no recibe peticiones, por lo que la primera petición puede tardar cerca de un minuto.
