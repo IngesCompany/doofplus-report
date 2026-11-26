@@ -1706,11 +1706,11 @@ En este Sprint el Website lleva a cada segmento a su entorno con un call to acti
 - **Web Application:** https://doofplus-webapp.web.app
 - **RESTful Web Services (Swagger UI):** https://doofplus-platform.onrender.com/swagger-ui.html
 
-Videos de navegación del producto (upc-pre-202620-1asi0729-7742-IngesCompany-productnavigation-sprint-3):
+Videos de navegación del producto (upc-pre-202620-1asi0729-7742-IngesCompany-productnavigation-sprint-3): https://shorturl.at/bdRv6
 
-- **Website:** ver en Microsoft Stream: https://shorturl.at/7EdcN.
-- **Web Application:** ver en Microsoft Stream: https://shorturl.at/MVuYL.
-- **RESTful Web Services:** ver en Microsoft Stream: https://shorturl.at/8YRuB.
+- **Website:** ver en Microsoft Stream: (0:00 - 4:59)
+- **Web Application:** ver en Microsoft Stream: (5:00 - 9:58)
+- **RESTful Web Services:** ver en Microsoft Stream: (9:59 - 12:45)
 
 Video completo de navegación del producto (un solo video que une los anteriores): upc-pre-202620-1asi0729-7742-IngesCompany-productnavigation-sprint-3, ver en Microsoft Stream: *enlace por publicar*. Muestra la navegación del Website, de la Web Application conectada al API y de los RESTful Web Services en Swagger UI.
 
