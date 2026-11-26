@@ -88,5 +88,6 @@
 | 3.5.0 | 24/11/2026 | Zavaleta Gutierrez, Rodolfo Martin | Capítulo III: las Technical Stories TS01 a TS12 se redactan desde el rol que consume (Developer del Website, Frontend Developer de la Web Application y Backend Developer frente a ThingsBoard) y describen lo que necesitan del producto que las provee, con criterios de request y response según los endpoints de la versión 2.0.0 del RESTful API; TS05 y TS06 citan los endpoints implementados (`/audit-events` y `/deviation-trends`). Capítulo V: en el Sprint Backlog 1, las tareas T009 y T010 pasan a US44. |
 | 3.5.1 | 24/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo IV: los User Flow Diagrams (4.4.4) incluyen el mock-up de cada pantalla del happy path y de cada estado de los unhappy paths, como pide el statement. |
 | 3.5.2 | 25/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: 5.2.3.5 con el espacio para el video de navegación del producto del Sprint 3 (`productnavigation-sprint-3`). |
+| 3.5.3 | 25/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: en 5.2.2.5, debajo de los videos de cada producto, un apartado para el video completo de navegación del producto del Sprint 2 (`productnavigation-sprint-2`). |
 
 ---
