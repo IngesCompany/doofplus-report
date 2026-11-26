@@ -881,16 +881,11 @@ La sección 5 de los Términos de Servicio, «Compromiso profesional y ético»,
 
 *Figura: Inicio de sesión en mobile.*
 
-Videos de navegación del producto (upc-pre-202620-1asi0729-7742-IngesCompany-productnavigation-sprint-2):
-
-- **Website:** ver en Microsoft Stream: https://shorturl.at/cI09z.
-- **Web Application:** ver en Microsoft Stream: https://shorturl.at/rqzbT.
+Video de navegación del producto: upc-pre-202620-1asi0729-7742-IngesCompany-productnavigation-sprint-2 (duración: 11:20), ver en Microsoft Stream: https://shorturl.at/6lL4u. Muestra la navegación del Website y de la Web Application implementados en el Sprint 2.
 
 [![Video de navegación del producto del Sprint 2](assets/img/chapter5/sprint2/product-navigation-video.png)](https://shorturl.at/6lL4u)
 
 *Figura: Cuadro del video de navegación del producto del Sprint 2 (minuto 3:50, sección del equipo en el Website).*
-
-Video completo de navegación del producto (un solo video que une los anteriores): upc-pre-202620-1asi0729-7742-IngesCompany-productnavigation-sprint-2 (duración: 11:20), ver en Microsoft Stream: https://shorturl.at/6lL4u. Muestra primero la navegación del Website y después la de la Web Application, con lo implementado en el Sprint 2.
 
 #### 5.2.2.6. Services Documentation Evidence for Sprint Review
 
@@ -1706,7 +1701,7 @@ En este Sprint el Website lleva a cada segmento a su entorno con un call to acti
 - **Web Application:** https://doofplus-webapp.web.app
 - **RESTful Web Services (Swagger UI):** https://doofplus-platform.onrender.com/swagger-ui.html
 
-Video de navegación del producto: upc-pre-202620-1asi0729-7742-IngesCompany-productnavigation-sprint-3 (duración: 12:45), ver en Microsoft Stream: https://shorturl.at/bdRv6. Un solo video muestra la navegación de los tres productos, en este orden:
+Video de navegación del producto: upc-pre-202620-1asi0729-7742-IngesCompany-productnavigation-sprint-3 (duración: 12:45), ver en Microsoft Stream: https://shorturl.at/bdRv6. Muestra la navegación de los tres productos en este orden:
 
 - **Website:** 0:00 - 4:59.
 - **Web Application:** 5:00 - 9:58.
