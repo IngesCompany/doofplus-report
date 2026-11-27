@@ -96,5 +96,6 @@
 | 3.5.7 | 26/11/2026 | Rojas Ambicho, Nestor Daniel | Conclusiones: el cuadro del video About-the-Team es el del video de IngesCompany (`U-Wlk2l3wbA`) y la pauta de secuencias nombra a IngesCompany. |
 | 3.6.0 | 26/11/2026 | Zavaleta Gutierrez, Rodolfo Martin | Anexos: el Anexo A suma el video de exposición del AV1 y sus títulos siguen la nomenclatura del enunciado (`expo`); se agregan el Anexo B (videos de evidencia con la nomenclatura del Anexo C del enunciado) y el Anexo C (repositorios y productos desplegados); cada anexo empieza en página nueva. |
 | 3.6.1 | 26/11/2026 | Zavaleta Gutierrez, Rodolfo Martin | Anexo A: enlace del video de exposición del AV2 (Sprint 3, 16:46). |
+| 3.6.2 | 26/11/2026 | Zavaleta Gutierrez, Rodolfo Martin | Capítulo V y Anexo B: video de navegación del producto del Sprint 1 (Website, 3:03) en 5.2.1.5 y en el Anexo B. |
 
 ---
