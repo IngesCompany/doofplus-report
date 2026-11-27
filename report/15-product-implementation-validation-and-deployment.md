@@ -1885,6 +1885,64 @@ En este Sprint se incorporó Alisee Torres al equipo, por lo que participaron se
 
 ### 5.3.2. Registro de Entrevistas
 
+Primera sesión de validación del Sprint 3, con un usuario del segmento de producción. Las demás entrevistas de los dos segmentos se registran en la TB2.
+
+**Segmento: Especialista de Aseguramiento y Control de Calidad (QA/QC)**
+
+| Numero | 1 |
+|---------|--------|
+| **Campo** | **Información** |
+| Nombre | Julia    |
+| Apellido | Collasos Zotelo |
+| Edad | 64  |
+| Distrito | San Miguel  |
+| Evidencia | ![Entrevista 1 - Segmento 1](../assets/img/chapter5/validation/entrevista-julia-zotelo.jpg) |
+| Link | https://shorturl.at/HvIxm|
+| Inicio | 00:00 min |
+| Duración | 05:00 min |
+| Resumen | Julia Collasos es química farmacéutica en el área de Aseguramiento de la Calidad. La entrevista la realizó Angulo Ramírez el 12/11/2026 por videollamada, con la Web Application publicada en pantalla compartida. Se recorrió el entorno de Documentos, las Desviaciones y leyes CAPA. Julia consideró que puede ser una buena opción, pero debe mejorar en el aspecto de mostrar información y especificar limites al tener que reportar / generar documentos, a la vez que los proveedores deben ser mejor marcados después de ser registrados. |
+
+**Segmento: Jefe o Supervisor de Producción Farmacéutica**
+
+| Numero | 1 |
+|---------|--------|
+| **Campo** | **Información** |
+| Nombre | Alberto  |
+| Apellido | Valle Vega |
+| Edad | 68 |
+| Distrito | Arequipa  |
+| Evidencia | ![Entrevista 1 - Segmento 2](../assets/img/chapter5/validation/entrevista-alberto-vega.jpg) |
+| Link | https://shorturl.at/HvIxm|
+| Inicio | 05:01 min |
+| Duración | 10:00 min |
+| Resumen | Alberto Valle es químico farmacéutico con cerca de cuarenta años de experiencia en producción farmacéutica. La entrevista la realizó Angulo Ramírez el 11/11/2026 por videollamada, con la Web Application en pantalla compartida. Se recorrió el entorno de las Ordenes de Producción, Productos y Formulas, a la vez que se muestra brevemente los Lotes. Alberto consideró que la aplicación  mostraba detalles interesantes como la parte del chat entre equipos, aunque señaló que en la parte de lotes falta más información clave en el desarrollo de los lotes. |
+
+| Numero | 2|
+|---------|--------|
+| **Campo** | **Información** |
+| Nombre | Mariela  |
+| Apellido | Alanya Mercado |
+| Edad | 35  |
+| Distrito | Lima  |
+| Evidencia | ![Entrevista 2 - Segmento 2](../assets/img/chapter5/validation/entrevista-mariela-mercado.jpg) |
+| Link | https://shorturl.at/HvIxm|
+| Inicio | 10:01 min |
+| Duración | 15:00 min |
+| Resumen | Mariela Alanya es química farmacéutica y responsable del laboratorio de Control de Calidad. La entrevista la realizó Angulo Ramírez el 12/11/2026 por videollamada, con la Web Application en pantalla compartida. Se exploraron pantallas como Materia primas, Resumen IoT y revisión breve de Equipos y Sensores. Mariela valoró el chat en la misma pagina junto con el formato de información, pero indicó que los datos deben de estar mejor agrupados al ejecutar los comandos de la plataforma. |
+
+| Numero | 3|
+|---------|--------|
+| **Campo** | **Información** |
+| Nombre | Jorge |
+| Apellido | Cruz |
+| Edad | 23 |
+| Distrito | Chorrillos |
+| Evidencia | ![Entrevista 3 - Segmento 2](../assets/img/chapter5/validation/entrevista-jorge-cruz.jpg) |
+| Link | https://shorturl.at/HvIxm|
+| Inicio | 15:01 min |
+| Duración | 20:00 min |
+| Resumen | Jorge Cruz es supervisor de producción. La entrevista la realizó Zavaleta Gutierrez, Rodolfo Martin el 15/11/2026 por videollamada, con la Web Application publicada en pantalla compartida; las cámaras solo se ven al inicio del video. Se recorrió el entorno de Producción, entre otras pantallas la recepción de materias primas y el monitoreo IoT. Jorge consideró que DoofPlus es muy útil para su trabajo y que lo empezará a utilizar, pero sintió la interfaz saturada: cada pantalla muestra mucha información a la vez. |
+
 ### 5.3.3. Evaluaciones según heurísticas
 
 Para el AV2 el equipo hizo una primera evaluación heurística interna sobre los productos publicados, con el formato del curso (Anexo D). Las sesiones de validación con usuarios de los segmentos objetivo (5.3.1 y 5.3.2) se hacen en la TB2, y esta evaluación se repetirá sobre ellas.
