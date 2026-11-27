@@ -25,7 +25,7 @@ Además, el video incluye el testimonio ante cámara de cada participante, quien
 
 ### Cuadro de video representativo
 
-[![About-The-Team](https://img.youtube.com/vi/pE0AvoDX4XY/maxresdefault.jpg)](https://www.youtube.com/watch?v=pE0AvoDX4XY)
+[![About-The-Team](https://img.youtube.com/vi/U-Wlk2l3wbA/maxresdefault.jpg)](https://www.youtube.com/watch?v=U-Wlk2l3wbA)
 
 *Cuadro representativo del video About-The-Team.*
 
@@ -33,7 +33,7 @@ Además, el video incluye el testimonio ante cámara de cada participante, quien
 
 | N.º | Sección / Secuencia                        | Tiempo de inicio (hh:mm:ss) | Descripción breve                                                                                                                                                                                                      |
 |:---:|--------------------------------------------|:---------------------------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  1  | Introducción / Presentación del equipo     |          00:00:00           | Startup IngesCompanyCC, desarrolladora de Doofplus, empezamos escuchando a los usuarios, haciendo entrevistas, oyendo sus problemas, gracias a esto se pudo hacer el needfinding, para luego pasar a DDD               |
+|  1  | Introducción / Presentación del equipo     |          00:00:00           | Startup IngesCompany, desarrolladora de Doofplus, empezamos escuchando a los usuarios, haciendo entrevistas, oyendo sus problemas, gracias a esto se pudo hacer el needfinding, para luego pasar a DDD               |
 |  2  | Proceso de trabajo del equipo (voz en off) |          00:00:19           | Una explicación del trabajo realizado a lo largo del curso, se menciona lo desarrollado en el sprint 1, sprint 2 y el sprint 3. Además, de mencionar brevemente de lo que desarrollará en el sprint 4                  |
 |  3  | Testimonio de Marcelo Angulo               |          00:04:15           | Trabajó en las entrevistas con los segmentos objetivos. Además, se encargó de la programación del bounded context Monitoring. <br> Para el outcome: trabajó comunicandose de forma clara tanto en oral como en escrito |
 |  4  | Testimonio de Yhoshua Cobades              |          00:05:13           | Trabajó en los aspectos de Domain Driven Design (Lenguaje Ubicuo), se encargó de los bounded context Quality y Manufacturing. <br> Para el outcome: expuso en el diseño del dominio                                    |
