@@ -1896,7 +1896,7 @@ Primera sesión de validación del Sprint 3, con un usuario del segmento de prod
 | Apellido | Collasos Zotelo |
 | Edad | 64  |
 | Distrito | San Miguel  |
-| Evidencia | ![Entrevista 1 - Segmento 1](../assets/img/chapter5/validation/entrevista-julia-zotelo.jpg) |
+| Evidencia | ![Entrevista 1 - Segmento 1](report/assets/img/chapter5/validation/entrevista-julia-zotelo.jpg) |
 | Link | https://shorturl.at/HvIxm|
 | Inicio | 00:00 min |
 | Duración | 05:00 min |
@@ -1911,7 +1911,7 @@ Primera sesión de validación del Sprint 3, con un usuario del segmento de prod
 | Apellido | Valle Vega |
 | Edad | 68 |
 | Distrito | Arequipa  |
-| Evidencia | ![Entrevista 1 - Segmento 2](../assets/img/chapter5/validation/entrevista-alberto-vega.jpg) |
+| Evidencia | ![Entrevista 1 - Segmento 2](report/assets/img/chapter5/validation/entrevista-alberto-vega.jpg) |
 | Link | https://shorturl.at/HvIxm|
 | Inicio | 05:01 min |
 | Duración | 10:00 min |
@@ -1924,7 +1924,7 @@ Primera sesión de validación del Sprint 3, con un usuario del segmento de prod
 | Apellido | Alanya Mercado |
 | Edad | 35  |
 | Distrito | Lima  |
-| Evidencia | ![Entrevista 2 - Segmento 2](../assets/img/chapter5/validation/entrevista-mariela-mercado.jpg) |
+| Evidencia | ![Entrevista 2 - Segmento 2](report/assets/img/chapter5/validation/entrevista-mariela-mercado.jpg) |
 | Link | https://shorturl.at/HvIxm|
 | Inicio | 10:01 min |
 | Duración | 15:00 min |
@@ -1937,7 +1937,7 @@ Primera sesión de validación del Sprint 3, con un usuario del segmento de prod
 | Apellido | Cruz |
 | Edad | 23 |
 | Distrito | Chorrillos |
-| Evidencia | ![Entrevista 3 - Segmento 2](../assets/img/chapter5/validation/entrevista-jorge-cruz.jpg) |
+| Evidencia | ![Entrevista 3 - Segmento 2](report/assets/img/chapter5/validation/entrevista-jorge-cruz.jpg) |
 | Link | https://shorturl.at/HvIxm|
 | Inicio | 15:01 min |
 | Duración | 20:00 min |
