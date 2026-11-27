@@ -8,6 +8,7 @@ En este anexo se incluyen los hipervínculos a los videos de exposición de cada
 |---|---|---|
 | AV1 (Sprint 1) | upc-pre-202620-1asi0729-7742-IngesCompany-expo-av1 | https://shorturl.at/qHLZC (11:53) |
 | TB1 (Sprints 1 y 2) | upc-pre-202620-1asi0729-7742-IngesCompany-expo-tb1 | https://youtu.be/oGtI7xShwzk |
+| AV2 (Sprint 3) | upc-pre-202620-1asi0729-7742-IngesCompany-expo-av2 | https://shorturl.at/nrMgW (16:46) |
 
 ---
 
