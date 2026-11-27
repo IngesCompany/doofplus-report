@@ -242,6 +242,8 @@ En este Sprint se logró un Website funcional, responsive y bilingüe (español 
 
 **Website desplegado:** https://ingescompany.github.io/doofplus-website/
 
+Video de navegación del producto: upc-pre-202620-1asi0729-7742-IngesCompany-productnavigation-sprint-1 (duración: 3:03), ver en Microsoft Stream: https://shorturl.at/ezIzk. Muestra la navegación del Website, el único producto del Sprint 1.
+
 #### 5.2.1.6. Services Documentation Evidence for Sprint Review
 
 El alcance del Sprint 1 se limitó al Website, por lo que no se implementaron ni documentaron endpoints. La documentación de los RESTful Web Services con OpenAPI se elaborará en el sprint en que se implementen dichos servicios.
