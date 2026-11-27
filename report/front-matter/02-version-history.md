@@ -93,5 +93,6 @@
 | 3.5.4 | 25/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: 5.2.3.5 con los videos de navegación del producto del Sprint 3 (Website, Web Application y RESTful Web Services). |
 | 3.5.5 | 26/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: 5.2.3.5 con un solo video de navegación del producto del Sprint 3 (`productnavigation-sprint-3`, 12:45), los minutos de cada producto y una captura del video. |
 | 3.5.6 | 26/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: 5.2.2.5 con un solo video de navegación del producto del Sprint 2 (`productnavigation-sprint-2`, 11:20), sin los enlaces por producto. |
+| 3.5.7 | 26/11/2026 | Rojas Ambicho, Nestor Daniel | Conclusiones: el cuadro del video About-the-Team es el del video de IngesCompany (`U-Wlk2l3wbA`) y la pauta de secuencias nombra a IngesCompany. |
 
 ---
