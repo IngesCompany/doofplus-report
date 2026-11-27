@@ -24,7 +24,7 @@ input-files:
   - report/15-product-implementation-validation-and-deployment.md
   - report/16-conclusions.md
   - report/99-bibliography.md
-  - report/annexes/annex-a-exposition-videos.md
+  - report/annexes/annexes.md
 
 output-file: build/upc-pre-202620-1asi0729-7742-IngesCompany-report.pdf
 

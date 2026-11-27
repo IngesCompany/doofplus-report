@@ -94,5 +94,6 @@
 | 3.5.5 | 26/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: 5.2.3.5 con un solo video de navegación del producto del Sprint 3 (`productnavigation-sprint-3`, 12:45), los minutos de cada producto y una captura del video. |
 | 3.5.6 | 26/11/2026 | Rojas Ambicho, Nestor Daniel | Capítulo V: 5.2.2.5 con un solo video de navegación del producto del Sprint 2 (`productnavigation-sprint-2`, 11:20), sin los enlaces por producto. |
 | 3.5.7 | 26/11/2026 | Rojas Ambicho, Nestor Daniel | Conclusiones: el cuadro del video About-the-Team es el del video de IngesCompany (`U-Wlk2l3wbA`) y la pauta de secuencias nombra a IngesCompany. |
+| 3.6.0 | 27/11/2026 | Zavaleta Gutierrez, Rodolfo Martin | Anexos: el Anexo A suma el video de exposición del AV1 y sus títulos siguen la nomenclatura del enunciado (`expo`); se agregan el Anexo B (videos de evidencia con la nomenclatura del Anexo C del enunciado) y el Anexo C (repositorios y productos desplegados); cada anexo empieza en página nueva. |
 
 ---
